@@ -1,0 +1,1 @@
+_set_clipboard(<%= base64 %>, <%= mime %>, <%= data %>)

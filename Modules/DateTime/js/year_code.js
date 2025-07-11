@@ -1,0 +1,1 @@
+<%= variable %> = parseInt(_format_date(<%= value %>,"yyyy"))

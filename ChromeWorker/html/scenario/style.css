@@ -1,0 +1,1780 @@
+.mytooltip{min-width:200px;position:absolute;z-index:1070;display:block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:12px;font-style:normal;font-weight:400;line-height:1.42857143;text-align:start;text-decoration:none;text-shadow:none;text-transform:none;letter-spacing:normal;word-break:normal;word-spacing:normal;word-wrap:normal;white-space:normal;filter:alpha(opacity=0);opacity:0;line-break:auto}.mytooltip.in{filter:alpha(opacity=90);opacity:.9}.mytooltip.top{padding:5px 0;margin-top:-3px}.mytooltip.right{padding:0 5px;margin-left:3px}.mytooltip.bottom{padding:5px 0;margin-top:3px}.mytooltip.left{padding:0 5px;margin-left:-3px}.mytooltip-inner{max-width:200px;padding:3px 8px;color:#fff;text-align:center;background-color:#000;border-radius:4px}.mytooltip-arrow{position:absolute;width:0;height:0;border-color:transparent;border-style:solid}.mytooltip.top .mytooltip-arrow{bottom:0;left:50%;margin-left:-5px;border-width:5px 5px 0;border-top-color:#000}.mytooltip.top-left .mytooltip-arrow{right:5px;bottom:0;margin-bottom:-5px;border-width:5px 5px 0;border-top-color:#000}.mytooltip.top-right .mytooltip-arrow{bottom:0;left:5px;margin-bottom:-5px;border-width:5px 5px 0;border-top-color:#000}.mytooltip.right .mytooltip-arrow{top:50%;left:0;margin-top:-5px;border-width:5px 5px 5px 0;border-right-color:#000}.mytooltip.left .mytooltip-arrow{top:50%;right:0;margin-top:-5px;border-width:5px 0 5px 5px;border-left-color:#000}.mytooltip.bottom .mytooltip-arrow{top:0;left:50%;margin-left:-5px;border-width:0 5px 5px;border-bottom-color:#000}.mytooltip.bottom-left .mytooltip-arrow{top:0;right:5px;margin-top:-5px;border-width:0 5px 5px;border-bottom-color:#000}.mytooltip.bottom-right .mytooltip-arrow{top:0;left:5px;margin-top:-5px;border-width:0 5px 5px;border-bottom-color:#000}
+
+#visualizelabels
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.tool-div
+{
+    margin-bottom: 0px;
+    display: table;
+    table-layout: fixed;
+}
+
+.tag {
+    background: #ececec;
+    border-radius: 0px 3px 3px 0px;
+    color: #5d6998ae;
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 20px 0 16px;
+    position: relative;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 11px;
+    opacity: 0.8;
+    font-weight: lighter;
+    white-space: nowrap
+
+}
+
+.tag::after {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  right: 8px;
+  position: absolute;
+  width: 6px;
+  top: 8px;
+}
+
+.tag::before {
+  background: #fff;
+  border-bottom: 11px solid transparent;
+  border-right: 10px solid #ececec;
+  border-top: 11px solid transparent;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.tab:after
+{
+    content: '.';
+    visibility: hidden;
+}
+
+.tool
+{
+    padding-top:0px;
+    padding-left:0px;
+    padding-right:0px;
+  	border: 1px solid #ddd;
+  	border-radius:3px;
+  	cursor: pointer;
+    text-align: center;
+    transition: border-color 1s ease;
+    min-width: 150px;
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
+}
+
+.toolhighlight .tooltitle 
+{
+  background-color: #ffffa9 !important; 
+}
+
+.titlebody
+{
+  padding-top: 4px;
+  padding-left: 22px;
+  padding-right: 25px;
+  padding-bottom: 3px;
+  margin-bottom:1px;
+  font-size: 12px;
+  color: #7d7d7d;
+  white-space: nowrap;
+}
+
+.toolgroup
+{
+    width: 16px;
+    height: 16px;
+    filter: grayscale(30%);
+    opacity: 0.7;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    margin-right: 3px;
+}
+
+.textitemsignificant
+{
+  color:#529653;
+}
+
+.textitemtag
+{
+  color:#31708f;
+  font-weight: bold
+}
+
+.textitemtagtext
+{
+  font-style: italic
+}
+
+.fa-check-square-o
+{
+ font-size: 13px !important;
+ color:#464545 !important;
+}
+
+.tooltitle
+{
+    padding-left: 10px;
+    padding-right: 3px;
+    text-align: left !important;
+    font-size: 75% !important;
+    background-color: #f5f5f5;
+    font-weight: bold;
+    transition: all 1s ease;
+}
+
+.tooltitle-red
+{
+  color: #944c4b !important;
+}
+
+.tooltitle-blue
+{
+  color: #0077b3 !important;
+}
+
+.tooltitle-green
+{
+  color:#3c763d !important;
+}
+
+.tooltitle-gray
+{
+  color:#777 !important;
+}
+
+.notactive
+{
+  border: 1px solid #E3E3E3 !important;
+}
+
+.toolinsert
+{
+    height: 6px;
+    border: 1px solid #c1c1c1;
+    border-radius: 3px;
+    min-width: 150px;
+    pointer-events: none;
+}
+
+.dragactive .toolinsert, .dragactivelabel .toolinsert
+{
+  background: repeating-linear-gradient( 45deg, rgba(96, 109, 188, 0.2), rgba(96, 109, 188, 0.2) 10px, rgba(70, 82, 152, 0.3) 10px, rgba(70, 82, 152, 0.3) 20px );
+  box-shadow: none !important;
+  border: 1px solid #c1c1c1 !important;
+}
+
+.dragactivelabel .tool[data-is-label-to=true]
+{
+  background: repeating-linear-gradient( 45deg, rgba(96, 109, 188, 0.2), rgba(96, 109, 188, 0.2) 10px, rgba(70, 82, 152, 0.3) 10px, rgba(70, 82, 152, 0.3) 20px );
+  color:white;
+}
+
+.dragactivelabel .tool[data-is-label-to=true] .tooltitle ,
+.dragactivelabel .tool[data-is-label-to=true] .titleid
+{
+  background-color:transparent;
+}
+
+.dragactivelabel .tool[data-is-label-to=true] .titlebody
+{
+  color:#353535;
+}
+
+.dragactivelabel .tool[data-is-label-to=true] .titleid
+{
+  color:transparent;
+}
+
+.toolinsertdata
+{
+  padding-top: 7px;
+  padding-bottom: 7px;
+  cursor: pointer;
+  position: relative;
+}
+
+.toolinsertdata:hover .toollabelcreate,.toollabelcreate:hover
+{
+  opacity:1;
+}
+
+.toollabelcreate:hover
+{
+  color: #bb8383;
+}
+
+.toollabelcreate
+{
+  color:#c1c1c1;
+  position: absolute;
+  top: 1px;
+  right: -19px;
+  font-size: 12px;
+  display: block;
+  padding-left: 3px;
+  padding-right: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  opacity:0;
+}
+
+.toolinsertdrop
+{
+  background: repeating-linear-gradient( 45deg, rgba(188, 96, 96, 0.4), rgba(188, 126, 96, 0.4) 10px, rgba(152, 70, 70, 0.5) 10px, rgba(152, 70, 70, 0.5) 20px ) !important;
+}
+
+.tooldrop
+{
+  background: repeating-linear-gradient( 45deg, rgba(188, 96, 96, 0.4), rgba(188, 126, 96, 0.4) 10px, rgba(152, 70, 70, 0.5) 10px, rgba(152, 70, 70, 0.5) 20px ) !important;
+}
+
+.toolinsertlast
+{
+  max-width: 150px;
+}
+
+.toolinsertright
+{
+  max-width: 150px;
+}
+
+.clearfix
+{
+  clear:both;
+  max-height:0px
+}
+
+.toolinserttop
+{
+   height: 8px;
+   border: 1px solid gray;
+   border-radius: 3px;
+   cursor: pointer;
+   margin-bottom: 5px;
+}
+
+.toolselected,.toolselected:hover
+{
+  border: 1px solid #ff9090 !important;
+  box-shadow: 0px 0px 7px 0px rgba(255, 0, 0, 0.2);
+}
+
+.tool:hover
+{
+	background-color: #E8E8E8;
+}
+
+#restart
+{
+  border: 2px solid #fafafa;
+}
+
+.toolblinkon
+{
+  border: 2px solid #FC2121 !important;
+  border-radius: 3px;
+
+}
+
+.toolblinkoff
+{
+  border: 2px solid white !important;
+  border-radius: 3px;
+}
+
+.function-label
+{
+  margin-top:4px;
+}
+
+.maintoolbox i
+{
+  font-size: 20px;
+}
+
+.main {
+  padding: 0 15px 50px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.maintoolbox
+{
+    padding-top: 5px;
+    border-top: 1px solid #DBDBDB;
+    clear: left;
+    height: 40px;
+    line-height: 28px;
+}
+
+.findtoolbox
+{
+  position:fixed;
+  width:100%;
+  border-top: 1px solid #DBDBDB;
+  border-bottom: 1px solid #DBDBDB;
+  clear: left;
+  height:50px;
+  background-color: #fafafa;
+  z-index:5;
+  box-shadow: 0px 1px 3px 1px #efefef;
+}
+
+#findbuttoncontainer
+{
+  position: fixed;
+  border-left: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  border-radius: 0px 0px 0px 4px;
+  background-color: #f1f1f1;
+  z-index:1;
+}
+
+#helplabelcontainer
+{
+  position: fixed;
+  border-left: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  border-top: 1px solid #dbdbdb;
+  border-radius: 4px 0px 0px 4px;
+  background-color: #f1f1f1;
+  top:calc(50% - 15px);
+  right:0px;
+  z-index:1;
+}
+
+#debugbuttoncontainer {
+  border-left: 1px solid #dbdbdb;
+  border-top: 1px solid #dbdbdb;
+  border-top-left-radius: 4px;
+  background-color: #f1f1f1;
+  position: fixed;
+  bottom: 32px;
+  z-index: 7;
+  right: 0;
+}
+
+.findcontrol
+{
+  margin-top:10px;
+  margin-left:10px;
+  margin-right:10px;
+}
+
+.findcontrol .btn
+{
+  color:black;
+  background-color: white;
+  border:1px solid #cccccc;
+}
+
+.containerwithfind #paddinfind
+{
+  padding-top:40px;
+}
+
+.control-label
+{
+   text-align:left !important;
+}
+
+label
+{
+  font-weight:normal !important;
+}
+
+.tool .btn
+{
+  width:100px;
+}
+
+.back
+{
+  margin-bottom:10px;
+}
+
+.threads {
+  border-bottom: 1px solid #bcbcbc;
+  background-color: #fafafa;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  right: 0;
+  top: 0;
+}
+
+#findbutton
+{
+  margin:4px;
+}
+
+#debugbutton
+{
+  margin:4px;
+}
+
+#movetolabelbutton
+{
+  margin:4px;
+}
+
+#functions {
+  border-top: 1px solid #dbdbdb;
+  text-align: center;
+  line-height: 30px;
+}
+
+#FunctionName
+{
+  color: black;
+  font-size: 12px;
+  width:100%;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #fafafa;
+}
+
+#FunctionName:hover
+{
+  background-color: #f1f1f1;
+  text-decoration: none;
+}
+
+#FunctionManagerMain
+{
+  display: none;
+  position: fixed;
+  top:0px;
+  bottom:32px;
+  left: 0px;
+  right:0px;
+  z-index: 10;
+  background-color: white;
+  overflow-y: auto;
+}
+
+#FunctionManagerMainLabel
+{
+  padding: 10px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #DBDBDB;
+  color: black;
+  font-size: 12px;
+  text-align: center;
+}
+
+.FunctionManagerEditLabel
+{
+  color: black;
+  font-size: 12px;
+}
+
+#FunctionManagerEditPanel
+{
+  margin-left:15px;
+  margin-right:15px;
+}
+
+#FunctionManagerEditName
+{
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#FunctionManagerEditDescription
+{
+  font-size: 12px;
+  color:gray
+}
+
+#FunctionManagerEditReturnDescription
+{
+  font-size: 12px;
+  color:gray
+}
+
+#FunctionManagerEditReturnVariable
+{
+  font-size: 12px;
+  color:#529653
+}
+
+.FunctionManagerEditParam
+{
+  font-size: 12px;
+  color:gray
+}
+
+.FunctionManagerMainClose
+{
+  float: right;
+  line-height: 19px !important;
+  font-size: 150% !important;
+}
+
+.FunctionManagerMainBack
+{
+  float: right;
+  line-height: 19px !important;
+  font-size: 150% !important;
+  margin-right:15px;
+}
+
+.FunctionManagerEditEmpty
+{
+  color: #dc3545;
+}
+
+.FunctionManagerItemClick, .FunctionManagerItemClick:hover
+{
+    background-color: #f8f8f8;
+    font-size: 12px;
+    color: #333 !important;
+    border-bottom: 1px solid #DBDBDB;
+    text-decoration: none !important;
+    padding-left: 10px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    flex: 1;
+}
+
+#FunctionManagerEditFunctionName
+{
+    font-size: 12px;
+    color: #333 !important;
+    text-decoration: none !important;
+    padding-left: 10px;
+    display: inline-block;
+    width: calc(100% - 50px);
+    line-height: 20px;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 9px;
+}
+
+#FunctionManagerEditFunctionDescriptionPanel
+{
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #DBDBDB;
+  border-left: 2px solid #f8003680;
+  margin-top:10px;
+}
+
+#FunctionManagerEditFunctionReturnDescriptionPanel
+{
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #DBDBDB;
+  border-left: 2px solid #f8003680;
+  margin-top:10px;
+}
+
+#FunctionManagerEditFunctionReturnVariablePanel
+{
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #DBDBDB;
+  border-left: 2px solid #f8003680;
+  margin-top:10px;
+}
+
+.FunctionManagerEditFunctionParamPanel
+{
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #DBDBDB;
+  border-left: 2px solid #f8003680;
+  margin-top:10px;
+}
+
+#FunctionManagerEditHasReturnValuePanel
+{
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #DBDBDB;
+  border-left: 2px solid #f8003680;
+  margin-top:10px;
+}
+
+.FunctionManagerEditSection
+{
+    margin-top: 25px;
+    font-size: 14px;
+    padding: 4px;
+    border-bottom: 1px solid #e4e4e4;
+    font-style: italic;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.NotDetailed .FunctionManagerEditSection
+{
+  margin-top: 15px !important;
+}
+
+#FunctionManagerParamListEmpty
+{
+  text-align: center;
+  margin-top:10px;
+  font-size: 12px;
+  color:gray
+}
+
+.bootbox-input-textarea
+{
+  height: 300px !important;
+}
+
+#FunctionManagerEditFunctionDescription
+{
+    font-size: 12px;
+    color: #333 !important;
+    text-decoration: none !important;
+    padding-left: 10px;
+    display: inline-block;
+    width: calc(100% - 50px);
+    line-height: 20px;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 9px;
+}
+
+#FunctionManagerEditFunctionReturnDescription
+{
+    font-size: 12px;
+    color: #333 !important;
+    text-decoration: none !important;
+    padding-left: 10px;
+    display: inline-block;
+    width: calc(100% - 50px);
+    line-height: 20px;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 9px;
+}
+
+#FunctionManagerEditFunctionReturnVariable
+{
+    font-size: 12px;
+    color: #333 !important;
+    text-decoration: none !important;
+    padding-left: 10px;
+    display: inline-block;
+    width: calc(100% - 50px);
+    line-height: 20px;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 9px;
+}
+
+.FunctionManagerEditFunctionParam
+{
+    font-size: 12px;
+    color: #333 !important;
+    text-decoration: none !important;
+    padding-left: 10px;
+    display: inline-block;
+    width: calc(100% - 50px);
+    line-height: 22px;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 9px;
+}
+
+#FunctionManagerEditHasReturnValue
+{
+    font-size: 12px;
+    color: #333 !important;
+    text-decoration: none !important;
+    padding-left: 10px;
+    width: 100%;
+    line-height: 20px;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 9px;
+    display: flex;
+    align-items: center;
+}
+
+#FunctionManagerAddParam
+{
+  font-style: normal;
+  font-size:12px;
+  display: flex;
+  align-items: center;
+}
+
+#FunctionManagerEditData
+{
+  margin-left:10px;
+  margin-right:10px;
+  margin-top:20px;
+  clear:both
+}
+
+.FunctionManagerItemMenu, .FunctionManagerItemMenu:hover
+{
+  background-color: #f8f8f8;
+  font-size: 12px;
+  color: #333 !important;
+  border-bottom: 1px solid #DBDBDB;
+  text-decoration: none !important;
+  display: inline-block;
+  width: 40px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 10px;
+}
+
+.FunctionManagerItemMenu:hover, .FunctionManagerItemMenuCurrent
+{
+  background-color: #f1f1f1;
+}
+
+.FunctionManagerEditFunctionLink, .FunctionManagerEditFunctionLink:hover
+{
+  font-size: 12px;
+  color: #333;
+  text-decoration: none !important;
+  display: inline-block;
+  width: 40px;
+  float: right;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+
+.FunctionManagerEditFunctionLink:hover .FunctionManagerEditFunctionLinkIcon
+{
+  color: #555 !important;
+}
+
+.FunctionManagerEditFunctionDescriptionLink, .FunctionManagerEditFunctionDescriptionLink:hover
+{
+  font-size: 12px;
+  color: #333;
+  text-decoration: none !important;
+  display: inline-block;
+  width: 40px;
+  float: right;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+
+.FunctionManagerEditFunctionDescriptionLink:hover .FunctionManagerEditFunctionLinkIcon
+{
+  color: #555 !important;
+}
+
+.FunctionManagerEditFunctionReturnDescriptionLink, .FunctionManagerEditFunctionReturnDescriptionLink:hover
+{
+  font-size: 12px;
+  color: #333;
+  text-decoration: none !important;
+  display: inline-block;
+  width: 40px;
+  float: right;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+
+.FunctionManagerEditFunctionReturnDescriptionLink:hover .FunctionManagerEditFunctionLinkIcon
+{
+  color: #555 !important;
+}
+
+.FunctionManagerEditFunctionReturnVariableLink, .FunctionManagerEditFunctionReturnVariableLink:hover
+{
+  font-size: 12px;
+  color: #333;
+  text-decoration: none !important;
+  display: inline-block;
+  width: 40px;
+  float: right;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+
+.FunctionManagerEditFunctionReturnVariableLink:hover .FunctionManagerEditFunctionLinkIcon
+{
+  color: #555 !important;
+}
+
+.FunctionManagerEditFunctionParamLink, .FunctionManagerEditFunctionParamLink:hover
+{
+  font-size: 12px;
+  color: #333;
+  text-decoration: none !important;
+  display: block;
+  width: 40px;
+  float: right;
+  text-align: center;
+  height: 30px;
+  line-height: 40px;
+}
+
+.FunctionManagerEditFunctionParamLink:hover .FunctionManagerEditFunctionLinkIcon
+{
+  color: #555 !important;
+}
+
+.FunctionManagerEditFunctionDeleteParam, .FunctionManagerEditFunctionDeleteParam:hover
+{
+  font-size: 12px;
+  color: #333;
+  text-decoration: none !important;
+  display: block;
+  width: 40px;
+  float: right;
+  text-align: center;
+  height: 30px;
+  line-height: 40px;
+}
+
+.FunctionManagerEditFunctionDeleteParam:hover .FunctionManagerEditFunctionLinkIcon
+{
+  color: #555 !important;
+}
+
+.FunctionManagerItemClick:hover
+{
+  background-color: #f1f1f1;
+}
+
+.FunctionManagerItem
+{
+  display: flex;
+  margin: 10px;
+}
+
+.FunctionManagerItem1
+{
+  border-left: 2px solid #f8003680;
+}
+.FunctionManagerItem2
+{
+  border-left: 2px solid #009cde80;
+}
+
+.FunctionManagerItem3
+{
+  border-left: 2px solid #fa8b0080;
+}
+
+.FunctionManagerItemSelected, .FunctionManagerItemSelected:hover
+{
+  font-weight: bold;
+  text-decoration: underline !important;
+}
+
+.FunctionManagerItemBar
+{
+  font-size: 120% !important;
+  color:gray;
+}
+
+.FunctionManagerEditFunctionLinkIcon
+{
+  font-size: 120% !important;
+  color:gray;
+}
+
+.FunctionManagerItemLine, .FunctionManagerItemLine:hover
+{
+    margin: 2px;
+    padding: 8px;
+    background-color: #f8f8f8;
+    margin-left: 20px;
+    margin-right: 0px;
+    border-bottom: 1px solid #DBDBDB;
+    display:flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.FunctionManagerItemLine1
+{
+  border-left: 2px solid #f8003680;
+}
+
+.FunctionManagerItemLine2
+{
+  border-left: 2px solid #009cde80;
+}
+
+.FunctionManagerItemLine3
+{
+  border-left: 2px solid #fa8b0080;
+}
+
+.FunctionManagerItemLine:hover
+{
+  background-color: #f1f1f1 !important;
+}
+
+.FunctionManagerItemMenuDescription
+{
+  font-size: small;
+  color: gray;
+}
+
+.FunctionManagerItemMenuContent
+{
+  margin-left:10px;
+  margin-right:10px;
+  display:none;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: -8px;
+}
+
+.Filtered
+{
+  display:none !important;
+}
+
+.FunctionManagerItemLineLeft
+{
+  flex-grow: 1;
+}
+
+.FunctionManagerItemMenuDescriptionIcon
+{
+    color: #f44336c9;
+    width: 17px;
+    text-align: center;
+    filter: grayscale(40%);
+    margin-right: 7px;
+}
+
+.FunctionManagerItemMenuOpen, .FunctionManagerItemMenuEdit, .FunctionManagerItemMenuRun, .FunctionManagerItemMenuRunMultithreaded, .FunctionManagerItemMenuDelete, .FunctionManagerItemMenuCSharp, .FunctionManagerItemMenuPython, .FunctionManagerItemMenuNodejs, .FunctionManagerItemMenuRunAsync
+{
+  color: #333;
+}
+
+#FunctionManagerDescription
+{
+  margin-left:10px;
+  margin-right:10px;
+  margin-top: 15px;
+  color:gray;
+  font-size:small;
+  text-align: justify;
+}
+
+.NotDetailed .VisibleIfDetailed
+{
+  display:none !important;
+}
+
+#FunctionManagerEditFunctionNamePanel
+{
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #DBDBDB;
+  border-left: 2px solid #f8003680;
+  margin-top:10px;
+  clear:both;
+}
+
+#FunctionManagerAddTask
+{
+  position:fixed;
+  right: 20px;
+  bottom: 40px;
+}
+
+#FunctionManagerAddTaskDetailed, #FunctionManagerAddTaskDetailed:hover
+{
+  float: left;
+  width: calc(33.33% - 10px);
+  height: 30px;
+  color: #333;
+  text-align: center;
+  line-height: 30px;
+  font-size: 12px;
+  border: 1px solid #d8d8d8;
+  text-decoration: none;
+  margin: 5px;
+  margin-bottom: 0px;
+}
+
+#FunctionManagerAddTaskDetailed:hover
+{
+  color: #444 !important;
+}
+
+#FunctionManagerAddTaskCancel, #FunctionManagerAddTaskCancel:hover
+{
+  float: left;
+  width: calc(33.33% - 10px);
+  height: 30px;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  background-color: #d9534f;
+  font-size: 12px;
+  border: 1px solid #d43f3a;
+  text-decoration: none;
+  margin: 5px;
+  margin-bottom: 0px;
+}
+
+#FunctionManagerAddTaskCancel:hover
+{
+  background-color: #c9302c !important;
+}
+
+#FunctionManagerAddTaskResult, #FunctionManagerAddTaskResult:hover
+{
+  background-color: #5cb85c;
+  width: calc(33.33% - 10px);
+  height: 30px;
+  float: left;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  font-size: 12px;
+  border: 1px solid #4cae4c;
+  text-decoration: none;
+  margin: 5px;
+  margin-bottom: 0px;
+}
+
+#FunctionManagerAddTaskResult:hover
+{
+  background-color: #449d44 !important;
+}
+
+#FunctionManagerAddTask, #FunctionManagerAddTask:hover
+{
+  position: fixed;
+  right: 23px;
+  bottom: 52px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  background-color: #d9534f;
+  color: white;
+  border-radius: 50%;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.movetofunction
+{
+  font-weight: bold;
+  font-style: italic;
+}
+
+.bottompannel {
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+  bottom: 0;
+  right: 0;
+}
+
+.action-button
+{
+  font-size: 2em !important;
+  margin-right:2px;
+  padding:5px;
+  border: 1px solid #fafafa;
+  filter: grayscale(15%) !important;
+  width: 40px;
+  height: 40px;
+}
+
+.action-button:hover
+{
+  background-color:#E8E8E8;
+  cursor: pointer;
+  border-radius:3px;
+}
+
+.action-button2
+{
+  margin-right:3px;
+  width:24px;
+  height:24px;
+}
+
+.action-button2.disabled {
+  opacity: 0.4;
+  cursor: default !important;
+  background-color: white !important;
+}
+
+.action-button2:hover
+{
+  background-color:#E8E8E8;
+  cursor: pointer;
+  border-radius:3px;
+}
+
+.function-action-button
+{
+  font-size: 1em !important;
+  margin-right:5px;
+  margin-top:3px;
+  padding:5px;
+}
+
+.function-action-button:hover
+{
+  background-color:#E8E8E8;
+  cursor: pointer;
+  border-radius:3px;
+}
+
+.toolbox
+{
+  margin-top: 10px;
+}
+
+.actionbuttongray
+{
+  filter: grayscale(100%) !important;
+}
+
+#play.actionbuttongray
+{
+  opacity: 0.65;
+}
+
+#pause.actionbuttongray {
+  opacity: 0.65;
+}
+
+.actionbuttongray2
+{
+  filter: grayscale(100%) !important;
+  display:none !important;
+}
+
+.actionbuttongray:hover
+{
+    background-color:white !important;
+    cursor: default !important;
+}
+
+.executing
+{
+  padding-left: 6px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 1px;
+  padding-top: 0px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ignoreerrorsthis
+{
+  padding-right: 6px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 1px;
+  padding-top: 0px;
+  padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.toolnotexecute .executing
+{
+    color:gray;
+    opacity: 0;
+}
+
+.tool .ignoreerrorsthis
+{
+    color:gray;
+    opacity: 0;
+}
+
+.tool .folding-unfolded
+{
+    color:gray;
+    opacity: 0;
+}
+
+.tool:hover .executing
+{
+    color:gray;
+    opacity: 0.5;
+}
+
+.tool:hover .ignoreerrorsthis
+{
+    color:gray;
+    opacity: 0.5;
+}
+
+.tool:hover .folding-unfolded
+{
+    color:gray;
+    opacity: 0.5;
+}
+
+.executing:hover
+{
+    color:#D44646 !important;
+    opacity: 1 !important;
+}
+
+.ignoreerrorsthis:hover
+{
+    color:#D44646 !important;
+    opacity: 1 !important;
+}
+
+.folding-unfolded:hover
+{
+    color:#D44646 !important;
+    opacity: 1 !important;
+}
+
+.folding-folded
+{
+  color:#88bd33;
+}
+
+.folding-folded:hover
+{
+    color:#D44646 !important;
+    opacity: 1 !important;
+}
+
+.toolexecutecurrent .executing
+{
+    color:#D44646 !important;
+    opacity: 1 !important;
+}
+
+.helprow1
+{
+  float: left;
+  display: block;
+}
+
+.helprow2
+{
+    display: block;
+    float: left;
+    margin-top: 2px;
+}
+
+#FileHelpCenter hr,#MultithreadingHelpCenter hr,#OutputHelpCenter hr,#ParseHelpCenter hr,#ErrorHelpCenter hr,#FunctionHelpCenter hr,#LabelHelpCenter hr,#BrowserHelpCenter hr,#ConditionHelpCenter hr,#VariablesHelpCenter hr,#LoopHelpCenter hr,#HelpCenter hr
+{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+#FileHelpCenter .modal-body,#MultithreadingHelpCenter .modal-body,#OutputHelpCenter .modal-body,#ErrorHelpCenter .modal-body,#FunctionHelpCenter .modal-body,#LabelHelpCenter .modal-body,#BrowserHelpCenter .modal-body,#ConditionHelpCenter .modal-body,#VariablesHelpCenter .modal-body,#LoopHelpCenter .modal-body,#HelpCenter .modal-body
+{
+  padding-bottom: 0px;
+}
+
+.examplelabel
+{
+  margin-left: 4px;
+  font-size: small;
+}
+
+.examplelistitem
+{
+  width: 40px;
+  text-align: center;
+  display: inline-block;
+  color: #37ad51;
+}
+
+.exampleadd
+{
+  display: inline-block;
+  float: right;
+  font-size: larger;
+  margin-right: 15px;
+}
+
+.helpitetitle1
+{
+  text-decoration: underline;
+}
+
+.helpitemname
+{
+  margin-right: 14px;
+  margin-left: 5px;
+}
+
+.helpitem
+{
+  color: #b5532c;
+  display:inline-block;
+  width:40px;
+  text-align: center;
+}
+
+.smallmarginright
+{
+  margin-right: 3px;
+}
+
+.vcenter
+{
+  display: inline-flex;
+  align-items: center;
+}
+
+.notactive
+{
+  color:gray;
+}
+
+.smalltext
+{
+  color:gray;
+  font-size: small
+}
+
+.RunTypeLabel
+{
+  display:none
+}
+
+.HelpCenterLabel
+{
+  display:none
+}
+
+.tab
+{
+  margin-right:20px;
+  float :left;
+}
+
+#validation, #validationParam
+{
+  color:darkred;
+}
+
+#thread-number-edit
+{
+  font-size: smaller;
+}
+
+#success-number-edit
+{
+  font-size: smaller;
+}
+
+#runmode-edit
+{
+  font-size: smaller; 
+}
+
+#fail-number-edit
+{
+  font-size: smaller;
+}
+
+.main, #functions, .threads{
+  user-select: none; 
+}
+
+.nowrap
+{
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 420px) {
+  .halfscreenorall
+  {
+    width:100%;
+  }
+  .centeredonlyifsmall
+  {
+    margin: 0 auto; display: table;
+  }
+  .main
+  {
+    padding-top:200px;
+  }
+  #visualizelabels
+  {
+    margin-top:200px;
+    height: calc(100% - 200px)
+  }
+  .tag
+  {
+    margin-top:200px;
+  }
+  .containerwithfind #visualizelabels
+  {
+    margin-top:240px;
+    height: calc(100% - 240px)
+  }
+  .containerwithfind .tag
+  {
+    margin-top:240px;
+  }
+  .invisibleifsmall
+  {
+    display:none;
+  }
+  .marginifbig
+  {
+    margin-right:3px;
+    margin-left:3px;
+  }
+
+  #findbuttoncontainer
+  {
+    top:176px;
+    right:0px;
+    z-index: 5;
+  }
+
+  .findtoolbox
+  {
+    top:175px;
+  }
+}
+
+@media screen and (min-width: 420px) {
+  .halfscreenorall
+  {
+    width:50%;
+  }
+  .main
+  {
+    padding-top:120px;
+  }
+  #visualizelabels
+  {
+    margin-top:120px;
+    height: calc(100% - 120px)
+  }
+  .tag
+  {
+    margin-top:120px;
+  }
+  .containerwithfind #visualizelabels
+  {
+    margin-top:160px;
+    height: calc(100% - 160px)
+  }
+  .containerwithfind .tag
+  {
+    margin-top:160px;
+  }
+  .marginifbig
+  {
+    margin-right:10px;
+    margin-left:10px;
+  }
+
+  #findbuttoncontainer
+  {
+    top:101px;
+    right:0px;
+  }
+
+  .findtoolbox
+  {
+    top:100px;
+  }
+}
+
+@media screen and (min-width: 520px) {
+  .action-button {
+      margin-right: 10px;
+  }
+}
+
+.pathimg
+{
+  max-width: 100px;
+  height: 30px;
+  border-radius: 4px;
+}
+
+.titleid
+{
+  background-color: #f5f5f5;
+  font-size: 8px;
+  color: #b6b6b6;
+  margin-top: 0px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+#TaskName
+{
+  height:200px;
+}
+
+.titledescription
+{
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-right: 4px;
+  margin-left: 4px;
+  padding-bottom: 2px;
+  border-top: 1px solid #ddd;
+  font-size: 12px;
+  color: #337ab7;
+}
+
+mark
+{
+  padding: 0px !important;
+  color: #000 !important;
+  background: #ffffa9 !important;
+}
+
+#multiselect
+{
+  background-color: rgba(139, 139, 139, 0.3);
+  position: absolute;
+  z-index: 2;
+}
+
+.tooltitle .selected
+{
+  width: 16px;
+  height: 16px;
+  float:right;
+  margin-top:3px;
+  margin-left:5px;
+}
+
+#draganddrop
+{
+  background-color: #3b83b2;
+  color:white;
+  border-radius: 3px;
+  padding:5px;
+  margin:20px;
+  min-width:80px;
+  text-align: center
+}
+
+#findprev
+{
+  min-width:50px;
+}
+
+#findnext
+{
+  min-width:50px;
+}
+
+.action-color-1
+{
+  background-color: #dff0d8
+}
+
+.action-color-2
+{
+  background-color: #f0eed8
+}
+
+.action-color-3
+{
+  background-color: #d8f0ef
+}
+
+.action-color-4
+{
+  background-color: #d8e3f0
+}
+
+.action-color-5
+{
+  background-color: #ffe2e2
+}
+
+.color-select
+{
+  border:1px solid white;
+  cursor: pointer;
+  user-select: none; 
+}
+
+.color-select-active
+{
+  border:1px dashed red;
+}
+
+.folded
+{
+  display:none;
+}
+
+/* Global select styles */
+
+.bootstrap-select .dropdown-menu > li.selected > a::after {
+  visibility: visible;
+}
+
+.bootstrap-select .dropdown-menu > li > a::after {
+  background: url(icons/check.svg) no-repeat;
+  visibility: hidden;
+  cursor: pointer;
+  display: block;
+  content: " ";
+  height: 16px;
+  width: 16px;
+}
+
+.bootstrap-select .dropdown-menu li a span.text {
+  padding-right: inherit;
+}
+
+.bootstrap-select.open > .dropdown-toggle:after {
+  content: "\f106";
+}
+
+.bootstrap-select > .dropdown-toggle::after {
+  font-family: FontAwesome;
+  text-align: center;
+  line-height: 16px;
+  content: "\f107";
+  font-size: 16px;
+  min-width: 16px;
+  height: 16px;
+  width: 16px;
+}
+
+.bootstrap-select .dropdown-toggle:focus {
+  outline: 0 !important;
+}
+
+.bootstrap-select .dropdown-toggle:hover {
+  outline: 0 !important;
+}
+
+.bootstrap-select .dropdown-menu {
+  min-width: 100% !important;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+/* Custom button styles */
+
+.btn-base.btn-cancel:focus,
+.btn-base.btn-cancel:hover {
+  color: #fff;
+}
+
+.btn-base.btn-accept:focus,
+.btn-base.btn-accept:hover {
+  color: #fff;
+}
+
+.btn-base.btn-cancel:hover {
+  opacity: 0.8;
+}
+
+.btn-base.btn-accept:hover {
+  opacity: 0.8;
+}
+
+.btn-base.btn-cancel {
+  border-color: #d8695f;
+  background: #d8695f;
+  color: #fff;
+}
+
+.btn-base.btn-accept {
+  border-color: #9d996c;
+  background: #9d996c;
+  color: #fff;
+}
+
+.btn-base {
+  transition: all 0.3s ease-in-out;
+  transition-property: opacity, color;
+  border: 1px solid transparent;
+  -webkit-user-drag: none;
+  letter-spacing: -0.2px;
+  vertical-align: middle;
+  border-radius: 2px;
+  padding: 10px 12px;
+  user-select: none;
+  line-height: 18px;
+  min-width: 140px;
+  cursor: pointer;
+  color: #fff;
+  outline: 0;
+}
+
+/* Scrollbar styles */
+
+::-webkit-scrollbar-thumb {
+  background: #b7b7b7;
+}
+
+::-webkit-scrollbar-track {
+  background: #eaeaea;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+/* Utility styles */
+
+.overflow-visible {
+  overflow: visible !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.modal-centered {
+  align-items: center;
+  display: flex;
+}
+
+/* Global styles */
+
+textarea {
+  resize: vertical;
+  cursor: auto;
+}

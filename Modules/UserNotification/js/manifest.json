@@ -1,0 +1,104 @@
+{
+	
+	"name": "UserNotification",
+	"info": {"en": "Play sound or ask user to input value.", "ru": "Воспроизвести звук или попросить пользователя ввести данные."},
+
+	"icon": "usernotification.png",
+	"description": "User Notification",
+	"description_small": {"en": "User interaction", "ru": "Взаимодействие с пользователем"},
+	"major_version": 1,
+	"minor_version": 1,
+	"developer_name": "bablosoft", 
+	"developer_email": "mail.to.twaego@gmail.com", 
+	"developer_site": "https://bablosoft.com",
+	"api_version": 1,
+	"actions":
+	[
+		{
+			"name": "user_notification_play_sound",
+			"description": {"en": "Play Sound","ru": "Воспроизвести Звук"},
+			"template": "",
+			"is_element": false,
+			"interface": "user_notification_play_sound_interface.js",
+			"select": "user_notification_play_sound_select.js",
+			"code": [{"file":"user_notification_play_sound_code.js", "name": "user_notification_play_sound_code"}]
+		},
+		{
+			"name": "user_notification_user_input",
+			"description": {"en": "Ask user input","ru": "Запросить ввод от пользователя"},
+			"template": "{{Label}}",
+			"is_element": false,
+			"interface": "user_notification_user_input_interface.js",
+			"select": "user_notification_user_input_select.js",
+			"code": [{"file":"user_notification_user_input_code.js", "name": "user_notification_user_input_code"}]
+		},
+		{
+			"name": "user_notification_web_interface_eval",
+			"description": {"en": "Run javascript in web interface","ru": "Выполнить яваскрипт в веб интерфейсе"},
+			"template": "{{Code}}",
+			"is_element": false,
+			"interface": "user_notification_web_interface_eval_interface.js",
+			"select": "user_notification_web_interface_eval_select.js",
+			"code": [{"file":"user_notification_web_interface_eval_code.js", "name": "user_notification_web_interface_eval_code"}]
+		},
+		{
+			"name": "user_notification_manual_browser_control",
+			"description": {"en": "Manual browser control","ru": "Ручное управление браузером"},
+			"template": "{{Label}}",
+			"is_element": false,
+			"interface": "user_notification_manual_browser_control_interface.js",
+			"select": "user_notification_manual_browser_control_select.js",
+			"code": [{"file":"user_notification_manual_browser_control_code.js", "name": "user_notification_manual_browser_control_code"}],
+			"suggestion":{"en": "interact with the browser, direct browser control","ru": "взаимодействовать с браузером, прямое управление браузером"}
+		}
+	],
+	"localize": 
+	{
+		"Play Sound": {"ru": "Воспроизвести Звук"},
+		"This action can attract user attention about important events during script execution.": {"ru": "Это действие может привлечь внимание пользователя к важным событиям во время выполнения скрипта."},
+		"A text, which will be displayed to user together with input field. This text should explain what user needs to input.": {"ru": "Текст, который будет отображаться пользователю вместе с полем для ввода. Этот текст должен объяснять, какое именно значение нужно ввести."},
+		"Result, which was entered by user in user input field.": {"ru": "Результат, который был введен пользователем."},
+		"Show user input field to user, wait until user will enter some value and save that value into variable.": {"ru": "Показать поле для ввода пользователю, дождаться, пока он введет какое-то значение и сохранить это значение в переменной."},
+		"This action works like captcha, but instead of image, specified text is shown.": {"ru": "Это действие работает как капча, но вместо изображения отображается текст."},
+		"This action has no timeout and will last until user won't enter something.": {"ru": "Это действие не имеет ограничений по времени и продлится до тех пор, пока пользователь ничего не введет."},
+		"User can input either some text, either cancel input. In first case action will return user input into variable, in second case thread will finish with error. You can avoid finishing thread by using 'Ignore Errors' action.": {"ru": "Пользователь может ввести какой-либо текст, либо отменить ввод. В первом случае действие вернет введенное значение, во втором случае поток завершится с ошибкой. Вы можете избежать завершения работы потока, используя действие 'Игнорировать ошибки'."},
+		"If you want to get user input before script starts, or craft enhanced user interface, then it is better to user resource system.": {"ru": "Если вы хотите получить значения от пользователя перед запуском скрипта или создать продвинутый пользовательский интерфейс, то лучше использовать систему ресурсов."},
+		"Give control over the browser to user.": {"ru": "Передать контроль над браузером пользователю."},
+		"This action will temporary establish direct control over browser. Every mouse movement and keyboard event will be sent to browser directly.": {"ru": "Это действие временно передаст контроль над браузером пользователю. Каждое движение мыши и событие клавиатуры будут отправлены в браузер напрямую."},
+		"When user will finish controlling browser, he can click on link at a page bottom to hand control over browser back to script": {"ru": "Когда пользователь закончит работу с браузером, он может нажать на ссылку внизу страницы, чтобы передать управление браузером обратно в приложение."},
+		"This action is meant to be used in run mode, if you want to control browser in record mode, hit following button": {"ru": "Это действие предназначено для использования в режиме запуска, если вы хотите управлять браузером в режиме записи, нажмите следующую кнопку"},
+		"Developer can attach message when giving control to user in order to make him understand, what is a purpose of manual control and what he need to accomplish. Message can contain custom data like variables or resources.": {"ru": "Разработчик может прикрепить сообщение при предоставлении пользователю контроля, чтобы он понял, какие действия ему нужно выполнить. Сообщение может содержать переменные или ресурсы."},
+		"Typical use case would be to control browser in most of the script lifetime, while giving control to user only for a small task, like solving captcha type which is not supported by BAS natively.": {"ru": "Типичным вариантом использования может быть управление браузером в течение большей части времени работы приложения, в то же время предоставляя управление пользователю только для небольшой задачи, например, для решения типа капчи, которая изначально не поддерживается BAS."},
+		"If you want obtain information from user, use 'Ask user input' action or resource system.": {"ru": "Если вы хотите получить информацию от пользователя, используйте действие 'Запросить ввод пользователя' или систему ресурсов."},
+		"Please solve captcha": {"ru": "Пожалуйста, решите капчу"},
+		"Please input data for [[ACCOUNT]]": {"ru": "Пожалуйста, введите данные для [[ACCOUNT]]"},
+		"Ask user to solve captcha": {"ru": "Попросить пользователя решить капчу"},
+		"Use variable inside message": {"ru": "Использовать переменную внутри сообщения"},
+		"You can attach message when giving control to user in order to make him understand, what is a purpose of manual control and what he need to accomplish. Message can contain custom data like variables or resources.": {"ru": "Вы можете прикрепить сообщение при предоставлении пользователю контроля, чтобы он понял, какие действия ему нужно выполнить. Сообщение может содержать переменные или ресурсы."},
+		"Label which is shown to user": {"ru": "Текст, который будет показан пользователю"},
+		"Play sound notification.": {"ru": "Воспроизвести звуковое уведомление."},
+		"Variable to save input": {"ru": "Переменная для сохранения ввода"}
+	},
+	"engine": [],
+	"browser": [],
+	"depends": [],
+	"dll": [
+		{
+			"name": "usernotification", 
+			"filename32": "usernotification32.dll", 
+			"filename64": "usernotification64.dll", 
+			"startdllfunction": "StartDll", 
+			"enddllfunction": "EndDll", 
+			"startthreadfunction": "StartThread", 
+			"endthreadfunction": "EndThread", 
+			"exportlist": [
+				{
+					"name": "playsound",
+					"isasync": false,
+					"waitinfinite": false,
+					"workfunction": "PlayDefaultSound"
+				}
+			]
+		}
+	]
+}

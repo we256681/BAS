@@ -1,0 +1,175 @@
+{
+	
+	"name":"Timezones",
+	"info":{"en": "Change browser timezone.", "ru": "Изменить часовой пояс браузера."},
+
+	"icon":"timezones.png",
+	"description":"Timezone",
+	"description_small":{"en": "Timezone", "ru": "Часовой пояс"},
+	"major_version": 3,
+	"minor_version": 0,
+	"developer_name": "bablosoft", 
+	"developer_email": "mail.to.twaego@gmail.com", 
+	"developer_site": "https://bablosoft.com",
+	"api_version": 1,
+	"actions":
+	[
+		{
+			"name":"timezones_set_timezone_and_geolocation_by_ip",
+			"description":{"en": "Set browser location by ip","ru": "Установить месторасположение браузера по ип"},
+			"template": "{{Value}}",
+			"is_element": false,
+			"interface": "timezones_set_timezone_and_geolocation_by_ip_interface.js",
+			"select": "timezones_set_timezone_and_geolocation_by_ip_select.js",
+			"code": [{"file":"timezones_set_timezone_and_geolocation_by_ip_code.js", "name": "timezones_set_timezone_and_geolocation_by_ip_code"}]
+		},
+		{
+			"name":"timezones_set_timezone",
+			"description":{"en": "Set timezone","ru": "Установить часовой пояс"},
+			"template": "{{Value}}",
+			"is_element": false,
+			"interface": "timezones_set_timezone_interface.js",
+			"select": "timezones_set_timezone_select.js",
+			"code": [{"file":"timezones_set_timezone_code.js", "name": "timezones_set_timezone_code"}]
+		},
+		{
+			"name":"timezones_set_geolocation",
+			"description":{"en": "Set geolocation","ru": "Установить координаты"},
+			"template": "",
+			"is_element": false,
+			"interface": "timezones_set_geolocation_interface.js",
+			"select": "timezones_set_geolocation_select.js",
+			"code": [{"file":"timezones_set_geolocation_code.js", "name": "timezones_set_geolocation_code"}]
+		},
+		{
+			"name":"timezones_ip_info",
+			"description":{"en": "Ip info","ru": "Сведения об ип"},
+			"template": "{{Value}}",
+			"is_element": false,
+			"interface": "timezones_ip_info_interface.js",
+			"select": "timezones_ip_info_select.js",
+			"code": [{"file":"timezones_ip_info_code.js", "name": "timezones_ip_info_code"}]
+		}
+	],
+	"localize": 
+	{
+		"Ip string. Ipv6 string should be enclosed with square brackets." : {"ru": "Ip в виде строки. Ipv6 адреса должны быть заключены в квадратные скобки."},
+		"Latitude. Can be blank" : {"ru": "Широта. Может быть пустым"},
+		"Longitude. Can be blank" : {"ru": "Долгота. Может быть пустым"},
+		"Is Valid" : {"ru": "Ip распознан корректно"},
+		"Country" : {"ru": "Страна"},
+		"City" : {"ru": "Город"},
+		"Timezone" : {"ru": "Часовой пояс"},
+		"Offset" : {"ru": "Смещение"},
+		"Dst Offset" : {"ru": "Смещение летнего времени"},
+
+		"Don't set latitude" : {"ru": "Не устанавливать широту"},
+		"Don't set longitude" : {"ru": "Не устанавливать долготу"},
+
+		"Geolocation object" : {"ru": "Объект геолокации"},
+		"This field contains properties of returned gelocation object. By changing this object, you can tweak, for example, accuracy property, or others. This object should not include latitude and longitude, they are set through separate settings." : {"ru": "Это поле содержит свойства возвращаемого объекта геолокации. Изменяя этот объект, вы можете настроить, например, свойство accuracy или другие. Этот объект не должен включать latitude и longitude, они задаются через отдельные настройки."},
+		"Use \"Geolocation object\" property to tweak resulting object " : {"ru": "Используйте параметр \"Объект геолокации\" для изменения возвращаемого объекта "},
+		
+
+
+		
+
+		"Timezone UTC offset. Can be blank" : {"ru": "Смещение относительно UTC. Может быть пустым"},
+		"Don't set timezone UTC offset" : {"ru": "Не устанавливать смещение относительно UTC"},
+		"Leave any field blank if you don't want to change it." : {"ru": "Оставьте любое поле пустым, если вы не хотите менять его значение."},
+		"The UTC offset is the difference in minutes from Coordinated Universal Time (UTC) for a particular place and date. Note that this means that the offset is positive if the local timezone is behind UTC and negative if it is ahead. For example, time zone UTC+10:00 (Australian Eastern Standard Time, Vladivostok Time, Chamorro Standard Time) corresponds to -600 offset, because 600 minutes equals to 10 hours." : {"ru": "Смещение относительно UTC - это разница в минутах от универсального глобального времени(UTC) для определенного места и даты. Обратите внимание, что это значит, что смещение будет положительным для часового пояса, находящегося западнее часового пояса UTC и отрицательным — восточнее. Например, если ваш часовой пояс равен UTC+10:00 (австралийское восточное поясное время), то ему будет соответствовать значение -600, так как в 10 часах содержится 600 минут."},
+		"UTC+01:00 - Spain, France, Germany" : {"ru": "UTC+01:00 - Испания, Франция, Германия"},
+		"UTC+02:00 - Finland, Romania, Ukraine, Greece" : {"ru": "UTC+02:00 - Финляндия, Румыния, Украина, Греция"},
+		"Set browser timezone. Timezone can be changed by \"Proxy\" action as well." : {"ru": "Установить часовой пояс браузера. Часовой пояс также можно изменить с помощью действия \"Прокси\"."},
+		"Site can obtain information about system timezone by using internal '" : {"ru": "Сайт может получать информацию о системном часовом поясе, используя класс '"},
+		"' object. This action allows to spoof local time values returned by browser." : {"ru": "'. Это действие позволяет заменить возвращаемые значения."},
+		"It is recommended to use 'Proxy' action instead of this one, because it will set timezone automatically according to current proxy." : {"ru": "Рекомендуется использовать действие 'Прокси' вместо этого, потому что оно автоматически установит часовой пояс в браузере соответствии с текущим прокси."},
+		"A string which contains ip address. Ipv6 string should be enclosed with square brackets. Timezone and geolocation will be extracted from selected ip and browser settings will be updated accordingly." : {"ru": "Эта строка должна содержать ip адрес. Ipv6 адреса должны быть заключены в квадратные скобки. Часовой пояс и месторасположение будут получены из выбранного ip, и настройки браузера будут обновлены соответственно этим значениям."},
+		"Ipv4 example" : {"ru": "Пример ipv4"},
+		"Not correct, ip string can't contain port." : {"ru": "Неправильно, ip адрес не может содержать порт."},
+		"Ipv6 example" : {"ru": "Пример ipv6"},
+		"Set browser timezone and position the same as timezone and position of selected ip." : {"ru": "Установить часовой пояс и месторасположение браузера в те же значения, что и часовой пояс и месторасположение ip."},
+		"Site can obtain information about system timezone and location using internal apis (" : {"ru": "Сайт может получать информацию о системном часовом поясе и местоположении с использованием внутреннего апи ("},
+		"example 1" : {"ru": "пример 1"},
+		"example 2" : {"ru": "пример 2"},
+		"). This action allows to spoof timezone and location values returned by browser." : {"ru": "). Это действие позволяет заменять значения часового пояса и местоположения, возвращаемые браузером."},
+		"To obtain ip information internal database or external service is used, check \"IP information\" section for more details." : {"ru": "Чтобы получать информацию об ip используется либо локальная база данных либо внешний сервис, смотрите раздел \"Информация об IP\" чтобы узнать больше."},
+		"It is recommended to use 'Proxy' action instead of this one, because it will set timezone and geolocation automatically according to current proxy." : {"ru": "Рекомендуется использовать действие 'Прокси' вместо этого, потому что оно автоматически установит часовой пояс в браузере соответствии с текущим прокси."},
+		"Ip address" : {"ru": "Ip адрес"},
+		"Exact coordinates, which identifies your position. This value will be returned by browser as a response on location request from site." : {"ru": "Точные координаты вашего месторасположения. Это значение будет возвращено браузером в качестве ответа на запрос местоположения от сайта."},
+		"Set browser location. Geolocation can be changed by \"Proxy\" action as well." : {"ru": "Установить месторасположение браузера. Месторасположение также можно изменить с помощью действия \"Прокси\"."},
+		"Site can obtain information about your position using " : {"ru": "Сайт может получить информацию о вашем месторасположении используя "},
+		". This action allows to spoof position returned by browser." : {"ru": ". Это действие позволяет заменяить месторасположение возвращаемое браузером."},
+		"It is recommended to use 'Proxy' action instead of this one, because it will set position automatically according to current proxy." : {"ru": "Рекомендуется использовать действие 'Прокси' вместо этого, потому что оно автоматически установит месторасположение браузера в соответствии с текущим прокси."},
+		"following api" : {"ru": "данное апи"},
+		"A string which contains ip address. Ipv6 string should be enclosed with square brackets." : {"ru": "Эта строка должна содержать ip адрес. Ipv6 адреса должны быть заключены в квадратные скобки."},
+		"If ip was parsed correctly. This values must always be checked before others." : {"ru": "Эта переменная возвращает значение, которое идентифицирует, был ли ip распознан корректно. Только если значение этой переменной равно true, могут быть использованы другие возвращаемые значения."},
+		"Ip was parsed correctly" : {"ru": "Информация об ip получена корректно"},
+		"failed to parse ip" : {"ru": "Не удалось получить сведения об ip"},
+		"Country abbreviation" : {"ru": "Aббревиатура страны"},
+		"United States" : {"ru": "США"},
+		"Russian Federation" : {"ru": "Российская Федерация"},
+		"Ip city" : {"ru": "Город"},
+		"Exact coordinate, which identifies ip position." : {"ru": "Координаты ip."},
+		"Timezone name." : {"ru": "Название часового пояса."},
+		"The UTC offset is the difference in minutes from Coordinated Universal Time (UTC) to the ip local time. Note that this means that the offset is positive if the local timezone is behind UTC and negative if it is ahead. For example, time zone UTC+10:00 (Australian Eastern Standard Time, Vladivostok Time, Chamorro Standard Time) corresponds to -600 offset, because 600 minutes equals to 10 hours." : {"ru": "Смещение относительно UTC - это разница в минутах между универсальным глобального времени(UTC) и локальным временем данного ip. Обратите внимание, что это значит, что смещение будет положительным для часового пояса, находящегося западнее часового пояса UTC и отрицательным — восточнее. Например, если ваш часовой пояс равен UTC+10:00 (австралийское восточное поясное время), то ему будет соответствовать значение -600, так как в 10 часах содержится 600 минут."},
+		"An offset for daylight saving time." : {"ru": "Смещение для летнего времени."},
+		"Get information for selected ip, this includes timezone UTC offset and other." : {"ru": "Получить информацию для заданном ip, включает смещение относительно UTC, часовой пояс и другое."},
+		"Using this action is not necessary to hide your location, because coordintes can be obtained only after user accepts request from site in a special popup window. By default, if you don't use this action, this popup is rejected by BAS." : {"ru": "Использование этого действия не обязательно, чтобы скрыть ваше местоположение, потому что координаты могут быть получены только после того, как пользователь примет запрос от сайта в специальном всплывающем окне. По умолчанию, если вы не используете это действие, всплывающее окно отклоняется BAS."},
+		"Options below will help you to adjust different browser settings to match specified IP, for example: timezone and geolocation. Default settings will work fine.": {"ru": "Параметры ниже помогут вам задать различные настройки браузера в соответствии с новым ip, например: часовой пояс и месторасположение. Настройки по умолчанию обеспечат оптимальную работу."},
+		"Change browser timezone according to specified ip. For example, if ip is located in United Kingdom, then browser timezone offset will be equal to 0(UTC+00:00). You can set timezone to custom value with 'Timezone' module.": {"ru": "Изменить часовой пояс браузера в соответствии с заданным ip. Например, если ip находится в Англии, то часовой пояс браузера будет изменен на UTC+00:00. Вы можете задать произвольное значение с помощью модуля 'Часовой пояс'."},
+		"Change browser geolocation according to specified ip. Location will be set to a point which is close to ip longitude/latitude. You can set geolocation to custom value with 'Timezone' module.": {"ru": "Измененить месторасположение(координаты) браузера в соответствии с заданным ip. Оно будет установлено в точку, близкую к долготе/широте ip. Вы можете задать произвольное значение с помощью модуля 'Часовой пояс'."},
+		"A browser request to access your geolocation will be accepted. Browser location will be set to ip location.": {"ru": "Запрос браузера на доступ к вашему месторасположению будет принят. Расположение браузера будет установлено в соответствии с ip."},
+		"Replace ip exposed by WebRTC with specified ip. If you want WebRTC to return custom ip, please use 'Browser Settings' action.": {"ru": "Заменить ip, возвращаемый WebRTC на заданный ip. Если вы хотите задать произвольное значение, используйте действие 'Настройки браузера'."},
+		"Enable WebRTC, replace ip exposed by WebRTC with specified ip.": {"ru": "Включить WebRTC, заменить ip, возвращаемый WebRTC на заданный ip."},
+		"Change browser language according to country of ip. This setting will change 'Accept-Language' header as well as navigator.language and navigator.languages javascript properties. By default language value will be equal to language and country code separated with dash, for example 'de-DE' for Germany. This value is valid, but most browsers uses more complicated strings. If you want to make BAS look like real browser, use FingerprintSwitcher service, it will set language to more natural value, for example for iPhone from Germany it will equal 'de, en;q=0.8, *;q=0.01'. You can also set this value explicitly by using 'Set Header' action" : {"ru":"Изменить язык браузера в зависимости от страны ip. Этот параметр изменит заголовок Accept-Language, а также свойства javascript navigator.language и navigator.languages. По умолчанию значение языка будет состоять из языка и кода страны, разделенными дефисом, например 'de-DE' для Германии. Это значение корректное, но большинство браузеров использует более сложные варианты. Если вы хотите, чтобы BAS выглядел как настоящий браузер, используйте сервис FingerprintSwitcher, он установит язык более в более естественное значение, например, для iPhone из Германии оно будет равно 'de, en;q=0.8, *;q=0.01'. Вы также можете установить это значение явно, используя действие 'Установить заголовок'"},
+		"Change browser language according to country of specified ip.":{"ru": "Изменить язык браузера в зависимости от страны ip."},
+
+		"Timezone name. Can be blank":{"ru": "Название часового пояса. Может быть пустым"},
+		"Don't set timezone name":{"ru": "Не задавать название часового пояса"},
+		"Full list of offsets can be found":{"ru": "Полный список смещений можно найти"},
+		"list of timezone names can be found":{"ru": "список названий можно найти"}
+
+		
+	},
+	"engine": ["engine.js"],
+	"browser": [],
+	"depends": [],
+	"dll": [
+			{
+				"name": "timezones", 
+				"filename32": "timezones32.dll", 
+				"filename64": "timezones64.dll", 
+				"startdllfunction": "StartDll", 
+				"enddllfunction": "EndDll", 
+				"startthreadfunction": "StartThread", 
+				"endthreadfunction": "EndThread", 
+				"exportlist":[
+					{
+						"name": "ipinfo",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "IpInfo"
+					},
+					{
+						"name": "timezone_offset_to_name",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "TimezoneOffsetToName"
+					},
+					{
+						"name": "country_to_language",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "CountryToLanguage"
+					},
+					{
+						"name": "timezone_name_to_offset",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "TimezoneNameToOffset"
+					}
+				]
+			}
+		  ]	
+}

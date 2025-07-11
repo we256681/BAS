@@ -1,0 +1,1 @@
+_call_function(Excel_ClearCellsRange,{"FilePath":(<%= FilePath %>), "SheetIndexOrName":(<%= SheetIndexOrName %>), "FromCell":(<%= FromCell %>), "ToCell":(<%= ToCell %>), "Sync":(<%= Sync %>), "Timeout":(<%= timeout_value() || 60000 %>)})!

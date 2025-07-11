@@ -1,0 +1,555 @@
+{
+    "actions": [
+		{
+            "code": [
+                {
+                    "file": "SQL_Setup_code.js",
+                    "name": "SQL_Setup_code"
+                }
+            ],
+            "description": {
+                "en": "Setup connection",
+                "ru": "Настроить соединение"
+            },
+            "interface": "SQL_Setup_interface.js",
+            "is_element": false,
+            "name": "SQL_Setup",
+            "select": "SQL_Setup_select.js",
+            "template": "{{dialect}} : {{host}} : {{storage}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "SQL_Query_code.js",
+                    "name": "SQL_Query_code"
+                }
+            ],
+            "description": {
+                "en": "Execute query",
+                "ru": "Выполнить запрос"
+            },
+            "interface": "SQL_Query_interface.js",
+            "is_element": false,
+            "name": "SQL_Query",
+            "select": "SQL_Query_select.js",
+            "template": "{{query}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "SQL_CountRecords_code.js",
+                    "name": "SQL_CountRecords_code"
+                }
+            ],
+            "description": {
+                "en": "Count records",
+                "ru": "Количество записей"
+            },
+            "interface": "SQL_CountRecords_interface.js",
+            "is_element": false,
+            "name": "SQL_CountRecords",
+            "select": "SQL_CountRecords_select.js",
+            "template": "{{table}} : {{where}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "SQL_SelectRecord_code.js",
+                    "name": "SQL_SelectRecord_code"
+                }
+            ],
+            "description": {
+                "en": "Select single record",
+                "ru": "Получить одну запись"
+            },
+            "interface": "SQL_SelectRecord_interface.js",
+            "is_element": false,
+            "name": "SQL_SelectRecord",
+            "select": "SQL_SelectRecord_select.js",
+            "template": "{{table}} : {{where}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "SQL_SelectRecords_code.js",
+                    "name": "SQL_SelectRecords_code"
+                }
+            ],
+            "description": {
+                "en": "Select multiple records",
+                "ru": "Получить несколько записей"
+            },
+            "interface": "SQL_SelectRecords_interface.js",
+            "is_element": false,
+            "name": "SQL_SelectRecords",
+            "select": "SQL_SelectRecords_select.js",
+            "template": "{{table}} : {{where}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "SQL_UpdateRecord_code.js",
+                    "name": "SQL_UpdateRecord_code"
+                }
+            ],
+            "description": {
+                "en": "Update single record",
+                "ru": "Обновить одну запись"
+            },
+            "interface": "SQL_UpdateRecord_interface.js",
+            "is_element": false,
+            "name": "SQL_UpdateRecord",
+            "select": "SQL_UpdateRecord_select.js",
+            "template": "{{values}} -> {{table}} : {{where}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "SQL_UpdateRecords_code.js",
+                    "name": "SQL_UpdateRecords_code"
+                }
+            ],
+            "description": {
+                "en": "Update multiple records",
+                "ru": "Обновить несколько записей"
+            },
+            "interface": "SQL_UpdateRecords_interface.js",
+            "is_element": false,
+            "name": "SQL_UpdateRecords",
+            "select": "SQL_UpdateRecords_select.js",
+            "template": "{{values}} -> {{table}} : {{where}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "SQL_DeleteRecord_code.js",
+                    "name": "SQL_DeleteRecord_code"
+                }
+            ],
+            "description": {
+                "en": "Delete single record",
+                "ru": "Удалить одну запись"
+            },
+            "interface": "SQL_DeleteRecord_interface.js",
+            "is_element": false,
+            "name": "SQL_DeleteRecord",
+            "select": "SQL_DeleteRecord_select.js",
+            "template": "{{table}} : {{where}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "SQL_DeleteRecords_code.js",
+                    "name": "SQL_DeleteRecords_code"
+                }
+            ],
+            "description": {
+                "en": "Delete multiple records",
+                "ru": "Удалить несколько записей"
+            },
+            "interface": "SQL_DeleteRecords_interface.js",
+            "is_element": false,
+            "name": "SQL_DeleteRecords",
+            "select": "SQL_DeleteRecords_select.js",
+            "template": "{{table}} : {{where}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "SQL_InsertRecord_code.js",
+                    "name": "SQL_InsertRecord_code"
+                }
+            ],
+            "description": {
+                "en": "Insert single record",
+                "ru": "Вставить одну запись"
+            },
+            "interface": "SQL_InsertRecord_interface.js",
+            "is_element": false,
+            "name": "SQL_InsertRecord",
+            "select": "SQL_InsertRecord_select.js",
+            "template": "{{data}} -> {{table}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "SQL_Insert_code.js",
+                    "name": "SQL_Insert_code"
+                }
+            ],
+            "description": {
+                "en": "Insert multiple records",
+                "ru": "Вставить несколько записей"
+            },
+            "interface": "SQL_Insert_interface.js",
+            "is_element": false,
+            "name": "SQL_Insert",
+            "select": "SQL_Insert_select.js",
+            "template": "{{data}} -> {{table}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "SQL_Close_code.js",
+                    "name": "SQL_Close_code"
+                }
+            ],
+            "description": {
+                "en": "Close connection",
+                "ru": "Закрыть соединение"
+            },
+            "interface": "SQL_Close_interface.js",
+            "is_element": false,
+            "name": "SQL_Close",
+            "select": "SQL_Close_select.js",
+            "template": ""
+        },
+		{
+            "code": [
+                {
+                    "file": "SQL_Debug_code.js",
+                    "name": "SQL_Debug_code"
+                }
+            ],
+            "description": {
+                "en": "Debug",
+                "ru": "Отладка"
+            },
+            "interface": "SQL_Debug_interface.js",
+            "is_element": false,
+            "name": "SQL_Debug",
+            "select": "SQL_Debug_select.js",
+            "template": "{{enable}}"
+        }
+    ],
+    "api_version": 1,
+    "autogenerated_functions": [
+        "SQL_Setup",
+        "SQL_Query",
+		"SQL_CountRecords",
+		"SQL_SelectRecord",
+		"SQL_SelectRecords",
+		"SQL_UpdateRecord",
+		"SQL_UpdateRecords",
+        "SQL_DeleteRecord",
+        "SQL_DeleteRecords",
+        "SQL_InsertRecord",
+        "SQL_Insert",
+        "SQL_Close",
+		"SQL_Debug"
+    ],
+    "browser": [
+    ],
+    "depends": [
+    ],
+    "description": "Working with SQL databases",
+    "description_small": {
+        "en": "SQL",
+        "ru": "SQL"
+    },
+    "developer_email": "sasha9817@mail.ru",
+    "developer_name": "GhostZ",
+    "developer_site": "https://t.me/GhostZed",
+    "embeddeddata": [
+        {
+            "Data": "if(!global._UtilSQL){\n    const Sequelize = require('sequelize');\n    const SqlString = require('sequelize/lib/sql-string');\n    let util = {};\n\n    util.connect_sql = async function(config){\n        let {id, data, connect_timeout, debug} = config;\n        let dialect = data.dialect;\n\n        if(typeof sql_connections==\"undefined\"){\n            sql_connections = {};\n        };\n\n        if(typeof sql_connections[id]==\"undefined\"){\n            sql_connections[id] = {};\n        };\n\n        if(typeof sql_connections[id][dialect]==\"undefined\" || JSON.stringify(sql_connections[id][dialect].config)!=JSON.stringify(data)){\n            let options = {};\n            let keys = Object.keys(data);\n            for(let key of keys){\n                if(data[key]!==\"\" && key!=\"storage\"){\n                    options[key] = data[key];\n                };\n            };\n            if(dialect===\"sqlite\"){\n                if(data.storage){\n                    options.storage = data.storage;\n                };\n                options.dialectModule = require('sqlite3').verbose();\n            };\n            if(dialect!==\"sqlite\" && typeof connect_timeout==='number' && connect_timeout > -1){\n                if(!options.dialectOptions){\n                    options.dialectOptions = {};\n                };\n                switch(dialect){\n                    case 'mysql':\n                    case 'mariadb':\n                        options.dialectOptions.connectTimeout = connect_timeout;\n                        break;\n                    case 'mssql':\n                        if(!options.dialectOptions.options){\n                            options.dialectOptions.options = {};\n                        };\n                        options.dialectOptions.options.connectTimeout = connect_timeout;\n                        break;\n                    case 'postgres':\n                        options.dialectOptions.connectionTimeoutMillis = connect_timeout;\n                        break;\n                };\n            };\n            if(debug){\n                options.logging = BAS_CONSOLE_LOG;\n            };\n            options.define = {freezeTableName: true};\n            sql_connections[id][dialect] = {\n                id: id,\n                dialect: dialect,\n                config: data,\n                sequelize: new Sequelize(options),\n                timeout: 0,\n                close: function(id=this.id, dialect=this.dialect){\n                    if(typeof sql_connections!=\"undefined\" && typeof sql_connections[id]!=\"undefined\" && typeof sql_connections[id][dialect]!=\"undefined\"){\n                        let sql = sql_connections[id][dialect];\n                        sql.clearTimeout();\n                        sql.sequelize.close();\n                        return sql.delete();\n                    };\n                },\n                setTimeout: function(timeout){\n                    this.clearTimeout();\n                    this.timeout = setTimeout(this.close, timeout, this.id, this.dialect);\n                },\n                clearTimeout: function(){\n                    if(!this.timeout[\"_destroyed\"]){\n                        clearTimeout(this.timeout);\n                    };\n                },\n                delete: function(){\n                    delete sql_connections[this.id][this.dialect];\n                    if(Object.keys(sql_connections[this.id]).length==0){\n                        delete sql_connections[this.id];\n                    };\n                }\n            };\n            let sql_obj = sql_connections[id][dialect];\n            try{\n                await sql_obj.sequelize.authenticate();\n                return sql_obj;\n            }catch(err){\n                sql_obj.delete();\n                throw err;\n            };\n        }else{\n            sql_connections[id][dialect].clearTimeout();\n            if(typeof sql_connections==\"undefined\" || typeof sql_connections[id]==\"undefined\" || typeof sql_connections[id][dialect]==\"undefined\"){\n                let sql_obj = await util.connect_sql(config);\n                return sql_obj;\n            }else{\n                return sql_connections[id][dialect];\n            };\n        };\n    };\n    util.get_model = async function(sql, table, debug){\n        let sequelize = sql.sequelize;\n        let models = sequelize.models;\n        if(Object.keys(models).includes(table)){\n            return models[table];\n        }else{\n            let QueryInterface = sequelize.getQueryInterface();\n            let schema = await QueryInterface.describeTable(table);\n            if(debug){\n                BAS_CONSOLE_LOG(\"Result: \" + JSON.stringify(schema));\n            };\n            sql.fields = Object.keys(schema);\n            let primary_key = false;\n            for(let key of sql.fields){\n                let field = schema[key];\n                if(field[\"primaryKey\"]){\n                    primary_key = true;\n                    if(sql.dialect==='sqlite' && field[\"type\"] && field[\"type\"].toLocaleUpperCase()===(\"INTEGER\")){\n                        let result = await sequelize.query(`SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = '${table}' AND sql LIKE '%AUTOINCREMENT%'`, {type:\"SELECT\"});\n                        if(debug){\n                            BAS_CONSOLE_LOG(\"Result: \" + JSON.stringify(result));\n                        };\n                        field[\"autoIncrement\"] = result.length > 0;\n                    };\n                };\n                if((field[\"allowNull\"]===false || field[\"autoIncrement\"]===true) && field[\"defaultValue\"]===null){\n                    if(field[\"autoIncrement\"]===true){\n                        delete field[\"defaultValue\"];\n                    }else{\n                        field[\"defaultValue\"] = false;\n                    };\n                };\n            };\n            if(!primary_key){\n                schema[sql.fields[0]][\"primaryKey\"] = true;\n            };\n            let model = sequelize.define(table, schema, {timestamps: false});\n            if(debug){\n                BAS_CONSOLE_LOG(\"Result: \" + JSON.stringify(schema));\n            };\n            return model;\n        };\n    };\n    util.format = function(sql, replacements, dialect){\n        return SqlString.format(sql, replacements, null, dialect);\n    };\n    util.restore_dates = function(values){\n        values = [].concat(values);\n        return values.map(function(value){return (typeof value==\"object\" && value!==null && value.isDate) ? new Date(value.date) : (Array.isArray(value) ? value.map(function(e){return (typeof e==\"object\" && e!==null && e.isDate) ? new Date(e.date) : e}) : value)});\n    };\n    util.restore_dates_in_object = function(obj, convert = true){\n        let new_obj = {};\n        for(const key in obj){\n            let value = obj[key];\n            new_obj[key] = (typeof value==\"object\" && value!==null && value.isDate) ? new Date(value.date) : (Array.isArray(value) ? value.map(function(e){return (typeof e==\"object\" && e!==null && e.isDate) ? new Date(e.date) : (convert ? util.convert(e) : e)}) : (convert ? util.convert(value) : value));\n        };\n        return new_obj;\n    };\n    util.csv_generate = function(list, separator=\":\"){\n        let res = '';\n        let first = true;\n        list.forEach(function(item=\"\"){\n            let add = item;\n            if(typeof item==\"string\" && (item.includes(\";\") || item.includes(\":\") || item.includes(\",\") || item.includes(separator))){\n                add = \"\\\"\" + add.replace(/[\"]/gi, \"\\\"\\\"\") + \"\\\"\";\n            };\n            if(item instanceof Date){\n                add = \"\\\"\" + add.toString() + \"\\\"\";\n            };\n            if(!first){\n                res += separator;\n            }else{\n                first = false;\n            };\n            res += add;\n        });\n        return res;\n    };\n    util.csv_parse = function(line, convert = true){\n        let res = [];\n        let index = 0;\n        let len = line.length;\n        let InsideQuotes = false;\n        let CurrentElement = '';\n        \n        while(index<len){\n            let c = line[index];\n            let n = '';\n            let HasNext = (index + 1) < len;\n            if(HasNext){\n                n = line[index + 1];\n            };\n            index++;\n\n            if(c=='\\\"'){\n                if(InsideQuotes){\n                    if(!HasNext || n!='\\\"'){\n                        InsideQuotes = false;\n                        continue;\n                    }else{\n                        CurrentElement += \"\\\"\";\n                        index++;\n                        continue;\n                    }\n                }else{\n                    InsideQuotes = true;\n                    continue;\n                }\n            };\n\n            if(c==':' || c==';' || c==','){\n                if(InsideQuotes){\n                    CurrentElement += c;\n                    continue;\n                }else{\n                    res.push(convert ? util.convert(CurrentElement) : CurrentElement);\n                    CurrentElement = '';\n                    continue;\n                }\n            };\n            CurrentElement += c;\n        };\n        res.push(convert ? util.convert(CurrentElement) : CurrentElement);\n\n        return res;\n    };\n    util.format_results = function(results, format){\n        if(format==\"Object list\" || format==\"2D list\"){\n            results.forEach(function(row, ir){Object.keys(row).forEach(function(key){results[ir][key] = (row[key] instanceof Date) ? ({isDate:true,date:row[key].toString()}) : row[key]})});\n        };\n        if(format==\"2D list\" || format==\"CSV list\" || format==\"CSV string\"){\n            results = results.map(function(row){return Object.values(row)});\n            if(format==\"CSV list\" || format==\"CSV string\"){\n                results = results.map(function(row){return util.csv_generate(row, \":\")});\n                if(format==\"CSV string\"){\n                    results = results.join(\"\\n\");\n                };\n            };\n        };\n        return results;\n    };\n    util.convert = function(data){\n        return (typeof data==\"string\" && data!==\"\") ? (isNaN(data) ? (data==\"true\" || data==\"false\" ? data==\"true\" : (data===\"null\") ? null : data) : Number(data)) : data;\n    };\n    util.format_data = function(data, fields, convert = true){\n        if(typeof data==\"string\"){\n            let reg = /\\r?\\n/;\n            data = data.split(reg);\n        };\n        if(typeof data==\"object\" && ((typeof data[0]==\"object\" && Array.isArray(data[0])) || typeof data[0]!=\"object\")){\n            data = data.map(function(row){return (typeof row!=\"object\") ? util.csv_parse(row, convert) : (convert ? row.map(function(cell){return util.convert(cell)}) : row)});\n            data = data.map(function(row){\n                let fields_cut = fields.slice(0, row.length);\n                return Object.assign(...fields_cut.map(function(field, i){return {[field]:row[i]}}));\n            });\n        };\n        if(typeof data==\"object\" && (typeof data[0]==\"object\" && !Array.isArray(data[0]))){\n            data = data.map(function(row){return util.restore_dates_in_object(row, convert)});\n        };\n        return data;\n    };\n\n    global._UtilSQL = util;\n};\n\nmodule.exports = global._UtilSQL;",
+            "DataName": "UtilSQL",
+            "DataType": 1,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilSQL || require(\"../UtilSQL\");\r\n\r\nlet [config, query, query_type, data_format] = [[SQL_NODE_PARAMETERS]];\r\nlet {id, timeout, debug} = config;\r\nlet [query_sql, query_parameterize, query_replacements] = query;\r\n\r\nlet options = {type:query_type};\r\nif(query_parameterize){\r\n    options.replacements = util.restore_dates(query_replacements);\r\n};\r\nif(debug){\r\n    options.logging = BAS_CONSOLE_LOG;\r\n};\r\n\r\nlet sql = await util.connect_sql(config);\r\ntry{\r\n    let sequelize = sql.sequelize;\r\n    let results = await sequelize.query(query_sql, options);\r\n    if(debug){\r\n        BAS_CONSOLE_LOG(\"Result: \" + JSON.stringify(results));\r\n    };\r\n    if(query_type==\"RAW\"){\r\n        results = (results[0]==null || typeof results[0]==\"undefined\") ? \"\" : results[0];\r\n    };\r\n    [[SQL_NODE_PARAMETERS]] = query_type==\"SELECT\" ? [util.format_results(results, data_format), data_format, query_type] : [results, data_format, query_type];\r\n    sql.setTimeout(timeout);\r\n}catch(err){\r\n    sql.setTimeout(timeout);\r\n    throw err;\r\n};",
+            "DataName": "SQL_Query",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "let id = [[SQL_NODE_PARAMETERS]];\r\n\r\nif(typeof sql_connections!=\"undefined\" && typeof sql_connections[id]!=\"undefined\"){\r\n    let dialects = Object.keys(sql_connections[id]);\r\n    for(let dialect of dialects){\r\n        sql_connections[id][dialect].close();\r\n    };\r\n};",
+            "DataName": "SQL_Close",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilSQL || require(\"../UtilSQL\");\r\n\r\nlet [config, table, whereOtps, included_columns, excluded_columns, order, offset, limit, data_format] = [[SQL_NODE_PARAMETERS]];\r\nlet {id, timeout, debug} = config;\r\nlet [where, where_parameterize, where_replacements] = whereOtps;\r\n\r\nif(where_parameterize){\r\n    replacements = util.restore_dates(where_replacements);\r\n    where = util.format(where, replacements, config.dialect);\r\n};\r\n\r\nlet sql = await util.connect_sql(config);\r\ntry{\r\n    let sequelize = sql.sequelize;\r\n    let model = await util.get_model(sql, table, debug);\r\n    let options = {};\r\n    if(debug){\r\n        options.logging = BAS_CONSOLE_LOG;\r\n    };\r\n    if(where!==\"\"){\r\n        if(typeof where==\"object\"){\r\n            options.where = where;\r\n        }else{\r\n            options.where = sequelize.literal(where);\r\n        };\r\n    };\r\n    if(included_columns!==\"\" && excluded_columns==\"\"){\r\n        options.attributes = included_columns;\r\n    };\r\n    if(excluded_columns!==\"\"){\r\n        options.attributes = {exclude:excluded_columns};\r\n    };\r\n    if(order!==\"\"){\r\n        options.order = order;\r\n    };\r\n    if(offset!==\"\"){\r\n        options.offset = offset;\r\n    };\r\n    if(limit!==\"\"){\r\n        options.limit = limit;\r\n    };\r\n    let results = await model.findAll(options);\r\n    results = results.map(function(row){return row.get()});\r\n    if(debug){\r\n        BAS_CONSOLE_LOG(\"Result: \" + JSON.stringify(results));\r\n    };\r\n    [[SQL_NODE_PARAMETERS]] = [util.format_results(results, data_format), data_format];\r\n    sql.setTimeout(timeout);\r\n}catch(err){\r\n    sql.setTimeout(timeout);\r\n    throw err;\r\n};",
+            "DataName": "SQL_SelectRecords",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilSQL || require(\"../UtilSQL\");\r\n\r\nlet [config, table, whereOtps, limit] = [[SQL_NODE_PARAMETERS]];\r\nlet {id, timeout, debug} = config;\r\nlet [where, where_parameterize, where_replacements] = whereOtps;\r\n\r\nif(where_parameterize){\r\n    replacements = util.restore_dates(where_replacements);\r\n    where = util.format(where, replacements, config.dialect);\r\n};\r\n\r\nlet sql = await util.connect_sql(config);\r\ntry{\r\n    let sequelize = sql.sequelize;\r\n    let model = await util.get_model(sql, table, debug);\r\n    let options = {};\r\n    if(debug){\r\n        options.logging = BAS_CONSOLE_LOG;\r\n    };\r\n    if(typeof where==\"object\"){\r\n        options.where = where;\r\n    }else{\r\n        options.where = sequelize.literal(where);\r\n    };\r\n    if(limit!==\"\"){\r\n        options.limit = limit;\r\n    };\r\n    let results = await model.destroy(options);\r\n    if(debug){\r\n        BAS_CONSOLE_LOG(\"Result: \" + JSON.stringify(results));\r\n    };\r\n    sql.setTimeout(timeout);\r\n}catch(err){\r\n    sql.setTimeout(timeout);\r\n    throw err;\r\n};",
+            "DataName": "SQL_DeleteRecords",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilSQL || require(\"../UtilSQL\");\r\n\r\nlet [config, table, values, convert, whereOtps, fields, limit] = [[SQL_NODE_PARAMETERS]];\r\nlet {id, timeout, debug} = config;\r\nlet [where, where_parameterize, where_replacements] = whereOtps;\r\n\r\nif(where_parameterize){\r\n    replacements = util.restore_dates(where_replacements);\r\n    where = util.format(where, replacements, config.dialect);\r\n};\r\n\r\nvalues = util.restore_dates_in_object(values, convert);\r\n\r\nlet sql = await util.connect_sql(config);\r\ntry{\r\n    let sequelize = sql.sequelize;\r\n    let model = await util.get_model(sql, table, debug);\r\n    let options = {};\r\n    if(debug){\r\n        options.logging = BAS_CONSOLE_LOG;\r\n    };\r\n    if(typeof where==\"object\"){\r\n        options.where = where;\r\n    }else{\r\n        options.where = sequelize.literal(where);\r\n    };\r\n    if(fields!==\"\"){\r\n        options.fields = fields;\r\n    };\r\n    if(limit!==\"\"){\r\n        options.limit = limit;\r\n    };\r\n    let results = await model.update(values, options);\r\n    if(debug){\r\n        BAS_CONSOLE_LOG(\"Result: \" + JSON.stringify(results));\r\n    };\r\n    sql.setTimeout(timeout);\r\n}catch(err){\r\n    sql.setTimeout(timeout);\r\n    throw err;\r\n};",
+            "DataName": "SQL_UpdateRecords",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilSQL || require(\"../UtilSQL\");\r\n\r\nlet [config, table, fields, data, convert] = [[SQL_NODE_PARAMETERS]];\r\nlet {id, timeout, debug} = config;\r\n\r\nlet sql = await util.connect_sql(config);\r\ntry{\r\n    let model = await util.get_model(sql, table, debug);\r\n    let options = {};\r\n    if(debug){\r\n        options.logging = BAS_CONSOLE_LOG;\r\n    };\r\n    if(fields!==\"\"){\r\n        options.fields = fields;\r\n        data = util.format_data(data, fields, convert);\r\n    }else{\r\n        data = util.format_data(data, sql.fields, convert);\r\n    };\r\n    let results = await model.bulkCreate(data, options);\r\n    if(debug){\r\n        BAS_CONSOLE_LOG(\"Result: \" + JSON.stringify(results));\r\n    };\r\n    sql.setTimeout(timeout);\r\n}catch(err){\r\n    sql.setTimeout(timeout);\r\n    throw err;\r\n};",
+            "DataName": "SQL_InsertMultipleRecords",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilSQL || require(\"../UtilSQL\");\r\n\r\nlet [config, table, whereOtps] = [[SQL_NODE_PARAMETERS]];\r\nlet {id, timeout, debug} = config;\r\nlet [where, where_parameterize, where_replacements] = whereOtps;\r\n\r\nif(where_parameterize){\r\n    replacements = util.restore_dates(where_replacements);\r\n    where = util.format(where, replacements, config.dialect);\r\n};\r\n\r\nlet sql = await util.connect_sql(config);\r\ntry{\r\n    let sequelize = sql.sequelize;\r\n    let model = await util.get_model(sql, table, debug);\r\n    let options = {};\r\n    if(debug){\r\n        options.logging = BAS_CONSOLE_LOG;\r\n    };\r\n    if(where!==\"\"){\r\n        if(typeof where==\"object\"){\r\n            options.where = where;\r\n        }else{\r\n            options.where = sequelize.literal(where);\r\n        };\r\n    };\r\n    let results = await model.count(options);\r\n    if(debug){\r\n        BAS_CONSOLE_LOG(\"Result: \" + JSON.stringify(results));\r\n    };\r\n    [[SQL_NODE_PARAMETERS]] = results;\r\n    sql.setTimeout(timeout);\r\n}catch(err){\r\n    sql.setTimeout(timeout);\r\n    throw err;\r\n};",
+            "DataName": "SQL_CountRecords",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilSQL || require(\"../UtilSQL\");\r\n\r\nlet [config, table, fields, data, convert, idFieldName] = [[SQL_NODE_PARAMETERS]];\r\nlet {id, timeout, debug} = config;\r\n\r\nlet sql = await util.connect_sql(config);\r\ntry{\r\n    let model = await util.get_model(sql, table, debug);\r\n    let options = {};\r\n    if(debug){\r\n        options.logging = BAS_CONSOLE_LOG;\r\n    };\r\n    if(fields!==\"\"){\r\n        options.fields = fields;\r\n        data = util.format_data(data, fields, convert);\r\n    }else{\r\n        data = util.format_data(data, sql.fields, convert);\r\n    };\r\n    let result = await model.create(data[0], options);\r\n    if(debug){\r\n        BAS_CONSOLE_LOG(\"Result: \" + JSON.stringify(result));\r\n    };\r\n    if(idFieldName){\r\n        [[SQL_NODE_PARAMETERS]] = result[idFieldName];\r\n    };\r\n    sql.setTimeout(timeout);\r\n}catch(err){\r\n    sql.setTimeout(timeout);\r\n    throw err;\r\n};",
+            "DataName": "SQL_InsertRecord",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        }
+    ],
+    "engine": [
+        "engine.js"
+    ],
+    "icon": "SQL.png",
+    "info": {
+        "en": "Module for working with SQL databases (Postgres, MySQL, MariaDB, SQLite, MSSQL).",
+        "ru": "Модуль для работы с SQL базами данных (Postgres, MySQL, MariaDB, SQLite, MSSQL)."
+    },
+    "is_autogenerated": true,
+    "languages": [
+        {
+            "Name": "Node",
+            "Version": "18.10.0"
+        }
+    ],
+    "localize": {
+		"Port": {"ru":"Порт"},
+		"is empty": {"ru":"пуст"},
+		"Username": {"ru":"Логин"},
+		"Timeout": {"ru":"Таймаут"},
+		"Password": {"ru":"Пароль"},
+		"Host name": {"ru":"Имя хоста"},
+		"The parameter \"": {"ru":"Параметр \""},
+		"Database name": {"ru":"Имя базы данных"},
+		"Can be blank": {"ru":"Может быть пустым"},
+		"Database port.": {"ru":"Порт базы данных."},
+		"\" is not specified": {"ru":"\" не указан"},
+		"Dialect options": {"ru":"Настройки диалекта"},
+		"Timeout (seconds)": {"ru":"Таймаут (секунд)"},
+		"Database dialect": {"ru":"Диалект базы данных"},
+		"Database storage": {"ru":"Хранилище базы данных"},
+		"Dialect of SQL database.": {"ru":"Диалект SQL базы данных."},
+		"Username of the database.": {"ru":"Имя пользователя базы данных."},
+		"Connection timeout (seconds)": {"ru":"Таймаут подключения (секунд)"},
+		"Password of the database.": {"ru":"Пароль пользователя базы данных."},
+		"Host (URL or IP) of the database.": {"ru":"Хост (URL или IP) базы данных."},
+		"Setup access to SQL database.": {"ru":"Настроить доступ к SQL базе данных."},
+		"Default port for PostgreSQL dialect": {"ru":"Порт по умолчанию для диалекта PostgreSQL"},
+		"Default port for MicrosoftSQL dialect": {"ru":"Порт по умолчанию для диалекта MicrosoftSQL"},
+		"Automatically detect port based on dialect": {"ru":"Автоматически определять порт по диалекту"},
+		"Default port for MySQL and MariaDB dialects": {"ru":"Порт по умолчанию для диалектов MySQL и MariaDB"},
+		"The default timeout for the dialect being used": {"ru":"Таймаут по умолчанию для используемого диалекта"},
+		"The path to the database storage. Only used by SQLite.": {"ru":"Путь к хранилищу базы данных. Используется только SQLite."},
+        "It will be preserved for a time specified in this parameter.": {"ru":"Оно будет храниться в течение времени, указанного в этом параметре."},
+        "It will be preserved for a time specified in \"Timeout\" parameter.": {"ru":"Оно будет храниться в течение времени, указанного в параметре \"Таймаут\"."},
+        "If another action will require access to database, connection will be reused.": {"ru":"Если другое действие снова потребует доступа к базе, соединение будет повторно использовано."},
+		"This action should be called once before any other action that works with the SQL database.": {"ru":"Это действие нужно вызвать один раз перед любым другим действием, которое работает с SQL базой данных."},
+        "If a resource is specified in the \"Database storage\" parameter, resource location will be used.": {"ru":"Если в параметре \"Хранилище базы данных\" указан ресурс, вместо содержимого ресурса будет браться его расположение."},
+		"Additional options, which are passed directly to the connection library. Object or json string containing options.": {"ru":"Дополнительные параметры, которые передаются непосредственно в библиотеку подключения. Объект или json строка содержащая параметры."},
+        "You don't need to close connection explicitly, it will be closed automatically after timeout or when the script will stop.": {"ru":"Вам не нужно специально закрывать соединение, оно будет закрыто автоматически по истечении таймаута или при остановке скрипта."},
+		"The number of seconds after which the connection to the database will be considered unsuccessful. If not specified, the default value for the dialect used will be used.": {"ru":"Количество секунд, по истечению которого подключение к базе будет считается неудачным. Если не указан, то будет использовано значение по умолчанию для используемого диалекта."},
+		"In additional settings, you can specify dialect options. For example, use <code>{multipleStatements: true}</code> to enable multiple statements in one for MySQL and MariaDB.": {"ru":"В дополнительных настройках вы можете указать настройки диалекта. Например, используйте <code>{multipleStatements: true}</code> чтобы включить несколько запросов в одном для MySQL и MariaDB."},
+        "This action won't start connection, it only sets configuration. Connection will be established after first attempt to access the database. When action, which triggers connection will be finished, connection won't be closed immediately.": {"ru":"Это действие не устанавливает соединение сразу. Соединение будет установлено только после первой попытки доступа к базе. Когда действие, запускающее соединение, будет завершено, соединение не будет закрыто."},
+		
+		"Example:": {"ru":"Пример:"},
+		"SQL query": {"ru":"SQL запрос"},
+		"tutorial": {"ru":"руководстве"},
+		"Activated": {"ru":"Активирован"},
+		"Data format": {"ru":"Формат данных"},
+		"Deactivated": {"ru":"Деактивирован"},
+		"Can be blank": {"ru":"Может быть пустым"},
+		"will be replaced by": {"ru":"будет заменено на"},
+		"NAME variable content": {"ru":"Содержимое переменной NAME"},
+		"country resource content": {"ru":"Содержимое ресурса country"},
+		"Variable to save the result": {"ru":"Переменная, в которую сохранить результат"},
+		"Parameterize variables and resources": {"ru":"Параметризировать переменные и ресурсы"},
+		"Parameterize variables and resources in the query.": {"ru":"Параметризировать переменные и ресурсы в запросе."},
+		"Execute an arbitrary query against an SQL database.": {"ru":"Выполнить произвольный запрос к SQL базе данных."},
+		"Lists can be processed using actions from the \"List\" module.": {"ru":"Списки можно обработать с помощью действий из модуля \"Список\"."},
+		"Objects can be processed using actions from the \"JSON\" module.": {"ru":"Объекты можно обработать с помощью действий из модуля \"JSON\"."},
+		"For different dialects, the result of parameterization may differ.": {"ru":"Для разных диалектов результат параметризации может отличатся."},
+		"If enabled, data from variables and resources will be escaped.": {"ru":"Если активирован, то данные из переменных и ресурсов будут экранированы."},
+		"A query can have multiple lines, you can learn more about SQL in": {"ru":"Запрос может иметь несколько строк, подробнее о SQL вы можете узнать в"},
+		"2D list - a list that consists of lists containing the field values.": {"ru":"2D list - это список, состоящий из списков, содержащих значения полей."},
+		"CSV lines can be parsed using the \"Parse Line\" action from the \"Tools\" module.": {"ru":"CSV строки можно распарсить с помощью действия \"Парсить строку\" из модуля \"Инструменты\"."},
+		"In order to execute this action correctly you need to run \"Setup connection\" action first.": {"ru":"Для правильной работы необходимо сначала выполнить действие \"Настроить соединение\"."},
+		"The format in which the received data will be stored in a variable if a SELECT query is executed.": {"ru":"Формат, в котором полученные данные будут сохранены в переменной, если выполняется SELECT запрос."},
+		"Variable in which, after successful execution of the action, the results of the query will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записаны результаты выполнения запроса."},
+		"If a SELECT query is executed, the format of the saved data depends on the \"Data format\" setting.": {"ru":"Если выполняется SELECT запрос, то формат сохраняемых данных зависит от значения параметра \"Формат данных\"."},
+		"CSV list - a list that consists of CSV lines and CSV line consists of field values separated with \":\" symbol.": {"ru":"CSV list - это список, состоящий из CSV строк, а CSV строка состоит из значений полей, разделенных символом \":\"."},
+		"CSV string - this CSV lines separated by a line break, and consisting of field values separated with \":\" symbol.": {"ru":"CSV string - это CSV строки, разделенные переносом строки и состоящие из значений полей, разделенных символом \":\"."},
+		"Object list - a list that consists of objects, in the object the key is the name of the field, and the value is the content of the field.": {"ru":"Object list - это список, состоящий из объектов, в объекте ключ - это имя поля, а значение - это содержимое поля."},
+		"If the parameter \"Parameterize variables and resources\" is activated, then data from variables and resources will be escaped.": {"ru":"Если активирован параметр \"Параметризировать переменные и ресурсы\", то данные из переменных и ресурсов будут экранированы."},
+		"If an error occurred while execute action, the thread will stop with fail message. If you want to continue thread, use \"Ignore errors\" action.":{"ru":"Если во время выполнения действия произойдет ошибка, поток остановится с сообщением об ошибке. Если вы хотите продолжить работу, используйте действие \"Игнорировать ошибки\"."},
+		"For example, this query <code>SELECT * FROM users WHERE name = [[NAME]]</code> will be replaced with this one <code>SELECT * FROM users WHERE name = 'NAME variable content'</code>. In case if parameter \"Parameterize variables and resources\" is disabled, query will be following <code>SELECT * FROM users WHERE name = NAME variable content</code>.": {"ru":"Например, этот запрос <code>SELECT * FROM users WHERE name = [[NAME]]</code> будет заменен на этот <code>SELECT * FROM users WHERE name = 'Содержимое переменной NAME'</code>. В случае если параметр \"Параметризировать переменные и ресурс\" отключен, запрос будет следующим <code>SELECT * FROM users WHERE name = Содержимое переменной NAME</code>."},
+		
+		"Filter": {"ru":"Фильтр"},
+		"id equals 10": {"ru":"id равно 10"},
+		"Include all columns": {"ru":"Включить все поля"},
+		"radius from 30 to 90": {"ru":"radius от 30 до 90"},
+		"amount field is empty": {"ru":"Поле amount пустое"},
+		"Don't skip records": {"ru":"Не пропускайте записи"},
+		"Do not exclude columns": {"ru":"Не исключать поля"},
+		"Do not filter records": {"ru":"Не фильтровать записи"},
+		"Additional settings": {"ru":"Дополнительные настройки"},
+		"List of included columns": {"ru":"Список включенных полей"},
+		"List of excluded columns": {"ru":"Список исключенных полей"},
+		"Number of records to skip.": {"ru":"Количество записей, которые нужно пропустить."},
+		"Select single record from SQL database.": {"ru":"Получить одну запись из SQL базы данных."},
+		"List - a list consists the field values.": {"ru":"List - это список, состоящий из значений полей."},
+		"id is equal to the value from the variable [[ID]]": {"ru":"id равно значению из переменной [[ID]]"},
+		"id is equal to a value from the list 4, 12, 58, 67": {"ru":"id равно значению из списка 4, 12, 58, 67"},
+		"name is equal to john and balance is more than one hundred": {"ru":"name равно john и balance больше ста"},
+		"title is equal to the value from the resource {{title}}": {"ru":"title равно значению из ресурса {{title}}"},
+		"Parameterize variables and resources in the filter.": {"ru":"Параметризировать переменные и ресурсы в фильтре."},
+		"List of column names to be included in the final results.": {"ru":"Список имен полей, которые будут включены в итоговые результаты."},
+		"List of column names to be excluded from the final results.": {"ru":"Список имен полей, которые будут исключены из итоговых результатов."},
+		"id is equal to the value from the list in the [[ID_LIST]] variable": {"ru":"id равно значению из списка находящемуся в переменной [[ID_LIST]]"},
+		"The format in which the received data will be stored in a variable.": {"ru":"Формат, в котором полученные данные будут сохранены в переменной."},
+		"CSV - a string consisting of field values separated by \":\".": {"ru":"CSV - это строка, состоящая из значений полей, разделенных символом \":\"."},
+		"The format of the saved data depends on the \"Data format\" setting.": {"ru":"Формат сохраняемых данных зависит от значения параметра \"Формат данных\"."},
+		"The filter has SQL WHERE clause syntax, you can learn more about SQL WHERE in": {"ru":"Фильтр имет синтаксис SQL условия WHERE, подробнее о SQL WHERE вы можете узнать в"},
+		"As a list, you can use a string consisting of column names, separated by commas.": {"ru":"В качестве списка можно использовать строку, состоящую из имен полей, разделенных запятыми."},
+		"Object - an object, in which the key - a field name and value - the content of the field.": {"ru":"Object - это объект, в котором ключ - это имя поля, а значение - это содержимое поля."},
+		"Variable in which, after successful execution of the action, the received record will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записана полученная запись."},
+		"If this parameter is specified, the value of the \"List of included columns\" parameter is ignored.": {"ru":"Если данный параметр указан, значение параметра \"Список включенных полей\" не учитывается."},
+		"If the \"List of excluded columns\" parameter is specified, the value of this parameter is ignored.": {"ru":"Если указан параметр \"Список исключенных полей\", значение данного параметра не учитывается."},
+		"If the parameter \"Parameterize variables and resources in the filter\" is activated, then data from variables and resources in the filter will be escaped.": {"ru":"Если активирован параметр \"Параметризировать переменные и ресурсы в фильтре\", то данные из переменных и ресурсов в фильтре будут экранированы."},
+		"For example, this filter <code>name = [[NAME]]</code> will be replaced with this one <code>name = 'NAME variable content'</code>. In case if parameter \"Parameterize variables and resources\" is disabled, filter will be following <code>name = NAME variable content</code>.": {"ru":"Например, этот фильтр <code>name = [[NAME]]</code> будет заменен на этот <code>name = 'Содержимое переменной NAME'</code>. В случае если параметр \"Параметризировать переменные и ресурс\" отключен, фильтр будет следующим <code>name = Содержимое переменной NAME</code>."},
+		"A set of conditions for selecting records, presented as a string with SQL syntax. In a SQL query it is used inside a WHERE clause, for example, a query with the filter <code style=\"font-size:85%\">name = 'name'</code> would look like this <code style=\"font-size:85%\">SELECT * FROM users WHERE name = 'name'</code>. The filter will be put in the query without any modification, except for variable and resource substitution.": {"ru":"Набор условий, предназначенных для отбора записей, представленный в виде строки имеющей SQL синтаксис. В SQL запросе используется внутри условия WHERE, например запрос с фильтром <code style=\"font-size:85%\">name = 'name'</code> выглядел бы так: <code style=\"font-size:85%\">SELECT * FROM users WHERE name = 'name'</code>. Фильтр будет помещен в запрос без каких-либо изменений, кроме подстановки переменных и ресурсов."},
+		
+		"Limit": {"ru":"Лимит"},
+		"Do not limit the number of results": {"ru":"Не ограничивайте количество результатов"},
+		"Select multiple records from SQL database.": {"ru":"Получить несколько записей из SQL базы данных."},
+		"Limiting the number of records in the final result.": {"ru":"Ограничение количества записей в итоговом результате."},
+		"Variable in which, after successful execution of the action, the received records will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записаны полученные записи."},
+		
+		"Values": {"ru":"Значения"},
+		"List of fields": {"ru":"Список полей"},
+		"Convert data": {"ru":"Преобразовывать данные"},
+		"will be converted to": {"ru":"будет преобразовано в"},
+		"Don't convert strings to another type": {"ru":"Не преобразовывать строки в другой тип"},
+		"Update single record from SQL database.": {"ru":"Обновить одну запись из SQL базы данных."},
+		"This action replaces the field values of an existing record with the specified ones.": {"ru":"Данное действие заменяет значения полей, уже существующей записи, на указанные."},
+		"List of field names that can be updated. Can be used as a constraint to avoid accidentally updating unnecessary fields.": {"ru":"Список имен полей, которые можно обновить. Может использоваться как ограничение, чтобы избежать случайного обновления ненужных полей."},
+		"Field names and values separated by \"=\", each field on a new line, or a variable containing an object with field values.": {"ru":"Названия полей и их значения разделенные символом \"=\", каждое поле с новой строки, или переменная содержащая объект с значениями полей."},
+		"If enabled, then numbers and booleans can be specified as a string and they will be automatically converted to the correct type.": {"ru":"Если активирован, то числа и булевый тип можно будет указывать в виде строки и они будут автоматически конвертированы в нужный тип."},
+		"To disable automatic data conversion, you need to deactivate the \"Convert data\" parameter located in the additional settings.": {"ru":"Чтобы отключить автоматическое преобразование данных, нужно деактивировать параметр \"Преобразовывать данные\", находящийся в дополнительных настройках."},
+		"For example, the string <code>\"123\"</code> will be automatically converted to the number <code>123</code>, and the string <code>\"true\"</code> will be converted to the boolean type <code>true</code>.": {"ru":"Например, строка <code>\"123\"</code> будет автоматически преобразована в число <code>123</code>, а строка <code>\"true\"</code> будет преобразована в булевый тип <code>true</code>."},
+		
+		"Update all fields": {"ru":"Обновить все поля"},
+		"Update all records matching filters": {"ru":"Обновлять все записи, подходящие под фильтры"},
+		"Limiting the number of updated records.": {"ru":"Ограничение количества обновляемых записей."},
+		"Update multiple records from SQL database.": {"ru":"Обновить несколько записей из SQL базы данных."},
+		"This action replaces the values of the fields of existing records with the specified ones.": {"ru":"Данное действие заменяет значения полей, уже существующих записей, на указанные."},
+		
+		"Delete single record from SQL database.": {"ru":"Удалить одну запись из SQL базы данных."},
+		
+		"Delete all records matching filters": {"ru":"Удалить все записи, подходящие под фильтры"},
+		"Limiting the number of records to be deleted.": {"ru":"Ограничение количества удаляемых записей."},
+		"Delete multiple records from SQL database.": {"ru":"Удалить несколько записей из SQL базы данных."},
+		
+		"Number of records": {"ru":"Количество записей"},
+		"Get the number of records from SQL database.": {"ru":"Получить количество записей из SQL базы данных."},
+		"Variable in which, after successful execution of the action, the number of records will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записано количество записей."},
+		
+		"Can be blank": {"ru":"Может быть пустым"},
+		"Identifier field name": {"ru":"Имя поля идентификатора"},
+		"Insert single record into SQL database.": {"ru":"Вставить одну запись в SQL базу данных."},
+		"The data to be inserted into the database.": {"ru":"Данные, которые нужно вставить в базу."},
+		"Variable to save the record identifier": {"ru":"Переменная, в которую сохранить идентификатор записи"},
+		"Do not get the identifier of the inserted record.": {"ru":"Не получать идентификатор вставленной записи."},
+		"Insert all fields, the order of the fields matches the database": {"ru":"Вставлять все поля, порядок полей совпадает с базой"},
+		"The field value can be string, number, boolean or date.": {"ru":"Значением поля может быть строка, число, булевый тип или дата."},
+		"You can write strings, numbers, booleans and dates to field.": {"ru":"В поле можно записывать строки, числа, булевый тип и дату."},
+		"Data can be generated manually by using \"List\" module or \"Template\" action.": {"ru":"Данные можно сгенерировать вручную с помощью модуля \"Список\" или действия \"Шаблон\"."},
+		"The name of the identifier field, required to get the identifier of the inserted record.": {"ru":"Имя поля идентификатора, необходимо для получения идентификатора вставленной записи."},
+		"Data in a suitable format can be obtained from the actions: \"Select single record\", \"Select multiple records\".": {"ru":"Данные в подходящем формате можно получить из действий: \"Получить одну запись\", \"Получить несколько записей\"."},
+		"List of field names to be inserted. Can be used as a constraint to avoid accidentally inserting unnecessary fields.": {"ru":"Список имен полей, которые будут вставлены. Может использоваться как ограничение, чтобы избежать случайной вставки ненужных полей."},
+		"This action accepts data in the formats: \"CSV\", \"CSV list\", \"CSV string\", \"List\", \"2D list\", \"Object\", \"Object list\".": {"ru":"Данное действие принимает данные в форматах: \"CSV\", \"CSV list\", \"CSV string\", \"List\", \"2D list\", \"Object\", \"Object list\"."},
+		"Also, this parameter must be specified if the data format is not \"Object list\" or \"Object\" and the order of the fields does not match the table.": {"ru":"Также, данный параметр нужно указывать, если формат данных не \"Object list\" или \"Object\" и порядок полей не совподает с таблицей."},
+		"Variable in which, after successful execution of the action, the identifier of the inserted record will be written, if the \"Identifier field name\" parameter is specified.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан идентификатор вставленной записи, если указан параметр \"Имя поля идентификатора\"."},
+		"If the data format is not \"Object list\" or \"Object\" and the order of the fields in the data does not correspond to the database, then the \"List of fields\" parameter must be specified.": {"ru":"Если формат данных не \"Object list\" или \"Object\" и в данных порядок полей не соответствует базе, то нужно указывать параметр \"Список полей\"."},
+		"Numbers and booleans can be specified as a string and they will be automatically converted to the correct type, and dates are perceived only as a javascript date object.": {"ru":"Числа и булевый тип можно указывать в виде строки и они будут автоматически конвертированы в нужный тип, а даты воспринимаются только в виде javascript объекта даты."},
+		"For example, the string <code>\"text:123:true\"</code> will be automatically converted to values for three cells, the string <code>\"text\"</code>, the number <code>123</code>, and the boolean <code>true</code>.": {"ru":"Например, строка <code>\"текст:123:true\"</code> будет автоматически преобразована в значения для трех ячеек, строку <code>\"текст\"</code>, число <code>123</code>, и булевый тип <code>true</code>."},
+		"If the \"Identifier field name\" parameter is specified, then after the successful execution of the action, the identifier of the inserted record will be written to the variable specified in the \"Variable to save the record identifier\" parameter.": {"ru":"Если указан параметр \"Имя поля идентификатора\", то после успешного выполнения действия идентификатор вставленной записи будет записан в переменную, указанную в параметре \"Переменная, в которую сохранить идентификатор записи\"."},
+		
+		"Insert multiple records into SQL database.": {"ru":"Вставить несколько записей в SQL базу данных."},
+		
+		"Close connection to SQL database.": {"ru":"Закрыть соединение с SQL базой данных."},
+		"If connection is already closed or not open yet, this action will do nothing.": {"ru":" Если соединение уже закрыто или ещё не открыто, это действие ничего не сделает."},
+        "Exact autoclose timeout is specified in \"Setup connection\" action.":{"ru":"Точный значение максимального времени ожидания можно задать в действии \"Настроить соединение\"."},
+        "This action is optional because connection is closed automatically if it is not used for a long time.": {"ru":"Это действие не является обязательным, так как соединение закрывается автоматически если оно не использовалось длительное время."},
+		
+		"Enable debug": {"ru":"Включить отладку"},
+		"Disable debug": {"ru":"Отключить отладку"},
+		"Enable SQL module debug.": {"ru":"Включить отладку SQL модуля."},
+		"Enable or disable SQL module debug.": {"ru":"Включить или отключить отладку SQL модуля."},
+		"If debug is enabled, all queries and their results will be displayed in the log.": {"ru":"Если отладка включена, все запросы и их результаты будут выводится в лог."}
+    },
+    "major_version": 1,
+    "minor_version": 3,
+    "modules": [
+        {
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0",
+            "ModuleName": "sequelize",
+            "ModuleVersion": "*"
+        },
+        {
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0",
+            "ModuleName": "mysql2",
+            "ModuleVersion": "*"
+        },
+        {
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0",
+            "ModuleName": "mariadb",
+            "ModuleVersion": "*"
+        },
+        {
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0",
+            "ModuleName": "tedious",
+            "ModuleVersion": "*"
+        },
+        {
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0",
+            "ModuleName": "pg",
+            "ModuleVersion": "*"
+        },
+        {
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0",
+            "ModuleName": "pg-hstore",
+            "ModuleVersion": "*"
+        },
+        {
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0",
+            "ModuleName": "sqlite3",
+            "ModuleVersion": "*"
+        }
+    ],
+    "name": "SQL"
+}

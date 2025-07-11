@@ -1,0 +1,1 @@
+_SMTP_DEBUG = (<%= enable %> == "enable")

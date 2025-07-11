@@ -1,0 +1,20 @@
+<div class="container-fluid">
+<%= _.template($('#input_constructor').html())({id:"string", description: tr("String"), default_selector: "string", disable_int:true, value_string: "", help: {description: tr("The string from which want to remove a part and/or add a new one."),examples:[{code:tr("Just sample text")},{code:"Test text"},{code:"string"}]} }) %>
+<%= _.template($('#input_constructor').html())({id:"from", description:tr("From index") + ". " + tr("Can be blank"), default_selector: "int", disable_string:true, value_number: "", min_number:-999999, max_number:999999, help: {description: tr("The character index at which to start modifying the string.") + " " + tr("If negative, indicates an offset from the end of the string."),examples:[{code:1, description:tr("From the second character")},{code:0, description:tr("From the first character")},{code:-1, description:tr("From the last character")},{code:tr("Empty string"), description:tr("From the beginning of the string")}]} }) %>
+<%= _.template($('#input_constructor').html())({id:"count", description:tr("Number of characters to remove"), default_selector: "int", disable_string:true, value_number: 0, min_number:0, max_number:999999, help: {description: tr("The number of characters to be removed."),examples:[{code:4},{code:2},{code:0, description:tr("Don't remove characters")}]} }) %>
+<%= _.template($('#input_constructor').html())({id:"substring", description: tr("Insertable substring") + ". " + tr("Can be blank"), default_selector: "string", value_string: "", help: {description: tr("Optional parameter.") + " " + tr("The substring to be inserted instead of the removed part."),examples:[{code:tr("sample")},{code:"text"},{code:"str"},{code:tr("Empty string"), description:tr("Don't insert a substring")}]} }) %>
+<%= _.template($('#variable_constructor').html())({id:"Save", description:tr("Variable to save the result"), default_variable: "RESULT_STRING", help: {description: tr("Variable in which, after successful execution of the action, the final string will be written."), examples:[{code:tr("sample text")},{code:"New text"},{code:"Test string"}]} }) %>
+</div>
+<div class="tooltipinternal">
+	<div class="tr tooltip-paragraph-first-fold">Remove part of the string and/or insert a new one.</div>
+	<div class="tr tooltip-paragraph-fold">This action can either delete part of the string, or insert a new part, or all at the same time.</div>
+	<div class="tr tooltip-paragraph-fold">This action will return the string resulting from all the manipulations.</div>
+	<div class="tr tooltip-paragraph-fold">To only remove, you need to specify a value greater than zero in the "Number of characters to remove" parameter, and do not specify the "Insertable substring" parameter.</div>
+	<div class="tr tooltip-paragraph-fold">For example, if is specified the string <code>"Test text"</code>, index is 0 and the number of characters is 5, then the action will return <code>"text"</code>.</div>
+	<div class="tr tooltip-paragraph-fold">To insert only, you need to specify the "Insertable substring" parameter, and specify zero in the "Number of characters to remove" parameter.</div>
+	<div class="tr tooltip-paragraph-fold">For example, if is specified the string <code>"Just string"</code>, index 5, number of characters 0 and substring <code>"example "</code>, then the action will return <code>"Just example string"</code>.</div>
+	<div class="tr tooltip-paragraph-fold">To delete and insert, you need to specify a value greater than zero in the "Number of characters to remove" parameter, and specify the "Insertable substring" parameter.</div>
+	<div class="tr tooltip-paragraph-fold">For example, if is specified the string <code>"Test not text"</code>, index 5, number of characters 3 and substring <code>"new"</code>, then the action will return <code>"Test new text"</code>.</div>
+	<div class="tr tooltip-paragraph-last-fold">If you only need to insert a substring, then you can use the "Insert at" action.</div>
+</div>
+<%= _.template($('#back').html())({action:"executeandadd", visible:true}) %>

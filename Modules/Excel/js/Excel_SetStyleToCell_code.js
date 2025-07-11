@@ -1,0 +1,1 @@
+_call_function(Excel_SetStyleToCell,{"FilePath":(<%= FilePath %>), "SheetIndexOrName":(<%= SheetIndexOrName %>), "CellAddress":(<%= CellAddress %>), "StyleName":(<%= StyleName %>), "StyleValue":(<%= StyleValue %>), "Sync":(<%= Sync %>), "Timeout":(<%= timeout_value() || 60000 %>)})!

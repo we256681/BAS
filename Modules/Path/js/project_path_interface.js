@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <%= _.template($('#variable_constructor').html())({id:"Save", description:tr("Variable to save the result"), default_variable: "PROJECT_PATH", help: {description: tr("Variable in which, after successful execution of the action, the path to the project file will be written."), examples:[{code:"D:/projects/Gparser.xml",description:tr("Not compiled script")},{code:"D:/Gparser/appslocal/ibq8y9qo/SID/engine/project.xml",description:tr("Unprotected compiled script")},{code:"D:/Gparser/appsremote/Gparser/SID/engine/project.xml",description:tr("Protected compiled script")}]}}) %>
+</div>
+<div class="tooltipinternal">
+    <div class="tr tooltip-paragraph-first-fold">Get the full path to the project file.</div>
+	<div class="tr tooltip-paragraph-fold">This action will return the full path to the project file. If the script is not compiled, then this action will return the path to the open project file. And if the script is compiled, then this action will return the path to the project.xml file located in the root folder of the engine.</div>
+	<div class="tooltip-paragraph-fold"><span class="tr">For example, if the script is not compiled and the <code>"Gparser"</code> project located in the <code>"D:/projects"</code> folder is open, then the action will return</span> <code>"D:/projects/Gparser.xml"</code>.</div>
+	<div class="tr tooltip-paragraph-fold">For compiled unprotected and protected scripts, the paths are slightly different, since the unprotected script saves the engine to the appslocal folder, and the protected one to the appsremote folder.</div>
+	<div class="tooltip-paragraph-fold"><span class="tr">For example, if the script is compiled without protection and is located in the <code>"D:/Gparser"</code> folder, then the action will return</span> <code>"D:/Gparser/appslocal/ibq8y9qo/SIDbfzc5bdv/engine/project.xml"</code>.</div>
+	<div class="tooltip-paragraph-last-fold"><span class="tr">For example, if the script is compiled with protection and is located in the <code>"D:/Gparser"</code> folder, then the action will return</span> <code>"D:/Gparser/appsremote/Gparser/SIDic9cmk8n/engine/project.xml"</code>.</div>
+</div>
+<%= _.template($('#back').html())({action:"executeandadd", visible:true}) %>

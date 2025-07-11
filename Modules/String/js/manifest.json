@@ -1,0 +1,1143 @@
+{
+    "actions": [
+		{
+            "code": [
+                {
+                    "file": "is_string_code.js",
+                    "name": "is_string_code"
+                }
+            ],
+            "description": {
+                "en": "Is string",
+                "ru": "Является ли строкой"
+            },
+            "interface": "is_string_interface.js",
+            "is_element": false,
+            "name": "is_string",
+            "select": "is_string_select.js",
+            "template": "{{data}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "is_not_empty_string_code.js",
+                    "name": "is_not_empty_string_code"
+                }
+            ],
+            "description": {
+                "en": "Is not empty",
+                "ru": "Не пустая строка"
+            },
+            "interface": "is_not_empty_string_interface.js",
+            "is_element": false,
+            "name": "is_not_empty_string",
+            "select": "is_not_empty_string_select.js",
+            "template": "{{data}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "to_string_code.js",
+                    "name": "to_string_code"
+                }
+            ],
+            "description": {
+                "en": "To string",
+                "ru": "В строку"
+            },
+            "interface": "to_string_interface.js",
+            "is_element": false,
+            "name": "to_string",
+            "select": "to_string_select.js",
+            "template": "{{data}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "to_number_code.js",
+                    "name": "to_number_code"
+                }
+            ],
+            "description": {
+                "en": "To number",
+                "ru": "В число"
+            },
+            "interface": "to_number_interface.js",
+            "is_element": false,
+            "name": "to_number",
+            "select": "to_number_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "number_format_code.js",
+                    "name": "number_format_code"
+                }
+            ],
+            "description": {
+                "en": "Format number",
+                "ru": "Форматировать число"
+            },
+            "interface": "number_format_interface.js",
+            "is_element": false,
+            "name": "number_format",
+            "select": "number_format_select.js",
+            "template": "{{number}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "count_substrings_code.js",
+                    "name": "count_substrings_code"
+                }
+            ],
+            "description": {
+                "en": "Count substrings",
+                "ru": "Количество подстрок"
+            },
+            "interface": "count_substrings_interface.js",
+            "is_element": false,
+            "name": "count_substrings",
+            "select": "count_substrings_select.js",
+            "template": "{{substring}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "get_substring_code.js",
+                    "name": "get_substring_code"
+                }
+            ],
+            "description": {
+                "en": "Get substring",
+                "ru": "Получить подстроку"
+            },
+            "interface": "get_substring_interface.js",
+            "is_element": false,
+            "name": "get_substring",
+            "select": "get_substring_select.js",
+            "template": "{{from}} : {{to}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "get_substring_between_code.js",
+                    "name": "get_substring_between_code"
+                }
+            ],
+            "description": {
+                "en": "Get substring between",
+                "ru": "Получить подстроку между"
+            },
+            "interface": "get_substring_between_interface.js",
+            "is_element": false,
+            "name": "get_substring_between",
+            "select": "get_substring_between_select.js",
+            "template": "{{left}} : {{right}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "remove_string_part_code.js",
+                    "name": "remove_string_part_code"
+                }
+            ],
+            "description": {
+                "en": "Remove string part",
+                "ru": "Удалить часть строки"
+            },
+            "interface": "remove_string_part_interface.js",
+            "is_element": false,
+            "name": "remove_string_part",
+            "select": "remove_string_part_select.js",
+            "template": "{{from}} * {{count}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "to_lower_case_code.js",
+                    "name": "to_lower_case_code"
+                }
+            ],
+            "description": {
+                "en": "To lower case",
+                "ru": "В нижний регистр"
+            },
+            "interface": "to_lower_case_interface.js",
+            "is_element": false,
+            "name": "to_lower_case",
+            "select": "to_lower_case_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "to_upper_case_code.js",
+                    "name": "to_upper_case_code"
+                }
+            ],
+            "description": {
+                "en": "To upper case",
+                "ru": "В верхний регистр"
+            },
+            "interface": "to_upper_case_interface.js",
+            "is_element": false,
+            "name": "to_upper_case",
+            "select": "to_upper_case_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "string_contains_code.js",
+                    "name": "string_contains_code"
+                }
+            ],
+            "description": {
+                "en": "Contains",
+                "ru": "Содержит"
+            },
+            "interface": "string_contains_interface.js",
+            "is_element": false,
+            "name": "string_contains",
+            "select": "string_contains_select.js",
+            "template": "{{substring}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "string_length_code.js",
+                    "name": "string_length_code"
+                }
+            ],
+            "description": {
+                "en": "Get length",
+                "ru": "Получить длину"
+            },
+            "interface": "string_length_interface.js",
+            "is_element": false,
+            "name": "string_length",
+            "select": "string_length_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "capitalize_words_code.js",
+                    "name": "capitalize_words_code"
+                }
+            ],
+            "description": {
+                "en": "Capitalize word",
+                "ru": "Слово с большой буквы"
+            },
+            "interface": "capitalize_words_interface.js",
+            "is_element": false,
+            "name": "capitalize_words",
+            "select": "capitalize_words_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "count_words_code.js",
+                    "name": "count_words_code"
+                }
+            ],
+            "description": {
+                "en": "Count words",
+                "ru": "Количество слов"
+            },
+            "interface": "count_words_interface.js",
+            "is_element": false,
+            "name": "count_words",
+            "select": "count_words_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "split_to_words_code.js",
+                    "name": "split_to_words_code"
+                }
+            ],
+            "description": {
+                "en": "Split sentence to words",
+                "ru": "Разделить предложение на слова"
+            },
+            "interface": "split_to_words_interface.js",
+            "is_element": false,
+            "name": "split_to_words",
+            "select": "split_to_words_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "split_to_sentences_code.js",
+                    "name": "split_to_sentences_code"
+                }
+            ],
+            "description": {
+                "en": "Split text to sentences",
+                "ru": "Разделить текст на предложения"
+            },
+            "interface": "split_to_sentences_interface.js",
+            "is_element": false,
+            "name": "split_to_sentences",
+            "select": "split_to_sentences_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "split_to_lines_code.js",
+                    "name": "split_to_lines_code"
+                }
+            ],
+            "description": {
+                "en": "Split text to lines",
+                "ru": "Разделить текст на строки"
+            },
+            "interface": "split_to_lines_interface.js",
+            "is_element": false,
+            "name": "split_to_lines",
+            "select": "split_to_lines_select.js",
+            "template": "{{string}} : {{separator}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "find_substring_code.js",
+                    "name": "find_substring_code"
+                }
+            ],
+            "description": {
+                "en": "Find substring",
+                "ru": "Найти подстроку"
+            },
+            "interface": "find_substring_interface.js",
+            "is_element": false,
+            "name": "find_substring",
+            "select": "find_substring_select.js",
+            "template": "{{substring}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "starts_with_code.js",
+                    "name": "starts_with_code"
+                }
+            ],
+            "description": {
+                "en": "Starts with",
+                "ru": "Начинается с"
+            },
+            "interface": "starts_with_interface.js",
+            "is_element": false,
+            "name": "starts_with",
+            "select": "starts_with_select.js",
+            "template": "{{substring}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "ends_with_code.js",
+                    "name": "ends_with_code"
+                }
+            ],
+            "description": {
+                "en": "Ends with",
+                "ru": "Заканчивается на"
+            },
+            "interface": "ends_with_interface.js",
+            "is_element": false,
+            "name": "ends_with",
+            "select": "ends_with_select.js",
+            "template": "{{substring}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "insert_substring_code.js",
+                    "name": "insert_substring_code"
+                }
+            ],
+            "description": {
+                "en": "Insert at",
+                "ru": "Вставить в"
+            },
+            "interface": "insert_substring_interface.js",
+            "is_element": false,
+            "name": "insert_substring",
+            "select": "insert_substring_select.js",
+            "template": "{{substring}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "base64_code.js",
+                    "name": "base64_code"
+                }
+            ],
+            "description": {
+                "en": "Base64 encode/decode",
+                "ru": "Base64 кодировать/декодировать"
+            },
+            "interface": "base64_interface.js",
+            "is_element": false,
+            "name": "base64",
+            "select": "base64_select.js",
+            "template": "{{Value}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "template_code.js",
+                    "name": "template_code"
+                }
+            ],
+            "description": {
+                "en": "Template",
+                "ru": "Шаблон"
+            },
+            "interface": "template_interface.js",
+            "is_element": false,
+            "name": "template",
+            "select": "template_select.js",
+            "template": "{{Template}} -> {{Save}}",
+			"suggestion":{  
+				"en":"randomize string, random string, spintax, multiline string",
+				"ru":"рандомизировать, случайная строка, спинтакс, многострочная переменная"
+			}
+        },
+		{
+            "code": [
+                {
+                    "file": "replacestring_code.js",
+                    "name": "replacestring_code"
+                }
+            ],
+            "description": {
+                "en": "Replace string",
+                "ru": "Заменить строку"
+            },
+            "interface": "replacestring_interface.js",
+            "is_element": false,
+            "name": "replacestring",
+            "select": "replacestring_select.js",
+            "template": "{{Value}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "randomstring_code.js",
+                    "name": "randomstring_code"
+                }
+            ],
+            "description": {
+                "en": "Random string",
+                "ru": "Случайная строка"
+            },
+            "interface": "randomstring_interface.js",
+            "is_element": false,
+            "name": "randomstring",
+            "select": "randomstring_select.js",
+            "template": "{{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "new_line_code.js",
+                    "name": "new_line_code"
+                }
+            ],
+            "description": {
+                "en": "Line ending symbol",
+                "ru": "Символ перевода строки"
+            },
+            "interface": "new_line_interface.js",
+            "is_element": false,
+            "name": "new_line",
+            "select": "new_line_select.js",
+            "template": "{{Save}}",
+            "suggestion":{"en": "end of line, eol, line feed, line break, carriage return","ru": "разрыв строки, разделитель строк, переход на новую строку, возврат каретки"}
+        },
+		{
+            "code": [
+                {
+                    "file": "join_strings_code.js",
+                    "name": "join_strings_code"
+                }
+            ],
+            "description": {
+                "en": "Join strings",
+                "ru": "Объединить строки"
+            },
+            "interface": "join_strings_interface.js",
+            "is_element": false,
+            "name": "join_strings",
+            "select": "join_strings_select.js",
+            "template": "{{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "latinize_code.js",
+                    "name": "latinize_code"
+                }
+            ],
+            "description": {
+                "en": "Latinize",
+                "ru": "Латинизировать"
+            },
+            "interface": "latinize_interface.js",
+            "is_element": false,
+            "name": "latinize",
+            "select": "latinize_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "declination_code.js",
+                    "name": "declination_code"
+                }
+            ],
+            "description": {
+                "en": "Decline",
+                "ru": "Склонять"
+            },
+            "interface": "declination_interface.js",
+            "is_element": false,
+            "name": "declination",
+            "select": "declination_select.js",
+            "template": "{{number}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "parse_csv_string_code.js",
+                    "name": "parse_csv_string_code"
+                }
+            ],
+            "description": {
+                "en": "Parse CSV string",
+                "ru": "Парсить CSV строку"
+            },
+            "interface": "parse_csv_string_interface.js",
+            "is_element": false,
+            "name": "parse_csv_string",
+            "select": "parse_csv_string_select.js",
+            "template": "{{string}} -> {{VariablesList}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "create_csv_string_code.js",
+                    "name": "create_csv_string_code"
+                }
+            ],
+            "description": {
+                "en": "Create CSV string",
+                "ru": "Создать CSV строку"
+            },
+            "interface": "create_csv_string_interface.js",
+            "is_element": false,
+            "name": "create_csv_string",
+            "select": "create_csv_string_select.js",
+            "template": "{{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "trim_code.js",
+                    "name": "trim_code"
+                }
+            ],
+            "description": {
+                "en": "Trim",
+                "ru": "Подровнять"
+            },
+            "interface": "trim_interface.js",
+            "is_element": false,
+            "name": "trim",
+            "select": "trim_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "clean_code.js",
+                    "name": "clean_code"
+                }
+            ],
+            "description": {
+                "en": "Clean",
+                "ru": "Очистить"
+            },
+            "interface": "clean_interface.js",
+            "is_element": false,
+            "name": "clean",
+            "select": "clean_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "extract_emails_code.js",
+                    "name": "extract_emails_code"
+                }
+            ],
+            "description": {
+                "en": "Extract all emails",
+                "ru": "Извлечь все почты"
+            },
+            "interface": "extract_emails_interface.js",
+            "is_element": false,
+            "name": "extract_emails",
+            "select": "extract_emails_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "extract_urls_code.js",
+                    "name": "extract_urls_code"
+                }
+            ],
+            "description": {
+                "en": "Extract all links",
+                "ru": "Извлечь все ссылки"
+            },
+            "interface": "extract_urls_interface.js",
+            "is_element": false,
+            "name": "extract_urls",
+            "select": "extract_urls_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "extract_phone_numbers_code.js",
+                    "name": "extract_phone_numbers_code"
+                }
+            ],
+            "description": {
+                "en": "Extract all phone numbers",
+                "ru": "Извлечь все телефонные номера"
+            },
+            "interface": "extract_phone_numbers_interface.js",
+            "is_element": false,
+            "name": "extract_phone_numbers",
+            "select": "extract_phone_numbers_select.js",
+            "template": "{{string}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "html_special_characters_code.js",
+                    "name": "html_special_characters_code"
+                }
+            ],
+            "description": {
+                "en": "HTML special characters encode/decode",
+                "ru": "Специальные HTML символы кодировать/декодировать"
+            },
+            "interface": "html_special_characters_interface.js",
+            "is_element": false,
+            "name": "html_special_characters",
+            "select": "html_special_characters_select.js",
+            "template": "{{string}} -> {{Save}}"
+        }
+    ],
+    "api_version": 1,
+    "browser": [
+    ],
+    "depends": [
+    ],
+    "description": "Module for working with strings",
+    "description_small": {
+        "en": "String",
+        "ru": "Строка"
+    },
+    "developer_email": "sasha9817@mail.ru",
+    "developer_name": "GhostZ",
+    "developer_site": "https://t.me/GhostZed",
+    "embeddeddata": [],
+    "engine": [
+        "engine.js"
+    ],
+    "icon": "string.png",
+    "info": {
+        "en": "Module for working with strings.",
+        "ru": "Модуль для работы со строками."
+    },
+    "languages": [],
+    "localize": {
+		"Not string": {"ru":"Не строка"},
+		"Just sample text": {"ru":"Просто пример текста"},
+		"The data is a string.": {"ru":"Данные являются строкой."},
+		"The data is not a string.": {"ru":"Данные не являются строкой."},
+		"Variable to save the result": {"ru":"Переменная, в которую сохранить результат"},
+		"Check if the specified data is a string.": {"ru":"Проверить, являются ли указанные данные строкой."},
+		"The data that need to check out whether they is a string.": {"ru":"Данные, которые нужно проверить на то являются ли они строкой."},
+		"This variable will be true or false depending on whether the specified data is a string.":{"ru":"Эта переменная будет равна true или false в зависимости от того, являются ли указанные данные строкой."},
+		"This action will return true or false depending on whether the specified data is a string. This result may be used with \"If\" action.": {"ru":"Это действие вернет true или false в зависимости от того, являются ли указанные данные строкой. Результат может быть использован вместе с действием \"If\"."},
+		"For example, if <code>\"Test text\"</code> is specified, then the action will return true, and if <code>123</code> or <code>true</code> is specified, then the action will return false.": {"ru":"Например, если указано <code>\"Тестовый текст\"</code>, то действие вернет true, а если укзано <code>123</code> или <code>true</code>, то действие вернет false."},
+		
+		"Not empty string": {"ru":"Не пустая строка"},
+		"Empty string or not string.": {"ru":"Пустая строка или не строка."},
+		"Check if the specified data is not an empty string.": {"ru":"Проверить, являются ли указанные данные не пустой строкой."},
+		"The data that need to check out whether they is not empty string.": {"ru":"Данные, которые нужно проверить на то являются ли они не пустой строкой."},		
+		"This variable will be true or false depending on whether the specified data is not an empty string.":{"ru":"Эта переменная будет равна true или false в зависимости от того, являются ли указанные данные не пустой строкой."},
+		"This action will return true or false depending on whether the specified data is not an empty string. This result may be used with \"If\" action.": {"ru":"Это действие вернет true или false в зависимости от того, являются ли указанные данные не пустой строкой. Результат может быть использован вместе с действием \"If\"."},
+		"For example, if <code>\"Test text\"</code> is specified, then the action will return true, and if <code>\"\"</code> or <code>123</code> is specified, then the action will return false.": {"ru":"Например, если указано <code>\"Тестовый текст\"</code>, то действие вернет true, а если укзано <code>\"\"</code> или <code>123</code>, то действие вернет false."},
+		
+		"Date": {"ru":"Дата"},
+		"Numbеr": {"ru":"Число"},
+		"Object": {"ru":"Объект"},
+		"Boolean": {"ru":"Булевый тип"},
+		"Convert the specified data to a string.": {"ru":"Преобразовать указанные данные в строку."},
+		"The data to be converted to a string.": {"ru":"Данные, которые нужно преобразовать в строку."},
+		"This action works with any type of data.": {"ru":"Это действие работает с любым типом данных."},
+		"This action will return a string representation of the specified data.": {"ru":"Это действие вернет строковое представление указанных данных."},
+		"Variable in which, after successful execution of the action, the string representation of the specified data will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записано строковое представление указанных данных."},
+		"For example, if <code>123</code> is specified, then the action will return <code>\"123\"</code>, and if <code>true</code> is specified, then the action will return <code>\"true\"</code>.": {"ru":"Например, если указано <code>123</code>, то действие вернет <code>\"123\"</code>, а если укзано <code>true</code>, то действие вернет <code>\"true\"</code>."},
+		
+		"Thousandth separator": {"ru":"Разделитель тысячных"},
+		"Do not round the number": {"ru":"Не округлять число"},
+		"Round to whole number": {"ru":"Округлить до целого числа"},
+		"Decimal separator": {"ru":"Разделитель целой и дробной части"},
+		"Number of decimal places": {"ru":"Количество знаков в дробной части"},
+		"Separator between thousandths.": {"ru":"Разделитель между тысячными."},
+		"The string to convert to a number.": {"ru":"Строка, которую нужно преобразовать в число."},
+		"Convert the specified string to a number.": {"ru":"Преобразовать указанную строку в число."},
+		"Separator between integer and decimal parts of a number.": {"ru":"Разделитель между целой и дробной частями числа."},
+		"The number of decimal places to which the number will be rounded.": {"ru":"Количество знаков в дробной части, до которого будет округлено число."},
+		"This action will return the numeric representation of the specified string.": {"ru":"Это действие вернет числовое представление указанной строки."},
+		"Variable in which, after successful execution of the action, the numeric representation of the specified string will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записано числовое представление указанной строки."},
+		"The final number can be rounded off by specifying the \"Number of decimal places\" parameter located in the additional settings.": {"ru":"Итоговое число можно округлить, указав параметр \"Количество знаков в дробной части\", находящийся в дополнительных настройках."},
+		"For example, if <code>\"123\"</code> is specified, then the action will return <code>123</code>, and if <code>\"123.45\"</code> is specified, then the action will return <code>123.45</code>.": {"ru":"Например, если указано <code>\"123\"</code>, то действие вернет <code>123</code>, а если укзано <code>\"123.45\"</code>, то действие вернет <code>123.45</code>."},
+		"This action can convert numbers in a non-standard format for this, you need to specify the \"Decimal separator\" and \"Thousandth separator\" parameters located in the additional settings.": {"ru":"Это действие может преобразовывать числа в нестандартном формате для этого нужно указать параметры \"Разделитель целой и дробной части\" и \"Разделитель тысячных\" находящиеся в дополнительных настройках."},
+		"For example, the string <code>\"1 967 567.3245\"</code> will be converted to the number <code>1967567.3245</code> if a comma is specified in the \"Decimal separator\" parameter, and a space is specified in the \"Thousandth separator\" parameter.": {"ru":"Например, строка <code>\"1 967 567,3245\"</code> будет преобразована в число <code>1967567.3245</code>, если в параметре \"Разделитель целой и дробной части\" указана запятая, а в параметре \"Разделитель тысячных\" указан пробел."},
+		
+		"Don't change the number of characters": {"ru":"Не изменять количество символов"},
+		"Minimum number of characters in the number": {"ru":"Минимальное количество символов в числе"},
+		"The number to format and convert to a string.": {"ru":"Число, которое нужно форматировать и преобразовать в строку."},
+		"Format and convert the specified number to a string.": {"ru":"Форматировать и преобразовать в строку указанное число."},
+		"This action will return the formatted string representation of the specified number.": {"ru":"Это действие вернет форматированное строковое представление указанного числа."},
+		"Before formatting, the number can be rounded by specifying the \"Number of decimal places\" parameter.": {"ru":"Перед форматирование число можно округлить, указав параметр \"Количество знаков в дробной части\"."},
+		"This action can bring the number into a more readable form, for example, for further output to the log.": {"ru":"Данным действием можно привести число в более читабельный вид, например, для дальнейшего вывода в лог."},
+		"Variable in which, after successful execution of the action, the formatted string representation of the specified number will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записано форматированное строковое представление указанного числа."},
+		"The minimum number of characters in a number. If the number of characters is less than the specified number, then zeros will be added to the place of missing characters before the number.": {"ru":"Минимальное количество символов в числе. Если количество символов меньше указанного числа, то в место недостающих символов перед числом будут добавлены нули."},
+		"For example, the number <code>1967567.3245</code> will be converted to the string <code>\"1 967 567.3245\"</code> if a comma is specified in the \"Decimal separator\" parameter, and a space is specified in the \"Thousandth separator\" parameter.": {"ru":"Например, число <code>1967567.3245</code> будет преобразована в строку <code>\"1 967 567,3245\"</code>, если в параметре \"Разделитель целой и дробной части\" указана запятая, а в параметре \"Разделитель тысячных\" указан пробел."},
+		
+		"sample": {"ru":"пример"},
+		"Substring": {"ru":"Подстрока"},
+		"The substring is missing from the string.": {"ru":"Подстрока отсутствует в строке."},
+		"Contiguous sequence of characters within a string.": {"ru":"Непустая связная часть строки."},
+		"Get the number of substrings in the string.": {"ru":"Получить количество подстрок в строке."},
+		"The string from which to get the number of substrings.": {"ru":"Строка, из которой нужно получить количество подстрок."},
+		"This action will return a number equal to the number of substrings in the string.": {"ru":"Это действие вернет число, равное количеству подстрок в строке."},
+		"Variable in which, after successful execution of the action, the number of substrings in the string will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записано количество подстрок в строке."},
+		"For example, if the string <code>\"test text\"</code> is specified and the substring <code>\"te\"</code> is specified, then the action will return 2, and if the string is <code>\"Just example string\"</code> and the substring <code>\"example\"</code>, then the action will return 1.": {"ru":"Например, если указана строка <code>\"Тестовый текст\"</code> и подстрока <code>\"те\"</code>, то действие вернет 2, а если указана строка <code>\"Просто пример строки\"</code> и подстрока <code>\"пример\"</code>, то действие вернет 1."},
+		
+		"To index": {"ru":"До индекса"},
+		"From index": {"ru":"С индекса"},
+		"To the end of the string": {"ru":"До конца строки"},
+		"To the first character": {"ru":"До первого символа"},
+		"To the second character": {"ru":"До второго символа"},
+		"From the first character": {"ru":"С первого символа"},
+		"To the last character": {"ru":"До последнего символа"},
+		"From the second character": {"ru":"С второго символа"},
+		"From the last character": {"ru":"С последнего символа"},
+		"From the beginning of the string": {"ru":"С начала строки"},
+		"Get a substring from the string.": {"ru":"Получить подстроку из строки."},
+		"The string from which to get the substring.": {"ru":"Строка, из которой нужно получить подстроку."},
+		"This action will return the received substring.": {"ru":"Это действие вернет полученную подстроку."},
+		"If negative, indicates an offset from the end of the string.": {"ru":"Если отрицателен, то указывает смещение от конца строки."},
+		"The index of the character at which to start getting the substring.": {"ru":"Индекс символа, с которого начинается получение подстроки."},
+		"The index of the character at which the retrieval of the substring ends.": {"ru":"Индекс символа, которым заканчивается получение подстроки."},
+		"Variable in which, after successful execution of the action, the substring will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записана подстрока."},
+		"If the \"From index\" and \"To index\" parameters are not specified, the entire string will be received.": {"ru":"Если параметры \"С индекса\" и \"До индекса\" не указаны, будут получена вся строка."},
+		"If the index is a negative number, then it is interpreted as the number of characters from the end of the string.": {"ru":"Если индекс отрицательное число, то он интерпретируется как количество символов с конца строки."},
+		"If both parameters \"From Index\" and \"To Index\" are specified, all characters from specified to specified will be received.": {"ru":"Если оба параметра \"С индекса\" и \"До индекса\" указаны, будут получены все символы с указанного до указанного."},
+		"If the \"From index\" parameter is not specified and the \"To index\" parameter is specified, all characters from the first to the specified one will be received.": {"ru":"Если параметр \"С индекса\" не указан, а параметр \"До индекса\" указан, будут получены все символы с первого до указанного."},
+		"If the \"From index\" parameter is specified and the \"To index\" parameter is not specified, all characters from the specified to the end of the string will be received.": {"ru":"Если параметр \"С индекса\" указан, а параметр \"До индекса\" не указан, будут получены все символы с указанного до конца строки."},
+		"For example, to get the substring <code>\"example\"</code> from the string <code>\"Just example string\"</code>, you need to specify 5 in the \"From index\" parameter and specify 12 in the \"To index\" parameter.": {"ru":"Например, чтобы получить из строки <code>\"Просто пример строки\"</code> подстроку <code>\"пример\"</code>, нужно в параметр \"С индекса\" указать 7, а в парамет \"До индекса\" указть 13."},
+		
+		"Left substring": {"ru":"Левая подстрока"},
+		"Right substring": {"ru":"Правая подстрока"},
+		"Get a substring between two substrings.": {"ru":"Получить подстроку между двумя подстроками."},
+		"The substring to the left of the substring to get.": {"ru":"Подстрока находящаяся слева от подстроки которую нужно получить."},
+		"The substring to the right of the substring to get.": {"ru":"Подстрока находящаяся справа от подстроки которую нужно получить."},
+		"If the \"Left substring\" and \"Right substring\" parameters are not specified, the entire string will be received.": {"ru":"Если параметры \"Левая подстрока\" и \"Правая подстрока\" не указаны, будут получена вся строка."},
+		"If both parameters \"Left substring\" and \"Right substring\" are specified, all characters from the specified substring to the specified substring will be received.": {"ru":"Если оба параметра \"Левая подстрока\" и \"Правая подстрока\" указаны, будут получены все символы от указанной подстроки до указанной подстрки."},
+		"If the \"Left substring\" parameter is not specified and the \"Right substring\" parameter is specified, all characters from the first to the specified substring will be received.": {"ru":"Если параметр \"Левая подстрока\" не указан, а параметр \"Правая подстрока\" указан, будут получены все символы с первого до указанной подстрки."},
+		"If the \"Left substring\" parameter is specified and the \"Right substring\" parameter is not specified, all characters from the specified substring to the end of the string will be received.": {"ru":"Если параметр \"Левая подстрока\" указан, а параметр \"Правая подстрока\" не указан, будут получены все символы от указанной подстроки до конца строки."},
+		"For example, to get the substring <code>\"Text title\"</code> from the string <code>\"&lt;h1&gt;Text title&lt;/h1&gt;\"</code>, you need to specify <code>\"&lt;h1&gt;\"</code> in the \"Left substring\" parameter and specify <code>\"&lt;/h1&gt;\"</code> in the \"Right substring\" parameter.": {"ru":"Например, чтобы получить из строки <code>\"&lt;h1&gt;Заголовок текста&lt;/h1&gt;\"</code> подстроку <code>\"Заголовок текста\"</code>, нужно в параметр \"Левая подстрока\" указать <code>\"&lt;h1&gt;\"</code>, а в парамет \"Правая подстрока\" указть <code>\"&lt;/h1&gt;\"</code>."},
+		
+		"sample text": {"ru":"пример текста"},
+		"Insertable substring": {"ru":"Вставляемая подстрока"},
+		"Don't remove characters": {"ru":"Не удалять символы"},
+		"Don't insert a substring": {"ru":"Не вставить подстроку"},
+		"Number of characters to remove": {"ru":"Количество удаляемых символов"},
+		"The number of characters to be removed.": {"ru":"Количество символов, которые будут удалены."},
+		"Remove part of the string and/or insert a new one.": {"ru":"Удалите часть строки и/или вставьте новую."},
+		"The character index at which to start modifying the string.": {"ru":"Индекс символа, с которого начинается изменение строки."},
+		"The substring to be inserted instead of the removed part.": {"ru":"Подстрока, которая будет вставлена вместо удаленной части."},
+		"The string from which want to remove a part and/or add a new one.": {"ru":"Строка, из которой нужно удалить часть и/или добавить новую."},
+		"This action will return the string resulting from all the manipulations.": {"ru":"Это действие вернет строку, полученную в итоге выполнения всех манипуляций."},
+		"If you only need to insert a substring, then you can use the \"Insert at\" action.": {"ru":"Если вам нужно только вставить подстроку, то вы можете использовать действие \"Вставить в\"."},
+		"Variable in which, after successful execution of the action, the final string will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записана итоговая строка."},
+		"This action can either delete part of the string, or insert a new part, or all at the same time.": {"ru":"Это действие может либо удалить часть строки, либо вставить новую часть, либо все одновременно."},
+		"To insert only, you need to specify the \"Insertable substring\" parameter, and specify zero in the \"Number of characters to remove\" parameter.": {"ru":"Чтобы только вставить, нужно указать параметр \"Вставляемая подстрока\", а в параметр \"Количество удаляемых символов\" указать ноль."},
+		"For example, if is specified the string <code>\"Test text\"</code>, index is 0 and the number of characters is 5, then the action will return <code>\"text\"</code>.": {"ru":"Например, если указана строка <code>\"Тест текст\"</code>, индекс 0 и количество символов 5, то действие вернет <code>\"текст\"</code>."},
+		"To delete and insert, you need to specify a value greater than zero in the \"Number of characters to remove\" parameter, and specify the \"Insertable substring\" parameter.": {"ru":"Чтобы удалить и вставить, нужно указать в параметр \"Количество удаляемых символов\" значение больше нуля, и указать параметр \"Вставляемая подстрока\"."},
+		"To only remove, you need to specify a value greater than zero in the \"Number of characters to remove\" parameter, and do not specify the \"Insertable substring\" parameter.": {"ru":"Чтобы только удалить, нужно указать в параметр \"Количество удаляемых символов\" значение больше нуля, а параметр \"Вставляемая подстрока\" не указывать."},
+		"For example, if is specified the string <code>\"Test not text\"</code>, index 5, number of characters 3 and substring <code>\"new\"</code>, then the action will return <code>\"Test new text\"</code>.": {"ru":"Например, если указана строка <code>\"Тест не текст\"</code>, индекс 5, количество символов 2 и подстрока <code>\"новый\"</code>, то действие вернет <code>\"Тест новый текст\"</code>."},
+		"For example, if is specified the string <code>\"Just string\"</code>, index 5, number of characters 0 and substring <code>\"example \"</code>, then the action will return <code>\"Just example string\"</code>.": {"ru":"Например, если указана строка <code>\"Просто строки\"</code>, индекс 7, количество символов 0 и подстрока <code>\"пример \"</code>, то действие вернет <code>\"Просто пример строки\"</code>."},
+		
+		"just sample text": {"ru":"просто пример текста"},
+		"The string to be converted to lowercase.": {"ru":"Строка, которую нужно преобразовать в нижний регистр."},
+		"Convert all letters of the string to lowercase.": {"ru":"Преобразовать все буквы строки в нижний регистр."},
+		"Variable in which, after successful execution of the action, the converted string will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записана преобразованная строка."},
+		"This action will return a string in which all letters will be uppercase, and the rest of the characters will remain unchanged.": {"ru":"Это действие вернет строку, в которой все буквы будут иметь верхний регистр, а остальные символы останутся без изменений."},
+		"If you need to convert the first letter to uppercase, and the rest to lowercase, then use the action \"Capitalize word\".": {"ru":"Если вам нужно преобразовать первую букву в верхний регистр, а остальные в нижний регистр, то используйте действие \"Слово с большой буквы\"."},
+		"For example, the string <code>\"TEST\"</code> will be converted to the string <code>\"test\"</code>, and the string <code>\"Example String\"</code> will be converted to the string <code>\"example string\"</code>.": {"ru":"Например строка <code>\"ТЕСТ\"</code> будет преобразована в строку <code>\"тест\"</code>, а строка <code>\"Пример Строки\"</code> будет преобразована в строку <code>\"пример строки\"</code>."},
+		
+		"JUST SAMPLE TEXT": {"ru":"ПРОСТО ПРИМЕР ТЕКСТА"},
+		"The string to be converted to uppercase.": {"ru":"Строка, которую нужно преобразовать в верхний регистр."},
+		"Convert all letters of the string to uppercase.": {"ru":"Преобразовать все буквы строки в верхний регистр."},
+		"This action will return a string in which all letters will be lowercase, and the rest of the characters will remain unchanged.": {"ru":"Это действие вернет строку, в которой все буквы будут иметь нижний регистр, а остальные символы останутся без изменений."},
+		"For example, the string <code>\"test\"</code> will be converted to the string <code>\"TEST\"</code>, and the string <code>\"example string\"</code> will be converted to the string <code>\"EXAMPLE STRING\"</code>.": {"ru":"Например строка <code>\"тест\"</code> будет преобразована в строку <code>\"ТЕСТ\"</code>, а строка <code>\"пример строки\"</code> будет преобразована в строку <code>\"ПРИМЕР СТРОКИ\"</code>."},
+		
+		"The string contains a substring.": {"ru":"Строка содержит подстроку."},
+		"The string does not contain a substring.": {"ru":"Строка не содержит подстроку."},
+		"Check if a string contains a substring.": {"ru":"Проверить, содержит ли строка подстроку."},
+		"Substring, the contains of which is necessary to check.": {"ru":"Подстрока, содержание которой нужно проверить."},
+		"The string in which to check the contains of the substring.": {"ru":"Строка, в которой нужно проверить содержание подстроки."},
+		"This variable will be true or false depending on whether the string contains a substring.":{"ru":"Эта переменная будет равна true или false в зависимости от того, содержит ли строка подстроку."},
+		"This action will return true or false depending on whether the string contains a substring. This result may be used with \"If\" action.": {"ru":"Это действие вернет true или false в зависимости от того, содержит ли строка подстроку. Результат может быть использован вместе с действием \"If\"."},
+		"For example, if the string is <code>\"Test text\"</code> and the substring <code>\"text\"</code>, then the action will return true, and if the string is <code>\"Just example string\"</code> and substring <code>\"test\"</code>, then the action will return false.": {"ru":"Например, если указана строка <code>\"Тестовый текст\"</code> и подстрока <code>\"текст\"</code>, то действие вернет true, а если указана строка <code>\"Просто пример строки\"</code> и подстрока <code>\"тест\"</code>, то действие вернет false."},
+		
+		"Get the number of characters from a string.": {"ru":"Получить количество символов из строки."},
+		"The string from which to get the number of characters.": {"ru":"Строка, из которой нужно получить количество символов."},
+		"This action will return a number equal to the number of characters in the string.": {"ru":"Это действие вернет число, равное количеству символов в строке."},
+		"Variable in which, after successful execution of the action, the number of characters contained in the string will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записано количество символов, содержащихся в строке."},
+		"For example, if the string <code>\"Test text\"</code> is specified, then the action will return 9, and if the string <code>\"Just example string\"</code> is specified, then the action will return 22.": {"ru":"Например, если указана строка <code>\"Тестовый текст\"</code>, то действие вернет 14, а если указана строка <code>\"Просто пример строки\"</code>, то действие вернет 20."},
+		
+		"Capitalize all words": {"ru":"Сделать все слова заглавными"},
+		"All other letters in lowercase": {"ru":"Все остальные буквы в нижний регистр"},
+		"The string in which to convert words.": {"ru":"Строка, в которой нужно преобразовать слова."},
+		"Convert the first letter of a word to uppercase.": {"ru":"Преобразовать первую букву слова в верхний регистр."},
+		"If the \"Capitalize all words\" parameter is enabled, the first letters in all words will be uppercase.": {"ru":"Если активирован параметр \"Сделать все слова заглавными\", то первые буквы во всех словах будут иметь верхний регистр."},
+		"This action will return a string in which the first letter will be uppercase and the rest will remain unchanged.": {"ru":"Это действие вернет строку, в которой первая буква будут иметь верхний регистр, а остальные останутся без изменений."},
+		"If the \"All other letters in lowercase\" parameter is enabled, then all letters that were not converted to uppercase will be converted to lowercase.": {"ru":"Если активирован параметр \"Все остальные буквы в нижний регистр\", то все буквы, которые не были преобразованы в верхний регистр, будут преобразованы в нижний регистр."},
+		"If both \"Capitalize all words\" and \"All other letters in lowercase\" are both enabled, the first letters in all words will be uppercase and all other lowercase.": {"ru":"Если активированы оба параметра \"Сделать все слова заглавными\" и \"Все остальные буквы в нижний регистр\", то первые буквы во всех словах будут иметь верхний регистр, а все остальные нижний регистр."},
+		"For example, if the string <code>\"test text\"</code> is specified, then the action will return <code>\"Test text\"</code>, and if the string <code>\"just example string\"</code> is specified, then the action will return <code>\"Just example string\"</code>.": {"ru":"Например, если указана строка <code>\"тестовый текст\"</code>, то действие вернет <code>\"Тестовый текст\"</code>, а если указана строка <code>\"просто пример строки\"</code>, то действие вернет <code>\"Просто пример строки\"</code>."},
+		"For example, if the string <code>\"test text\"</code> is specified, then the action will return <code>\"Test Text\"</code>, and if the string <code>\"just example string\"</code> is specified, then the action will return <code>\"Just Example String\"</code>.": {"ru":"Например, если указана строка <code>\"тестовый текст\"</code>, то действие вернет <code>\"Тестовый Текст\"</code>, а если указана строка <code>\"просто пример строки\"</code>, то действие вернет <code>\"Просто Пример Строки\"</code>."},
+		"For example, if the string <code>\"TEST TEXT\"</code> is specified, then the action will return <code>\"Test text\"</code>, and if the string <code>\"JUST EXAMPLE STRING\"</code> is specified, then the action will return <code>\"Just example string\"</code>.": {"ru":"Например, если указана строка <code>\"ТЕСТОВЫЙ ТЕКСТ\"</code>, то действие вернет <code>\"Тестовый текст\"</code>, а если указана строка <code>\"ПРОСТО ПРИМЕР СТРОКИ\"</code>, то действие вернет <code>\"Просто пример строки\"</code>."},
+		"For example, if the string <code>\"TEST TEXT\"</code> is specified, then the action will return <code>\"Test Text\"</code>, and if the string <code>\"JUST EXAMPLE STRING\"</code> is specified, then the action will return <code>\"Just Example String\"</code>.": {"ru":"Например, если указана строка <code>\"ТЕСТОВЫЙ ТЕКСТ\"</code>, то действие вернет <code>\"Тестовый Текст\"</code>, а если указана строка <code>\"ПРОСТО ПРИМЕР СТРОКИ\"</code>, то действие вернет <code>\"Просто Пример Строки\"</code>."},
+		
+		"The string does not contain the words": {"ru":"Строка не содержит слов"},
+		"Get the number of words from a string.": {"ru":"Получить количество слов из строки."},
+		"The string from which to get the word count.": {"ru":"Строка, из которой нужно получить количество слов."},
+		"This action will return a number equal to the number of words in the string.": {"ru":"Это действие вернет число, равное количеству слов в строке."},
+		"Variable in which, after successful execution of the action, the number of words contained in the string will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записано количество слов, содержащихся в строке."},
+		"For example, if the string <code>\"Test text\"</code> is specified, then the action will return 2, and if the string <code>\"Just example string\"</code> is specified, then the action will return 3.": {"ru":"Например, если указана строка <code>\"Тестовый текст\"</code>, то действие вернет 2, а если указана строка <code>\"Просто пример строки\"</code>, то действие вернет 3."},
+		
+		"Split a string into words.": {"ru":"Разделить строку на слова."},
+		"[\"Just\", \"sample\", \"text\"]": {"ru":"[\"Просто\", \"пример\", \"текста\"]"},
+		"The string containing a sentence to be split into words.": {"ru":"Строка, содержащая предложение, которое нужно разделить на слова."},
+		"This action ignores any characters other than letters and numbers.": {"ru":"Это действие игнорирует любые символы, кроме букв и цифр."},
+		"The resulting list can be processed using actions from the \"List\" module.": {"ru":"Полученный список можно обработать с помощью действий из модуля \"Список\"."},
+		"This action will return a list containing the words obtained from the string.": {"ru":"Это действие вернет список, содержащий слова, полученные из строки."},
+		"Variable in which, after successful execution of the action, the list of words will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан список слов."},
+		"For example, if the string <code>\"Delicious 100% juice.\"</code> is specified, then the action will return <code>[\"Delicious\", \"100\", \"juice\"]</code>.": {"ru":"Например, если указана строка <code>\"Вкусный 100% сок.\"</code>, то действие вернет <code>[\"Вкусный\", \"100\", \"сок\"]</code>."},
+		"For example, if the string <code>\"Test text\"</code> is specified, then the action will return <code>[\"Test\",\"text\"]</code>, and if the string <code>\"Just example string.\"</code> is specified, then the action will return <code>[\"Just\",\"example\",\"string\"]</code>.": {"ru":"Например, если указана строка <code>\"Test text\"</code>, то действие вернет <code>[\"Test\",\"text\"]</code>, а если указана строка <code>\"Просто пример строки.\"</code>, то действие вернет <code>[\"Просто\",\"пример\",\"строки\"]</code>."},
+		
+		"Split the string into sentences.": {"ru":"Разделить строку на предложения."},
+		"Just sample text. Test text, string": {"ru":"Просто пример текста. Тестовый текст, строка"},
+		"[\"Just sample text.\", \"Test text, string\"]": {"ru":"[\"Просто пример текста.\", \"Тестовый текст, строка\"]"},
+		"The string containing text to be split into sentences.": {"ru":"Строка, содержащая текст, который нужно разделить на предложения."},
+		"This action will return a list containing the sentences obtained from the string.": {"ru":"Это действие вернет список, содержащий предложения, полученные из строки."},
+		"Variable in which, after successful execution of the action, the list of sentences will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан список предложений."},
+		"For example, if the string <code>\"Just sample text. Test text, string\"</code> is specified, then the action will return <code>[\"Just sample text.\", \"Test text, string\"]</code>, and if the string <code>\"Test text! Test text! Test text!\"</code> is specified, then the action will return <code>[\"Test text!\", \"Test text!\", \"Test text!\"]</code>.": {"ru":"Например, если указана строка <code>\"Просто пример текста. Тестовый текст, строка\"</code>, то действие вернет <code>[\"Просто пример текста.\",\"Тестовый текст, строка\"]</code>, а если указана строка <code>\"Тестовый текст! Тестовый текст! Тестовый текст!\"</code>, то действие вернет <code>[\"Тестовый текст!\",\"Тестовый текст!\",\"Тестовый текст!\"]</code>."},
+		
+		"Limit": {"ru":"Лимит"},
+		"Remove empty lines": {"ru":"Удалить пустые строки"},
+		"Just<br>sample<br>text": {"ru":"Просто<br>пример<br>текста"},
+		"Split string into lines.": {"ru":"Разделить строку на строки."},
+		"Line break, split multiline text": {"ru": "Перенос строки, разделить многострочный текст"},
+		"The resulting list can contain a maximum of 10 items.": {"ru": "Итоговый список может содержать максимум 10 элементов."},
+		"The string containing text to be split into lines.": {"ru":"Строка, содержащая текст, который нужно разделить на строки."},
+		"Don't limit the number of items on the resulting list.": {"ru": "Не ограничивайте количество элементов в итоговом списке."},
+		"Carriage return and line break, split multiline text": {"ru": "Возврат каретки и перенос строки, разделить многострочный текст"},
+		"Line break with or without carriage return, split multiline text": {"ru": "Перевод строки с возвратом каретки или без него, разделить многострочный текст"},
+		"String or regular expression used as the delimiter for the original string.": {"ru":"Строка или регулярное выражение используемые в качестве разделителя исходной строки."},
+		"Variable in which, after successful execution of the action, the list of strings will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан список строк."},
+		"Split the original string character by character, each character will be a separate item in the list.": {"ru":"Разделить исходную строку посимвольно, каждый символ будет отдельным элементом списка."},
+		"If the \"Remove empty lines\" parameter is activated, then all empty lines will be removed from the resulting list.": {"ru": "Если активирован параметр \"Удалить пустые строки\", то из итогового списка будут удалены все пустые строки."},
+		"If the separator does not occur in the original string, then the resulting list will contain one element, the original string.": {"ru":"Если разделитель не встречается в исходной строке, то итоговый список будет содержать один элемент, исходную строку."},
+		"If separator is not specified, the string will be split character by character, each character will be a separate item of the list.": {"ru":"Если разделитель не будет указан, то строка будет разделена посимвольно, каждый символ будет отдельным элементом списка."},
+		"This action will return a list containing the lines obtained from the original string as a result of splitting at the specified separator.": {"ru":"Это действие вернет список, содержащий строки, полученные из исходной строки в результате разделения по указанному разделителю."},
+		"For example, if the specified string is <code>\"string\"</code> and the separator is <code>\";\"</code>, then the action will return <code>[\"string\"]</code>.": {"ru":"Например, если указана строка <code>\"string\"</code> и разделитель <code>\";\"</code>, то действие вернет <code>[\"string\"]</code>."},
+		"For example, if the specified string is <code>\"Test:text\"</code> and the separator is <code>\":\"</code>, then the action will return <code>[\"Test\",\"text\"]</code>.": {"ru":"Например, если указана строка <code>\"Test:text\"</code> и разделитель <code>\":\"</code>, то действие вернет <code>[\"Test\",\"text\"]</code>."},
+		"For example, if the specified string is <code>\"string\"</code> and the separator is not specified, then the action will return <code>[\"s\",\"t\",\"r\",\"i\",\"n\",\"g\"]</code>.": {"ru":"Например, если указана строка <code>\"string\"</code> и разделитель не указан, то действие вернет <code>[\"s\",\"t\",\"r\",\"i\",\"n\",\"g\"]</code>."},
+		"For example, if the specified string is <br><code>\"Just<br>example<br>string.\"</code> and the separator is <code>\"\\n\"</code>, then the action will return <code>[\"Just\",\"example\",\"string\"]</code>.": {"ru":"Например, если указана строка <br><code>\"Просто<br>пример<br>строки.\"</code> и разделитель <code>\"\\n\"</code>, то действие вернет <code>[\"Просто\",\"пример\",\"строки\"]</code>."},
+		"An integer specifying the maximum number of items in the resulting list. The string will still be split completely, but the final list will be truncated so that its length does not exceed the specified limit.": {"ru":"Целое число, определяющее максимальное количество элементов в итоговом списке. Строка все равно будет разделена полностью, но итоговый список будет обрезан, так чтобы его длинна не превышала указанный лимит."},
+		
+		"Find a substring in a string.": {"ru":"Найти подстроку в строке."},
+		"The substring to find in the string.": {"ru":"Подстрока, которую нужно найти в строке."},
+		"The string in which to find the substring.": {"ru":"Строка, в которой нужно найти подстроку."},
+		"String does not contain the specified substring": {"ru":"Строка не содержит указанную подстроку"},
+		"The character index at which to start the search.": {"ru":"Индекс символа, с которого следует начать поиск."},
+		"Variable in which, after successful execution of the action, the index of the beginning of the substring will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан индекс начала подстроки."},
+		"This action will return a number equal to the index of the beginning of the first substring found, or -1 if the substring was not found.": {"ru":"Это действие вернет число, равное индексу начала первой найденной подстроки, или -1, если подстрока не найдена."},
+		"By default, the search is performed from the beginning of the string, but this can be changed by specifying the index from which to start the search in the \"From index\" parameter located in the additional settings.": {"ru":"По умолчанию поиск производится с начала строки, но это можно изменить, указав индекс, с которого следует начинать поиск, в параметр \"С индекса\", находящийся в дополнительных настройках."},
+		"For example, if the string <code>\"Test text\"</code> is specified and the substring <code>\"text\"</code> is specified, then the action will return 5, and if the string is <code>\"Just example string\"</code> and the substring <code>\"test\"</code>, then the action will return -1.": {"ru":"Например, если указана строка <code>\"Тестовый текст\"</code> и подстрока <code>\"текст\"</code>, то действие вернет 9, а если указана строка <code>\"Просто пример строки\"</code> и подстрока <code>\"тест\"</code>, то действие вернет -1."},
+		
+		"The string to check.": {"ru":"Строка, которую нужно проверить."},
+		"The string starts with a substring.": {"ru":"Строка начинается с подстроки."},
+		"The string does not start with a substring.": {"ru":"Строка не начинается с подстроки."},
+		"The substring that the string should start with.": {"ru":"Подстрока, с которой должна начинатся строка."},
+		"Check if the string starts with the specified substring.": {"ru":"Проверить, начинается ли строка с указанной подстроки."},
+		"This variable will be true or false depending on whether the string starts with the specified substring.":{"ru":"Эта переменная будет равна true или false в зависимости от того, начинается ли строка с указанной подстроки."},
+		"This action will return true or false, depending on whether the string begins with the specified substring. This result may be used with \"If\" action.": {"ru":"Это действие вернет true или false в зависимости от того, начинается ли строка с указанной подстроки. Результат может быть использован вместе с действием \"If\"."},
+		"For example, if the string is <code>\"Test text\"</code> and the substring <code>\"Test\"</code>, then the action will return true, and if the string is <code>\"Just example string\"</code> and substring <code>\"example\"</code>, then the action will return false.": {"ru":"Например, если указана строка <code>\"Тестовый текст\"</code> и подстрока <code>\"Тестовый\"</code>, то действие вернет true, а если указана строка <code>\"Просто пример строки\"</code> и подстрока <code>\"пример\"</code>, то действие вернет false."},
+		
+		"String length": {"ru":"Длина строки"},
+		"The string ends with a substring.": {"ru":"Строка заканчивается подстрокой."},
+		"The string does not end with a substring.": {"ru":"Строка не заканчивается подстрокой."},
+		"The substring that the string must end with.": {"ru":"Подстрока, которой должна заканчиваться строка."},
+		"Check if a string ends with a specified substring.": {"ru":"Проверить, заканчивается ли строка указанной подстрокой."},
+		"The length to which the string will be truncated when searching for a substring allows searching within the string.": {"ru":"Длина, до которой будет обрезана строка при поиске подстроки,  позволяет искать внутри строки."},
+		"This variable will be true or false depending on whether the string ends with the specified substring.":{"ru":"Эта переменная будет равна true или false в зависимости от того, заканчиваться ли строка указанной подстрокой."},
+		"This action will return true or false depending on whether the string ends with the specified substring. This result may be used with \"If\" action.": {"ru":"Это действие вернет true или false в зависимости от того, заканчиваться ли строка указанной подстрокой. Результат может быть использован вместе с действием \"If\"."},
+		"By default, the search is performed from the end of the string, but this can be changed by specifying the index from which to start the search in the \"Length\" parameter located in the additional settings.": {"ru":"По умолчанию поиск производится с конца строки, но это можно изменить, указав индекс, с которого следует начинать поиск, в параметр \"Длина\", находящийся в дополнительных настройках."},
+		"For example, if the string is <code>\"Test text\"</code> and the substring <code>\"text\"</code>, then the action will return true, and if the string is <code>\"Just example string\"</code> and substring <code>\"example\"</code>, then the action will return false.": {"ru":"Например, если указана строка <code>\"Тестовый текст\"</code> и подстрока <code>\"текст\"</code>, то действие вернет true, а если указана строка <code>\"Просто пример строки\"</code> и подстрока <code>\"пример\"</code>, то действие вернет false."},
+		
+		"Just not sample text": {"ru":"Просто не пример текста"},
+		"To the beginning of the string": {"ru":"В начало строки"},
+		"After the first character": {"ru":"После первого символа"},
+		"After the second character": {"ru":"После второго символа"},
+		"After the last character": {"ru":"После последнего символа"},
+		"The substring to insert.": {"ru":"Подстрока, которую нужно вставить."},
+		"Insert a substring into a string.": {"ru":"Вставить подстроку в строку."},
+		"The string to insert the substring into.": {"ru":"Строка, в которую нужно вставить подстроку."},
+		"The character index after which the substring will be inserted.": {"ru":"Индекс символа, после которого будет вставлена подстрока."},
+		"This action will return the string resulting from the substring insertion.": {"ru":"Это действие вернет строку, полученную в итоге вставки подстроки."},
+		"If you need to not only insert a substring, but also delete part of the original string, then use the \"Remove string part\" action.": {"ru":"Если вам нужно не только вставить подстроку, но и удалить часть исходной строки, то используйте действие \"Удалить часть строки\"."},
+		"For example, if the string <code>\"Just string\"</code> is specified, the substring <code>\"example \"</code> and index 5, then the action will return <code>\"Just example string\"</code>.": {"ru":"Например, если указана строка <code>\"Просто строки\"</code>, подстрока <code>\"пример \"</code> и индекс 7, то действие вернет <code>\"Просто пример строки\"</code>."},
+		
+		"Line break": {"ru":"Перенос строки"},
+		"Carriage return": {"ru":"Возврат каретки"},
+		"Carriage return and line break": {"ru":"Возврат каретки и перенос строки"},
+		"Create a string containing a line break symbol.": {"ru":"Создать строку, содержащую символ переноса строки."},
+        "Carriage return and line break (\\r\\n)": {"ru":"Возврат каретки и перенос строки (\\r\\n)"},
+        "Only line break (\\n)": {"ru":"Только перенос строки (\\n)"},
+		"The result of this action can be used to split the text into multiple lines.": {"ru":"Результат этого действия можно использовать для разделения текста на несколько строк."},
+		"If the parameter \"Carriage return\" is activated, then a carriage return will be added before the line break.": {"ru":"Если активирован параметр \"Возврат каретки\", то перед переносом строки будет добавлен возврат каретки."},
+		"Variable in which, after successful execution of the action, a string containing a line break will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записана строка содержащая перенос строки."},
+		"This action will return a string containing a line break. You can read more about line breaks in <a href=\"#\" onclick=\"BrowserAutomationStudio_OpenUrl('https://en.wikipedia.org/wiki/Newline');return false\">Wiki</a>.": {"ru":"Это действие вернет строку, содержащую перенос строки. Подробнее о переносе строки можно узнать в <a href=\"#\" onclick=\"BrowserAutomationStudio_OpenUrl('https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4_%D1%81%D1%82%D1%80%D0%BE%D0%BA%D0%B8');return false\">Wiki</a>."},
+		
+		"List of strings": {"ru":"Список строк"},
+		"Join strings without separator": {"ru":"Объединить строки без разделителя"},
+		"Join multiple strings into one.": {"ru":"Объединить несколько строк в одну."},
+		"List of strings to be joined.": {"ru":"Список строк которые нужно объединить."},
+		"The string to be joined with other strings.": {"ru":"Строка, которую нужно объединить с другими строками."},
+		"Separator to insert between the joined strings.": {"ru":"Разделитель, вставляемый между объединенными строками."},
+		"The list can be created using actions from the \"List\" module.": {"ru":"Список можно создать с помощью действий из модуля \"Список\"."},
+		"The parameters \"String 1\", \"String 2\", \"String 3\" will be used": {"ru":"Будут использованы параметры \"Строка 1\", \"Строка 2\", \"Строка 3\""},
+		"This action will return a string composed of all the specified strings.": {"ru":"Это действие вернет строку, составленную из всех указанных строк."},
+		"The parameters \"String 2\", \"String 3\", \"List of strings\" will be used": {"ru":"Будут использованы параметры \"Строка 2\", \"Строка 3\", \"Список строк\""},
+		"The parameters \"String 1\", \"String 3\", \"List of strings\" will be used": {"ru":"Будут использованы параметры \"Строка 1\", \"Строка 3\", \"Список строк\""},
+		"The parameters \"String 1\", \"String 2\", \"List of strings\" will be used": {"ru":"Будут использованы параметры \"Строка 1\", \"Строка 2\", \"Список строк\""},
+		"As a list, you can use a string consisting of strings, separated by commas.": {"ru":"В качестве списка можно использовать строку, состоящую из строк, разделенных запятыми."},
+		"Strings from separate fields and a list are added to a general list of strings that will be joined.": {"ru":"Строки из отдельных полей и списка складываются в общий список строк которые будут объединены."},
+		"The order of joining the fields is as follows \"String 1\", \"String 2\", \"String 3\", \"List of strings\".": {"ru":"Порядок объединения полей следующий: \"Строка 1\", \"Строка 2\", \"Строка 3\", \"Список строк\"."},
+		"For example, if a string is specified in the \"String 1\" field and a list of 4 strings is specified in the \"List of strings\" field, then 5 strings will be joined.": {"ru":"Например, если в поле \"Строка 1\" указана строка и в поле \"Список строк\" указан список из 4 строк, то объединено будет 5 строк."},
+		"If some of the parameters (\"String 1\", \"String 2\", \"String 3\", \"List of strings\") are not specified, all parameters will be used except for them.": {"ru":"Если какие-то из параметров (\"Строка 1\", \"Строка 2\", \"Строка 3\", \"Список строк\") не указаны, будут использованы все параметры кроме них."},
+		"By default, strings are joined without a separator, but this can be changed by specifying the \"Separator\" parameter located in the additional settings.": {"ru":"По умолчанию строки соединяются без разделителя, но это можно изменить, указав параметр \"Разделитель\", находящийся в дополнительных настройках."},
+		"For example, if the parameters \"String 1\" and \"String 2\" are specified, the values of which are respectively <code>\"Just example\"</code> and <code>\" string\"</code>, then the action will return <code>\"Just example string\"</code>.": {"ru":"Например, если указаны параметры \"Строка 1\" и \"Строка 2\" значения которых сответственно равны <code>\"Просто пример\"</code> и <code>\" строки\"</code>, то действие вернет <code>\"Просто пример строки\"</code>."},
+		"For example, if \"List of strings\" is not specified, then the list will be formed from the parameters \"String 1\" and \"String 2\" and \"String 3\". If the parameters \"String 1\", \"String 2\", \"String 3\" are empty, then the \"List of strings\" will be used. If all parameters are specified, then all of them will be used.": {"ru":"Например, если \"Список строк\" не указан, то список будет сформирован из параметров \"Строка 1\" и \"Строка 2\" и \"Строка 3\". Если параметры \"Строка 1\", \"Строка 2\", \"Строка 3\" пусты, то будет использован \"Список строк\". Если указаны все параметры, то все они будут использованы."},
+		
+		"Latinize Cyrillic": {"ru":"Латинизировать кириллицу"},
+		"Convert all letters to Latin.": {"ru":"Преобразуйте все буквы в латиницу."},
+		"The string to be latinized.": {"ru":"Строка, которую нужно латинизировать."},
+		"By default, the Cyrillic is also latinized, but this can be changed by disabling the \"Latinize Cyrillic\" parameter.": {"ru":"По умолчанию кириллица тоже латинизируется, но это можно изменить, отключив параметр \"Латинизировать кириллицу\"."},
+		"This action will return a string in which all letters will be latinized, and the rest of the characters will remain unchanged.": {"ru":"Это действие вернет строку, в которой все буквы будут латинизированы, а остальные символы останутся без изменений."},
+		"For example, the string <code>\"ỆᶍǍᶆṔƚÉ áéíóúýčďěňřšťžů\"</code> will be converted to the string <code>\"ExAmPlE aeiouycdenrstzu\"</code>, and the string <code>\"Привет мир!\"</code> will be converted to the string <code>\"Privet mir!\"</code>.": {"ru":"Например строка <code>\"ỆᶍǍᶆṔƚÉ áéíóúýčďěňřšťžů\"</code> будет преобразована в строку <code>\"ExAmPlE aeiouycdenrstzu\"</code>, а строка <code>\"Привет мир!\"</code> будет преобразована в строку <code>\"Privet mir!\"</code>."},
+		
+		"year": {"ru":"год"},
+		"yeаrs": {"ru":"лет"},
+		"years": {"ru":"года"},
+		"at 10": {"ru":"при 10"},
+		"at 21": {"ru":"при 21"},
+		"at 22": {"ru":"при 22"},
+		"minutеs": {"ru":"минут"},
+		"minute": {"ru":"минута"},
+		"minutes": {"ru":"минуты"},
+		"account": {"ru":"аккаунт"},
+		"Word at": {"ru":"Слово при"},
+		"accounts": {"ru":"аккаунта"},
+		"аccounts": {"ru":"аккаунтов"},
+		"Word if number is": {"ru":"Слово, если число равно"},
+		"Decline a word depending on the specified number.": {"ru":"Склонять слово в зависимости от указанного числа."},
+		"The number by which the declension of the returned word will be determined.": {"ru":"Число, по которому будет определяется склонение возвращаемого слова."},
+		"This action will return one of three words matching the declension to the specified number.": {"ru":"Это действие вернет одно из трех слов, подходящее по склонению к указанному числу."},
+		"Variable in which, after successful execution of the action, the word corresponding to the specified number will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записано слово, сответствующее указанному числу."},
+		"For example, if the words \"account\", \"accounts\", \"accounts\" are specified and the number is 1, then the action will return <code>\"account\"</code>, and if the number is 22, then the action will return <code>\"accounts\"</code>.": {"ru":"Например, если указаны слова \"аккаунт\", \"аккаунта\", \"аккаунтов\" и число равно 5, то действие вернет <code>\"аккаунтов\"</code>, а если число равно 22, то действие вернет <code>\"аккаунта\"</code>."},
+		
+		"Variables list": {"ru":"Список переменных"},
+		"Convert types": {"ru":"Преобразовывать типы"},
+		"List of separators": {"ru":"Список разделителей"},
+		"Parse CSV string into items.": {"ru":"Распарсить CSV строку на элементы."},
+		"CSV string with want to parse into items.": {"ru":"CSV строка, которую нужно распарсить на элементы."},
+		"The list of delimiters by which the string can be split.": {"ru":"Список разделителей, по которым можно разбить строку."},
+		"As a list, you can use a string consisting only of the separators.": {"ru":"В качестве списка можно использовать строку, состоящую только из разделителей."},
+		"Use \"Parse String\" action if you want to get list as a result.": {"ru": "Используйте действие \"Парсить строку\" из модуля Список если хотите получить результат в виде списка."},
+		"List of variables separated by commas. Results will be written into that variables.": {"ru": "Список переменных разделенных запятыми. В эти переменные будут записаны результаты."},
+		"This action will parse the string by the specified separators and save the parsed data by the specified variables.": {"ru":"Это действие распарсит строку по указанным разделителям и сохранит распарсенные данные по указанным переменным."},
+		"If the number of variables is greater than the number of items in the string, then an empty string will be written to the excess variables.": {"ru":"Если количество переменных больше, чем количество элементов в строке, то в лишние переменные будет записана пустая строка."},
+		"By default, the action returns strings, but this can be changed by enabling the \"Convert types\" parameter located in the additional settings, then strings will automatically be converted to numbers, true or false, objects, null and undefined.": {"ru":"По умолчанию действие возвращает строки, но это можно изменить, включив параметр \"Преобразовывать типы\", находящийся в дополнительных настройках, тогда страки автоматически будут конвертироватся в числа, true или false, обекты, null и undefined."},
+		"For example, if the string <code>\"test:123:true\"</code> is specified, then the string <code>\"test\"</code> will be saved in the first variable, and the number <code>123</code> in the second variable and in the third variable the boolean value <code>true</code>.": {"ru":"Например, если указана строка <code>\"test:123:true\"</code>, то в первую переменную будет сохранена строка <code>\"test\"</code>, во вторую переменную число <code>123</code> и в третью переменную логическое значение <code>true</code>."},
+		"For example, if the string <code>\"email@gmail.com:mypass1\"</code> and the variables <code>USERNAME,PASSWORD</code> are specified, then the action will save <code>\"email@gmail.com\"</code> to the variable <code>[[USERNAME]]</code> and <code>\"mypass1\"</code> to the variable <code>[[PASSWORD]]</code>.": {"ru":"Например, если указана строка <code>\"email@gmail.com:mypass1\"</code> и переменные <code>USERNAME,PASSWORD</code>, то действие сохранит <code>\"email@gmail.com\"</code> в переменную <code>[[USERNAME]]</code> и <code>\"mypass1\"</code> в переменную <code>[[PASSWORD]]</code>."},
+		
+		"Item": {"ru":"Элемент"},
+		"List of items": {"ru":"Список элементов"},
+		"The item to add to the CSV string.": {"ru":"Элемент, который нужно добавить в CSV строку."},
+		"Create CSV string from multiple items.": {"ru":"Создать CSV строку из нескольких элементов."},
+		"List of items to add to the CSV string.": {"ru":"Список элементов, которые нужно добавить  в CSV строку."},
+		"Separator to insert between elements of CSV string.": {"ru":"Разделитель, вставляемый между элементами CSV строки."},
+		"The parameters \"Item 1\", \"Item 2\", \"Item 3\" will be used": {"ru":"Будут использованы параметры \"Элемент 1\", \"Элемент 2\", \"Элемент 3\""},
+		"The values of all elements are converted to a string before joining.": {"ru":"Значения всех элементов перед объединением преобразуются в строку."},
+		"If the element contains a separator, then it will be enclosed in quotes.": {"ru":"Если элемент содержит разделитель, то он будет заключен в кавычки."},
+		"The parameters \"Item 2\", \"Item 3\", \"List of items\" will be used": {"ru":"Будут использованы параметры \"Элемент 2\", \"Элемент 3\", \"Список элементов\""},
+		"The parameters \"Item 1\", \"Item 3\", \"List of items\" will be used": {"ru":"Будут использованы параметры \"Элемент 1\", \"Элемент 3\", \"Список элементов\""},
+		"The parameters \"Item 1\", \"Item 2\", \"List of items\" will be used": {"ru":"Будут использованы параметры \"Элемент 1\", \"Элемент 2\", \"Список элементов\""},
+		"Variable in which, after successful execution of the action, the CSV string will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записана CSV строка."},
+		"Items from separate fields and a list are added to a general list of items that will be joined.": {"ru":"Элементы из отдельных полей и списка складываются в общий список элементов которые будут объединены."},
+		"The order of joining the fields is as follows \"Item 1\", \"Item 2\", \"Item 3\", \"List of items\".": {"ru":"Порядок объединения полей следующий: \"Элемент 1\", \"Элемент 2\", \"Элемент 3\", \"Список элементов\"."},
+		"This action will return a CSV string composed of all the specified items, separated by the specified character.": {"ru":"Это действие вернет CSV строку, составленную из всех указанных элементов, разделенных указанным символом."},
+		"If some of the parameters (\"Item 1\", \"Item 2\", \"Item 3\", \"List of items\") are not specified, all parameters will be used except for them.": {"ru":"Если какие-то из параметров (\"Элемент 1\", \"Элемент 2\", \"Элемент 3\", \"Список элементов\") не указаны, будут использованы все параметры кроме них."},
+		"For example, if a item is specified in the \"Item 1\" field and a list of 4 items is specified in the \"List of items\" field, then 5 items will be joined.": {"ru":"Например, если в поле \"Элемент 1\" указан элемент и в поле \"Список элементов\" указан список из 4 элементов, то объединено будет 5 элементов."},
+		"For example, if the parameters \"Item 1\" and \"Item 2\" are specified, the values of which are respectively <code>\"test\"</code> and <code>\"text\"</code>, and the separator <code>\":\"</code>, then the action will return <code>\"test:text\"</code>.": {"ru":"Например, если указаны параметры \"Элемент 1\" и \"Элемент 2\" значения которых сответственно равны <code>\"тест\"</code> и <code>\"текст\"</code>, а разделитель <code>\":\"</code>, то действие вернет <code>\"тест:текст\"</code>."},
+		"For example, if \"List of items\" is not specified, then the list will be formed from the parameters \"Item 1\" and \"Item 2\" and \"Item 3\". If the parameters \"Item 1\", \"Item 2\", \"Item 3\" are empty, then the \"List of items\" will be used. If all parameters are specified, then all of them will be used.": {"ru":"Например, если \"Список элементов\" не указан, то список будет сформирован из параметров \"Элемент 1\" и \"Элемент 2\" и \"Элемент 3\". Если параметры \"Элемент 1\", \"Элемент 2\", \"Элемент 3\" пусты, то будет использован \"Список элементов\". Если указаны все параметры, то все они будут использованы."},
+		
+		"Trim left": {"ru":"Обрезать слева"},
+		"Trim right": {"ru":"Обрезать справа"},
+		"Trim tabs": {"ru":"Обрезать табуляцию"},
+		"Trim spaces": {"ru":"Обрезать пробелы"},
+		"Trim characters": {"ru":"Обрезать символы"},
+		"Trim line breaks": {"ru":"Обрезать переносы строк"},
+		"Trim on both sides": {"ru":"Обрезать с обеих сторон"},
+		"Trim string along the edges.": {"ru":"Подровнять строку по краям."},
+		"The string which needs to be trimmed.": {"ru":"Строка, которую нужно подровнять."},
+		"Characters to be trimmed at the edges of the string.": {"ru":"Символы, обрезаемые с краев строки."},
+		"This action will return a string, from the beginning and end of which unnecessary characters such as spaces, line breaks, tabs will be trimmed.": {"ru":"Это действие вернет строку, с начала и конца которой будут обрезаны ненужные символы, такие как пробелы, переносы строк, табуляция."},
+		"By default, the action trim the string on both sides, but this can be changed using the radio buttons located in the additional settings.": {"ru":"По умолчанию действие обрезает строку с обеих сторон, но это можно изменить с помощью переключателей, находящихся в дополнительных настройках."},
+		"The characters to be trimmed are determined by the \"Trim spaces\", \"Trim line breaks\", \"Trim tabs\" parameters, but you can also specify your own characters in the \"Trim characters\" parameter located in the additional settings.": {"ru":"Символы, которые будут обрезаны, определяются параметрами \"Обрезать пробелы\", \"Обрезать переносы строк\", \"Обрезать табуляцию\", но также можно указать свои символы в параметр \"Обрезать символы\", находящийся в дополнительных настройках."},
+		"For example, if the string <code>\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Test text&nbsp;&nbsp;&nbsp;\"</code> is specified, then the action will return <code>\"Test text\"</code>, and if the string <code>\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Just example string&nbsp;&nbsp;&nbsp;&nbsp;\"</code> is specified, then the action will return <code>\"Just example string\"</code>.": {"ru":"Например, если указана строка <code>\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Тестовый текст&nbsp;&nbsp;&nbsp;\"</code>, то действие вернет <code>\"Тестовый текст\"</code>, а если указана строка <code>\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Просто пример строки&nbsp;&nbsp;&nbsp;&nbsp;\"</code>, то действие вернет <code>\"Просто пример строки\"</code>."},
+		
+		"Remove tabs": {"ru":"Удалять табуляцию"},
+		"Remove characters": {"ru":"Удалять символы"},
+		"Replace characters with space": {"ru":"Заменять символы на пробел"},
+		"Replace line breaks with space": {"ru":"Заменить переносы строк пробелом"},
+		"The string which needs to be cleaned.": {"ru":"Строка, которую нужно очистить."},
+		"Characters which needs to be removed.": {"ru":"Символы, которые нужно удалять."},
+		"Clean string from unnecessary characters.": {"ru":"Очистить строку от ненужных символов."},
+		"Replace multiple spaces with single ones": {"ru":"Заменять многочисленные пробелы на одиночные"},
+		"Characters which needs to be replaced with a space.": {"ru":"Символы, которые нужно заменить на пробел."},
+		"Just&nbsp;&nbsp;&nbsp;&nbsp;sample&nbsp;&nbsp;text": {"ru":"Просто&nbsp;&nbsp;&nbsp;&nbsp;пример&nbsp;&nbsp;текста"},
+		"This action will return a string from which all unnecessary characters will be removed, such as multiple spaces, line breaks, tabs.": {"ru":"Это действие вернет строку, из которой будут удалены все ненужные символы, такие как множественные пробелы, переносы строк, табуляция."},
+		"In addition to deleting tabs, activated by the corresponding parameter, you can specify your own characters that will be deleted in the \"Remove characters\" parameter located in the additional settings.": {"ru":"Кроме удаления табуляции, активируемой соответствующим параметром, можно указать свои символы, которые будут удалены, в параметр \"Удалять символы\", находящийся в дополнительных настройках."},
+		"The characters that will be replaced by space are determined by the \"Replace multiple spaces with single ones\", \"Replace line breaks with space\" parameters, but you can also specify your own characters in the \"Replace characters with space\" parameter located in the additional settings.": {"ru":"Символы, которые будут заменены пробелом, определяются параметрами \"Заменять многочисленные пробелы на одиночные\", \"Заменить переносы строк пробелами\", но также можно указать свои символы в параметр \"Заменять символы на пробел\", находящийся в дополнительных настройках."},
+		"For example, if the string <code>\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Test&nbsp;&nbsp;&nbsp;text&nbsp;&nbsp;&nbsp;\"</code> is specified, then the action will return <code>\"Test text\"</code>, and if the string <code>\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Just&nbsp;&nbsp;example&nbsp;&nbsp;&nbsp;string&nbsp;&nbsp;&nbsp;&nbsp;\"</code> is specified, then the action will return <code>\"Just example string\"</code>.": {"ru":"Например, если указана строка <code>\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Тестовый&nbsp;&nbsp;&nbsp;текст&nbsp;&nbsp;&nbsp;\"</code>, то действие вернет <code>\"Тестовый текст\"</code>, а если указана строка <code>\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Просто&nbsp;&nbsp;пример&nbsp;&nbsp;&nbsp;строки&nbsp;&nbsp;&nbsp;&nbsp;\"</code>, то действие вернет <code>\"Просто пример строки\"</code>."},
+		
+		"Extract all email addresses from string.": {"ru":"Извлечь все адреса электронной почты из строки."},
+		"The string from which to extract email addresses.": {"ru":"Строка, из которой нужно извлечь адреса электронной почты."},
+		"</br>Test text - test@gmail.com. Just example text - example@gmail.com.": {"ru":"</br>Тестовый текст - test@gmail.com. Просто пример текста - example@gmail.com."},
+		"Suggestions for cooperation you can send to email: cooperation@marketplace.com": {"ru":"Предложения по сотрудничеству вы можете присылать на почту: cooperation@marketplace.com"},
+		"This action will return a list containing the email addresses obtained from the string.": {"ru":"Это действие вернет список, содержащий адреса электронной почты, полученные из строки."},
+		"Variable in which, after successful execution of the action, the list of email addresses will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан список адресов электронной почты."},
+		"For example, if the string <code>\"Test text - test@gmail.com. Just example text - example@gmail.com.\"</code> is specified, then the action will return <code>[\"test@gmail.com\", \"example@gmail.com\"]</code>.": {"ru":"Например, если указана строка <code>\"Тестовый текст - test@gmail.com. Просто пример текста - example@gmail.com.\"</code>, то действие вернет <code>[\"test@gmail.com\", \"example@gmail.com\"]</code>."},
+		"</br>Proposals for advertising, you can send to email: ad@site.com</br>Suggestions for improving the site, you can send to email: feedback@site.com</br>To get help in solving problems with the site, you can write to the email: support@site.com": {"ru":"</br>Предложения по рекламе, вы можете отправлять на почту: ad@site.com</br>Предложения по улучшению сайта вы можете отправлять на почту: feedback@site.com</br>Чтобы получить помощь в решении проблем с сайтом, вы можете написать на почту: support@site.com"},
+		
+		"Extract all links from string.": {"ru":"Извлечь все ссылки из строки."},
+		"The string from which to extract links.": {"ru":"Строка, из которой нужно извлечь ссылки."},
+		"</br>Test text http://test.com, string test example.org": {"ru":"</br>Тестовый текст http://test.com, строка тест example.org"},
+		"You can parse a link to items using the \"Parse URL\" action from the \"URL\" module.": {"ru":"Распарсить ссылку на элементы можно с помощью действия \"Парсить URL\" из модуля \"URL\"."},
+		"This action will return a list containing the links obtained from the string.": {"ru":"Это действие вернет список, содержащий ссылки, полученные из строки."},
+		"You can buy the product by the link - https://marketplace.biz/section_3/product_213234.php": {"ru":"Купить товар вы можете по ссылке - https://marketplace.biz/section_3/product_213234.php"},
+		"Variable in which, after successful execution of the action, the list of links will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан список ссылок."},
+		"</br>Ad -> http://www.ad.by/info, feedback -> www.feedback.io, support -> https://support.co/new/ticket.php": {"ru":"</br>Реклама -> http://www.ad.by/info, обратная связь -> www.feedback.io, поддержка -> https://support.co/new/ticket.php"},
+		"For example, if the string <code>\"Test text http://test.com, string test example.org\"</code> is specified, then the action will return <code>[\"http://test.com\", \"example.org\"]</code>.": {"ru":"Например, если указана строка <code>\"Тестовый текст http://test.com, строка тест example.org\"</code>, то действие вернет <code>[\"http://test.com\", \"example.org\"]</code>."},
+		
+		"Hello, my number is +1 323 123-4567": {"ru":"Здравствуйте, мой номер +1 323 123-4567"},
+		"Extract all phone numbers from the string.": {"ru":"Извлечь все телефонные номера из строки."},
+		"The string from which to extract phone numbers.": {"ru":"Строка, из которой нужно извлечь телефонные номера."},
+		"</br>Business enquiries/press: Alexandra +7 900 000-00-00": {"ru":"</br>Деловые вопросы/пресса: Александра +7 900 000-00-00"},
+		"This action will return a list containing the phone numbers obtained from the string.": {"ru":"Это действие вернет список, содержащий телефонные номера, полученные из строки."},
+		"Variable in which, after successful execution of the action, the list of phone numbers will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан список телефонных номеров."},
+		"</br>PR: Maria +7(900)000-00-01 | Agent 1: Valeria +7(900)000-00-02 | Agent 2: Ekaterina +7(900)00-00-03": {"ru":"</br>PR: Мария +7(900)000-00-01 | Агент 1: Валерия +7(900)000-00-02 | Агент 2: Екатерина +7(900)00-00-03"},
+		"For example, if the string <code>\"Test text - 89001112233. Just example text - +7 900 999 4455.\"</code> is specified, then the action will return <code>[\"89001112233\", \"+7 900 999 4455\"]</code>.": {"ru":"Например, если указана строка <code>\"Тестовый текст - 89001112233. Просто пример текста - +7 900 999 4455.\"</code>, то действие вернет <code>[\"89001112233\", \"+7 900 999 4455\"]</code>."},
+		
+		"Encodes or decodes string containing special HTML characters.": {"ru":"Кодирует или декодирует строку содержащую специальные HTML символы."},
+		"Depending on mode data parameter is encoded string which needs to be decoded, or ordinary string containing special HTML characters that must be encoded.": {"ru":"В зависимости от режима, входным параметром будет либо закодированая строка, которая должна быть декодирована, либо обычная строка содержащая специальные HTML символы, которые должны быть закодированы."},
+		"This action can work with in two modes: encode and decode. Modes can be switched with \"Encode or decode\" parameter. Depending on mode data parameter is encoded string which needs to be decoded, or ordinary string containing special HTML characters which needs to be encoded.": {"ru": "Это действие может работать в двух режимах: кодирование и декодирование. Режимы могут переключаться параметром \"Шифровать или расшифровывать\". В зависимости от режима, входным параметром будет либо закодированая строка, которая должна быть декодирована, либо обычная строка содержащая специальные HTML символы, которая должна быть закодирована."},
+		"For example, if the string <code>\"&lt;div&gt;Blah blah blah&lt;/div&gt;\"</code> is specified and encode mode is activated, the action will return <code>\"&amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt;\"</code>. And if the string <code>\"&amp;lt;h1&amp;gt;Text title&amp;lt;/h1&amp;gt;\"</code> is specified and decode mode is activated, then the action will return <code>\"&lt;h1&gt;Text title&lt;/h1&gt;\"</code>.": {"ru":"Например, если указана строка <code>\"&lt;div&gt;Blah blah blah&lt;/div&gt;\"</code> и активирован режим encode, то действие вернет <code>\"&amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt;\"</code>. А если указана строка <code>\"&amp;lt;h1&amp;gt;Text title&amp;lt;/h1&amp;gt;\"</code> и активирован режим decode, то действие вернет <code>\"&lt;h1&gt;Text title&lt;/h1&gt;\"</code>."},
+		
+		"Encodes or decodes base64 string.": {"ru": "Кодирует или декодирует строку в base64."},
+		"Base64 string. Works with decode mode": {"ru": "Строка в формате base64. Работает в режиме decode"},
+		"Variable which holds file read result. Works with decode mode": {"ru": "Переменная, которая содержит результат чтения файла. Работает в режиме decode"},
+		"Variable name with result. It will be base64 encoded string in encode mode and decode result as string in decode mode.": {"ru": "Переменная, в которую будет записан результат. Это будет строка в формате base64 в случае использования режима encode и результат декодирования при использовании режима decode."},
+		"Depending on mode data parameter is base64 encoded string which needs to be decoded, or ordinary string which needs to be encoded.": {"ru": "В зависимости от режима, входным параметром будет либо строка с кодировкой base64, которая должна быть декодирована, либо обычная строка, которая должна быть закодирована."},
+		"BAS stores binary data as base64 strings. It could be binary files, pictures, video, etc. Base64 encoding represent binary data in ascii string.": {"ru": "Кодировка base64 представляет двоичные данные в виде ascii строки. BAS хранит двоичные данные как строки в формате base64. Это могут быть файлы, изображения, видео и т. д."},
+		"This action can work with in two modes: encode and decode. Modes can be switched with \"Encode or decode\" parameter. Depending on mode data parameter is base64 encoded string which needs to be decoded, or ordinary string which needs to be encoded.": {"ru": "Это действие может работать в двух режимах: кодирование и декодирование. Режимы могут переключаться параметром \"Шифровать или расшифровывать\". В зависимости от режима, входным параметром будет либо строка с кодировкой base64, которая должна быть декодирована, либо обычная строка, которая должна быть закодирована."},
+		"Most of the times you don't need to convert base64 data to string, some actions accept base64 data as input parameters, for example: \"Write File\", \"Start working with image\". Moreover, if you try to decode binary data encoded as base64 string, result string may be damaged, so it is better to use base64 data without decoding.": {"ru": "В большинстве случаев вам не нужно декодировать base64 строки, некоторые действия принимают входные данные прямо в формате base64, это такие действия как: \"Запись В Файл\", \"Начать работу с изображением\". Более того, если вы попытаетесь декодировать бинарные данные, закодированные как base64, результат может быть поврежден, поэтому лучше использовать строку в формате base64 без декодирования."},
+		
+		"Template": {"ru": "Шаблон"},
+		"Spintax": {"ru": "Спинтакс"},
+		"a1, a2, a3 or nothing": {"ru": "a1, a2, a3 или пустая строка"},
+		"Will be replaced with male name": {"ru": "Будет заменено мужским именем"},
+		"&lt;EUpVow&gt; - same as {a|e|i|o|u}": {"ru": "&lt;EUpVow&gt; - тоже самое, что {a|e|i|o|u}"},
+		"&lt;ESurnameLow&gt; - english surnames.": {"ru": "&lt;ESurnameLow&gt; - английские фамилии."},
+		"&lt;ELowVow&gt; - same as {a|e|i|o|u}": {"ru": "&lt;ELowVow&gt; - тоже самое, что {a|e|i|o|u}"},
+		"&lt;EMaleNameLow&gt; - english male names.": {"ru": "&lt;EMaleNameLow&gt; - английские мужские имена."},
+		"&lt;EFemNameLow&gt; - english female names.": {"ru": "&lt;EFemNameLow&gt; - английские женские имена."},
+		"&lt;AnyDigit&gt; - will be converted to any digit.": {"ru": "&lt;AnyDigit&gt; - будет заменено на любую цифру."},
+		"&lt;AnyLetter&gt; - will be converted to any letter.": {"ru": "&lt;AnyLetter&gt; - будет заменено на любую букву."},
+		"Variables [[VARIABLE]] will be expanded to variable value.": {"ru": "Переменные [[VARIABLE]] будут заменены на их значения."},
+		"&lt;EUp&gt; - same as {&lt;EUpVow&gt;|&lt;EUpCons&gt;}": {"ru": "&lt;EUp&gt; - тоже самое, что {&lt;EUpVow&gt;|&lt;EUpCons&gt;}"},
+		"Resources {{resource}} also will be expanded to resource value.": {"ru": "Ресурсы {{resource}} также будут заменены на их значения."},
+		"&lt;ELow&gt; - same as {&lt;ELowVow&gt;|&lt;ELowCons&gt;}": {"ru": "&lt;ELow&gt; - тоже самое, что {&lt;ELowVow&gt;|&lt;ELowCons&gt;}"},
+		"Spintax {value1|value2} will be expanded to value1 or value2.": {"ru": "Спинтакс {value1|value2} будет заменен на одно из значений value1 или value2."},
+		"&lt;ESurname&gt; - english surnames starting from capital letter.": {"ru": "&lt;ESurname&gt; - английские фамилии имена начинающиеся с заглавной буквы."},
+		"&lt;EMaleName&gt; - english male names starting from capital letter.": {"ru": "&lt;EMaleName&gt; - английские мужские имена начинающиеся с заглавной буквы."},
+		"&lt;EFemName&gt; - english female names starting from capital letter.": {"ru": "&lt;EFemName&gt; - английские женские имена начинающиеся с заглавной буквы."},
+		"&lt;EUpCons&gt; - same as {B|C|D|F|G|H|J|K|L|M|N|P|Q|R|S|T|V|W|X|Y|Z}": {"ru": "&lt;EUpCons&gt; - тоже самое, что {B|C|D|F|G|H|J|K|L|M|N|P|Q|R|S|T|V|W|X|Y|Z}"},
+		"&lt;ELowCons&gt; - same as {b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z}": {"ru": "&lt;ELowCons&gt; - тоже самое, что {b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z}"},
+		"This action gets text from \"Template\" multiline textbox and saves it to variable defined in \"Variable To Save Result\". Thats it, unless text doesn't contain special values. Here are list of them:": {"ru": "Это действие получает текст из многострочного текстового поля \"Шаблон\" и сохраняет его в переменную, определенной в параметре \"Переменная, в которую сохранять результат\". И это все, что делает это действие, если только текст не содержит специальных значений. Вот их список:"},
+		"Create new variable or update existing with multiline text. Can expand resources, variables, spintax, may be used to load template from file or dynamically generate it. This action suites best if you want to generate post text.": {"ru": "Создать новую переменную или изменить существующую на многострочный текст. Может заменять спинтакс, ресурсы, переменные на их значения. Действие может использоваться для загрузки шаблона из файла или его динамической генерации. Оно лучше всего подходит, если нужно генерировать текст для постинга."},
+		"If \"Additional processing\" is checked, than this action will process dynamic templates, i.e template will be taken from variable. Consider following example: you have file with content \"{Hello|Hi}, &lt;EMaleName&gt;{!|}\" and want to expand it with BAS. At first you have to load file to variable [[FILE_CONTENT]]. If you put [[FILE_CONTENT]] to template action and don't set \"Additional processing\" flag, that result will be the same as original file content. But if you set this flag, BAS will expand [[FILE_CONTENT]] first and then expend result again, finally you will get something like this \"Hello, John!\".": {"ru": "Если выбрана установка \"Дополнительная обработка\", то это действие будет работать с динамическим шаблоном, т. е. шаблон будет взят из переменной. Рассмотрим следующий пример: у вас есть файл с содержанием \"{Hello|Hi}, &lt;EMaleName&gt; {!|}\" и вам нужно его обработать с помощью BAS. Сначала нужно загрузить файл в переменную [[FILE_CONTENT]]. Если вы поместите [[FILE_CONTENT]] в действие \"шаблон\" и не устанавливаете флаг \"Дополнительная обработка\", то результат будет таким же, как и исходное содержимое файла. Но если вы установите этот флаг, BAS сначала заменит переменную [[FILE_CONTENT]] на содержание файла, а затем проведет замену переменых, спинтакса и ресурсов уже в содержании файла. Наконец, результат будет похож на \"Hi, John!\"."},
+		
+		"New value": {"ru": "Новое значение"},
+		"The string to be searched for": {"ru": "Строка для поиска"},
+		"The string in which the replacement will be made": {"ru": "Строка, в которой будет выполнена замена"},
+		"This action replaces all occurrences.": {"ru": "Это действие заменяет все вхождения, а не только самое первое."},
+		"Variable, which will hold copy of the original string with the replacement": {"ru": "Переменная, которая будет содержать копию оригинальной строки с проведенной заменой"},
+		"If you want to replace with regexp, use \"Replace text with regexp\" action.": {"ru": "Используйте действие \"Заменить строку\" из модуля \"Регулярные выражения\" для замены с помощью регулярного выражения."},
+		"Searches a string defined with \"Original String\" for a specified value defined with \"Replace From\", and returns a new string where the specified values are replaced to value defined with \"Replace To\" parameter.": {"ru": "Это действие ищет в строке, определенной с помощью параметра \"Оригинальная Строка\", значения, определенные с помощью параметра \"Заменить Из\", и заменяет их на значение определенное с помощью параметра \"Заменить На\"."},
+		
+		"Generate a random string with a given length and allowed characters.": {"ru": "Сгенерировать случайную строку с заданной длиной и разрешенными символами."}
+    },
+    "major_version": 1,
+    "minor_version": 0,
+    "modules": [],
+    "name": "String",
+    "is_autogenerated": true
+}

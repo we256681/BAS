@@ -1,0 +1,36 @@
+_SMS.SmsAcktiwatorApi.prototype.getRawCountry = function(country){
+	var countries = {
+		"Any": "",
+		"RU": "RU",
+		"KZ": "KZ",
+		"UA": "UA",
+		"PL": "PL",
+		"GB": "GB",
+		"DE": "DE",
+		"MD": "MD",
+		"PH": "PH",
+		"ID": "ID",
+		"LA": "LA",
+		"RO": "RO",
+		"EE": "EE",
+		"LT": "LT",
+		"SE": "SE",
+		"NL": "NL",
+		"LV": "LV",
+		"ES": "ES",
+		"PT": "PT",
+		"MY": "MY",
+		"KE": "KE",
+		"KG": "KS",
+		"CO": "CO",
+		"TH": "TH",
+		"CZ": "CZ",
+		"BR": "BR",
+		"GE": "GE",
+		"US": "US",
+		"UZ": "UZ",
+		"BY": "BL",
+		"BA": "BA"
+	};
+	return countries.hasOwnProperty(country) ? countries[country] : countries["Any"];
+};

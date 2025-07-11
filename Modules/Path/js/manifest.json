@@ -1,0 +1,359 @@
+{
+    "actions": [
+		{
+            "code": [
+                {
+                    "file": "path_base_name_code.js",
+                    "name": "path_base_name_code"
+                }
+            ],
+            "description": {
+                "en": "Get filename from path",
+                "ru": "Получить имя файла из пути"
+            },
+            "interface": "path_base_name_interface.js",
+            "is_element": false,
+            "name": "path_base_name",
+            "select": "path_base_name_select.js",
+            "template": "{{path}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "path_directory_name_code.js",
+                    "name": "path_directory_name_code"
+                }
+            ],
+            "description": {
+                "en": "Get folder from path",
+                "ru": "Получить папку из пути"
+            },
+            "interface": "path_directory_name_interface.js",
+            "is_element": false,
+            "name": "path_directory_name",
+            "select": "path_directory_name_select.js",
+            "template": "{{path}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "path_extension_name_code.js",
+                    "name": "path_extension_name_code"
+                }
+            ],
+            "description": {
+                "en": "Get file extension",
+                "ru": "Получить расширение файла"
+            },
+            "interface": "path_extension_name_interface.js",
+            "is_element": false,
+            "name": "path_extension_name",
+            "select": "path_extension_name_select.js",
+            "template": "{{path}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "is_absolute_path_code.js",
+                    "name": "is_absolute_path_code"
+                }
+            ],
+            "description": {
+                "en": "Is absolute path",
+                "ru": "Является ли абсолютным путем"
+            },
+            "interface": "is_absolute_path_interface.js",
+            "is_element": false,
+            "name": "is_absolute_path",
+            "select": "is_absolute_path_select.js",
+            "template": "{{path}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "join_paths_code.js",
+                    "name": "join_paths_code"
+                }
+            ],
+            "description": {
+                "en": "Join paths",
+                "ru": "Объединить пути"
+            },
+            "interface": "join_paths_interface.js",
+            "is_element": false,
+            "name": "join_paths",
+            "select": "join_paths_select.js",
+            "template": "{{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "normalize_path_code.js",
+                    "name": "normalize_path_code"
+                }
+            ],
+            "description": {
+                "en": "Normalize path",
+                "ru": "Нормализовать путь"
+            },
+            "interface": "normalize_path_interface.js",
+            "is_element": false,
+            "name": "normalize_path",
+            "select": "normalize_path_select.js",
+            "template": "{{path}} -> {{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "parse_path_code.js",
+                    "name": "parse_path_code"
+                }
+            ],
+            "description": {
+                "en": "Parse path",
+                "ru": "Парсить путь"
+            },
+            "interface": "parse_path_interface.js",
+            "is_element": false,
+            "name": "parse_path",
+            "select": "parse_path_select.js",
+            "template": "{{path}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "project_path_code.js",
+                    "name": "project_path_code"
+                }
+            ],
+            "description": {
+                "en": "Project file path",
+                "ru": "Путь к файлу проекта"
+            },
+            "interface": "project_path_interface.js",
+            "is_element": false,
+            "name": "script_stats_project_path",
+            "select": "project_path_select.js",
+            "template": "{{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "project_directory_code.js",
+                    "name": "project_directory_code"
+                }
+            ],
+            "description": {
+                "en": "Path to project directory",
+                "ru": "Путь к директории проекта"
+            },
+            "interface": "project_directory_interface.js",
+            "is_element": false,
+            "name": "project_directory",
+            "select": "project_directory_select.js",
+            "template": "{{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "installation_path_code.js",
+                    "name": "installation_path_code"
+                }
+            ],
+            "description": {
+                "en": "Installation path",
+                "ru": "Путь установки"
+            },
+            "interface": "installation_path_interface.js",
+            "is_element": false,
+            "name": "installation_path",
+            "select": "installation_path_select.js",
+            "template": "{{Save}}"
+        },
+		{
+            "code": [
+                {
+                    "file": "get_system_path_code.js",
+                    "name": "get_system_path_code"
+                }
+            ],
+            "description": {
+                "en": "Get system path",
+                "ru": "Получить системный путь"
+            },
+            "interface": "get_system_path_interface.js",
+            "is_element": false,
+            "name": "get_system_path",
+            "select": "get_system_path_select.js",
+            "template": "{{name}} -> {{Save}}"
+        }
+    ],
+    "api_version": 1,
+    "browser": [
+    ],
+    "depends": [
+    ],
+    "description": "Module for working with paths",
+    "description_small": {
+        "en": "Path",
+        "ru": "Путь"
+    },
+    "developer_email": "sasha9817@mail.ru",
+    "developer_name": "GhostZ",
+    "developer_site": "https://t.me/GhostZed",
+    "embeddeddata": [],
+    "engine": [
+        "engine.js"
+    ],
+    "icon": "path.png",
+    "info": {
+        "en": "Module for working with paths.",
+        "ru": "Модуль для работы с путями."
+    },
+    "languages": [],
+    "localize": {
+		"Path": {"ru":"Путь"},
+		"File extension to remove": {"ru":"Удаляемое расширение файла"},
+		"Don't remove file extension": {"ru":"Не удалять расширение файла"},
+		"Remove any file extension": {"ru":"Удалять любое расширение файла"},
+		"Get the last part of the specified path.": {"ru": "Получить последнюю часть указанного пути."},
+		"The path from which to get the last part.": {"ru":"Путь, из которого нужно получить последнюю часть."},
+		"The \"File extension to remove\" parameter is case sensitive.": {"ru":"Параметр \"Удаляемое расширение файла\" чувствителен к регистру."},
+		"You can parse a path into items using the \"Parse path\" action.": {"ru":"Распарсить путь на элементы можно с помощью действия \"Парсить путь\"."},
+		"You can get file extension using the \"Get file extension\" action.": {"ru":"Получить расширение файла можно с помощью действия \"Получить расширение файла\"."},
+		"You can get the path directory using the \"Get folder from path\" action.": {"ru":"Получить директорию пути можно с помощью действия \"Получить папку из пути\"."},
+		"You can remove any extension by specifying <code>\"*\"</code> as the extension to remove.": {"ru":"Можно удалить любое расширение, если в качестве удаляемого расширения указать <code>\"*\"</code>."},
+		"Variable in which, after successful execution of the action, the last part of the path will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записана последняя часть пути."},
+		"For example, if the path <code>\"C:/foo/bar/baz/asdf/quux.html/\"</code> is specified, then the action will return <code>\"quux.html\"</code>.": {"ru":"Например, если указан путь <code>\"С:/foo/bar/baz/asdf/quux.html/\"</code>, то действие вернет <code>\"quux.html\"</code>."},
+		"The file extension can be removed from the final result by specifying the removed extension in the corresponding parameter in the additional settings.": {"ru":"Расширение файла можно удалить из итогового результата, указав удаляемое раширение в сответствующий параметр находящийся в дополнительных настройках."},
+		"This action will return the last part of the path, which can be a file name with an extension or a folder name, trailing directory separators are ignored.": {"ru":"Это действие вернет последнюю часть пути, которой может быть название файла с расширением или название папки, завершающие разделители каталогов игнорируются."},
+		"For example, if the path is <code>\"/test/archive/engine.js\"</code> and the extension to be removed is <code>\".js\"</code>, then the action will return <code>\"engine\"</code>.": {"ru":"Например, если указан путь <code>\"/test/archive/engine.js\"</code> и удаляемое расширение <code>\".js\"</code>, то действие вернет <code>\"engine\"</code>."},
+		"For example, if the path is <code>\"D:/sqlite/your.db\"</code> and the extension to be removed is <code>\"*\"</code>, then the action will return <code>\"your\"</code>.": {"ru":"Например, если указан путь <code>\"D:/sqlite/your.db\"</code> и удаляемое расширение <code>\"*\"</code>, то действие вернет <code>\"your\"</code>."},
+		"For example, if the path is <code>\"C:/foo.HTML\"</code> and the extension to be removed is <code>\".html\"</code>, then the action will return <code>\"foo.HTML\"</code>, not <code>\"foo\"</code>.": {"ru":"Например, если указан путь <code>\"C:/foo.HTML\"</code> и удаляемое расширение <code>\".html\"</code>, то действие вернет <code>\"foo.HTML\"</code>, а не <code>\"foo\"</code>."},
+		"If the parameter \"Path\" or \"File extension to remove\" is not a string, the thread will stop with fail message. If you want to continue thread, use \"Ignore errors\" action.":{"ru":"Если в параметр \"Путь\" или \"Удаляемое расширение файла\" будет указана не строка, поток остановится с сообщением об ошибке. Если вы хотите продолжить работу, используйте действие \"Игнорировать ошибки\"."},
+		"The file extension to be removed from the final result. This parameter is case sensitive, if the path is <code style=\"font-size:85%\">\"C:/foo.HTML\"</code> and the extension is <code style=\"font-size:85%\">\".html\"</code>, then the final result is <code style=\"font-size:85%\">\"foo.HTML\"</code>, not <code style=\"font-size:85%\">\"foo\"</code>.": {"ru": "Расширение файла, которое нужно удалять из итогового результата. Этот параметр чувствителен к регистру, если указан путь <code style=\"font-size:85%\">\"C:/foo.HTML\"</code> и расширение <code style=\"font-size:85%\">\".html\"</code>, то итоговым результатом будет <code style=\"font-size:85%\">\"foo.HTML\"</code>, а не <code style=\"font-size:85%\">\"foo\"</code>."},
+		
+		"Get the directory of the specified path.": {"ru": "Получить директорию указанного пути."},
+		"The path from which to get the directory.": {"ru":"Путь, из которого нужно получить директорию."},
+		"Variable in which, after successful execution of the action, the directory will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записана директория."},
+		"This action will return the directory of the specified path, trailing directory separators are ignored.": {"ru":"Это действие вернет директорию указанного пути, завершающие разделители каталогов игнорируются."},
+		"For example, if the path <code>\"C:/foo/bar/baz/asdf/quux.html/\"</code> is specified, then the action will return <code>\"C:/foo/bar/baz/asdf\"</code>.": {"ru":"Например, если указан путь <code>\"С:/foo/bar/baz/asdf/quux.html/\"</code>, то действие вернет <code>\"C:/foo/bar/baz/asdf\"</code>."},
+		"If the \"Path\" parameter is not a string, the thread will stop with fail message. If you want to continue thread, use \"Ignore errors\" action.":{"ru":"Если в параметр \"Путь\" будет указана не строка, поток остановится с сообщением об ошибке. Если вы хотите продолжить работу, используйте действие \"Игнорировать ошибки\"."},
+		
+		"The path from which to get the extension.": {"ru": "Путь, из которого нужно получить расширение."},
+		"Get the file extension of the specified path.": {"ru": "Получить расширение файла указанного пути."},
+		"Variable in which, after successful execution of the action, the extension will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записано расширение."},
+		"If there is no period in the last part or there are no characters before the last period, then the action will return an empty string.": {"ru":"Если в последней части пути нет точки или перед последней точкой нет символов, то действие вернет пустую строку."},
+		"For example, if the path <code>\"C:/foo/bar/baz/asdf/quux.html/\"</code> is specified, then the action will return <code>\".html\"</code>.": {"ru":"Например, если указан путь <code>\"С:/foo/bar/baz/asdf/quux.html/\"</code>, то действие вернет <code>\".html\"</code>."},
+		"This will return the expansion of the last part of the path, from the last period to the end of the string, trailing directory separators are ignored.": {"ru":"Это действие вернет расширение последней части пути, с пооследней точки до конца строки, завершающие разделители каталогов игнорируются."},
+		"For example, if the path is <code>\"C:/foo/bar/baz/asdf/quux/\"</code> or <code>\"C:/foo/bar/baz/asdf/.index\"</code>, then the action will return <code>\"\"</code>.": {"ru":"Например, если указан путь <code>\"С:/foo/bar/baz/asdf/quux/\"</code> или <code>\"С:/foo/bar/baz/asdf/.index\"</code>, то действие вернет <code>\"\"</code>."},
+		
+		"Absolute path": {"ru": "Абсолютный путь"},
+		"Not absolute path": {"ru": "Не абсолютный путь"},
+		"The path is absolute.": {"ru": "Путь является абсолютным."},
+		"The path is not absolute.": {"ru": "Путь не является абсолютным."},
+		"Check if the specified path is absolute.": {"ru": "Проверить, являются ли указанный путь абсолютным."},
+		"The path that need to check out whether it is absolute.": {"ru": "Путь, который нужно проверить на то является ли он абсолютным."},
+		"This variable will be true or false depending on whether the specified path is absolute.":{"ru":"Эта переменная будет равна true или false в зависимости от того, является ли указанный путь абсолютным."},
+		"This action will return true or false depending on whether the specified path is absolute. This result may be used with \"If\" action.": {"ru":"Это действие вернет true или false в зависимости от того, является ли указанный путь абсолютным. Результат может быть использован вместе с действием \"If\"."},
+		"For example, if the path is <code>\"/foo/bar\"</code>, then the action will return true, and if the path is specified <code>\"bar/baz\"</code> or <code>\"qux/\"</code>, then the action will return false.": {"ru":"Например, если указан путь <code>\"/foo/bar\"</code>, то действие вернет true, а если укзан путь <code>\"bar/baz\"</code> или <code>\"qux/\"</code>, то действие вернет false."},
+		
+		"List of paths": {"ru": "Список путей"},
+		"Join multiple paths into one.": {"ru": "Объединить несколько путей в один."},
+		"List of paths to be joined.": {"ru":"Список путей которые нужно объединить."},
+		"The path to be joined with other paths.": {"ru":"Путь, которую нужно объединить с другими путями."},
+		"The list can be created using actions from the \"List\" module.": {"ru":"Список можно создать с помощью действий из модуля \"Список\"."},
+		"The parameters \"Path 1\", \"Path 2\", \"Path 3\" will be used": {"ru":"Будут использованы параметры \"Путь 1\", \"Путь 2\", \"Путь 3\""},
+		"This action will return a path composed of all the specified paths.": {"ru":"Это действие вернет путь, составленную из всех указанных путей."},
+		"The parameters \"Path 2\", \"Path 3\", \"List of paths\" will be used": {"ru":"Будут использованы параметры \"Путь 2\", \"Путь 3\", \"Список путей\""},
+		"The parameters \"Path 1\", \"Path 3\", \"List of paths\" will be used": {"ru":"Будут использованы параметры \"Путь 1\", \"Путь 3\", \"Список путей\""},
+		"The parameters \"Path 1\", \"Path 2\", \"List of paths\" will be used": {"ru":"Будут использованы параметры \"Путь 1\", \"Путь 2\", \"Список путей\""},
+		"As a list, you can use a string consisting of paths, separated by commas.": {"ru":"В качестве списка можно использовать строку, состоящую из путей, разделенных запятыми."},
+		"Variable in which, after successful execution of the action, the final path will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан итоговый путь."},
+		"Paths from separate fields and a list are added to a general list of paths that will be joined.": {"ru":"Пути из отдельных полей и списка складываются в общий список путей которые будут объединены."},
+		"The order of joining the fields is as follows \"Path 1\", \"Path 2\", \"Path 3\", \"List of paths\".": {"ru":"Порядок объединения полей следующий: \"Путь 1\", \"Путь 2\", \"Путь 3\", \"Список путей\"."},
+		"For example, if a path is specified in the \"Path 1\" field and a list of 4 paths is specified in the \"List of paths\" field, then 5 paths will be joined.": {"ru":"Например, если в поле \"Путь 1\" указан путь и в поле \"Список путей\" указан список из 4 путей, то объединено будет 5 путей."},
+		"If some of the parameters (\"Path 1\", \"Path 2\", \"Path 3\", \"List of paths\") are not specified, all parameters will be used except for them.": {"ru":"Если какие-то из параметров (\"Путь 1\", \"Путь 2\", \"Путь 3\", \"Список путей\") не указаны, будут использованы все параметры кроме них."},
+		"If any of the paths is not a string, the thread will stop with fail message. If you want to continue thread, use \"Ignore errors\" action.":{"ru":"Если в качестве какого либо из путей указана не строка, поток остановится с сообщением об ошибке. Если вы хотите продолжить работу, используйте действие \"Игнорировать ошибки\"."},
+		"For example, if the parameters \"Path 1\" and \"Path 2\" are specified, the values of which are respectively <code>\"/foo\"</code> and <code>\"/bar\"</code>, then the action will return <code>\"/foo/bar\"</code>.": {"ru":"Например, если указаны параметры \"Путь 1\" и \"Путь 2\" значения которых сответственно равны <code>\"/foo\"</code> и <code>\"/bar\"</code>, то действие вернет <code>\"/foo/bar\"</code>."},
+		"For example, if \"List of paths\" is not specified, then the list will be formed from the parameters \"Path 1\" and \"Path 2\" and \"Path 3\". If the parameters \"Path 1\", \"Path 2\", \"Path 3\" are empty, then the \"List of paths\" will be used. If all parameters are specified, then all of them will be used.": {"ru":"Например, если \"Список путей\" не указан, то список будет сформирован из параметров \"Путь 1\" и \"Путь 2\" и \"Путь 3\". Если параметры \"Путь 1\", \"Путь 2\", \"Путь 3\" пусты, то будет использован \"Список путей\". Если указаны все параметры, то все они будут использованы."},
+		
+		"Normalize path.": {"ru": "Нормализовать путь."},
+		" will be normalized to": {"ru":" будет нормализован до"},
+		"Remove trailing slashes": {"ru": "Удалите завершающие слэши"},
+		"The path that need to normalize.": {"ru": "Путь, который нужно нормализовать."},
+		"and \"Remove trailing slashes\" activated": {"ru": "и  \"Удалите завершающие слэши\" активирован"},
+		"If enabled, trailing slashes will be removed from the path.": {"ru":"Если активирован, то из пути будет удалены завершающие слэши."},
+		"If you need to compare paths, then first normalize them with this action.": {"ru": "Если вам нужно сравнить пути, то сначала нормализуйте их этим действием."},
+		"Variable in which, after successful execution of the action, the normalized path will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан нормализованный путь."},
+		"If the \"Remove trailing slashes\" parameter is enabled, trailing slashes will be removed from the path, for example, path <code>\"С:\\path\\\"</code> will be normalized to <code>\"С:/path\"</code>.": {"ru": "Если активирован параметр \"Удалите завершающие слэши\", то из пути будет удалены завершающие слэши, например, путь <code>\"С:\\path\\\"</code> будет нормализирован в <code>\"С:/path\"</code>."},
+		"For example, if the path <code>\"C:\\path/\\\"</code> is specified, then the action will return <code>\"C:/path\"</code>.": {"ru":"Например, если указан путь <code>\"C:\\path/\\\"</code>, то действие вернет <code>\"C:/path\"</code>."},
+		"For example, if the path <code>\"C:////temp\\\\/\\/\\/foo/bar/..\"</code> is specified, then the action will return <code>\"C:/temp/foo\"</code>.": {"ru":"Например, если указан путь <code>\"C:////temp\\\\/\\/\\/foo/bar/..\"</code>, то действие вернет <code>\"C:/temp/foo\"</code>."},
+		"This will return the normalized path, multiple slashes will be replaced with single ones, backslashes \"\\\" will be replaced with regular \"/\", segments \"..\" and \".\" will be resolved.": {"ru":"Это действие вернет нормализованный путь, множественные слеши будут заменены на одиночные, обратные слеши \"\\\" будут заменены на обычные \"/\", сегменты \"..\" и \".\" будут решены."},
+		
+		"Root": {"ru": "Корень"},
+		"File name": {"ru": "Имя файла"},
+		"Directory": {"ru": "Директория"},
+		"Last part": {"ru": "Последняя часть"},
+		"File extension": {"ru":"Расширение файла"},
+		"List of path items": {"ru":"Список элементов пути"},
+		"Parse the path into items.": {"ru": "Распарсить путь на элементы."},
+		"The path that need to parse.": {"ru": "Путь, который нужно распарсить."},
+		"This action will save each path item to its own variable.": {"ru": "Путь, который нужно распарсить."},
+		"This variable will contain the root of the specified path.": {"ru": "Эта переменная  будет содержать корень указанного пути."},
+		"This variable will contain the directory of the specified path.": {"ru": "Эта переменная будет содержать директорию указанного пути."},
+		"This variable will contain the last part of the specified path.": {"ru": "Эта переменная будет содержать последнюю часть указанного пути."},
+		"This variable will contain the name of the file or directory of the specified path, filename will be saved without extension.": {"ru": "Эта переменная будет содержать имя файла или директории указанного пути, имя файла будет сохранено без расширения."},
+		"This variable will contain a list of all items of the specified path. The resulting list can be processed using actions from the \"List\" module.": {"ru": "Эта переменная будет содержать список всех элементов указанного пути. Полученный список можно обработать с помощью действий из модуля \"Список\"."},
+		"This variable will contain the file extension of the specified path. If the path does not contain the file extension, then the variable will contain an empty string.": {"ru": "Эта переменная  будет содержать расширение файла указанного пути. Если путь не содержит расширения файла, то переменная будет содержать пустую строку."},
+		"This action will save each item of the path to its own variable. You can learn more about paths in <a href=\"#\" onclick=\"BrowserAutomationStudio_OpenUrl('https://en.wikipedia.org/wiki/Path_(computing)');return false\">Wiki</a>.": {"ru": "Это действие сохранит каждый элемент пути в свою переменную. Подробнее о путях можно узнать в <a href=\"#\" onclick=\"BrowserAutomationStudio_OpenUrl('https://ru.wikipedia.org/wiki/%D0%9F%D1%83%D1%82%D1%8C_%D0%BA_%D1%84%D0%B0%D0%B9%D0%BB%D1%83');return false\">Wiki</a>."},
+		
+		"Not compiled script": {"ru": "Не скомпилированный скрипт"},
+		"Protected compiled script": {"ru": "Защищенный скомпилированный скрипт"},
+		"Unprotected compiled script": {"ru": "Незащищенный скомпилированный скрипт"},
+		"Get the full path to the project file.": {"ru": "Получить полный путь к файлу проекта."},
+		"Variable in which, after successful execution of the action, the path to the project file will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан путь к файлу проекта."},
+		"For example, if the script is compiled with protection and is located in the <code>\"D:/Gparser\"</code> folder, then the action will return": {"ru":"Например, если скрипт скомпилирован с защитой и находится в папке <code>\"D:/Gparser\"</code>, то действие вернет"},
+		"For example, if the script is compiled without protection and is located in the <code>\"D:/Gparser\"</code> folder, then the action will return": {"ru":"Например, если скрипт скомпилирован без защиты и находится в папке <code>\"D:/Gparser\"</code>, то действие вернет"},
+		"For example, if the script is not compiled and the <code>\"Gparser\"</code> project located in the <code>\"D:/projects\"</code> folder is open, then the action will return": {"ru":"Например, если скрипт не скомпилирован и открыт проект <code>\"Gparser\"</code> находящийся в папке <code>\"D:/projects\"</code>, то действие вернет"},
+		"For compiled unprotected and protected scripts, the paths are slightly different, since the unprotected script saves the engine to the appslocal folder, and the protected one to the appsremote folder.": {"ru":"У скомпилированных незащищенных и защищенных скриптов пути немного отличаются, так как незащищенный скрипт сохраняет движок в папку appslocal, а защищенный в папку appsremote."},
+		"This action will return the full path to the project file. If the script is not compiled, then this action will return the path to the open project file. And if the script is compiled, then this action will return the path to the project.xml file located in the root folder of the engine.": {"ru":"Это действие вернет полный путь к файлу проекта. Если скрипт не скомпилирован, то это действие вернет путь к открытому файлу проекта. А если скрипт скомпилирован, то это действие вернет путь к файлу project.xml находящемуся в корневой папке движка."},
+		
+		"Get the full path to the project directory.": {"ru": "Получить полный путь к директории проекта."},
+		"Variable in which, after successful execution of the action, the path to the project directory will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан путь к директории проекта."},
+		"This action will return the full path to the project directory. If the script is not compiled, then this action will return the path to the directory in which the open project file is located. And if the script is compiled, then this action will return the path to the root directory of the script.": {"ru":"Это действие вернет полный путь к директории проекта. Если скрипт не скомпилирован, то это действие вернет путь к директории в которой находится открытый файл проекта. А если скрипт скомпилирован, то это действие вернет путь к корневой директории скрипта."},
+		
+		"Get the full installation path.": {"ru": "Получить полный путь установки."},
+		"This action will return the full path to the directory where the executable file is located.": {"ru": "Это действие вернет полный путь к директории, в которой находится исполняемый файл."},
+		"Variable in which, after successful execution of the action, the installation path will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан путь установки."},
+		"For example, if the script is not compiled and is running BAS version <code>24.0.8</code> installed in the <code>\"C:/BrowserAutomationStudio\"</code> folder, then the action will return": {"ru":"Например, если скрипт не скомпилирован и запущен BAS версии <code>24.0.8</code> установленный в папку <code>\"C:/BrowserAutomationStudio\"</code>, то действие вернет"},
+		
+		"Path name": {"ru": "Имя пути"},
+		"The name of the path that you want to receive.": {"ru": "Имя пути, который вы хотите получить."},
+		"Get the system path with the specified name.": {"ru": "Получить системный путь с указанным именем."},
+		"<b>Computer Name</b> - Computer name. Example: <code>\"ADMIN\"</code>.": {"ru": "<b>Computer Name</b> - Имя компьютера. Пример: <code>\"ADMIN\"</code>."},
+		"<b>User Name</b> - The name of the current user. Example: <code>\"Admin\"</code>.": {"ru": "<b>User Name</b> - Имя текущего пользователя. Пример: <code>\"Admin\"</code>."},
+		"Variable in which, after successful execution of the action, the resulting path will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан полученный путь."},
+		"<b>Music</b> - Path to the \"Music\" directory. Example: <code>\"C:/Users/Admin/Music\"</code>.": {"ru": "<b>Music</b> - Путь к директории \"Музыка\". Пример: <code>\"C:/Users/Admin/Music\"</code>."},
+		"<b>Videos</b> - Path to the \"Videos\" directory. Example: <code>\"C:/Users/Admin/Videos\"</code>.": {"ru": "<b>Videos</b> - Путь к директории \"Видео\". Пример: <code>\"C:/Users/Admin/Videos\"</code>."},
+		"<b>System Root</b> - The path to the Windows root directory. Example: <code>\"C:/Windows\"</code>.": {"ru": "<b>System Root</b> - Путь к корневой директории Windows. Пример: <code>\"C:/Windows\"</code>."},
+		"<b>Desktop</b> - Path to the \"Desktop\" directory. Example: <code>\"C:/Users/Admin/Desktop\"</code>.": {"ru": "<b>Desktop</b> - Путь к директории \"Рабочий стол\". Пример: <code>\"C:/Users/Admin/Desktop\"</code>."},
+		"<b>Pictures</b> - Path to the \"Pictures\" directory. Example: <code>\"C:/Users/Admin/Pictures\"</code>.": {"ru": "<b>Pictures</b> - Путь к директории \"Изображения\". Пример: <code>\"C:/Users/Admin/Pictures\"</code>."},
+		"<b>Downloads</b> - Path to the \"Downloads\" directory. Example: <code>\"C:/Users/Admin/Downloads\"</code>.": {"ru": "<b>Downloads</b> - Путь к директории \"Загрузки\". Пример: <code>\"C:/Users/Admin/Downloads\"</code>."},
+		"<b>User Profile</b> - The path to the profile of the current user. Example: <code>\"C:/Users/Admin\"</code>.": {"ru": "<b>User Profile</b> - Путь к профилю текущего пользователя. Пример: <code>\"C:/Users/Admin\"</code>."},
+		"<b>Program Files</b> - Path to the \"Program Files\" directory. Example: <code>\"C:/Program Files\"</code>.": {"ru": "<b>Program Files</b> - Путь к директории \"Program Files\". Пример: <code>\"C:/Program Files\"</code>."},
+		"<b>Temp</b> - Path to the temporary directory. Example: <code>\"C:/Users/Admin/AppData/Local/Temp\"</code>.": {"ru": "<b>Temp</b> - Путь к временной директории. Пример: <code>\"C:/Users/Admin/AppData/Local/Temp\"</code>."},
+		"<b>Documents</b> - Path to the \"Documents\" directory. Example: <code>\"C:/Users/Admin/Documents\"</code>.": {"ru": "<b>Documents</b> - Путь к директории \"Документы\". Пример: <code>\"C:/Users/Admin/Documents\"</code>."},
+		"<b>Favorites</b> - Path to the \"Favorites\" directory. Example: <code>\"C:/Users/Admin/Favorites\"</code>.": {"ru": "<b>Favorites</b> - Путь к директории \"Избранное\". Пример: <code>\"C:/Users/Admin/Favorites\"</code>."},
+		"<b>Windows Directory</b> - The directory where Windows is installed. Example: <code>\"C:/Windows\"</code>.": {"ru": "<b>Windows Directory</b> - Директория, в которую установлена Windows. Пример: <code>\"C:/Windows\"</code>."},
+		"<b>System Drive</b> - The drive where the Windows root directory is located. Example: <code>\"C:\"</code>.": {"ru": "<b>System Drive</b> - Диск, на котором расположен корневая директория Windows. Пример: <code>\"C:\"</code>."},
+		"<b>App Data</b> - The default location for app data. Example: <code>\"C:/Users/Admin/AppData/Roaming\"</code>.": {"ru": "<b>App Data</b> - Используемое по умолчанию размещение данных приложений. Пример: <code>\"C:/Users/Admin/AppData/Roaming\"</code>."},
+		"<b>Local App Data</b> - The default local location for application data. Example: <code>\"C:/Users/Admin/AppData/Local\"</code>.": {"ru": "<b>Local App Data</b> - Используемое по умолчанию локальное размещение данных приложений. Пример: <code>\"C:/Users/Admin/AppData/Local\"</code>."},
+		"<b>Program Files (x86)</b> - The path to the \"Program Files (x86)\" directory on 64-bit systems for x86 architecture applications. Example: <code>\"C:/Program Files (x86)\"</code>.": {"ru": "<b>Program Files (x86)</b> - Путь к директории \"Program Files (x86)\" в 64-разрядных системах для приложений архитектуры x86. Пример: <code>\"C:/Program Files (x86)\"</code>."}
+    },
+    "major_version": 1,
+    "minor_version": 0,
+    "modules": [],
+    "name": "Path",
+    "is_autogenerated": true
+}

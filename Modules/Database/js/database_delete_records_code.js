@@ -1,0 +1,1 @@
+_db_delete_records(<%= filters %>, <%= table %>, <%= group_id %>, <%= delete_resources %> == "true")

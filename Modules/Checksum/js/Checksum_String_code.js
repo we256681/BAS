@@ -1,0 +1,2 @@
+_call_function(Checksum_String,{"input":(<%= input %>),<% if(base64==true){ %> "inputEncoding":("base64"),<% } %> "algorithm":(<%= algorithm %>),<% if(outputLength!=='""'){ %> "outputLength":(<%= outputLength %>),<% } %> "outputEncoding":(<% if(['"hex encoded"','"base64 encoded"'].indexOf(outputEncoding) > -1){ %><%= outputEncoding.split(' ')[0] + '"' %><% }else{ %><%= outputEncoding %><% } %>), "timeout":(<%= timeout_value() || 60000 %>)})!
+<%= variable %> = _result_function();

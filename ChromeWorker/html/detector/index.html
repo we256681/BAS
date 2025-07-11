@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Detector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FingerprintDetector</title>
+    <link rel="stylesheet" type="text/css" href="css/semantic.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/Semantic-UI-Alert.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/Semantic-UI-Alert.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="components/InputKey.js"></script>
+    <script src="components/DisplayData.js"></script>
+    <script src="components/DisplayCode.js"></script>
+    <script src="js/fingerprintdata.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/progressbar.js"></script>
+    <script src="js/descriptions.js"></script>
+    <script src="js/sourcemap.js"></script>
+    <script src="js/beautifier.min.js"></script>
+    <script src="js/vue-i18n.js"></script>
+	<script src="js/translate.js"></script>
+	<script src="js/opensource.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/latofonts.css">
+
+
+
+  </head>
+  <body style="min-width:10px">
+    <div id="app">
+    	<input-key 
+    		v-show="CurrentPage == 'input-key'" 
+    		:fpkey="FingeprintSwitcherKey" 
+    		@fplogin="Login">
+   		</input-key>
+
+    	<display-data 
+    		v-show="CurrentPage == 'display-data'" 
+    		:fpdata="FingerprintData" 
+    		@fpclearall="ClearAll" @fplogout="Logout" @fpstack="ShowCallStack" 
+    		ref="datapage">
+    	</display-data>
+
+    	<display-code 
+    		v-show="CurrentPage == 'display-code'" 
+    		:fpcodeloading="CurrentCodeLoading" :fpcodesuccess="CurrentCodeSuccess" 
+    		@fpclose="CloseCode" 
+    		@fpedit="EditCode"
+    		ref="codepage">
+    	</display-code>
+    </div>
+
+    
+
+
+	<script type="text/javascript">
+
+		//Initialize class for inspecting source
+		window._OpenSource = new OpenSource();
+		window._OpenSource.Init(_RemoteDebuggingPort)
+
+		//Initialize components
+		Vue.component('input-key', window.InputKey)
+		Vue.component('display-data', window.DisplayData)
+		Vue.component('display-code', window.DisplayCode)
+
+		//Fingerprint data initialization
+		FingerprintData = new FingerprintDataClass(function(Result){
+			var ResWithIds = Result.map(function(x)
+				{
+					x["_id"] = Math.random().toString(36).substr(2, 9);
+					return x;
+				}
+			).filter(x => {
+				let res = true;
+				if(x.stack && x.stack.indexOf("file:///") >= 0)
+					res = false
+				return res;
+			})
+			ResWithIds = ResWithIds.filter(x => {
+	          x["stackprepared"] = null
+	          let ret = true
+	          try
+	          {
+	            if((x.type != "browser") && typeof(x["stack"]) != "undefined" && x["stack"])
+	            {
+	              x["stackprepared"] = x["stack"].split("\n").filter(s => s).map(s => s.replace("\u0000",""))
+	              ret = x["stackprepared"].findIndex(x => x.split(":")[0].length > 0) >= 0
+	          	}
+	          	
+	          }catch(e)
+	          {
+
+	          }
+	          return ret
+	          
+	        })
+
+	        
+
+
+	        ResWithIds.forEach(x => {
+	        	if(x.id == "Screen")
+	        	{
+	        		x.params = {method: x.method}
+	        		x.method = "Screen"
+	        	}
+	        	if(x.id == "PlatformId" && x.method != "userAgent")
+	        	{
+	        		x.params = {method: x.method}
+	        		x.method = "PlatformId"
+	        	}
+	        	if(x.id == "PlatformId" && x.method == "userAgent")
+	        	{
+	        		x.id = "UserAgent"
+	        		x.method = "userAgent"
+	        	}
+				if(x.id == "Language")
+	        	{
+	        		x.params = {method: x.method}
+	        		x.method = "Language"
+	        	}
+	        	if(x.id == "Plugins")
+	        	{
+	        		x.params = {method: x.method}
+	        		x.method = "Plugins"
+	        	}
+	        	if(x.id == "Canvas")
+	        	{
+	        		x.params = {method: x.method}
+	        		x.method = "Canvas"
+	        	}
+
+	        	if(x.id == "Audio")
+	        	{
+	        		x.params = {method: x.method}
+	        		if((x.method == "createScriptProcessor" || x.method == "startRendering"))
+	        		{
+	        			x.method = "Audio"
+	        		}else	        		
+	        		{
+	        			x.method = "AudioSettings"
+	        		}
+	        	}
+	        	if(x.id == "Timezone")
+	        	{
+	        		x.params = {method: x.method}
+	        		x.method = "Timezone"
+	        		x.level = 2
+	        	}
+
+	        	if(x.id == "Geolocation")
+	        	{
+	        		x.params = {method: x.method}
+	        		x.method = "Geolocation"
+	        	}
+
+	        	if(x.id == "UserMedia")
+	        	{
+	        		x.params = {method: x.method}
+	        		x.method = "UserMedia"
+	        	}
+
+	        	if(x.id == "SVG")
+	        	{
+	        		x.params = {method: x.method}
+	        		x.method = "SVG"
+	        	}
+
+	        })
+
+	        ResWithIds.forEach(x => {
+	          x["tag"] = window.Descriptions.GetTag(x)
+	        })
+
+
+			App.FingerprintData = App.FingerprintData.concat(ResWithIds).sort(function(x, y)
+	          {
+	            var res = x.timestamp - y.timestamp
+	            if(res == 0 && x["type"] != y["type"])
+	            {
+	              if(x["type"] == "fingerprint")
+	                return 1
+	              if(y["type"] == "fingerprint")
+	                return -1
+	            }
+
+	            return res;
+	          }).splice(-5000)
+		});
+
+		Descriptions = new DescriptionsClass()
+
+		//Main app
+	    App = new Vue({
+	    	i18n: new VueI18n({
+				locale: _CurrentLocale,
+				messages: window.Translate,
+			}),
+			el: '#app',
+			data: {
+				CurrentPage: "input-key",
+				//_RestoreFingerprintKey will be replaced by BAS
+				FingeprintSwitcherKey: _RestoreFingerprintKey,
+				FingerprintData: [],
+				CurrentCodeSuccess: false,
+				CurrentCodeLoading: false,
+				CurrentLineNumber: 0,
+				CurrentColumnNumber: 0
+
+			},
+			mounted: function(){
+				try{
+					BrowserAutomationStudio_Initialized()
+				}catch(e)
+				{
+					
+				}
+			},
+			methods: {
+				Login: function(key)
+				{
+					try
+					{
+						BrowserAutomationStudio_SaveFingerprintKey(key)
+					}catch(e)
+					{
+
+					}
+					this.$refs.datapage.BeforeShow();
+					FingerprintData.SetKey(key)
+					this.FingeprintSwitcherKey = key
+					this.CurrentPage = "display-data"
+				},
+				ClearAll: function()
+				{
+					try
+					{
+						BrowserAutomationStudio_ClearAll()
+					}catch(e)
+					{
+
+					}
+					this.FingerprintData = []
+				},
+				Logout: function()
+				{
+					try
+					{
+						BrowserAutomationStudio_Logout()
+					}catch(e)
+					{
+
+					}
+					this.FingeprintSwitcherKey = ""
+					FingerprintData.SetKey("")
+					this.CurrentPage = "input-key"
+				},
+				ShowCallStack: function(Stack,LineNumber,ColumnNumber)
+				{
+					this.CurrentPage = "display-code"
+					this.CurrentCodeLoading = true
+					this.CurrentCodeSuccess = false
+					this.CurrentLineNumber = LineNumber
+					this.CurrentColumnNumber = ColumnNumber
+
+					try
+					{
+						BrowserAutomationStudio_OpenSource(Stack,LineNumber,ColumnNumber)
+					}catch(e)
+					{
+
+					}
+					
+				},
+				CloseCode: function()
+				{
+					this.$refs.datapage.BeforeShow();
+					this.CurrentPage = "display-data"
+				},
+				EditCode: function(Code)
+				{
+					BrowserAutomationStudio_EditSource(Code)
+				}
+			}
+		})
+
+	    //BAS API
+		function BrowserAutomationStudio_NewFingerprintData(Data)
+		{
+			FingerprintData.AddData(Data)
+		}
+		function BrowserAutomationStudio_NewBrowserData(Data)
+		{
+			var Res = JSON.parse(Data)
+			Res["_id"] = Math.random().toString(36).substr(2, 9)
+			App.FingerprintData.push(Res)
+		}
+		function BrowserAutomationStudio_OpenSourceResult(Data, IsSuccess)
+		{
+			App.$refs.codepage.Prepare(Data,App.CurrentLineNumber,App.CurrentColumnNumber);
+			App.CurrentCodeLoading = false
+			App.CurrentCodeSuccess = IsSuccess
+		}
+
+
+
+
+	</script>
+
+  </body>
+</html>

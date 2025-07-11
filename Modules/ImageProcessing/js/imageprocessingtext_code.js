@@ -1,0 +1,1 @@
+native("imageprocessing", "text", (<%= vertical_align %>) + "," + (<%= horizontal_align %>) + "," + (<%= id %>) + "," + (<%= x %>) + "," + (<%= y %>)+ "," + (<%= width %>) + "," + (<%= height %>) + "," + (<%= fontfamily %>) + "," + (<%= r %>) + "," + (<%= g %>) + "," + (<%= b %>) + "," + (<%= a %>)+ "," + (<%= fontsize %>) + "," + (<%= text %>))

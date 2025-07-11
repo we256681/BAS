@@ -1,0 +1,1 @@
+<%= variable %> = Boolean(native("regexp", "ismatch", JSON.stringify({text: <%= string %>,regexp:<%= regexp %>})) == "true")

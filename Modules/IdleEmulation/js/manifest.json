@@ -1,0 +1,62 @@
+{
+	
+	"name":"IdleEmulation",
+	"info":{"en": "Simulates random user activity: moves mouse, scrolls page.", "ru": "Имитирует случайную активность пользователя: перемещает мышь, прокручивает страницу."},
+	"icon":"idleemulation.png",
+	"description":"Idle emulation",
+	"description_small":{"en": "Idle emulation", "ru": "Эмуляция бездействия"},
+	"major_version": 1,
+	"minor_version": 1,
+	"developer_name": "bablosoft", 
+	"developer_email": "mail.to.twaego@gmail.com", 
+	"developer_site": "https://bablosoft.com",
+	"api_version": 1,
+	"actions":
+	[
+		{
+			"name":"IdleEmulation",
+			"description":{"en": "Idle Emulation","ru": "Эмуляция бездействия"},
+			"template":"{{IddleTime}} sec",
+			"is_element": false,
+			"interface": "idle_emulation_interface.js",
+			"select": "idle_emulation_select.js",
+			"code": [{"file":"idle_emulation_code.js", "name": "idle_emulation_code"}],
+			"suggestion":{"en": "move mouse and scroll randomly","ru": "перемещать мышь и скролить страницу"}
+
+		}
+	],
+	"localize": 
+	{
+		"Idle emulation" : {"ru": "Эмуляция бездействия"},
+
+		"Time spent on page in seconds":{"ru":"Время, проведенное на странице в секундах"},
+		"This parameter sets idle time duration in seconds. Time setting is not precise, actual action duration can be a little longer than specified.":{"ru":"Этот параметр задает длительность бездействия в секундах. Заданное время не является точным, фактическая длительность действия может быть немного дольше, чем указано."},
+		"Idle for one minute":{"ru":"Бездействие в течение одной минуты"},
+		"Idle for 5 minutes":{"ru":"Бездействие в течение 5 минут"},
+		"Idle type and filling":{"ru":"Тип ожидания и его наполнение"},
+		"Whole idle duration is splitted into intervals. Every interval has a type. Here are list of intervals: 1 - scroll page with mouse wheel, 2 - random mouse movements for a long distance, 3 - random mouse movements for a short distance, 4 - sleep. Besides that, frequency of occurrence of interval with some types, may be bigger then others. This parameter must contain list of types, the more often different types will appear in the list, the more often they will meet during idle.":{"ru":"Все бездействие разделяется на интервалы. Каждый интервал имеет тип. Вот список типов интервалов: 1 - прокрутка страницы колесом мыши, 2 - случайные движения мыши на большое расстояние, 3 - случайные движения мыши на короткое расстояние, 4 - сон. Кроме того, частота появления интервала с одними типами может быть больше, чем с другими. Этот параметр должен содержать список типов, чем чаще в списке появляются определенные типы, тем чаще они будут встречаться во время выполнения действия."},
+		
+		"Execute only page scrolling.":{"ru":"Выполнять только прокрутку страницы."},
+		"Execute page scrolling mixed with sleep. Sleep and page scroll types will appear with same frequency":{"ru":"Выполнять прокрутку страницы и сон. И сон и прокрутка будут иметь одинаковую частоту появления"},
+		"Execute page scrolling mixed with sleep. Sleep will be executed 2 times more often then scroll.":{"ru":"Выполнять прокрутку страницы и сон. Сон будет выполняться в 2 раза чаще, чем прокрутка."},
+		"Execute page scrolling mixed with sleep and short mouse moves. Sleep will be executed 2 times more often then scroll. Scroll and short mouse moves has same frequencies.":{"ru":"Выполнять прокрутку страницы, сон и движения мыши на коротком состоянии. Сон будет выполняться в 2 раза чаще, чем прокрутка. Прокрутка и короткие движения мыши будут иметь одинаковую частоту появления"},
+
+
+		"Imitate user behaviour on webpage.":{"ru":"Имитировать просмотр пользователем веб-страницы."},
+		"This is more convenient sleep action replacement.":{"ru":"Это действие - более правдободобная замена действия 'Спать'."},
+		"During idle user can scroll and move mouse, but no clicks are performed.":{"ru":"Во время бездействия страница может быть прокручена и курсор мыши может перемещаться, но клики не выполняются."},
+		"Whole idle duration is splitted into intervals. Every interval has a type. Here are list of intervals:":{"ru":"Все бездействие разделяется на интервалы. Каждый интервал имеет тип. Вот список типов: "},
+		"1 - scroll page with mouse wheel.":{"ru":"1 - прокрутка страницы колесом мыши."},
+		"2 - random mouse movements for a long distance.":{"ru":"2 - случайные движения мыши на большое расстояние."},
+		"3 - random mouse movements for a short distance.":{"ru":"3 - случайные движения мыши на короткое расстояние."},
+		"4 - sleep.":{"ru":"4 - сон."},
+
+
+		"Each interval appearance is randomised. So you'll get completely different behaviour each time the action is called.":{"ru":"Каждый раз появление интервала выбирается случайным образом. Это означает, что вы будете получать разные результаты каждый раз, когда запускаете это действие."},
+		"Besides that, frequency of occurrence of interval with some types, may be bigger then others.":{"ru":"Кроме того, частота появления интервала с одними типами может быть больше, чем с другими."},
+		"'Idle type and filling' parameter must contain list of types, the more often different types will appear in the list, the more often they will meet during idle. Check help for 'Idle type and filling' parameter for examples.":{"ru":"Параметр 'Тип ожидания и его наполнение' должен содержать список типов, чем чаще в списке появляются определенные типы, тем чаще они будут встречаться во время выполнения действия. Прочтите помощь к параметру 'Тип ожидания и его наполнение' чтобы увидеть примеры."}
+	},
+	"engine": [],
+	"browser": [],
+	"depends": []	
+}

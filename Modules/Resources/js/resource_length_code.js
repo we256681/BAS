@@ -1,0 +1,1 @@
+<%= save %> = ScriptWorker.GetTotalLength(<%= key %>)

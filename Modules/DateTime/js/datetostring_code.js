@@ -1,0 +1,1 @@
+<%= variable %> = _format_date(<%= value %>,<%= format %>)

@@ -1,0 +1,81 @@
+{
+	
+	"name":"Processes",
+	"info":{"en": "This module can run any batch or exe file.", "ru": "Этот модуль может запускать любой bat или exe файл."},
+
+	"icon":"processes.png",
+	"description":"Run Process",
+	"description_small":{"en": "Process Manager", "ru": "Управление Процессами"},
+	"major_version": 2,
+	"minor_version": 0,
+	"developer_name": "bablosoft", 
+	"developer_email": "mail.to.twaego@gmail.com", 
+	"developer_site": "https://bablosoft.com",
+	"api_version": 1,
+	"actions":
+	[
+		{
+			"name":"ExecuteProcess",
+			"description":{"en": "Run Process","ru": "Запустить Процесс"},
+			"suggestion":{"en": "execute batch file, execute command, run command","ru": "выполнить батч файл, выполнить команду, вызвать команду"},
+			"template":"{{Command}} -> {{Save}}",
+			"is_element": false,
+			"interface": "execute_process_interface.js",
+			"select": "execute_process_select.js",
+			"code": [{"file":"execute_process_code.js", "name": "execute_process_code"}]
+		}
+		
+	],
+	"localize": 
+	{
+		"Wait while process will finish": {"ru": "Ждать завершения"},
+		"Command line": {"ru": "Аргументы командной строки"},
+		"Command": {"ru": "Комманда"},
+		"Batch script or executable path":{"ru":"Batch скрипт или путь к исполняемому файлу"},
+		"This field must contain either path to executable that you want to start or batch script. Batch content may contain any windows utilities like cd, dir, echo, etc and can have multiple lines":{"ru":"Это поле должно содержать либо путь к исполняемому файлу, который вы хотите запустить, либо batch скрипт. Batch может содержать любые служебные программы Windows, такие как cd, dir, echo и т. д. и может иметь несколько строк"},
+		"Run executable":{"ru":"Запустить исполняемый файл"},
+		"Run several executables one by one":{"ru":"Запуск нескольких исполняемых файлов один за другим"},
+		"Run executable with command line parameters":{"ru":"Запуск исполняемого файла с параметрами командной строки"},
+		"Find cmd.exe location":{"ru":"Найти путь к cmd.exe"},
+		"Display message, it will be available in PROCESS_STANDART_OUTPUT variable.":{"ru":"Отобразите сообщение, оно будет доступно в переменной PROCESS_STANDART_OUTPUT."},
+		"Show content of download folder":{"ru":"Показать содержимое папки загрузки"},
+		"Output all letters to log":{"ru":"Вывод всех букв в лог"},
+		"Working folder":{"ru":"Рабочая папка"},
+		"Working folder in which batch will be executed. Leave blank to execute in folder, where BrowserAutomationStudio.exe file is located.":{"ru":"Рабочая папка, в которой будет выполнен batch. Оставьте пустым для выполнения в папке, где находится файл BrowserAutomationStudio.exe."},
+		"Run in BAS folder":{"ru":"Запустить в папке BAS"},
+		"Process standart output":{"ru":"Стандартный вывод процесса"},
+		"This variable will contain process standart output":{"ru":"Эта переменная будет содержать стандартный вывод процесса"},
+		"Process error output":{"ru":"Вывод процесса с ошибками"},
+		"This variable will contain process error output":{"ru":"Эта переменная будет содержать вывод процесса с ошибками"},
+		"Run executable or batch script.":{"ru":"Выполнить исполняемый файл или batch скрипт."},
+		"'Batch script or executable path' parameter may contain path to executable that you want to run, or batch script.":{"ru":"Параметр 'Batch скрипт или путь к исполняемому файлу' может содержать путь к исполняемому файлу, который вы хотите запустить, или batch скрипт."},
+		"Batch script can have multiple lines, may use":{"ru":"Batch скрипт может иметь несколько строк, могут использоваться"},
+		"windows utilities":{"ru":"утилиты windows"},
+		"and start other executables.":{"ru":"и запускаться другие исполняемые файлы."},
+		"Working folder by default is path where BAS installed, you may want to change it with 'Working folder' parameter or by running 'cd' command inside batch script.":{"ru":"Рабочая папка по умолчанию - это путь, где установлен BAS, вы можете изменить его с помощью параметра 'Рабочая папка' или запустить команду 'cd' внутри batch скрипта."},
+		"Check PROCESS_STANDART_OUTPUT and PROCESS_ERROR_OUTPUT variables to get execution results, you may want to use regular expressions to extract values from them.":{"ru":"Результат будет записан в переменные PROCESS_STANDART_OUTPUT и PROCESS_ERROR_OUTPUT, можно использовать регулярные выражения для извлечения значений из этих переменных."}
+	},
+	"engine": [],
+	"browser": [],
+	"depends": [],
+	"dll": [
+			{
+				"name": "processmanager", 
+				"filename32": "processmanager32.dll", 
+				"filename64": "processmanager64.dll", 
+				"startdllfunction": "StartDll", 
+				"enddllfunction": "EndDll", 
+				"startthreadfunction": "StartThread", 
+				"endthreadfunction": "EndThread", 
+				"exportlist":[
+					{
+						"name": "start",
+						"isasync": true,
+						"waitinfinite": true,
+						"workfunction": "ProcessManagerRunExe"
+					}
+				]
+			}
+		  ]
+}
+

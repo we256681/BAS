@@ -1,0 +1,13 @@
+var parse_res = new _ua(<%= ua %>);
+<%= platform_type %> = _avoid_nil(parse_res["platform"]["type"]);
+<%= browser_name %> = _avoid_nil(parse_res["browser"]["name"]);
+<%= browser_version %> = _avoid_nil(parse_res["browser"]["version"]);
+<%= browser_major_version %> = _avoid_nil(parse_res["browser"]["major"]);
+<%= engine_name %> = _avoid_nil(parse_res["engine"]["name"]);
+<%= engine_version %> = _avoid_nil(parse_res["engine"]["version"]);
+<%= os_name %> = _avoid_nil(parse_res["os"]["name"]);
+<%= os_version %> = _avoid_nil(parse_res["os"]["version"]);
+<%= device_vendor %> = _avoid_nil(parse_res["device"]["vendor"]);
+<%= device_model %> = _avoid_nil(parse_res["device"]["model"]);
+<%= device_type %> = _avoid_nil(parse_res["device"]["type"]);
+<%= cpu_architecture %> = _avoid_nil(parse_res["cpu"]["architecture"]);

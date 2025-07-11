@@ -1,0 +1,44 @@
+{
+	
+	"name":"FontPack",
+	"info":{"en": "FontPack helpers", "ru": "FontPack helpers"},
+
+	"icon":"",
+	"description":"FontPack helpers",
+	"description_small":{"en": "FontPack helpers", "ru": "FontPack helpers"},
+	"major_version": 1,
+	"minor_version": 0,
+	"developer_name": "bablosoft", 
+	"developer_email": "mail.to.twaego@gmail.com", 
+	"developer_site": "https://bablosoft.com",
+	"api_version": 1,
+	"actions":
+	[
+	],
+	"localize": 
+	{
+	},
+	"engine": [],
+	"browser": [],
+	"depends": [],
+	"dll": [
+			{
+				"name": "fontpack", 
+				"filename32": "fontpack32.dll", 
+				"filename64": "fontpack64.dll", 
+				"startdllfunction": "StartDll", 
+				"enddllfunction": "EndDll", 
+				"startthreadfunction": "StartThread", 
+				"endthreadfunction": "EndThread", 
+				"iddlefunction": "IddleThread", 
+				"exportlist":[
+					{
+						"name": "getfontpackpath",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "GetFontPackPath"
+					}
+				]
+			}
+		  ]
+}

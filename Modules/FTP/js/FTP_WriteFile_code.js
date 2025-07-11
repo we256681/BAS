@@ -1,0 +1,1 @@
+_call_function(FTP_WriteFile,{ "FilePath": (<%= FilePath %>),"Value": (<%= Value %>),"EndingSymbol": (<%= EndingSymbol %>),"Append": (<%= Append %>),"base64": (<%= base64 %>),"Timeout": (<%= timeout_value() || 60000 %>) })!

@@ -1,0 +1,1 @@
+_call_function(Excel_SetRowHeight,{"FilePath":(<%= FilePath %>), "SheetIndexOrName":(<%= SheetIndexOrName %>), "RowIndex":(<%= RowIndex %>), "Height":(<%= Height %>), "Sync":(<%= Sync %>), "Timeout":(<%= timeout_value() || 60000 %>)})!

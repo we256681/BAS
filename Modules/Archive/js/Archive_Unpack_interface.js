@@ -1,0 +1,21 @@
+<div class="container-fluid">
+<%= _.template($('#input_constructor').html())({id:"ArchivePath", description:tr("Archive path"), default_selector: "string", disable_int:true, value_string: "", help: {description:tr("The path to the archive which needs to be unpacked."),examples:[{code:"C:/test/ImapCustom.zip"},{code:"C:/Program Files/test.rar"}]} }) %>
+<%= _.template($('#input_constructor').html())({id:"ArchiveType", description:tr("Archive type"), default_selector: "string", variants: ["auto","zip","7z","rar"], disable_int:true, value_string: "auto", help: {description:tr("The archive type is usually written in the file extension. But there are exceptions, such as Chrome extensions files have the extension .crx, but are zip archive with additional headers."),examples:[{code:"auto", description: tr("The archive type will be determined by the file extension")}]} }) %>
+<%= _.template($('#input_constructor').html())({id:"DestinationPath", description:tr("Destination path") + ". " + tr("Can be blank"), default_selector: "string", disable_int:true, value_string: "", help: {description:tr("The path to the location where the contents of the archive will be unpacked."),examples:[{code:"C:/test"},{code:"C:/Program Files"},{code:tr("Empty string"), description: tr("Place the contents of the archive next to it")}]} }) %>
+<%= _.template($('#input_constructor').html())({id:"ListOfFiles", description:tr("List of files") + ". " + tr("Can be blank"), default_selector: "string", disable_int:true, value_string: "", help: {description:tr("List of files to extract from the archive. The list should contain not only the names of the files but their path in the archive. The list can be obtained using the \"Get file list from archive\" action or create using actions from the \"List\" module.") + " " + tr("As a list, you can use a string consisting of file paths, separated by commas."),examples:[{code:tr("file1.txt,pathto/file2.txt,pathto2/file3.txt")},{code:tr("file1.txt, pathto/file2.txt, pathto2/file3.txt")},{code:tr("[\"file1.txt\", \"pathto/file2.txt\", \"pathto2/file3.txt\"]")},{code:tr("Empty string"), description: tr("The archive will be completely unpacked")}]} }) %>
+<%= _.template($('#block_start').html())({id:"Additional", name: tr("Additional settings"), description: ""}) %>
+<%= _.template($('#input_constructor').html())({id:"password", description:tr("Password") + ". " + tr("Can be blank"), default_selector: "string", disable_int:true, value_string: "", help: {description:tr("Optional parameter.") + " " + tr("Password for access to files contained in the archive."),examples:[{code:"test1234"},{code:"qwerty4321"},{code:tr("Empty string"), description: tr("Don't use password")}]} }) %>
+<%= _.template($('#block_end').html())() %>
+</div>
+<div class="tooltipinternal">
+	<div class="tr tooltip-paragraph-first-fold">Unpack the contents of the archive to the specified location.</div>
+	<div class="tr tooltip-paragraph-fold">If the destination path is not specified, the archive will be unpacked to the location where it is located.</div>
+	<div class="tr tooltip-paragraph-fold">This action can unpack not the entire archive, but only a part of it, for this you need to specify a list of files that need to be unpacked.</div>
+	<div class="tr tooltip-paragraph-fold">If the archive is password protected, then you can specify it in the corresponding parameter located in the additional settings.</div>
+	<div class="tr tooltip-paragraph-fold">The list of files can be obtained using the "Get file list from archive" action or create using actions from the "List" module.</div>
+	<div class="tr tooltip-paragraph-fold">The list of files should contain not only their names but their path in the archive.</div>
+	<div class="tr tooltip-paragraph-fold">If a non-existent destination path is specified, it will be created.</div>
+	<div class="tr tooltip-paragraph-fold">If the files contained in the archive already exist along the destination path, they will be overwritten.</div>
+	<div class="tr tooltip-paragraph-last-fold">If the archive has incorrect format or an error occurred while execute action, the thread will stop with fail message. If you want to continue thread, use "Ignore errors" action.</div>
+</div>
+<%= _.template($('#back').html())({action:"executeandadd",use_timeout: true, visible:true}) %>

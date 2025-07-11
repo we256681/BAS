@@ -1,0 +1,1193 @@
+body
+{
+	overflow: hidden;
+}
+
+
+#AddTask, #AddTask:hover
+{
+	position: fixed;
+	bottom: 30px;
+	right: 535px;
+	color: white;
+	background-color: #f0506e;
+	text-decoration: none;
+	padding: 14px;
+	border-radius: 46px;
+	line-height: 15px;
+	-webkit-transition: right 0.5s;
+  	transition: right 0.5s;
+  	z-index:20;
+}
+
+
+
+.HideLogs, .HideLogs:hover
+{
+	display:flex;
+	width: 40px;
+    height: 37px;
+    /*background-image: radial-gradient(#b1b0b0 40%, transparent 40%);
+    background-size: 4px 4px;
+    background-repeat: repeat;*/
+    margin-left: 15px;
+    color:white;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	float:right
+}
+.NoTasks
+{
+	
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+}
+
+.DeleteArchived
+{
+	/*margin-left:10px;	*/
+	display: block;
+	margin-top:5px;
+}
+
+.ArchivedNumber
+{
+	text-align: center;
+	margin-left:30px;
+	margin-right:30px;
+	margin-top:50px;
+	margin-bottom:50px;
+}
+.Hidden
+{
+	display:none
+}
+
+.ApplicationLogListItem
+{
+	padding: 7px 10px;
+	border-bottom: 1px solid rgb(229, 229, 229);
+}
+
+.ApplicationLogTask
+{
+	font-weight:bold;
+	color:rgb(102, 102, 102)
+}
+
+.ApplicationLogTask:hover
+{
+	font-weight:bold;
+	color:rgb(102, 102, 102)
+}
+
+
+.ResultApplicationLog
+{
+	background: #2ec98f;
+	color: white;
+	border-radius: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 2px;
+}
+
+
+#ApplicationLogHeader
+{
+
+	background: linear-gradient(to left, #eaad7c, #d4894f);
+	/*border-bottom: 1px solid #d8d8d8;*/
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:10px;
+	padding-bottom:10px;
+	position:absolute;
+	top:calc(100vh / 2);
+	left:calc(100% - 500px);
+	right:0px;
+	-webkit-transition: left 0.5s, right 0.5s;
+  	transition: left 0.5s, right 0.5s;
+}
+
+.LogInvisible #ApplicationLogHeader
+{
+	left:100%;
+	right:-40%;
+}
+
+.LogInvisible #SchedulerLogHeader
+{
+	left:100%;
+	right:-40%;
+}
+
+.LogInvisible #SchedulerLog
+{
+	left:100%;
+	right:-40%;
+}
+
+.LogInvisible #ApplicationLog
+{
+	left:100%;
+	right:-40%;
+}
+
+.LogInvisible #TaskListHeader
+{
+	right:0px !important;
+	border-right:0px !important;
+}
+
+.LogInvisible #TaskList
+{
+	right:0px !important;
+	border-right:0px !important;
+}
+
+#SchedulerLogSearch::-moz-selection
+{ 
+	background: #52e5ae !important; 
+}
+#SchedulerLogSearch::selection
+{ 
+	background: #52e5ae !important;
+}
+
+#ApplicationLogSearch::-moz-selection
+{ 
+	background: #fcb279 !important; 
+}
+#ApplicationLogSearch::selection
+{ 
+	background: #fcb279 !important;
+}
+
+
+
+
+
+.SelectedText
+{
+	background-color: yellow;
+}
+
+
+.PanelHeaderSearch, .PanelHeaderSearch:focus
+{
+	float: left;
+	width: calc(100% - 120px);
+	background: transparent;
+	color: white;
+	border: 1px solid #ffffff4d;
+	border-radius: 2px;
+	height: 34px;
+}
+
+.PanelHeaderSearch::placeholder
+{
+	color:#ffffffbd;
+}
+
+.uk-list-striped > li
+{
+    padding: 7px 10px;
+}
+
+.SchedulerLogDate
+{
+	padding: 10px;
+	border-bottom: 1px solid #e5e5e5;
+	border-top: none;
+	text-align: center;
+	font-weight: 600;
+}
+
+.NoMessagesScheduler
+{
+	
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+}
+
+.NoMessagesApplication
+{
+
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;	
+}
+
+.simplebar-scrollbar:before
+{
+	background-color: #767676 !important;
+}
+
+
+#TaskList
+{
+	height: calc(100vh - 54px);
+	overflow-y: auto;
+	position:absolute;
+	top:54px;
+	left:0px;
+	border-right:4px solid #f2f2f2;
+	right: 500px;
+	-webkit-transition: left 0.5s, right 0.5s, opacity 0.5s;
+  	transition: left 0.5s, right 0.5s, opacity 0.5s;
+}
+
+#SchedulerLog
+{
+	right: 0px;
+	top:54px;
+	left:calc(100% - 500px);
+	height: calc(100vh / 2 - 54px);
+	overflow-y: auto;
+	position:absolute;
+	font-size: small;
+	-webkit-transition: left 0.5s, right 0.5s;
+  	transition: left 0.5s, right 0.5s;
+
+}
+
+
+#ApplicationLog
+{
+	right: 0px;
+	top:calc(100vh / 2 + 54px);
+	left:calc(100% - 500px);
+	height: calc(100vh / 2 - 54px);
+	overflow-y: auto;
+	position:absolute;
+	font-size: small;
+	-webkit-transition: left 0.5s, right 0.5s;
+  	transition: left 0.5s, right 0.5s;
+
+}
+
+
+
+.IconAndText
+{
+	/*display: flex;
+	align-items: center;*/
+}
+
+#CenterConnecting
+{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#CenterConnectingInner
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+#CenterScreenLogo
+{
+ 	display: flex;
+	align-items: center;
+	justify-content: center;   
+}
+
+
+#CenterScreenLogoText
+{
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    line-height: 20px;
+    font-size:small;
+}
+
+#TaskListHeader
+{
+	background: linear-gradient(to left, #62a8d6, #568dc3);
+	/*border-bottom: 1px solid #d8d8d8;*/
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:9px;
+	padding-bottom:8px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:500px;
+	border-right:4px solid #fff;
+	-webkit-transition: left 0.5s, right 0.5s;
+  	transition: left 0.5s, right 0.5s;
+}
+
+#SchedulerLogHeader
+{
+
+	background: linear-gradient(to left, #8ebdab, #51a284);
+	/*border-bottom: 1px solid #d8d8d8;*/
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:10px;
+	padding-bottom:10px;
+	position:absolute;
+	top:0px;
+	left:calc(100% - 500px);
+	right:0px;
+	-webkit-transition: left 0.5s, right 0.5s;
+  	transition: left 0.5s, right 0.5s;
+
+}
+
+.PanelHeader
+{
+	
+
+	/*display: flex;
+	align-items: center;
+	justify-content: center;*/
+}
+
+.PanelHeaderText
+{
+	color: white;
+    font-size: 19px;
+    font-weight: lighter;
+    padding: 3px;
+    display: inline-block;
+}
+
+.PanelHeaderIcon
+{
+	font-size: 32px;
+	color: #ededed;
+	margin-right:5px;
+}
+
+.PanelHeaderGrid
+{
+	font-size: 32px;
+	color: white;	
+	float: right;
+	margin-top: 7px;
+}
+
+.ManualIconPanel
+{
+	float: right;
+	position: relative;
+}
+
+.ManualIcon
+{
+	font-size: 32px;
+    color: white;
+    float: right;
+    margin-top: 6px;
+    margin-right: 25px;
+}
+
+.UpdateIconPanel
+{
+	float: right;
+	position: relative;
+	cursor: pointer !important;
+}
+
+.UpdateIcon
+{
+	font-size: 32px;
+    color: white;
+    float: right;
+    margin-top: 6px;
+    margin-right: 30px;
+}
+
+.ManualIconNumber
+{
+	color: white;
+    background-color: rgb(240, 98, 30);
+    font-size: 10px;
+    border-radius: 60%;
+    position: absolute;
+    bottom: -9px;
+    right: 12px;
+    padding: 3px;
+    width: 15px;
+    text-align: center;
+}
+
+.UpdateIconNumber
+{
+	color: white;
+	background-color: rgb(240, 98, 30);
+	font-size: 10px;
+	border-radius: 6px;
+	position: absolute;
+	bottom: -9px;
+	left: 17px;
+	text-align: center;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.LoadAllTasksLink
+{
+	color:red !important;
+}
+
+.LoadAllTasksLink:hover
+{
+	color:green !important;
+	cursor: pointer;
+}
+
+.CaptchaGrid
+{
+	border-bottom:1px solid rgb(221, 221, 221);
+	padding:20px !important;
+	margin-top:10px !important;
+}
+
+.TaskItem
+{
+	/*height: 60px;*/
+	/*border-top: 2px solid #e7e7e7;*/
+	padding-left: 20px;
+	padding-right: 0px;
+	/*padding-top: 15px;
+	padding-bottom: 15px;*/
+	display: flex;
+	align-items: center;
+	/*background-color: #f8f8f8;*/
+	background: linear-gradient(125deg, white 110px, #f8f8f8 110px);
+	flex-wrap: wrap;
+	min-height: 80px;
+	margin: 30px;
+	box-shadow: 2px 2px 15px -5px rgba(29, 22, 22, 0.34);
+}
+
+.TaskItemMore
+{
+	/*border-bottom: 2px solid #e7e7e7;
+	border-top: 1px solid #e7e7e7;*/
+	
+	padding-right: 5%;
+}
+
+.TaskItemSeparator
+{
+	/*border-bottom: 2px solid #e7e7e7;*/
+}
+
+.TaskItemDetails, .TaskItemDetails:hover
+{
+	margin-left: auto;
+	color:#999;
+	padding-right:20px;
+	padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    padding-left: 25px !important;
+    
+
+}
+
+.TaskItem > *
+{
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+}
+
+.TaskItemName
+{
+	color:black;
+	text-align: center;
+}
+
+.TaskStatusItem
+{
+	font-size: 0px;
+	padding:10px;
+	background-color: #f0506e;
+	color:white;
+	border-radius: 24px;
+	margin-top: 4px;
+	transition: background-color 500ms linear;
+	cursor: help;
+
+}
+
+.TaskStatusItem.Danger
+{
+	background-color: #1e87f0;
+}
+
+.TaskStatusItem.Warning
+{
+	background-color: #faa05a;
+}
+
+.TaskStatusItem.Success
+{
+	background-color: #32d296;
+}
+
+.TaskStatusItem.Muted
+{
+	background-color: #999;
+}
+
+
+.TaskStatusLabel
+{
+
+	text-decoration: underline;
+	cursor: help;
+}
+
+.Date
+{
+font-style: italic;
+
+}
+
+
+.TaskItemState
+{
+	/*font-weight: lighter;*/
+}
+
+.TaskItemVertical
+{
+	width:160px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.TaskItemVertical1
+{
+}
+
+.TaskItemVertical1.Red
+{
+	
+}
+
+.TaskItemVertical1.Green
+{
+	
+}
+
+
+.bar
+{
+  background: gray;
+}
+
+.progress
+{
+  
+}
+
+.progress-bar-green
+{
+	width:160px;
+	height: 10px;
+	background-color: #32d29666;
+	border-radius:2px;
+	position: relative;
+
+}
+
+.progress-green
+{
+	background: #32d296;
+	width:0%;
+	height: 10px;
+	position: absolute;
+	top:0px;
+	left:0px;
+	border-radius:2px;
+	-webkit-transition: width 2s; /* Safari */
+  	transition: width 2s;
+}
+
+
+.progress-bar-red
+{
+	width:160px;
+	height: 10px;
+	background-color: #f0506e66;
+	border-radius:2px;
+	position: relative;
+	-webkit-transition: width 2s; /* Safari */
+  	transition: width 2s;
+
+}
+
+.progress-red
+{
+	background: #f0506e;
+	width:0%;
+	height: 10px;
+	position: absolute;
+	top:0px;
+	left:0px;
+	border-radius:2px;
+}
+
+
+
+
+.TaskRow1
+{
+	width:200px;
+}
+
+.TaskRow2
+{
+	width:110px;
+	text-align: center
+}
+
+.TaskStatusItem
+{
+	margin-top:20px;
+	margin-bottom:20px;
+	margin-right:20px;
+}
+
+.TaskItemMore
+{
+	/*background-color: #fbfbfb;*/
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+
+}
+
+.TaskDetails
+{
+	height: 90px;
+	display: flex;
+	align-items: center;
+	margin-left: 5%;
+}
+
+.TaskDetailsKey
+{
+	color:black;
+	display: block;
+	border-left: 1px solid #32d296;
+	padding-left: 10px;
+}
+
+.TaskDetailsValue
+{
+	margin-left:20px;
+	display: block;
+}
+
+[uk-tooltip]
+{
+	cursor: help;
+}
+
+.TaskItemMoreAdditional
+{
+	margin-left:5%;
+	margin-right:5%;
+	margin-top:30px;
+}
+
+.uk-modal
+{
+	overflow: hidden
+}
+
+
+.circle
+{
+	background-color: #ffffffd9;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-bottom: 1px;
+}
+
+#TaskEditBottom
+{
+	background-color: #fcfcfc;
+    border-top: 1px solid rgb(241, 241, 241);
+    height:100px;
+}
+
+#EditTaskSave
+{
+	float:right;
+	margin-top:29px;
+	margin-right:29px;
+}
+
+#EditTaskNext
+{
+	float:right;
+	margin-top: 29px;
+	margin-right: 29px;
+}
+
+#EditTaskPrev
+{
+	float:right;
+	margin-top: 29px;
+	margin-right: 29px;
+}
+
+
+#EditTaskCancel
+{
+	float:left;
+	margin:29px;
+}
+
+#Stage0
+{
+	padding-left:5%;
+	padding-right:5%;
+	padding-top:2%;
+}
+
+#Stage1
+{
+	padding-left:5%;
+	padding-right:5%;
+	padding-top:2%;
+}
+
+#Stage2
+{
+	padding-left:5%;
+	padding-right:5%;
+	padding-top:2%;
+}
+
+#Stage3
+{
+	height: 100%;
+}
+
+#SchedulerContent
+{
+	padding-top: 1%;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.SchedulerSelectContainer
+{
+	padding: 8px;
+	margin-left: 20px;
+}
+
+.ScheduleTypeDescription
+{
+	margin-top: 13px;
+	margin-left: 16px;
+	font-size: small;
+	color: gray;
+}
+
+.ScheduleTypeInterface
+{
+	margin-left: 16px;
+	margin-top: 10px;
+	color: #333;
+	font-size: .875rem;
+}
+
+
+.ScheduleTypeMore
+{
+	margin-left: 28px;
+	cursor: pointer;
+	
+}
+
+.ScheduleTypeValidation
+{
+	margin-left: 24px;
+	margin-top: 10px;
+	color: #f0506e;
+	font-size: .875rem;
+	display: flex;
+	align-items: center;
+}
+
+.ScheduleTypeValidationText
+{
+	margin-left:5px;
+}
+
+.ScheduleTypeName
+{
+	font-style: italic;
+}
+
+
+.SchedulerSelectContainer>label
+{
+	cursor: pointer;
+}
+
+.OptionSignificant
+{
+    font-weight: 500 !important;
+}
+
+option
+{
+    font-weight: 200;
+}
+
+.SchedulerSelectSection
+{
+	border-left: 1px solid #e5e5e5;
+	margin-left: 8px;
+}
+
+.SchedulerSelectSection2
+{
+	border-left: 1px solid #e5e5e5;
+	margin-left: 33px;
+}
+
+.Circle
+{
+	display: inline-block;
+	width: 4px;
+	height: 4px;
+	border: 1px solid #1e87f0;
+	border-radius: 50%;
+	margin-right: 3px;
+	margin-top: 3px;
+}
+
+.md-stepper-horizontal {
+	display:flex;
+	background-color: #fcfcfc;
+	border-bottom:1px solid rgb(241, 241, 241);
+}
+.md-stepper-horizontal .md-step, .md-stepper-horizontal .md-step:hover {
+	
+	position:relative;
+	flex-grow:1;
+	padding:24px;
+	display: block;
+	color:rgb(102, 102, 102) !important;
+	text-decoration: none;
+
+}
+
+.md-stepper-horizontal .md-step.current {
+	background-color:rgba(0,0,0,0.04);
+}
+.md-stepper-horizontal .md-step:active {
+}
+.md-stepper-horizontal .md-step:first-child:active {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.md-stepper-horizontal .md-step:last-child:active {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.md-stepper-horizontal .md-step:hover .md-step-circle {
+	background-color:#757575;
+}
+.md-stepper-horizontal .md-step:first-child .md-step-bar-left,
+.md-stepper-horizontal .md-step:last-child .md-step-bar-right {
+	display:none;
+}
+.md-stepper-horizontal .md-step .md-step-circle {
+	width:30px;
+	height:30px;
+	margin:0 auto;
+	background-color:#999999;
+	border-radius: 50%;
+	text-align: center;
+	line-height:30px;
+	font-size: 16px;
+	font-weight: 600;
+	color:#FFFFFF;
+}
+.md-stepper-horizontal.green .md-step.active .md-step-circle {
+	background-color:#00AE4D;
+}
+.md-stepper-horizontal.orange .md-step.active .md-step-circle {
+	background-color:#F96302;
+}
+.md-stepper-horizontal .md-step.active .md-step-circle {
+	background-color: #2ec98f;
+}
+.md-stepper-horizontal .md-step.passive .md-step-circle {
+	background-color: #f0506e;
+}
+
+
+.md-stepper-horizontal .md-step.done .md-step-circle:before {
+	font-family:'FontAwesome';
+	font-weight:100;
+	content: "\f00c";
+}
+.md-stepper-horizontal .md-step.done .md-step-circle *,
+.md-stepper-horizontal .md-step.editable .md-step-circle * {
+	display:none;
+}
+.md-stepper-horizontal .md-step.editable .md-step-circle {
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+.md-stepper-horizontal .md-step.editable .md-step-circle:before {
+	font-family:'FontAwesome';
+	font-weight:100;
+	content: "\f040";
+}
+.md-stepper-horizontal .md-step .md-step-title {
+	margin-top:16px;
+	font-size:16px;
+	font-weight:600;
+}
+.md-stepper-horizontal .md-step .md-step-title,
+.md-stepper-horizontal .md-step .md-step-optional {
+	text-align: center;
+
+}
+.md-stepper-horizontal .md-step.active .md-step-title {
+	font-weight: 600;
+	color:rgba(0,0,0,.87);
+}
+.md-stepper-horizontal .md-step.active.done .md-step-title,
+.md-stepper-horizontal .md-step.active.editable .md-step-title {
+	font-weight:600;
+}
+.md-stepper-horizontal .md-step .md-step-optional {
+	font-size:12px;
+}
+.md-stepper-horizontal .md-step.active .md-step-optional {
+
+}
+.md-stepper-horizontal .md-step .md-step-bar-left,
+.md-stepper-horizontal .md-step .md-step-bar-right {
+	position:absolute;
+	top:36px;
+	height:1px;
+	border-top:1px solid #DDDDDD;
+}
+.md-stepper-horizontal .md-step .md-step-bar-right {
+	right:0;
+	left:50%;
+	margin-left:20px;
+}
+.md-stepper-horizontal .md-step .md-step-bar-left {
+	left:0;
+	right:50%;
+	margin-right:20px;
+}
+
+.TaskEditStage2
+{
+	border:1px dashed gray;
+	height:300px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding:30px;
+}
+
+.CustomInterfaceVisible
+{
+	padding:0px !important;
+	height: 100%;
+}
+
+#EditDateModal .datepicker-inline
+{
+	align-content: center;
+	flex-basis: min-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.datepicker--time-row input
+{
+	width: 100%
+}
+
+.-current-
+{
+	text-decoration: underline;
+}
+
+.datepicker
+{
+	border-radius: 0px !important;
+}
+
+.DateNotSet a, .DateNotSet a:hover
+{
+	-webkit-text-decoration-color: #f0506e !important;
+  	text-decoration-color: #f0506e !important;
+	color: #f0506e !important;
+}
+
+.TaskDetails
+{
+	width: 20%;
+}
+.TaskItem
+{
+	flex-direction: row;
+}
+
+.TaskStatusItem
+{
+	margin-left: 0px
+}
+
+.TaskRow
+{
+	width: calc(2 * (100%  - 150px) / 12);
+	text-align: center;
+	display:none;
+}
+
+
+.LogInvisible #AddTask
+{
+	right:35px !important;
+}
+
+#InterfaceAutogenerate
+{
+	width:100%;
+	height:calc(100% - 32px)
+
+}
+
+.UseRecentBas
+{
+	margin-left:10px;
+	font-size: 14px;
+}
+
+@media (min-width: 1500px) {
+	
+	.TaskRowBig
+	{
+		width: calc(3 * (100%  - 150px) / 12);
+		text-align: center;
+	}
+
+}
+
+
+@media (max-width: 1499px) {
+	.ProgressBar
+	{
+		display:none
+	}
+	.TaskRowBig
+	{
+		width: calc(4 * (100%  - 150px) / 12);
+		text-align: center;
+	}
+	.TaskItemTime
+	{
+		width: calc(8 * (100%  - 150px) / 12) !important;
+		text-align: left;
+	}
+	
+}
+
+@media (max-width: 900px) {
+
+	
+
+	
+	.LogVisible #TaskList
+	{
+		left: calc(-40% - 70px) !important;
+    	right: calc(100% - 70px) !important;
+    	
+		
+	}
+	.LogVisible #TaskList > * {
+ 	   opacity:0;
+	}
+	.LogVisible #TaskListHeader
+	{
+		left: calc(-40% - 70px) !important;
+    	right: calc(100% - 70px) !important;
+    }
+
+    .LogVisible #ApplicationLogHeader
+	{
+		left:70px !important;
+	}
+
+	.LogVisible #SchedulerLogHeader
+	{
+		left:70px !important;
+	}
+
+	.LogVisible #SchedulerLog
+	{
+		left:70px !important;
+	}
+
+	.LogVisible #ApplicationLog
+	{
+		left:70px !important;
+	}
+
+
+	.LogInvisible #AddTask
+	{
+		right:35px !important;
+	}
+
+	.LogVisible #AddTask
+	{
+		right:calc(100% - 35px) !important;
+	}
+
+	
+
+}

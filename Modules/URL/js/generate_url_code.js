@@ -1,0 +1,1 @@
+<%= variable %> = _generate_url({<%= [["protocol", protocol], ["username", username], ["password", password], ["host", host], ["port", port], ["pathname", path], ["query", query], ["hash", hash]].filter(function(el){return el[1] !== '""'}).map(function(el){return el[0] + ':(' + el[1] + ')'}).join(', ') %>});

@@ -1,0 +1,41 @@
+{
+    "actions": [],
+    "api_version": 1,
+    "browser": [
+    ],
+    "depends": [
+    ],
+    "description": "Module containing functions used by other modules",
+    "description_small": {
+        "en": "Common code",
+        "ru": "Общий код"
+    },
+    "developer_email": "sasha9817@mail.ru",
+    "developer_name": "GhostZ",
+    "developer_site": "https://t.me/GhostZed",
+    "embeddeddata": [],
+    "engine": [
+        "engine.js"
+    ],
+    "icon": "",
+    "info": {
+        "en": "Module containing functions used by other modules.",
+        "ru": "Модуль, содержащий функции, используемые другими модулями."
+    },
+    "languages": [],
+    "localize": {
+		"Data": {"ru":"Данные"},
+		"String": {"ru":"Строка"},
+		"Variable": {"ru":"Переменная"},
+		"The parameter \"": {"ru":"Параметр \""},
+		"Can be blank": {"ru":"Может быть пустым"},
+		"\" is not specified": {"ru":"\" не указан"},
+		"Optional parameter.": {"ru":"Необязательный параметр."},
+		"Additional settings": {"ru":"Дополнительные настройки"},
+		"Variable to save the result": {"ru":"Переменная, в которую сохранить результат"}
+    },
+    "major_version": 1,
+    "minor_version": 0,
+    "modules": [],
+    "name": "CommonCode"
+}

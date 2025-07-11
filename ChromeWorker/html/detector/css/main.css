@@ -1,0 +1,19 @@
+.fp-item
+{
+	border-bottom:1px solid rgba(34,36,38,.15);
+	padding:10px 10px 10px 20px;
+}
+
+.significant
+{
+		border-bottom:1px solid #cc8f33;
+		font-style:italic;
+
+}
+
+.line-highlight
+{
+	margin-top:100px !important;
+	background: hsla(247, 97%, 51%, 0.18) !important;
+
+}

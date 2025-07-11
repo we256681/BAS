@@ -1,0 +1,283 @@
+{
+	
+	"name": "DateTime",
+	"info": {"en": "Date and time manipulation.", "ru": "Манипуляции с датой и временем."},
+	"description": "Date and time manipulation.",
+	"icon": "datetime.png",
+	"description_small": {"en": "Date and time", "ru": "Дата и время"},
+	"major_version": 1,
+	"minor_version": 0,
+	"developer_name": "bablosoft", 
+	"developer_email": "mail.to.twaego@gmail.com", 
+	"developer_site": "https://bablosoft.com",
+	"api_version": 1,
+	"actions":
+	[
+		{
+			"name": "datetime_stringtodate",
+			"description": {"en": "String To Date","ru": "Строку В Дату"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "stringtodate_interface.js",
+			"select": "stringtodate_select.js",
+			"code": [{"file":"stringtodate_code.js", "name": "stringtodate_code"}]
+		},
+		{
+			"name": "datetime_datetostring",
+			"description": {"en": "Date To String","ru": "Дату В Строку"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "datetostring_interface.js",
+			"select": "datetostring_select.js",
+			"code": [{"file":"datetostring_code.js", "name": "datetostring_code"}]
+		},
+		{
+			"name": "datetime_msecondstodate",
+			"description": {"en": "Milliseconds To Date","ru": "Миллисекунды В Дату"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "msecondstodate_interface.js",
+			"select": "msecondstodate_select.js",
+			"code": [{"file":"msecondstodate_code.js", "name": "msecondstodate_code"}]
+		},
+		{
+			"name": "datetime_datetomseconds",
+			"description": {"en": "Date To Milliseconds","ru": "Дату в Миллисекунды"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "datetomseconds_interface.js",
+			"select": "datetomseconds_select.js",
+			"code": [{"file":"datetomseconds_code.js", "name": "datetomseconds_code"}]
+		},
+		{
+			"name": "datetime_createdate",
+			"description": {"en": "Create Date","ru": "Создать Дату"},
+			"template": "{{Save}}",
+			"is_element": false,
+			"interface": "createdate_interface.js",
+			"select": "createdate_select.js",
+			"code": [{"file":"createdate_code.js", "name": "createdate_code"}]
+		},
+		{
+			"name": "datetime_changedate",
+			"description": {"en": "Change Date","ru": "Изменить Дату"},
+			"template": "{{Save}}",
+			"is_element": false,
+			"interface": "changedate_interface.js",
+			"select": "changedate_select.js",
+			"code": [{"file":"changedate_code.js", "name": "changedate_code"}]
+		},
+		{
+			"name": "datetime_addsecondstodate",
+			"description": {"en": "Add Seconds To Date","ru": "Добавить Секунды К Дате"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "addsecondstodate_interface.js",
+			"select": "addsecondstodate_select.js",
+			"code": [{"file":"addsecondstodate_code.js", "name": "addsecondstodate_code"}]
+		},
+		{
+			"name": "datetime_substractdates",
+			"description": {"en": "Substract Dates","ru": "Разница Между Датами"},
+			"template": "{{DecreasingString}} - {{SubtractedString}} -> {{Save}}",
+			"is_element": false,
+			"interface": "substractdates_interface.js",
+			"select": "substractdates_select.js",
+			"code": [{"file":"substractdates_code.js", "name": "substractdates_code"}]
+		},
+		{
+			"name": "datetime_datenow",
+			"description": {"en": "Date Now","ru": "Дата Сейчас"},
+			"template": "{{Save}}",
+			"is_element": false,
+			"interface": "datenow_interface.js",
+			"select": "datenow_select.js",
+			"code": [{"file":"datenow_code.js", "name": "datenow_code"}]
+		},
+		{
+			"name": "datetime_changetimezone",
+			"description": {"en": "Change Date Timezone","ru": "Изменить Часовой Пояс Даты"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "changetimezone_interface.js",
+			"select": "changetimezone_select.js",
+			"code": [{"file":"changetimezone_code.js", "name": "changetimezone_code"}]
+		},
+		{
+			"name": "datetime_gettimezone",
+			"description": {"en": "Get Date Timezone","ru": "Получить Часовой Пояс Даты"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "gettimezone_interface.js",
+			"select": "gettimezone_select.js",
+			"code": [{"file":"gettimezone_code.js", "name": "gettimezone_code"}]
+		},
+		{
+			"name": "datetime_dayofmonth",
+			"description": {"en": "Day Of Month","ru": "День Месяца"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "dayofmonth_interface.js",
+			"select": "dayofmonth_select.js",
+			"code": [{"file":"dayofmonth_code.js", "name": "dayofmonth_code"}]
+		},
+		{
+			"name": "datetime_dayofweek",
+			"description": {"en": "Day Of Week","ru": "День Недели"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "dayofweek_interface.js",
+			"select": "dayofweek_select.js",
+			"code": [{"file":"dayofweek_code.js", "name": "dayofweek_code"}]
+		},
+		{
+			"name": "datetime_dayofyear",
+			"description": {"en": "Day Of Year","ru": "День Года"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "dayofyear_interface.js",
+			"select": "dayofyear_select.js",
+			"code": [{"file":"dayofyear_code.js", "name": "dayofyear_code"}]
+		},
+		{
+			"name": "datetime_year",
+			"description": {"en": "Get Year From Date","ru": "Получить Год Из Даты"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "year_interface.js",
+			"select": "year_select.js",
+			"code": [{"file":"year_code.js", "name": "year_code"}]
+		},
+		{
+			"name": "datetime_month",
+			"description": {"en": "Get Month From Date","ru": "Получить Месяц Из Даты"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "month_interface.js",
+			"select": "month_select.js",
+			"code": [{"file":"month_code.js", "name": "month_code"}]
+		},
+		{
+			"name": "datetime_hour",
+			"description": {"en": "Get Hours From Date","ru": "Получить Часы Из Даты"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "hour_interface.js",
+			"select": "hour_select.js",
+			"code": [{"file":"hour_code.js", "name": "hour_code"}]
+		},
+		{
+			"name": "datetime_minute",
+			"description": {"en": "Get Minutes From Date","ru": "Получить Минуты Из Даты"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "minute_interface.js",
+			"select": "minute_select.js",
+			"code": [{"file":"minute_code.js", "name": "minute_code"}]
+		},
+		{
+			"name": "datetime_second",
+			"description": {"en": "Get Seconds From Date","ru": "Получить Секунды Из Даты"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "second_interface.js",
+			"select": "second_select.js",
+			"code": [{"file":"second_code.js", "name": "second_code"}]
+		},
+		{
+			"name": "datetime_millisecond",
+			"description": {"en": "Get Milliseconds From Date","ru": "Получить Миллисекунды Из Даты"},
+			"template": "{{String}} -> {{Save}}",
+			"is_element": false,
+			"interface": "millisecond_interface.js",
+			"select": "millisecond_select.js",
+			"code": [{"file":"millisecond_code.js", "name": "millisecond_code"}]
+		}
+	],
+	"localize": 
+	{
+		"This action can change year or month or other properties of date. Leave parameter to -1 if you dont want to change it.": {"ru": "Это действие может изменять год, месяц или другие части даты. Оставьте параметры равными -1 если вы не хотите их менять."},
+		"The number of milliseconds for this conversion is counted from January 1, 1970, 00:00:00 UTC.": {"ru": "Количество миллисекунд при таком преобразовании отсчитывается с 1 января 1970 года, 00:00:00 UTC."},
+		"Change an existing date and time object using the specified parameters.": {"ru": "Изменить существующий объект даты и времени, используя указанные параметры."},
+		"Create a new date and time object using the specified parameters.": {"ru": "Создать новый объект даты и времени, используя указанные параметры."},
+		"Convert date and time to string using a specified format.": {"ru": "Преобразовать дату и время в строку используя заданный формат."},
+		"Convert the string to date and time using a specific format.": {"ru": "Преобразовать строку в дату и время используя заданный формат."},
+		"Convert number of milliseconds since epoch start to date.": {"ru": "Преобразовать количество миллисекунд с начала эпохи в дату."},
+		"Convert date to number of milliseconds since epoch.": {"ru": "Преобразовать дату в количество миллисекунд с начала эпохи."},
+		"Get the number of milliseconds from the specified date.": {"ru": "Получить число миллисекунд из указанной даты."},
+		"Get the number of seconds from the specified date.": {"ru": "Получить число секунд из указанной даты."},
+		"Get the number of minutes from the specified date.": {"ru": "Получить число минут из указанной даты."},
+		"Get the number of hours from the specified date.": {"ru": "Получить число часов из указанной даты."},
+		"Get the difference in seconds between the specified dates.": {"ru": "Получить разницу в секундах между указанными датами."},
+		"Get the day of the month from the specified date.": {"ru": "Получить день месяца из указанной даты."},
+		"Get the day of the week from the specified date.": {"ru": "Получить день недели из указанной даты."},
+		"Get the day of the year from the specified date.": {"ru": "Получить день года из указанной даты."},
+		"Get the month from the specified date.": {"ru": "Получить месяц из указанной даты."},
+		"Get the year from the specified date.": {"ru": "Получить год из указанной даты."},
+		"Get the current date and time.": {"ru": "Получить текущую дату и время."},
+		"Add the specified number of seconds to an existing date.": {"ru": "Добавить указанное количество секунд к существующей дате."},
+		"Change the timezone of an existing date.": {"ru": "Изменить часовой пояс существующей даты."},
+		"Get the timezone of an existing date.": {"ru": "Получить часовой пояс существующей даты."},
+		"Timezone as offset from UTC in minutes": {"ru": "Часовой пояс как смещение от UTC в минутах"},
+		"Seconds to add. Can be negative.": {"ru": "Прибавить секунд. Может быть отрицательным."},
+		"Minutes to add. Can be negative.": {"ru": "Прибавить минут. Может быть отрицательным."},
+		"Hours to add. Can be negative.": {"ru": "Прибавить часов. Может быть отрицательным."},
+		"Days to add. Can be negative.": {"ru": "Прибавить дней. Может быть отрицательным."},
+		"Subtracted DateTime or string": {"ru": "Вычитаемая дата и время либо строка"},
+		"Decreasing DateTime or string": {"ru": "Уменьшаемая дата и время либо строка"},
+		"Day of month. From 1 to 31.": {"ru": "День месяца. От 1 до 31."},
+		"Day of year. From 1 to 366.": {"ru": "День года. От 1 до 366."},
+		"Day of week. From 1 to 7.": {"ru": "День недели. От 1 до 7."},
+		"DateTime formatting": {"ru": "Форматирование даты и времени"},
+		"DateTime or string": {"ru": "Дата и время либо строка"},
+		"DateTime string": {"ru": "Строка с датой и временем"},
+		"DateTime format": {"ru": "Формат даты и времени"},
+		"Milliseconds. From 0 to 999": {"ru": "Миллисекунды. От 0 до 999"},
+		"Seconds. From 0 to 59": {"ru": "Секунды. От 0 до 59"},
+		"Minutes. From 0 to 59": {"ru": "Минуты. От 0 до 59"},
+		"Month. From 1 to 12": {"ru": "Месяц. От 1 до 12"},
+		"Day. From 1 to 31": {"ru": "День. От 1 до 31"},
+		"Hour. From 0 to 23": {"ru": "Час. От 0 до 23"},
+		"Milliseconds": {"ru": "Миллисекунды"},
+		"Seconds": {"ru": "Секунды"},
+		"Minutes": {"ru": "Минуты"},
+		"Month": {"ru": "Месяц"},
+		"Hours": {"ru": "Часы"},
+		"Year": {"ru": "Год"}	
+	},
+	"engine": ["engine.js"],
+	"browser": [],
+	"depends": [],
+	"dll": [
+		{
+			"name": "datetime", 
+			"filename32": "datetime32.dll", 
+			"filename64": "datetime64.dll", 
+			"startdllfunction": "StartDll", 
+			"enddllfunction": "EndDll", 
+			"startthreadfunction": "StartThread", 
+			"endthreadfunction": "EndThread", 
+			"exportlist": [
+				{
+					"name": "stringtodate",
+					"isasync": false,
+					"waitinfinite": false,
+					"workfunction": "StringToDate"
+				},
+				{
+					"name": "datetostring",
+					"isasync": false,
+					"waitinfinite": false,
+					"workfunction": "DateToString"
+				},
+				{
+					"name": "systemtimezone",
+					"isasync": false,
+					"waitinfinite": false,
+					"workfunction": "SystemTimezone"
+				}
+				
+			]
+		}
+	]
+}

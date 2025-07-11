@@ -1,0 +1,715 @@
+{
+    "actions": [
+        {
+            "code": [
+                {
+                    "file": "FTP_Config_code.js",
+                    "name": "FTP_Config_code"
+                }
+            ],
+            "description": {
+                "en": "Configure FTP/SSH",
+                "ru": "Настроить FTP/SSH"
+            },
+            "interface": "FTP_Config_interface.js",
+            "is_element": false,
+            "name": "FTP_Config",
+            "select": "FTP_Config_select.js",
+            "template": "{{Protocol}}:{{Host}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_ReadFile_code.js",
+                    "name": "FTP_ReadFile_code"
+                }
+            ],
+            "description": {
+                "en": "Read file",
+                "ru": "Читать файл"
+            },
+            "interface": "FTP_ReadFile_interface.js",
+            "is_element": false,
+            "name": "FTP_ReadFile",
+            "select": "FTP_ReadFile_select.js",
+            "template": "{{FilePath}} -> {{Save}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_WriteFile_code.js",
+                    "name": "FTP_WriteFile_code"
+                }
+            ],
+            "description": {
+                "en": "Write to file",
+                "ru": "Запись в файл"
+            },
+            "interface": "FTP_WriteFile_interface.js",
+            "is_element": false,
+            "name": "FTP_WriteFile",
+            "select": "FTP_WriteFile_select.js",
+            "template": "{{Value}} -> {{FilePath}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_Download_code.js",
+                    "name": "FTP_Download_code"
+                }
+            ],
+            "description": {
+                "en": "Download file/folder",
+                "ru": "Скачать файл/папку"
+            },
+            "interface": "FTP_Download_interface.js",
+            "is_element": false,
+            "name": "FTP_Download",
+            "select": "FTP_Download_select.js",
+            "template": "{{FilePath}} -> {{DestinationPath}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_Upload_code.js",
+                    "name": "FTP_Upload_code"
+                }
+            ],
+            "description": {
+                "en": "Upload file/folder",
+                "ru": "Загрузить файл/папку"
+            },
+            "interface": "FTP_Upload_interface.js",
+            "is_element": false,
+            "name": "FTP_Upload",
+            "select": "FTP_Upload_select.js",
+            "template": "{{FilePath}} -> {{DestinationPath}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_CheckExist_code.js",
+                    "name": "FTP_CheckExist_code"
+                }
+            ],
+            "description": {
+                "en": "Check file/folder exists",
+                "ru": "Проверить существование файла/папки"
+            },
+            "interface": "FTP_CheckExist_interface.js",
+            "is_element": false,
+            "name": "FTP_CheckExist",
+            "select": "FTP_CheckExist_select.js",
+            "template": "{{FilePath}} -> {{Save}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_GetInfo_code.js",
+                    "name": "FTP_GetInfo_code"
+                }
+            ],
+            "description": {
+                "en": "File/Folder info",
+                "ru": "Информация о файле/папке"
+            },
+            "interface": "FTP_GetInfo_interface.js",
+            "is_element": false,
+            "name": "FTP_GetInfo",
+            "select": "FTP_GetInfo_select.js",
+            "template": "{{FilePath}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_Create_code.js",
+                    "name": "FTP_Create_code"
+                }
+            ],
+            "description": {
+                "en": "Create file/folder",
+                "ru": "Создать файл/папку"
+            },
+            "interface": "FTP_Create_interface.js",
+            "is_element": false,
+            "name": "FTP_Create",
+            "select": "FTP_Create_select.js",
+            "template": "{{FilePath}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_Delete_code.js",
+                    "name": "FTP_Delete_code"
+                }
+            ],
+            "description": {
+                "en": "Delete file/folder",
+                "ru": "Удалить файл/папку"
+            },
+            "interface": "FTP_Delete_interface.js",
+            "is_element": false,
+            "name": "FTP_Delete",
+            "select": "FTP_Delete_select.js",
+            "template": "{{FilePath}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_Move_code.js",
+                    "name": "FTP_Move_code"
+                }
+            ],
+            "description": {
+                "en": "Move file/folder",
+                "ru": "Переместить Файл/папку"
+            },
+            "interface": "FTP_Move_interface.js",
+            "is_element": false,
+            "name": "FTP_Move",
+            "select": "FTP_Move_select.js",
+            "template": "{{FilePath}} -> {{NewFilePath}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_Copy_code.js",
+                    "name": "FTP_Copy_code"
+                }
+            ],
+            "description": {
+                "en": "Copy file/folder",
+                "ru": "Копировать файл/папку"
+            },
+            "interface": "FTP_Copy_interface.js",
+            "is_element": false,
+            "name": "FTP_Copy",
+            "select": "FTP_Copy_select.js",
+            "template": "{{FilePath}} -> {{CopyPath}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_Search_code.js",
+                    "name": "FTP_Search_code"
+                }
+            ],
+            "description": {
+                "en": "Search files/folders",
+                "ru": "Поиск файлов/папок"
+            },
+            "interface": "FTP_Search_interface.js",
+            "is_element": false,
+            "name": "FTP_Search",
+            "select": "FTP_Search_select.js",
+            "template": "{{FolderPath}} -> {{Save}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_FileToList_code.js",
+                    "name": "FTP_FileToList_code"
+                }
+            ],
+            "description": {
+                "en": "Read file to list",
+                "ru": "Читать файл в список"
+            },
+            "interface": "FTP_FileToList_interface.js",
+            "is_element": false,
+            "name": "FTP_FileToList",
+            "select": "FTP_FileToList_select.js",
+            "template": "{{FilePath}} -> {{Save}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_ListToFile_code.js",
+                    "name": "FTP_ListToFile_code"
+                }
+            ],
+            "description": {
+                "en": "Write list to file",
+                "ru": "Записать список в файл"
+            },
+            "interface": "FTP_ListToFile_interface.js",
+            "is_element": false,
+            "name": "FTP_ListToFile",
+            "select": "FTP_ListToFile_select.js",
+            "template": "{{Value}} -> {{FilePath}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_RunCommand_code.js",
+                    "name": "FTP_RunCommand_code"
+                }
+            ],
+            "description": {
+                "en": "Run command (SSH)",
+                "ru": "Выполнить команду (SSH)"
+            },
+            "interface": "FTP_RunCommand_interface.js",
+            "is_element": false,
+            "name": "FTP_RunCommand",
+            "select": "FTP_RunCommand_select.js",
+            "template": "{{Command}} -> {{Standart}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_CalculateChecksum_code.js",
+                    "name": "FTP_CalculateChecksum_code"
+                }
+            ],
+            "description": {
+                "en": "Calculate checksum (SSH)",
+                "ru": "Рассчитать контрольную сумму (SSH)"
+            },
+            "interface": "FTP_CalculateChecksum_interface.js",
+            "is_element": false,
+            "name": "FTP_CalculateChecksum",
+            "select": "FTP_CalculateChecksum_select.js",
+            "template": "{{FilePath}} -> {{Save}}"
+        },
+        {
+            "code": [
+                {
+                    "file": "FTP_Close_code.js",
+                    "name": "FTP_Close_code"
+                }
+            ],
+            "description": {
+                "en": "Close connection",
+                "ru": "Закрыть соединение"
+            },
+            "interface": "FTP_Close_interface.js",
+            "is_element": false,
+            "name": "FTP_Close",
+            "select": "FTP_Close_select.js",
+            "template": ""
+        }
+    ],
+    "api_version": 1,
+    "autogenerated_functions": [
+        "FTP_ReadFile",
+        "FTP_WriteFile",
+        "FTP_Config",
+        "FTP_CheckExist",
+        "FTP_GetInfo",
+        "FTP_Create",
+        "FTP_Delete",
+        "FTP_Move",
+        "FTP_Copy",
+        "FTP_Search",
+        "FTP_Download",
+        "FTP_Upload",
+        "FTP_FileToList",
+        "FTP_ListToFile",
+        "FTP_RunCommand",
+        "FTP_CalculateChecksum",
+        "FTP_Close"
+    ],
+    "browser": [
+    ],
+    "depends": [
+    ],
+    "description": "Working with remote servers",
+    "description_small": {
+        "en": "FTP/SSH",
+        "ru": "FTP/SSH"
+    },
+    "developer_email": "sasha9817@mail.ru",
+    "developer_name": "GhostZ",
+    "developer_site": "https://t.me/GhostZed",
+    "embeddeddata": [
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [file_path, destination_directory, verify_checksums, id, config, timeout, protocol] = [[FTP_NODE_PARAMETERS]];\r\nlet destination_path = destination_directory + \"/\" + util.basename(file_path);\r\n\r\nlet ftp = await util.open_or_use_connection(id, config, \"FTP\");\r\ntry{\r\n    let client = ftp.client;\r\n    let upload_file = async function(file, destination){\r\n        await (new Promise((resolve, reject) => {\r\n            client.put(file, destination, function(err){\r\n                if(err){\r\n                    reject(err);\r\n                }else{\r\n                    return resolve();\r\n                };\r\n            });\r\n        }));\r\n        if(verify_checksums){\r\n            let [exist, stats] = await ftp_exists(client, destination);\r\n            if(!exist){\r\n                throw 'File \"' + file + '\" is not uploaded';\r\n            };\r\n        };\r\n    };\r\n    let upload_folder = async function(dir, destination){\r\n        await util.ftp_ensure_directory_existence(client, destination + \"/test.txt\");\r\n        let list = util.readdirSync(dir, {withFileTypes:true});\r\n        if(list.length){\r\n            let files = list.filter((item) => item.isFile());\r\n            let dirs = list.filter((item) => item.isDirectory());\r\n            for(let f of files){\r\n                await upload_file(`${dir}/${f.name}`, `${destination}/${f.name}`);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n            for(let d of dirs){\r\n                await upload_folder(`${dir}/${d.name}`, `${destination}/${d.name}`);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n        };\r\n    };\r\n    let exist = util.existsSync(file_path);\r\n    if(exist){\r\n        let stats = util.statSync(file_path);\r\n        if(stats.isDirectory()){\r\n            await upload_folder(file_path, destination_directory);\r\n        }else{\r\n            await util.ftp_ensure_directory_existence(client, destination_path);\r\n            await upload_file(file_path, destination_path);\r\n        };\r\n    }else{\r\n        throw 'The file/folder \"' + file_path + '\" does not exist';\r\n    };\r\n    ftp.setTimeout(timeout);\r\n}catch(err){\r\n    ftp.close();\r\n    throw err;\r\n};",
+            "DataName": "UploadFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [file_path, destination_directory, verify_checksums, id, config, timeout, protocol] = [[FTP_NODE_PARAMETERS]];\r\nlet calculate = protocol==\"SSH\" && verify_checksums;\r\nlet destination_path = destination_directory + \"/\" + util.basename(file_path);\r\n\r\nlet sftp = await util.open_or_use_connection(id, config, \"SFTP\");\r\ntry{\r\n    let client = sftp.client;\r\n    let ssh_client = calculate ? client.client : \"\";\r\n    let upload_file = async function(file, destination){\r\n        let original_checksum = calculate ? await util.local_calculate_checksum(file) : \"\";\r\n        await client.fastPut(file, destination);\r\n        if(verify_checksums){\r\n            let exist = await client.exists(destination);\r\n            if(calculate){\r\n                if(exist){\r\n                    let copy_checksum = await util.ssh_calculate_checksum(ssh_client, destination);\r\n                    if(copy_checksum!=original_checksum){\r\n                        throw 'The checksum of the uploaded file \"'+ destination +'\" does not match the checksum of the original file \"' + file + '\"';\r\n                    };\r\n                }else{\r\n                    throw 'Failed to calculate checksum, file \"' + file + '\" is not uploaded';\r\n                };\r\n            }else{\r\n                if(!exist){\r\n                    throw 'File \"' + file + '\" is not uploaded';\r\n                };\r\n            };\r\n        };\r\n    };\r\n    let upload_folder = async function(dir, destination){\r\n        await util.sftp_ensure_directory_existence(client, destination + \"/test.txt\");\r\n        let list = util.readdirSync(dir, {withFileTypes:true});\r\n        if(list.length){\r\n            let files = list.filter((item) => item.isFile());\r\n            let dirs = list.filter((item) => item.isDirectory());\r\n            for(let f of files){\r\n                await upload_file(`${dir}/${f.name}`, `${destination}/${f.name}`);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n            for(let d of dirs){\r\n                await upload_folder(`${dir}/${d.name}`, `${destination}/${d.name}`);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n        };\r\n    };\r\n    let exist = util.existsSync(file_path);\r\n    if(exist){\r\n        let stats = util.statSync(file_path);\r\n        if(stats.isDirectory()){\r\n            await upload_folder(file_path, destination_directory);\r\n        }else{\r\n            await util.sftp_ensure_directory_existence(client, destination_path);\r\n            await upload_file(file_path, destination_path);\r\n        };\r\n    }else{\r\n        throw 'The file/folder \"' + file_path + '\" does not exist';\r\n    };\r\n    sftp.setTimeout(timeout);\r\n}catch(err){\r\n    sftp.close();\r\n    throw err;\r\n};",
+            "DataName": "UploadSFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\n\r\nlet sftp = await util.open_or_use_connection(id, config, \"SFTP\");\r\ntry{\r\n    let client = sftp.client;\r\n    let delete_folder = async function(dir, recursive=false){\r\n        if(!recursive){\r\n            return client.rmdir(dir);\r\n        };\r\n        let list = await client.list(dir);\r\n        if(list.length){\r\n            let files = list.filter((item) => item.type!=='d');\r\n            let dirs = list.filter((item) => item.type==='d');\r\n            for(let f of files){\r\n                await client.delete(`${dir}/${f.name}`, true);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n            for(let d of dirs){\r\n                await delete_folder(`${dir}/${d.name}`, true);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n        };\r\n        return client.rmdir(dir);\r\n    };\r\n    let exist = await client.exists(remote_path);\r\n    if(exist){\r\n        if(exist==\"d\"){\r\n            await delete_folder(remote_path, true);\r\n        }else{\r\n            await client.delete(remote_path, true);\r\n        };\r\n    };\r\n    sftp.setTimeout(timeout);\r\n}catch(err){\r\n    sftp.close();\r\n    throw err;\r\n};",
+            "DataName": "DeleteSFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\n\r\nlet ftp = await util.open_or_use_connection(id, config, \"FTP\");\r\ntry{\r\n    let client = ftp.client;\r\n    let delete_file = async function(file, notFoundOK=false){\r\n        return new Promise((resolve, reject) => {\r\n            client.delete(file, function(err){\r\n                if(err){\r\n                    if(notFoundOK && err.code === 2){\r\n                        resolve();\r\n                    }else{\r\n                        reject(err);\r\n                    };\r\n                }else{\r\n                    resolve();\r\n                };\r\n            });             \r\n        });\r\n    };\r\n    let delete_folder_no_recursion = async function(dir){\r\n        return new Promise((resolve, reject) => {\r\n            client.rmdir(dir, function(err){\r\n                if(err){\r\n                    reject(err);\r\n                }else{\r\n                    resolve();\r\n                };\r\n            });             \r\n        });\r\n    };\r\n    let delete_folder = async function(dir, recursive=false){\r\n        if(!recursive){\r\n            return delete_folder_no_recursion(dir);\r\n        };\r\n        let list = await util.ftp_list(client, dir);\r\n        if(list.length){\r\n            let files = list.filter((item) => item.type!=='d');\r\n            let dirs = list.filter((item) => item.type==='d');\r\n            for(let f of files){\r\n                await delete_file(`${dir}/${util.decode_name(f.name)}`, true);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n            for(let d of dirs){\r\n                await delete_folder(`${dir}/${util.decode_name(d.name)}`, true);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n        };\r\n        return delete_folder_no_recursion(dir);\r\n    };\r\n    let [exist, stats] = await util.ftp_exists(client, remote_path);\r\n    if(exist){\r\n        if(stats[\"type\"]==\"d\"){\r\n            await delete_folder(remote_path, true);\r\n        }else{\r\n            await delete_file(remote_path, true);\r\n        };\r\n    };\r\n    ftp.setTimeout(timeout);\r\n}catch(err){\r\n    ftp.close();\r\n    throw err;\r\n};",
+            "DataName": "DeleteFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, new_remote_path, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\n\r\nlet sftp = await util.open_or_use_connection(id, config, \"SFTP\");\r\ntry{\r\n    let client = sftp.client;\r\n    let exist = await client.exists(remote_path);\r\n    if(exist){\r\n        await util.sftp_ensure_directory_existence(client, new_remote_path);\r\n        await client.rename(remote_path, new_remote_path);\r\n    }else{\r\n        throw 'The file/folder \"' + remote_path + '\" does not exist';\r\n    };\r\n    sftp.setTimeout(timeout);\r\n}catch(err){\r\n    sftp.close();\r\n    throw err;\r\n};",
+            "DataName": "MoveSFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, new_remote_path, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\n\r\nlet ftp = await util.open_or_use_connection(id, config, \"FTP\");\r\ntry{\r\n    let client = ftp.client;\r\n    let [exist, stats] = await util.ftp_exists(client, remote_path);\r\n    if(exist){\r\n        await util.ftp_ensure_directory_existence(client, new_remote_path);\r\n        await (new Promise((resolve, reject) => {\r\n            client.rename(remote_path, new_remote_path, function(err){\r\n                if(err){\r\n                    reject(err);\r\n                }else{\r\n                    resolve();\r\n                };\r\n            });\r\n        }));\r\n    }else{\r\n        throw 'The file/folder \"' + remote_path + '\" does not exist';\r\n    };\r\n    ftp.setTimeout(timeout);\r\n}catch(err){\r\n    ftp.close();\r\n    throw err;\r\n};",
+            "DataName": "MoveFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\n\r\nlet sftp = await util.open_or_use_connection(id, config, \"SFTP\");\r\ntry{\r\n    let client = sftp.client;\r\n    let exist = await client.exists(remote_path);\r\n    [[FTP_NODE_PARAMETERS]] = exist ? true : false;\r\n    sftp.setTimeout(timeout);\r\n}catch(err){\r\n    sftp.close();\r\n    throw err;\r\n};",
+            "DataName": "CheckExistSFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\n\r\nlet ftp = await util.open_or_use_connection(id, config, \"FTP\");\r\ntry{\r\n    let client = ftp.client;\r\n    let [exist, stats] = await util.ftp_exists(client, remote_path);\r\n    [[FTP_NODE_PARAMETERS]] = exist;\r\n    ftp.setTimeout(timeout);\r\n}catch(err){\r\n    ftp.close();\r\n    throw err;\r\n};",
+            "DataName": "CheckExistFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\nlet remote_directory = util.dirname(remote_path);\r\n\r\nlet sftp = await util.open_or_use_connection(id, config, \"SFTP\");\r\ntry{\r\n    let client = sftp.client;\r\n    let exist = await client.exists(remote_path);\r\n    if(exist){\r\n        let stats = await client.stat(remote_path);\r\n        [[FTP_NODE_PARAMETERS]] = {directory: remote_directory, exists: true, is_directory: stats.isDirectory, is_file: stats.isFile, last_modified: stats.modifyTime, size: stats.size};\r\n    }else{\r\n        [[FTP_NODE_PARAMETERS]] = {directory: \"\", exists: false, is_directory: false, is_file: false, last_modified: 0, size: 0};\r\n    };\r\n    sftp.setTimeout(timeout);\r\n}catch(err){\r\n    sftp.close();\r\n    throw err;\r\n};",
+            "DataName": "GetInfoSFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\nlet remote_directory = util.dirname(remote_path);\r\n\r\nlet ftp = await util.open_or_use_connection(id, config, \"FTP\");\r\ntry{\r\n    let client = ftp.client;\r\n    let [exist, stats] = await util.ftp_exists(client, remote_path);\r\n    if(exist){\r\n        [[FTP_NODE_PARAMETERS]] = {\r\n            directory: remote_directory,\r\n            exists: true,\r\n            is_directory: (stats[\"type\"]==\"d\" ? true : false),\r\n            is_file: (stats[\"type\"]==\"-\" ? true : false),\r\n            last_modified: (new Date(stats[\"date\"]).getTime()),\r\n            size: stats[\"size\"]\r\n        };\r\n    }else{\r\n        [[FTP_NODE_PARAMETERS]] = {directory: \"\", exists: false, is_directory: false, is_file: false, last_modified: 0, size: 0};\r\n    };\r\n    ftp.setTimeout(timeout);\r\n}catch(err){\r\n    ftp.close();\r\n    throw err;\r\n};",
+            "DataName": "GetInfoFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, destination_directory, verify_checksums, id, config, timeout, protocol] = [[FTP_NODE_PARAMETERS]];\r\nlet destination_path = destination_directory + \"/\" +  util.basename(remote_path);\r\n\r\nlet ftp = await util.open_or_use_connection(id, config, \"FTP\");\r\ntry{\r\n    let client = ftp.client;\r\n    let download_file = async function(file, destination){\r\n        util.local_ensure_directory_existence(destination);\r\n        await (new Promise((resolve, reject) => {\r\n            client.get(file, function(err, stream){\r\n                if(err){\r\n                    reject(err);\r\n                }else{\r\n                    let write_stream = stream.pipe(util.createWriteStream(destination));\r\n                    write_stream.on('error', function(err){\r\n                        reject(err);\r\n                    });\r\n                    write_stream.on('close', function(){\r\n                        resolve();\r\n                    });\r\n                };\r\n            });\r\n        }));\r\n        if(verify_checksums){\r\n            let exist = util.existsSync(destination);\r\n            if(!exist){\r\n                throw 'File \"' + file + '\" was not downloaded';\r\n            };\r\n        };\r\n    };\r\n    let download_folder = async function(dir, destination){\r\n        util.local_ensure_directory_existence(destination + \"/test.txt\");\r\n        let list = await util.ftp_list(client, dir);\r\n        if(list.length){\r\n            let files = list.filter((item) => item.type==='-');\r\n            let dirs = list.filter((item) => item.type==='d');\r\n            for(let f of files){\r\n                let name = util.decode_name(f.name);\r\n                await download_file(`${dir}/${name}`, `${destination}/${name}`);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n            for(let d of dirs){\r\n                let name = util.decode_name(d.name);\r\n                await download_folder(`${dir}/${name}`, `${destination}/${name}`);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n        };\r\n    };\r\n    let [exist, stats] = await util.ftp_exists(client, remote_path);\r\n    if(exist){\r\n        if(stats[\"type\"]==\"d\"){\r\n            await download_folder(remote_path, destination_directory);\r\n        }else if(stats[\"type\"]==\"-\"){\r\n            if(util.existsSync(destination_directory)){\r\n                let stats = util.statSync(destination_directory);\r\n                if(stats.isDirectory()){\r\n                    await download_file(remote_path, destination_path);\r\n                }else{\r\n                    await download_file(remote_path, destination_directory);\r\n                };\r\n            }else{\r\n                await download_file(remote_path, destination_path);\r\n            };\r\n        };\r\n    }else{\r\n        throw 'The file/folder \"' + remote_path + '\" does not exist';\r\n    };\r\n    ftp.setTimeout(timeout);\r\n}catch(err){\r\n    ftp.close();\r\n    throw err;\r\n};",
+            "DataName": "DownloadFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, masks, recursive, search_files, search_folders, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\n\r\nlet ftp = await util.open_or_use_connection(id, config, \"FTP\");\r\ntry{\r\n    let client = ftp.client;\r\n    let list = [];\r\n    let search = async function(dir, recursive, search_files, search_folders){\r\n        let results = [];\r\n        let file_list = await util.ftp_list(client, dir);\r\n        for(let file of file_list){\r\n            let file_path = dir + \"/\" + util.decode_name(file.name);\r\n            if(file.type==\"d\"){\r\n                search_folders ? results.push(file_path) : \"\";\r\n                BAS_PERHAPS_STOP();\r\n                if(recursive){\r\n                    let res = await search(file_path, recursive, search_files, search_folders);\r\n                    results.push(...res);\r\n                };\r\n            };\r\n            if(file.type==\"-\"){\r\n                search_files ? results.push(file_path) : \"\";\r\n            };\r\n            BAS_PERHAPS_STOP();\r\n        };\r\n        return results;\r\n    };\r\n    let [exist, stats] = await util.ftp_exists(client, remote_path);\r\n    if(exist){\r\n        let found = await search(remote_path, recursive, search_files, search_folders);\r\n        list = util.filter_paths(found, masks);\r\n    };\r\n    [[FTP_NODE_PARAMETERS]] = list;\r\n    ftp.setTimeout(timeout);\r\n}catch(err){\r\n    ftp.close();\r\n    throw err;\r\n};",
+            "DataName": "SearchFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, value, ending_symbol, base64, append, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\nlet encoding = base64 ? 'base64' : 'utf8';\r\nlet buf = Buffer.from(value, encoding);\r\nif(ending_symbol){\r\n    let buf2 = Buffer.from('\\r\\n', 'utf8');\r\n    buf = Buffer.concat([buf, buf2]);\r\n};\r\n\r\nlet sftp = await util.open_or_use_connection(id, config, \"SFTP\");\r\ntry{\r\n    let client = sftp.client;\r\n    await util.sftp_ensure_directory_existence(client, remote_path);\r\n    let exist = await client.exists(remote_path);\r\n    if(exist && append){\r\n        await client.append(buf, remote_path);\r\n    }else{\r\n        await client.put(buf, remote_path);\r\n    };\r\n    sftp.setTimeout(timeout);\r\n}catch(err){\r\n    sftp.close();\r\n    throw err;\r\n};",
+            "DataName": "WriteFileSFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, value, ending_symbol, base64, append, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\nlet encoding = base64 ? 'base64' : 'utf8';\r\nlet buf = Buffer.from(value, encoding);\r\nif(ending_symbol){\r\n    let buf2 = Buffer.from('\\r\\n', 'utf8');\r\n    buf = Buffer.concat([buf, buf2]);\r\n};\r\n\r\nlet ftp = await util.open_or_use_connection(id, config, \"FTP\");\r\ntry{\r\n    let client = ftp.client;\r\n    await util.ftp_ensure_directory_existence(client, remote_path);\r\n    await (new Promise((resolve, reject) => {\r\n        if(append){\r\n            client.append(buf, remote_path, function(err){\r\n                if(err){\r\n                    reject(err);\r\n                }else{\r\n                    resolve();\r\n                };\r\n            });\r\n        }else{\r\n            client.put(buf, remote_path, function(err){\r\n                if(err){\r\n                    reject(err);\r\n                }else{\r\n                    resolve();\r\n                };\r\n            });\r\n        };\r\n    }));\r\n    ftp.setTimeout(timeout);\r\n}catch(err){\r\n    ftp.close();\r\n    throw err;\r\n};",
+            "DataName": "WriteFileFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [command, wait_finish, pty, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\n\r\nlet ssh = await util.open_or_use_connection(id, config, \"SFTP\");\r\ntry{\r\n    let client = ssh.client.client;\r\n    let standart_output = \"\";\r\n    let error_output = \"\";\r\n    await (new Promise((resolve, reject) => {\r\n        client.exec(command, {pty:pty}, function(err, stream){\r\n            if(err){\r\n                reject(err);\r\n            }else{\r\n                if(wait_finish){\r\n                    stream.on('error', function(err){\r\n                        reject(err);\r\n                    });\r\n                    stream.on('close', function(code, signal){\r\n                        resolve();\r\n                    });\r\n                    stream.on('data', function(data){\r\n                        standart_output += data.toString('utf8');\r\n                    });\r\n                    stream.stderr.on('data', function(data) {\r\n                        error_output += data.toString('utf8');\r\n                    });\r\n                }else{\r\n                    resolve();\r\n                };\r\n            };\r\n        });\r\n    }));\r\n    [[FTP_NODE_PARAMETERS]] = [standart_output, error_output];\r\n    ssh.setTimeout(timeout);\r\n}catch(err){\r\n    ssh.close();\r\n    throw err;\r\n};",
+            "DataName": "RunCommandSSH",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, destination_directory, verify_checksums, id, config, timeout, protocol] = [[FTP_NODE_PARAMETERS]];\r\nlet calculate = protocol==\"SSH\" && verify_checksums;\r\nlet destination_path = destination_directory + \"/\" +  util.basename(remote_path);\r\n\r\nlet sftp = await util.open_or_use_connection(id, config, \"SFTP\");\r\ntry{\r\n    let client = sftp.client;\r\n    let ssh_client = calculate ? client.client : \"\";\r\n    let download_file = async function(file, destination){\r\n        util.local_ensure_directory_existence(destination);\r\n        let original_checksum = calculate ? await util.ssh_calculate_checksum(ssh_client, file) : \"\";\r\n        await client.fastGet(file, destination);\r\n        if(verify_checksums){\r\n            let exist = util.existsSync(destination);\r\n            if(calculate){\r\n                if(exist){\r\n                    let copy_checksum = await util.local_calculate_checksum(destination);\r\n                    if(copy_checksum!=original_checksum){\r\n                        throw 'The checksum of the downloaded file \"'+ destination +'\" does not match the checksum of the original file \"' + file + '\"';\r\n                    };\r\n                }else{\r\n                    throw 'Failed to calculate checksum, file \"' + file + '\" was not downloaded';\r\n                };\r\n            }else{\r\n                if(!exist){\r\n                    throw 'File \"' + file + '\" was not downloaded';\r\n                };\r\n            };\r\n        };\r\n    };\r\n    let download_folder = async function(dir, destination){\r\n        util.local_ensure_directory_existence(destination + \"/test.txt\");\r\n        let list = await client.list(dir);\r\n        if(list.length){\r\n            let files = list.filter((item) => item.type==='-');\r\n            let dirs = list.filter((item) => item.type==='d');\r\n            for(let f of files){\r\n                await download_file(`${dir}/${f.name}`, `${destination}/${f.name}`);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n            for(let d of dirs){\r\n                await download_folder(`${dir}/${d.name}`, `${destination}/${d.name}`);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n        };\r\n    };\r\n    let exist = await client.exists(remote_path);\r\n    if(exist){\r\n        if(exist==\"d\"){\r\n            await download_folder(remote_path, destination_directory);\r\n        }else if(exist==\"-\"){\r\n            if(util.existsSync(destination_directory)){\r\n                let stats = util.statSync(destination_directory);\r\n                if(stats.isDirectory()){\r\n                    await download_file(remote_path, destination_path);\r\n                }else{\r\n                    await download_file(remote_path, destination_directory);\r\n                };\r\n            }else{\r\n                await download_file(remote_path, destination_path);\r\n            };\r\n        };\r\n    }else{\r\n        throw 'The file/folder \"' + remote_path + '\" does not exist';\r\n    };\r\n    sftp.setTimeout(timeout);\r\n}catch(err){\r\n    sftp.close();\r\n    throw err;\r\n};",
+            "DataName": "DownloadSFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, remote_type, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\n\r\nlet sftp = await util.open_or_use_connection(id, config, \"SFTP\");\r\ntry{\r\n    let client = sftp.client;\r\n    let exist = await client.exists(remote_path);\r\n    if(!exist){\r\n        await util.sftp_ensure_directory_existence(client, remote_path);\r\n        if(remote_type==\"d\"){\r\n            await client.mkdir(remote_path, true);\r\n        }else{\r\n            await client.put(Buffer.from('', 'utf8'), remote_path);\r\n        };\r\n    };\r\n    sftp.setTimeout(timeout);\r\n}catch(err){\r\n    sftp.close();\r\n    throw err;\r\n};",
+            "DataName": "CreateSFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, remote_type, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\n\r\nlet ftp = await util.open_or_use_connection(id, config, \"FTP\");\r\ntry{\r\n    let client = ftp.client;\r\n    let [exist, stats] = await util.ftp_exists(client, remote_path);\r\n    if(!exist){\r\n        await util.ftp_ensure_directory_existence(client, remote_path);\r\n        await (new Promise((resolve, reject) => {\r\n            if(remote_type==\"d\"){\r\n                client.mkdir(remote_path, true, function(err){\r\n                    if(err){\r\n                        reject(err);\r\n                    }else{\r\n                        resolve();\r\n                    };\r\n                });\r\n            }else{\r\n                client.put(Buffer.from('', 'utf8'), remote_path, function(err){\r\n                    if(err){\r\n                        reject(err);\r\n                    }else{\r\n                        resolve();\r\n                    };\r\n                });\r\n            };\r\n        }));\r\n    };\r\n    ftp.setTimeout(timeout);\r\n}catch(err){\r\n    ftp.close();\r\n    throw err;\r\n};",
+            "DataName": "CreateFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, base64, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\nlet encoding = base64 ? 'base64' : 'utf8';\r\n\r\nlet sftp = await util.open_or_use_connection(id, config, \"SFTP\");\r\ntry{\r\n    let client = sftp.client;\r\n    let exist = await client.exists(remote_path);\r\n    if(exist){\r\n        let data = await client.get(remote_path);\r\n        [[FTP_NODE_PARAMETERS]] = data.toString(encoding);\r\n    }else{\r\n        throw 'The file \"' + remote_path + '\" does not exist';\r\n    };\r\n    sftp.setTimeout(timeout);\r\n}catch(err){\r\n    sftp.close();\r\n    throw err;\r\n};",
+            "DataName": "ReadFileSFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, base64, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\nlet encoding = base64 ? 'base64' : 'utf8';\r\n\r\nlet ftp = await util.open_or_use_connection(id, config, \"FTP\");\r\ntry{\r\n    let client = ftp.client;\r\n    let [exist, stats] = await util.ftp_exists(client, remote_path);\r\n    if(exist){\r\n        await (new Promise((resolve, reject) => {\r\n            let chunks = [];\r\n            client.get(remote_path, function(err, stream){\r\n                if(err){\r\n                    reject(err);\r\n                }else{\r\n                    stream.on('data', function(chunk){\r\n                        chunks.push(chunk);\r\n                    });\r\n                    stream.on('error', function(err){\r\n                        reject(err);\r\n                    });\r\n                    stream.on('end', function(){\r\n                        [[FTP_NODE_PARAMETERS]] = Buffer.concat(chunks).toString(encoding);\r\n                        resolve();\r\n                    });\r\n                };\r\n            });\r\n        }));\r\n    }else{\r\n        throw 'The file \"' + remote_path + '\" does not exist';\r\n    };\r\n    ftp.setTimeout(timeout);\r\n}catch(err){\r\n    ftp.close();\r\n    throw err;\r\n};",
+            "DataName": "ReadFileFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, copy_directory, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\nlet copy_path = copy_directory + \"/\" + util.basename(remote_path);\r\n\r\nlet ftp = await util.open_or_use_connection(id, config, \"FTP\");\r\ntry{\r\n    let client = ftp.client;\r\n    let сopy_file = async function(file, destination){\r\n        return new Promise((resolve, reject) => {\r\n            let chunks = [];\r\n            client.get(file, function(err, stream){\r\n                if(err){\r\n                    return reject(err);\r\n                }else{\r\n                    stream.on('data', function(chunk){\r\n                        chunks.push(chunk);\r\n                    });\r\n                    stream.on('error', function(err){\r\n                        return reject(err);\r\n                    });\r\n                    stream.on('end', function(){\r\n                        client.put(Buffer.concat(chunks), destination, function(err){\r\n                            if(err){\r\n                                return reject(err);\r\n                            }else{\r\n                                resolve();\r\n                            };\r\n                        });\r\n                    });\r\n                };\r\n            });\r\n        });\r\n    };\r\n    let сopy_folder = async function(dir, destination){\r\n        await util.ftp_ensure_directory_existence(client, destination + \"/test.txt\");\r\n        let list = await util.ftp_list(client, dir);\r\n        if(list.length){\r\n            let files = list.filter((item) => item.type==='-');\r\n            let dirs = list.filter((item) => item.type==='d');\r\n            for(let f of files){\r\n                let name = util.decode_name(f.name);\r\n                await сopy_file(`${dir}/${name}`, `${destination}/${name}`);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n            for(let d of dirs){\r\n                let name = util.decode_name(d.name);\r\n                await сopy_folder(`${dir}/${name}`, `${destination}/${name}`);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n        };\r\n    };\r\n    let [exist, stats] = await util.ftp_exists(client, remote_path);\r\n    if(exist){\r\n        if(stats[\"type\"]==\"d\"){\r\n            await сopy_folder(remote_path, copy_directory);\r\n        }else{\r\n            await util.ftp_ensure_directory_existence(client, copy_path);\r\n            await сopy_file(remote_path, copy_path);\r\n        };\r\n    }else{\r\n        throw 'The file/folder \"' + remote_path + '\" does not exist';\r\n    };\r\n    ftp.setTimeout(timeout);\r\n}catch(err){\r\n    ftp.close();\r\n    throw err;\r\n};",
+            "DataName": "CopyFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\n\r\nlet ssh = await util.open_or_use_connection(id, config, \"SFTP\");\r\ntry{\r\n    let client = ssh.client.client;\r\n    let checksum = await util.ssh_calculate_checksum(client, remote_path);\r\n    [[FTP_NODE_PARAMETERS]] = checksum;\r\n    ssh.setTimeout(timeout);\r\n}catch(err){\r\n    ssh.close();\r\n    throw err;\r\n};",
+            "DataName": "CalculateChecksumSSH",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "let id = [[FTP_NODE_PARAMETERS]];\r\n\r\nif(ftp_connections?.[id]?.sftp?.client?.sftp){\r\n    ftp_connections?.[id].sftp.close();\r\n};\r\n\r\nif(ftp_connections?.[id]?.ftp){\r\n    ftp_connections?.[id].ftp.close();\r\n};",
+            "DataName": "CloseFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, copy_directory, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\nlet copy_path = copy_directory + \"/\" + util.basename(remote_path);\r\n\r\nlet sftp = await util.open_or_use_connection(id, config, \"SFTP\");\r\ntry{\r\n    let client = sftp.client;\r\n    let сopy_file = async function(file, destination){\r\n        let data = await client.get(file);\r\n        data = util.avoid_empty_string(data);\r\n        await client.put(data, destination);\r\n    };\r\n    let сopy_folder = async function(dir, destination){\r\n        await util.sftp_ensure_directory_existence(client, destination + \"/test.txt\");\r\n        let list = await client.list(dir);\r\n        if(list.length){\r\n            let files = list.filter((item) => item.type!=='d');\r\n            let dirs = list.filter((item) => item.type==='d');\r\n            for(let f of files){\r\n                await сopy_file(`${dir}/${f.name}`, `${destination}/${f.name}`);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n            for(let d of dirs){\r\n                await сopy_folder(`${dir}/${d.name}`, `${destination}/${d.name}`);\r\n                BAS_PERHAPS_STOP();\r\n            };\r\n        };\r\n    };\r\n    let exist = await client.exists(remote_path);\r\n    if(exist){\r\n        if(exist==\"d\"){\r\n            await сopy_folder(remote_path, copy_directory);\r\n        }else{\r\n            await util.sftp_ensure_directory_existence(client, copy_path);\r\n            await сopy_file(remote_path, copy_path);\r\n        };\r\n    }else{\r\n        throw 'The file/folder \"' + remote_path + '\" does not exist';\r\n    };\r\n    sftp.setTimeout(timeout);\r\n}catch(err){\r\n    sftp.close();\r\n    throw err;\r\n};",
+            "DataName": "CopySFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "const util = global._UtilFTP || require(\"../UtilFTP\");\r\nlet [remote_path, masks, recursive, search_files, search_folders, id, config, timeout] = [[FTP_NODE_PARAMETERS]];\r\n\r\nlet sftp = await util.open_or_use_connection(id, config, \"SFTP\");\r\ntry{\r\n    let client = sftp.client;\r\n    let list = [];\r\n    let search = async function(dir, recursive, search_files, search_folders){\r\n        let results = [];\r\n        let file_list = await client.list(dir);\r\n        for(let file of file_list){\r\n            let file_path = dir + \"/\" + file.name;\r\n            if(file.type==\"d\"){\r\n                search_folders ? results.push(file_path) : \"\";\r\n                BAS_PERHAPS_STOP();\r\n                if(recursive){\r\n                    let res = await search(file_path, recursive, search_files, search_folders);\r\n                    results.push(...res);\r\n                };\r\n            };\r\n            if(file.type==\"-\"){\r\n                search_files ? results.push(file_path) : \"\";\r\n            };\r\n            BAS_PERHAPS_STOP();\r\n        };\r\n        return results;\r\n    };\r\n    let exist = await client.exists(remote_path);\r\n    if(exist){\r\n        let found = await search(remote_path, recursive, search_files, search_folders);\r\n        list = util.filter_paths(found, masks);\r\n    };\r\n    [[FTP_NODE_PARAMETERS]] = list;\r\n    sftp.setTimeout(timeout);\r\n}catch(err){\r\n    sftp.close();\r\n    throw err;\r\n};",
+            "DataName": "SearchSFTP",
+            "DataType": 0,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        },
+        {
+            "Data": "if(!global._UtilFTP){\n    const sftp = require('ssh2-sftp-client');\n    const ftp = require('ftp');\n    const fs = require('fs');\n    const path = require('path');\n    const crypto = require('crypto');\n    const { once, EventEmitter } = require('events');\n    \n    let util = {};\n    let checksum_error = 'Failed to calculate checksum, ';\n\n    util.basename = path.basename;\n    util.dirname = path.dirname;\n    \n    util.readdirSync = fs.readdirSync;\n    util.existsSync = fs.existsSync;\n    util.statSync = fs.statSync;\n    util.createWriteStream = fs.createWriteStream;\n\n    util.open_or_use_connection = async function(id, config, protocol){\n        return new Promise((resolve, reject) => {\n            if(typeof ftp_connections==\"undefined\"){\n                ftp_connections = {};\n            };\n            \n            if(typeof ftp_connections[id]==\"undefined\"){\n                ftp_connections[id] = {};\n            };\n\n            if(protocol===\"SFTP\"){\n                if(typeof ftp_connections[id].sftp==\"undefined\" || typeof ftp_connections[id].sftp.client.sftp==\"undefined\" || JSON.stringify(ftp_connections[id].sftp.config)!=JSON.stringify(config)){\n                    if(typeof ftp_connections[id].sftp==\"undefined\" || JSON.stringify(ftp_connections[id].sftp.config)!=JSON.stringify(config)){\n                        ftp_connections[id].sftp = {\n                            id: id,\n                            config: config,\n                            client: new sftp(),\n                            timeout: 0,\n                            close: function(id = this.id){\n                                if(typeof ftp_connections!=\"undefined\" && typeof ftp_connections[id]!=\"undefined\" && typeof ftp_connections[id].sftp!=\"undefined\"){\n                                    ftp_connections[id].sftp.clearTimeout();\n                                    if(typeof ftp_connections[id].sftp.client.sftp!=\"undefined\"){\n                                        ftp_connections[id].sftp.client.end();\n                                    };\n                                    return ftp_connections[id].sftp.delete();\n                                }\n                            },\n                            setTimeout: function(timeout){\n                                this.clearTimeout();\n                                this.timeout = setTimeout(this.close, timeout, this.id)\n                            },\n                            clearTimeout: function(){\n                                if(!this.timeout[\"_destroyed\"]){\n                                    clearTimeout(this.timeout);\n                                };\n                            },\n                            delete: function(){delete ftp_connections[this.id].sftp}\n                        };\n                    };\n                    let sftp_obj = ftp_connections[id].sftp;\n                    let connect = sftp_obj.client.connect(config);\n                    connect.then(function(){\n                        return resolve(sftp_obj);\n                    });\n                    connect.catch(function(err){\n                        sftp_obj.delete();\n                        return reject(err);\n                    });\n                }else{\n                    ftp_connections[id].sftp.clearTimeout();\n                    if(typeof ftp_connections==\"undefined\" || typeof ftp_connections[id]==\"undefined\" || typeof ftp_connections[id].sftp==\"undefined\" || typeof ftp_connections[id].sftp.client.sftp==\"undefined\"){\n                        let connect = util.open_or_use_connection(id, config, protocol);\n                        connect.then(function(sftp_obj){\n                            return resolve(sftp_obj);\n                        });\n                        connect.catch(function(err){\n                            return reject(err);\n                        });\n                    }else{\n                        resolve(ftp_connections[id].sftp);\n                    };\n                };\n            };\n\n            if(protocol===\"FTP\"){\n                if(typeof ftp_connections[id].ftp==\"undefined\" || JSON.stringify(ftp_connections[id].ftp.config)!=JSON.stringify(config)){\n                    ftp_connections[id].ftp = {\n                        id: id,\n                        config: config,\n                        client: new ftp(),\n                        timeout: 0,\n                        close: function(id = this.id){\n                            if(typeof ftp_connections!=\"undefined\" && typeof ftp_connections[id]!=\"undefined\" && typeof ftp_connections[id].ftp!=\"undefined\"){\n                                ftp_connections[id].ftp.clearTimeout();\n                                ftp_connections[id].ftp.client.end();\n                                return ftp_connections[id].ftp.delete();\n                            }\n                        },\n                        setTimeout: function(timeout){\n                            if(!this.timeout[\"_destroyed\"]){\n                                this.clearTimeout();\n                            };\n                            this.timeout = setTimeout(this.close, timeout, this.id)\n                        },\n                        clearTimeout: function(){clearTimeout(this.timeout)},\n                        delete: function(){delete ftp_connections[this.id].ftp},\n                        closeEventHandler: async function(){\n                            await once(this.client, 'close');\n                            this.delete();\n                            return;\n                        }\n                    };\n                    let ftp_obj = ftp_connections[id].ftp;\n                    ftp_obj.closeEventHandler();\n                    ftp_obj.client.connect(config);\n                    ftp_obj.client.on('ready', function(){\n                        return resolve(ftp_obj);\n                    });\n                    ftp_obj.client.on('error', function(err){\n                        ftp_obj.delete();\n                        return reject(err);\n                    });\n                }else{\n                    ftp_connections[id].ftp.clearTimeout();\n                    if(typeof ftp_connections==\"undefined\" || typeof ftp_connections[id]==\"undefined\" || typeof ftp_connections[id].ftp==\"undefined\"){\n                        let connect = util.open_or_use_connection(id, config, protocol);\n                        connect.then(function(ftp_obj){\n                            return resolve(ftp_obj);\n                        });\n                        connect.catch(function(err){\n                            return reject(err);\n                        });\n                    }else{\n                        resolve(ftp_connections[id].ftp);\n                    };\n                };\n            };\n        });\n    };\n    \n    util.decode_name = function(name){\n        return decodeURIComponent(escape(name));\n    };\n\n    util.ftp_list = async function(client, dir){\n        return new Promise((resolve, reject) => {\n            client.list(dir, function(err, list){\n                if(err){\n                    reject(err);\n                }else{\n                    resolve(list.filter(function(file){return [\".\",\"..\"].indexOf(file[\"name\"]) < 0}));\n                };\n            });\n        });\n    };\n\n    util.ftp_exists = async function(client, remote_path){\n        return new Promise((resolve, reject) => {\n            let remote_name = path.basename(remote_path);\n            let remote_directory = path.dirname(remote_path);\n            client.list(remote_directory, function(err, list){\n                if(err){\n                    if(err.message.indexOf(\"No such file or directory\") > -1){\n                        resolve([false]);\n                    }else{\n                        reject(err);\n                    };\n                }else{\n                    list = list.filter(function(file){return util.decode_name(file[\"name\"])==remote_name});\n                    if(list.length > 0){\n                        resolve([true, list[0]]);\n                    }else{\n                        resolve([false]);\n                    };\n                };\n            });\n        });\n    };\n\n    util.ftp_ensure_directory_existence = async function(client, file_path){\n        return new Promise((resolve, reject) => {\n            let dirname = path.dirname(file_path);\n            let exists = util.ftp_exists(client, dirname);\n            exists.then(function([exist, stats]){\n                if(exist){\n                    resolve(true);\n                }else{\n                    client.mkdir(dirname, true, function(err){\n                        if(err){\n                            reject(err);\n                        }else{\n                            resolve(false);\n                        };\n                    });\n                };\n            });\n            exists.catch(function(err){\n                return reject(err);\n            });\n        });\n    };\n\n    util.sftp_ensure_directory_existence = async function(client, file_path){\n        let dirname = path.dirname(file_path);\n        let exist = await client.exists(dirname);\n        if(exist){\n            return true;\n        }else{\n            await client.mkdir(dirname, true);\n            return false;\n        };\n    };\n\n    util.local_ensure_directory_existence = function(file_path){\n        let dirname = path.dirname(file_path);\n        if(fs.existsSync(dirname)){\n            return true;\n        };\n        util.local_ensure_directory_existence(dirname);\n        fs.mkdirSync(dirname);\n        return false;\n    };\n\n    util.filter_paths = function(paths, masks){\n        let all_filtered = [];\n        masks.split(\";\").forEach(function(mask){\n            let regex = new RegExp(mask.replace(/([.])/g, '\\\\$1').replace(/\\*/g, '.+').replace(/\\?/g, '.'));\n            let filtered = paths.filter(function(file){return regex.test(path.basename(file)) && all_filtered.indexOf(file) < 0});\n            all_filtered.push(...filtered);\n        });\n        return all_filtered;\n    };\n\n    util.avoid_empty_string = function(data){\n        return data.toString('utf8')==\"\" ? Buffer.from('', 'utf8') : data;\n    };\n\n    util.local_calculate_checksum = async function(file_path){\n        return new Promise((resolve, reject) => {\n            let hash = crypto.createHash('sha1');\n            let stream = fs.createReadStream(file_path);\n            stream.on('error', function(err){\n                if(err.message.indexOf(\"no such file or directory\") > -1){\n                    reject(checksum_error + 'file \"' + file_path + '\" does not exist');\n                }else{\n                    reject(checksum_error + err);\n                };\n            });\n            stream.on('data', function(data){\n                hash.update(data);\n            });\n            stream.on('end', function(){\n                hash = hash.digest('hex');\n                resolve(hash);\n            });\n        });\n    };\n\n    util.ssh_calculate_checksum = async function(client, remote_path){\n        return new Promise((resolve, reject) => {\n            let standart_output = \"\";\n            let error_output = \"\";\n            client.exec(\"sha1sum -b \" + remote_path, function(err, stream){\n                if(err){\n                    reject(err);\n                }else{\n                    stream.on('error', function(err){\n                        reject(err);\n                    });\n                    stream.on('close', function(code, signal){\n                        if(standart_output.indexOf(\"sha1sum: command not found\") > -1 || error_output.indexOf(\"sha1sum: command not found\") > -1){\n                            reject(checksum_error + 'sha1sum not installed');\n                        }else{\n                            if(standart_output.indexOf(\"No such file or directory\") > -1 || error_output.indexOf(\"No such file or directory\") > -1){\n                                reject(checksum_error + 'file \"' + remote_path + '\" does not exist');\n                            }else{\n                                if(error_output!=\"\"){\n                                    reject(checksum_error + error_output);\n                                }else{\n                                    resolve(standart_output.split(\" \")[0]);\n                                };\n                            };\n                        };\n                    });\n                    stream.on('data', function(data){\n                        standart_output += data.toString('utf8');\n                    });\n                    stream.stderr.on('data', function(data) {\n                        error_output += data.toString('utf8');\n                    });\n                };\n            });\n        });\n    };\n\n    global._UtilFTP = util;\n};\n\nmodule.exports = global._UtilFTP;",
+            "DataName": "UtilFTP",
+            "DataType": 1,
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0"
+        }
+    ],
+    "engine": [
+        "engine.js"
+    ],
+    "icon": "FTP.png",
+    "info": {
+        "en": "Module for working with remote servers via FTP, SFTP, SSH protocols.",
+        "ru": "Модуль для работы с удаленными серверами посредством FTP, SFTP, SSH протоколов."
+    },
+    "is_autogenerated": true,
+    "languages": [
+        {
+            "Name": "Node",
+            "Version": "18.10.0"
+        }
+    ],
+    "localize": {
+        "Port": {"ru":"Порт"},
+        "File": {"ru":"Файл"},
+        "List": {"ru":"Список"},
+        "Folder": {"ru":"Папка"},
+        "manual":{"ru":"мануале"},
+        "is empty": {"ru":"пуст"},
+        "Username": {"ru":"Логин"},
+        "Password": {"ru":"Пароль"},
+        "Protocol": {"ru":"Протокол"},
+        "All files": {"ru":"Все файлы"},
+        "Host name": {"ru":"Имя хоста"},
+        "Instructions":{"ru":"Инструкции"},
+        "Is file": {"ru":"Является файлом"},
+        "Search files": {"ru":"Искать файлы"},
+        "Append file": {"ru":"Дописывать файл"},
+        "Search folders": {"ru":"Искать папки"},
+        "Is directory": {"ru":"Является папкой"},
+        "Is not file": {"ru":"Не является файлом"},
+        "Can be blank": {"ru":"Может быть пустым"},
+        "Error output": {"ru":"Результат с ошибкой"},
+        "Destination path": {"ru":"Путь назначения"},
+        "Timeout (seconds)": {"ru":"Таймаут (секунд)"},
+        "All text files": {"ru":"Все текстовые файлы"},
+        "File/Folder size": {"ru":"Размер файла/папки"},
+        "Is not directory": {"ru":"Не является папкой"},
+        "Standard output": {"ru":"Стандартный результат"},
+        "Remote file path": {"ru":"Удаленный путь к файлу"},
+        "Search in subfolders": {"ru":"Искать в подпапках"},
+        "Show CPU usage": {"ru":"Показать использование ЦП"},
+        "All JavaScript files": {"ru":"Все JavaScript файлы"},
+        "File/Folder exists.": {"ru":"Файл/Папка существует."},
+        "File or folder path": {"ru":"Путь к файлу или папке"},
+        "Dump mysql databases": {"ru":"Дамп базы данных mysql"},
+        "Show disk usage": {"ru":"Показать использование диска"},
+        "Last modified date": {"ru":"Дата последнего изменения"},
+        "File/Folder directory": {"ru":"Директория файла/папки"},
+        "Variable not specified": {"ru":"Переменная не указаны"},
+        "File/Folder name mask": {"ru":"Маска имени файла/папки"},
+        "Variables not specified": {"ru":"Переменные не указаны"},
+        "File/Folder existence": {"ru":"Существование файла/папки"},
+        "Save in base64 format": {"ru":"Сохранить в формате base64"},
+        "Remote destination path": {"ru":"Удаленный путь назначения"},
+        "Port of the remote server.": {"ru":"Порт удаленного сервера."},
+        "Close FTP/SSH connection.": {"ru":"Закрыть FTP/SSH соединение."},
+        "Show last lines of log": {"ru":"Показать последние строки лога"},
+        "File/Folder does not exist.": {"ru":"Файл/Папка не существует."},
+        "Add line ending symbol": {"ru":"Добавить символ окончания строки"},
+        "Password of the remote server.": {"ru":"Пароль удаленного сервера."},
+        "Remote directory to search": {"ru":"Удаленная директория для поиска"},
+        "Data is in base64 format": {"ru":"Данные представлены в формате base64"},
+        "Remote path to file or folder": {"ru":"Удаленный путь к файлу или папке"},
+        "All JavaScript and text files": {"ru":"Все JavaScript и текстовые файлы"},
+        "Default port for FTP protocol": {"ru":"Порт по умолчанию для FTP протокола"},
+        "Remote path to new file/folder": {"ru":"Удаленный путь к новому файлу/папке"},
+        "Username of the remote server.": {"ru":"Имя пользователя удаленного сервера."},
+        "Verify checksums (SSH only)": {"ru":"Проверять контрольные суммы (только SSH)"},
+        "Variable to save the result": {"ru":"Переменная, в которую сохранить результат"},
+        "Run in current working directory": {"ru":"Запустить в текущей рабочей директории"},
+        "New remote path to file or folder": {"ru":"Новый удаленный путь к файлу или папке"},
+        "Host (URL or IP) of the remote server.": {"ru":"Хост (URL или IP) удаленного сервера."},
+        "Create file/folder on remote server.": {"ru":"Создать файл/папку на удаленном сервере."},
+        "Delete file/folder from remote server.": {"ru":"Удалить файл/папку с удаленного сервера."},
+        "Write list to file on remote server.": {"ru":"Записать список в файл на удаленном сервере."},
+        "Default port for SFTP and SSH protocols": {"ru":"Порт по умолчанию для SFTP и SSH протоколов"},
+        "Execute bash command on a remote server.": {"ru":"Выполнить bash команду на удаленном сервере."},
+        "Write data to a file on a remote server.": {"ru":"Записать данные в файл на удаленном сервере."},
+        "Automatically detect port based on protocol": {"ru":"Автоматически определять порт по протоколу"},
+        "This action only works with the SSH protocol.": {"ru":"Данное действие работает только с SSH протоколом."},
+        "If file/folder is missing no error will occur.":{"ru":"Если файл/папка отсутствует, ошибки не произойдет."},
+        "Configure access to a remote FTP or SSH server.": {"ru":"Настроить доступ к удаленному FTP или SSH серверу."},
+        "If the specified path is missing it will be created.": {"ru":"Если указанный путь отсутствует, он будет создан."},
+        "Working folder in which bash script will be executed.": {"ru":"Рабочая папка, в которой будет выполняться bash."},
+        "This action works with both files and folders.": {"ru":"Данное действие работает как с файлами, так и с папками."},
+        "This variable will contain the size of the file/folder.": {"ru":"Эта переменная будет содержать размер файла/папки."},
+        "Each list element will be added as separate line.":{"ru":"Каждый элемент списка будет добавлен как отдельная строка."},
+        "The path to the required file/folder on the remote server.": {"ru":"Путь до нужного файла/папки на удаленном сервере."},
+        "The command which needs to be executed on the remote server.": {"ru":"Команда, которую нужно выполнить на удаленном сервере."},
+        "Get information about a file located on a remote server.": {"ru":"Получить информацию о файле находящемся на удаленном сервере."},
+        "Copy file/folder to another location on the remote server.": {"ru":"Скопировать файл/папку в другое место на удаленном сервере."},
+        "If a non-existent file path is specified, it will be created.": {"ru":"Если указан несуществующий путь к файлу, он будет создан."},
+        "You can specify several masks by separating them with \";\".": {"ru":"Можно указать несколько масок, разделив их при помощи \";\"."},
+        "The path on the remote server to the file/folder after moving.": {"ru":"Путь на удаленном сервере к файлу/папке после перемещения."},
+        "The path to the file on the remote server which will be read.": {"ru":"Путь к файлу на удаленном сервере, который нужно прочитать."},
+        "Move the file/folder to another location on the remote server.": {"ru":"Переместить файл/папку в другое место на удаленном сервере."},
+        "Get the checksum of the file located on the remote server.": {"ru":"Получить контрольную сумму файла, находящегося на удаленном сервере."},
+        "If a non-existent destination path is specified, it will be created.": {"ru":"Если указан несуществующий путь назначения, он будет создан."},
+        "Upload the file/folder to the specified location on the remote server.": {"ru":"Загрузить файл/папку в указанное место на удаленном сервере."},
+        "This variable will contain the result of the command with error.": {"ru":"Эта переменная будет содержать результат выполнения команды с ошибкой."},
+        "This variable will contain the standard output of the command.": {"ru":"Эта переменная будет содержать стандартный результат выполнения команды."},
+        "For binary data use \"Save in base64 format\" option.": {"ru":"Для работы с бинарными данными используйте параметр \"Сохранить в формате base64\"."},
+        "Search for files/folders in the specified directory on the remote server.": {"ru":"Поиск файлов/папок в указанной директории на удаленном сервере."},
+        "Data that will be written to the specified file on the remote server.": {"ru":"Данные которые будут записаны в указанный файл на удаленном сервере."},
+        "The path on the remote server to the file/folder which needs to be deleted.": {"ru":"Путь на удаленном сервере к файлу/папке который нужно удалить."},
+        "The path to the file on the remote server in which data will be written.": {"ru":"Путь к файлу на удаленном сервере, в который нужно записать данные."},
+        "This variable will contain the date the file/folder was last modified.": {"ru":"Эта переменная будет содержать дату последнего изменения файла/папки."},
+        "The path to the file on the remote server in which list will be written.": {"ru":"Путь к файлу на удаленном сервере, в который нужно записать список."},
+        "The path on the remote server to the file/folder which needs to be moved.": {"ru":"Путь на удаленном сервере к файлу/папке который нужно переместить."},
+        "The path to the file/folder which needs to be uploaded to the remote server.": {"ru":"Путь к файлу/папке который нужно загрузить на удаленный сервер."},
+        "The path on the remote server to the file/folder which needs to be copied.": {"ru":"Путь на удаленном сервере к файлу/папке который нужно скопировать."},
+        "The path on the remote server to the file/folder which needs to be downloaded.": {"ru":"Путь на удаленном сервере к файлу/папке который нужно скачать."},
+        "The list that will be written to the specified file on the remote server.": {"ru":"Список, который будет записан в указанный файл на удаленном сервере."},
+        "The command  can have multiple lines, you can learn more about bash in": {"ru":"Команда может иметь несколько строк, подробнее о bash вы можете узнать в"},
+        "Read a file on a remote server and store its contents into a variable.": {"ru":"Читать файл на удаленном сервере и сохранить его содержимое в переменную."},
+        "The protocol by which the connection to the remote server will be made.": {"ru":"Протокол по которому будет производиться подключение к удаленному серверу."},
+        "Check if a file/folder exists at the specified path on the remote server.": {"ru":"Проверить существует ли файл/папка по заданному пути на удаленном сервере."},
+        "Download file/folder from a remote server and save to the specified location.": {"ru":"Скачать файл/папку с удаленного сервера и сохранить в указанное место."},
+        "The resulting list can be processed using actions from the \"List\" module.": {"ru":"Полученный список можно обработать с помощью действий из модуля \"Список\"."},
+        "If \"Search files\" option is enabled, the final list will include files.": {"ru":"Если параметр \"Искать файлы\" включен, в итоговый список будут включены файлы."},
+        "This action can be used to rename a file/folder on a remote server.": {"ru":"Данное действие можно использовать, чтобы переименовать файл/папку на удаленном сервере."},
+        "If \"Search folders\" option is enabled, the final list will include folders.": {"ru":"Если параметр \"Искать папки\" включен, в итоговый список будут включены папки."},
+        "If connection is already closed or not open yet, this action will do nothing.": {"ru":" Если соединение уже закрыто или ещё не открыто, это действие ничего не сделает."},
+        "The path on the remote server to the location where the file will be copied.": {"ru":"Путь на удаленном сервере к месту куда будет скопирован файл или содержимое папки."},
+        "The path to the directory on the remote server in which the search will be performed.": {"ru":"Путь к директории на удаленном сервере в которой будет производиться поиск."},
+        "Using a mask, you can search for files/folders with a specific name or extension.": {"ru":"С помощью маски можно искать файлы/папки с определенным именем или расширением."},
+        "Exact autoclose timeout is specified in \"Configure FTP/SSH\" action.":{"ru":"Точный значение максимального времени ожидания можно задать в действии \"Настроить FTP/SSH\"."},
+        "To write the list to a file correctly, use the \"Write list to file\" action.": {"ru":"Для корректной записи списка в файл используйте действие \"Записать список в файл\"."},
+        "If you need to get a list from a file use the \"Read file to list\" action.": {"ru":"Если вам нужно получить список из файла, используйте действие \"Читать файл в список\"."},
+        "The path on the remote server to the file/folder whose existence needs to be checked.": {"ru":"Путь на удаленном сервере к файлу/папке существование которого нужно проверить."},
+        "The path to the file on the remote server, the checksum for which needs to be obtained.": {"ru":"Путь к файлу на удаленном сервере, контрольную сумму которого нужно получить."},
+        "The path on the remote server to the new file/folder which will be available after creation.": {"ru":"Путь на удаленном сервере к новому файлу/папке доступный после создания."},
+        "If uploaded files already exist along the destination path, they will be overwritten.": {"ru":"Если загруженные файлы уже существуют по пути назначения, они будут перезаписаны."},
+        "This variable will contain the path to the directory where the file/folder is located.": {"ru":"Эта переменная будет содержать путь к директории в которой находится файл/папка."},
+        "The path on the remote server to the file/folder about which information will be obtained.": {"ru":"Путь на удаленном сервере к файлу/папке о котором нужно получить информацию."},
+        "If downloaded files already exist along the destination path, they will be overwritten.": {"ru":"Если скачиваемые файлы уже существуют по пути назначения, они будут перезаписаны."},
+        "sha1sum must be installed on the server. Learn more about sha1sum": {"ru":"Чтобы это действие работало, на сервере должен быть установлен sha1sum. Подробнее о sha1sum можно узнать"},
+        "This variable will be set to true or false depending on the existence of the file/folder.": {"ru":"Эта переменная будет равна true или false в зависимости от существования файла/папки."},
+        "In order to execute this action correctly you need to run \"Configure FTP/SSH\" action first.": {"ru":"Для правильной работы необходимо сначала выполнить действие \"Настроить FTP/SSH\"."},
+        "The resulting list will contain not only the names of the files/folders, but their full path.": {"ru":"Полученный список будет содержать не только названия файлов/папок, но их полный путь."},
+        "If you need to save the file directly to computer, use the \"Download file/folder\" action.": {"ru":"Если вам нужно сохранить файл сразу на компьютер, используйте действие \"Скачать файл/папку\"."},
+        "If you just need to save the contents of a file to a variable, use the \"Read file\" action.": {"ru":"Если вам просто нужно сохранить содержимое файла в переменную, используйте действие \"Читать файл\"."},
+        "This action should be called once before any other action that works with the remote server.": {"ru":"Это действие нужно вызвать один раз перед любым другим действием, которое работает с удаленным сервером."},
+        "If a resource is specified in the \"Destination path\" parameter, resource location will be used.": {"ru":"Если в параметре \"Путь назначения\" указан ресурс, вместо содержимого ресурса будет браться его расположение."},
+        "This variable will be true or false depending on whether the specified path leads to the file is or not.": {"ru":"Эта переменная будет равна true или false в зависимости от того ведет ли указанный путь к файлу или нет."},
+        "This variable will be true or false depending on whether the specified path leads to the directory is or not.": {"ru":"Эта переменная будет равна true или false в зависимости от того ведет ли указанный путь к папке или нет."},
+        "Variable in which, after the successful execution of the action, the contents of the read file will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записано содержимое прочитанного файла."},
+        "Read the file on the remote server, convert its contents to a list, and store this list into a variable.": {"ru":"Прочитать файл на удаленном сервере, преобразовать его содержимое в список и сохранить этот список в переменную."},
+        "If a resource is specified in the \"File or folder path\" parameter, resource location will be used.": {"ru":"Если в параметре \"Путь к файлу или папке\" указан ресурс, вместо содержимого ресурса будет браться его расположение."},
+        "Checksum verification only works with SHH protocol, but checking for file existence works with any protocol.": {"ru":"Проверка контрольной суммы работает только с SHH протоколом, но проверка наличия файла работает с любым протоколом."},
+        "Variable in which, after the successful execution of the action, the checksum of the specified file will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записана контрольная сумма указанного файла."},
+        "This action is optional because connection is closed automatically if it is not used for a long time.": {"ru":"Это действие не является обязательным, так как соединение закрывается автоматически если оно не использовалось длительное время."},
+        "The file/folder will be copied to the remote server, and the original file/folder on the computer will remain unchanged.": {"ru":"Файл/Папка будет скопирован на удаленный сервер, а исходный файл/папка на компьютере останется без изменений."},
+        "The file/folder will be copied to your computer, and the original file/folder on the remote server will remain unchanged.": {"ru":"Файл/Папка будет скопирован на компьютер, а исходный файл/папка на удаленном сервере останется без изменений."},
+        "The list can be obtained using the \"Read file to list\" action or create using actions from the \"List\" module.": {"ru":"Список можно получить с помощью действия \"Читать файл в список\" или создать с помощью действий из модуля \"Список\"."},
+        "The file/folder will be copied to a new location on the remote server, and the original file/folder will remain unchanged.": {"ru":"Файл/Папка будет скопирован в новое место на удаленном сервере, а исходный файл/папка останется без изменений."},
+        "The path to the location on the remote server where the uploaded file or the contents of the uploaded folder will be saved.": {"ru":"Путь к месту на удаленном сервере в которое будет сохранен загруженный файл или содержимое загруженной папки."},
+        "The path to the location where the file downloaded from the remote server or the contents of the downloaded folder will be saved.": {"ru":"Путь к месту в которое будет сохранен скачанный с удаленного сервера файл или содержимое скачанной папки."},
+        "If the data is in base64 format, use the \"Data is in base64 format\" parameter for correct writing to the file.": {"ru":"Если данные имеют формат base64, используйте параметр \"Данные представлены в формате base64\" для корректной записи в файл."},
+        "Variable in which, after the successful execution of the action, the list obtained from the contents of the file will be written.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан список полученный из содержимого файла."},
+        "You don't need to close connection explicitly, it will be closed automatically after timeout or when the script will stop.": {"ru":"Вам не нужно специально закрывать соединение, оно будет закрыто автоматически по истечении таймаута или при остановке скрипта."},
+        "File/Folder name mask for filtering. The final list will include only files/folders whose names match the mask.": {"ru":"Маска имен файлов/папок по которой будет производиться фильтрация. В итоговый список войдут только файлы/папки чьи имена подходят под маску."},
+        "This action will return true or false depending on the existence of the file/folder. This result may be used with \"If\" action.": {"ru":"Данное действие вернет true или false в зависимости от существования файла/папки. Результат может быть использован вместе с действием \"If\""},
+        "Move a folder can take a long time, so it's best to increase the action timeout by clicking on the hourglass next to the cancel button.": {"ru":"Перемещение папки может занять много времени, поэтому лучше увеличить таймаут действия, нажав на песочные часы рядом с кнопкой отмены."},
+        "Copy a folder can take a long time, so it is better to increase the action timeout by clicking on the hourglass next to the cancel button.": {"ru":"Копирование папки может занять много времени, поэтому лучше увеличить таймаут действия, нажав на песочные часы рядом с кнопкой отмены."},
+        "Uploading a folder can take a long time, so it is better to increase the action timeout by clicking on the hourglass next to the cancel button.": {"ru":"Загрузка папки может занять много времени, поэтому лучше увеличить таймаут действия, нажав на песочные часы рядом с кнопкой отмены."},
+        "Downloading a folder can take a long time, so it is better to increase the action timeout by clicking on the hourglass next to the cancel button.": {"ru":"Скачивание папки может занять много времени, поэтому лучше увеличить таймаут действия, нажав на песочные часы рядом с кнопкой отмены."},
+        "SFTP (Secure File Transfer Protocol) is an alternative to FTP that also allows you to transfer files, but adds a layer of security to the process.":{"ru":"SFTP (Secure File Transfer Protocol) - альтернатива FTP, которая также позволяет передавать файлы, но добавляет шифрование к соединению."},
+        "Images obtained with the \"Save in base64 format\" option can be used in the \"Solve Captcha\" action or in the \"Image processing\" module.": {"ru":"Изображения, полученные с параметром \"Сохранить в формате base64\", можно использовать в действии \"Решить Капчу\" или в модуле \"Обработка изображений\"."},
+        "If you want the data to be written on more than one line when adding new data to the file, use \"Add line ending symbol\" option.": {"ru":"Если вы хотите, чтобы при добавлении новых данных в файл они записывались не в одну строку с уже имеющимися, используйте параметр \"Добавить символ окончания строки\"."},
+        "Working folder by default is the home folder of current user, you may want to change it with \"Working folder\" parameter or by running \"cd\" command.": {"ru":"Рабочая папка по умолчанию - это домашняя папка текущего пользователя, вы можете изменить её с помощью параметра \"Рабочая папка\" или запустив команду \"cd\"."},
+        "If an error occurred while execute action, the thread will stop with fail message. If you want to continue thread, use \"Ignore errors\" action.":{"ru":"Если во время выполнения действия произойдет ошибка, поток остановится с сообщением об ошибке. Если вы хотите продолжить работу, используйте действие \"Игнорировать ошибки\"."},
+        "If \"Search in subfolders\" option is enabled, the search will be performed not only in the specified directory, but also recursively in all folders that are in it.": {"ru":"Если параметр \"Искать в подпапках\" включен, поиск будет производиться не только в указанной директории, но и рекурсивно по всем папкам которые в ней находятся."},
+        "If the \"Append file\" option is disabled, the new data will overwrite the data already in the file, or will be written to a new file if the file does not already exist.": {"ru":"Если параметр \"Дописывать файл\" отключен, новые данные перезапишут данным, уже находящиеся в файле, или будут записаны в новый файл, если файл ещё не существует."},
+        "If the \"Append file\" option is enabled, the new data will be added to the data already in the file, or will be written to a new file if the file does not already exist.": {"ru":"Если параметр \"Дописывать файл\" включен, новые данные будут добавлены к данным, уже находящимся в файле, или будут записаны в новый файл, если файл ещё не существует."},
+        "Each action except this and \"Close connection\" open new or uses an already opened connection. The connection is automatically closed by timeout if it is not used.": {"ru":"Каждое действие кроме этого и \"Закрыть соединение\" открывает новое или использует уже открытое соединение. Соединение автоматически закрывается по таймауту если оно не используется."},
+        "If \"Search in subfolders\" option is enabled, the search can take a long time, so it is better to increase the action timeout by clicking on the hourglass next to the cancel button.": {"ru":"Если параметр \"Искать в подпапках\" включен, поиск может занимать много времени, поэтому лучше увеличить таймаут действия, нажав на песочные часы рядом с кнопкой отмены."},
+        "Variable in which, after successful execution of the action, the list of found files/folders will be written. The list will contain not only the names of files/folders, but their full path.": {"ru":"Переменная в которую, после успешного выполнения действия, будет записан список найденных файлов/папок. Список будет содержать не только названия файлов/папок, но их полный путь."},
+        "SSH (Secure Shell) allows to execute commands and transfer files on remote VPS or VDS. Every connection is encrypted. When you rent a remote Linux server, hosting always provides SSH access.":{"ru":"SSH (Secure Shell) позволяет выполнять команды и передавать файлы на удаленный VPS или VDS. Каждое соединение зашифровано. Когда вы арендуете удаленный Linux сервер, хостинг всегда предоставляет доступ по SSH."},
+        "If the \"Verify checksums\" parameter is activated, uploaded file existence and its compliance with the original file will be checked. And if the file was not uploaded or uploaded corrupted, the action will fail.": {"ru":"Если активирован параметр \"Проверять контрольные суммы\", будет проверяться наличие загруженного файла и его соответствие оригинальному файлу. И если файл не был загружен или загрузился поврежденным, действие завершится с ошибкой."},
+        "If the \"Verify checksums\" parameter is activated, downloaded file existence and its compliance with the original file will be checked. And if the file was not downloaded or downloaded corrupted, the action will fail.": {"ru":"Если активирован параметр \"Проверять контрольные суммы\", будет проверяться наличие скачанного файла и его соответствие оригинальному файлу. И если файл не был скачан или скачался поврежденным, действие завершится с ошибкой."},
+        "FTP (File Transfer Protocol) is a standard network protocol used to transfer files between a client and a server. If you have VPS or VDS, you need to install FTP server first in order to use FTP connection type.": {"ru":"FTP (File Transfer Protocol) — это стандартный сетевой протокол, используемый для передачи файлов между клиентом и сервером. Если у вас есть VPS или VDS сервер, вам необходимо сначала установить FTP сервер, чтобы использовать протокол FTP."},
+        "This action won't start connection, it only sets configuration. Connection will be established after first attempt to access server. When action, which triggers connection will be finished, connection won't be closed immediately. It will be preserved for a time specified in this parameter. If another action will require access to server, connection will be reused.": {"ru":"Это действие не устанавливает соединение сразу. Соединение будет установлено только после первой попытки доступа к серверу. Когда действие, запускающее соединение, будет завершено, соединение не будет закрыто. Оно будет храниться в течение времени, указанного в этом параметре. Если другое действие снова потребует доступа к серверу, соединение будет повторно использовано."},
+        "This action won't start connection, it only sets configuration. Connection will be established after first attempt to access server. When action, which triggers connection will be finished, connection won't be closed immediately. It will be preserved for a time specified in \"Timeout\" parameter. If another action will require access to server, connection will be reused.": {"ru":"Это действие не устанавливает соединение сразу. Соединение будет установлено только после первой попытки доступа к серверу. Когда действие, запускающее соединение, будет завершено, соединение не будет закрыто. Оно будет храниться в течение времени, указанного в параметре \"Таймаут\". Если другое действие снова потребует доступа к серверу, соединение будет повторно использовано."}
+    },
+    "major_version": 1,
+    "minor_version": 2,
+    "modules": [
+        {
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0",
+            "ModuleName": "ftp",
+            "ModuleVersion": "*"
+        },
+        {
+            "LanguageName": "Node",
+            "LanguageVersion": "18.10.0",
+            "ModuleName": "ssh2-sftp-client",
+            "ModuleVersion": "*"
+        }
+    ],
+    "name": "FTP"
+}

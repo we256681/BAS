@@ -1,0 +1,215 @@
+{
+	
+	"name":"RegularExpression",
+	"info":{"en": "Execute regular expressions to obtain one or several results.", "ru": "Выполните регулярное выражения, чтобы получить один или несколько результатов."},
+
+	"icon":"RegularExpression.png",
+	"description":"Regular Expession",
+	"description_small":{"en": "Regular expressions", "ru": "Регулярные выражения"},
+	"major_version": 3,
+	"minor_version": 0,
+	"developer_name": "bablosoft", 
+	"developer_email": "mail.to.twaego@gmail.com", 
+	"developer_site": "https://bablosoft.com",
+	"api_version": 1,
+	"actions":
+	[
+		{
+			"name":"RegexpFirst",
+			"description":{"en": "First match","ru": "Первое вхождение"},
+			"template":"{{Regexp}} -> {{Result}}",
+			"is_element": false,
+			"interface": "regexp_first_interface.js",
+			"select": "regexp_first_select.js",
+			"code": [{"file":"regexp_first_code.js", "name": "regexp_first_code"}],
+			"suggestion":{"en": "parse text, search string","ru": "парсить текст, регулярка, регулярки, поиск строки"}
+
+		},
+		{
+			"name":"RegexpScan",
+			"description":{"en": "Exctract all data","ru": "Извлечь все данные"},
+			"template":"{{Regexp}} -> {{Result}}",
+			"is_element": false,
+			"interface": "regexp_scan_interface.js",
+			"select": "regexp_scan_select.js",
+			"code": [{"file":"regexp_scan_code.js", "name": "regexp_scan_code"}],
+			"suggestion":{"en": "parse text, search string","ru": "парсить текст, регулярка, регулярки, поиск строки"}
+		},
+		{
+			"name":"RegexpMatch",
+			"description":{"en": "Check if string matches regexp","ru": "Подходит ли строка под регулярное выражение"},
+			"template":"{{Regexp}} -> {{Result}}",
+			"is_element": false,
+			"interface": "regexp_match_interface.js",
+			"select": "regexp_match_select.js",
+			"code": [{"file":"regexp_match_code.js", "name": "regexp_match_code"}],
+			"suggestion":{"en": "parse text, search string","ru": "парсить текст, регулярка, регулярки, поиск строки"}
+		},
+		{
+			"name":"RegexpSplit",
+			"description":{"en": "Split text with regexp","ru": "Разделить строку"},
+			"template":"{{Regexp}} -> {{Result}}",
+			"is_element": false,
+			"interface": "regexp_split_interface.js",
+			"select": "regexp_split_select.js",
+			"code": [{"file":"regexp_split_code.js", "name": "regexp_split_code"}]
+			
+		},
+		{
+			"name":"RegexpReplace",
+			"description":{"en": "Replace text with regexp","ru": "Заменить строку"},
+			"template":"{{Value}} -> {{Result}}",
+			"is_element": false,
+			"interface": "regexp_replace_interface.js",
+			"select": "regexp_replace_select.js",
+			"code": [{"file":"regexp_replace_code.js", "name": "regexp_replace_code"}]
+		}
+		
+	],
+	"localize": 
+	{
+		"String To Apply Regexp" : {"ru": "Строка Для Применения Регулярного Выражения"},
+		"Regular Expression" : {"ru": "Регулярное Выражение"},
+		"Separator Regular Expression" : {"ru": "Регулярное Выражение Разделитель"},
+		"Regular Expression Constructor" : {"ru": "Конструктор Регулярных Выражений"},
+		"can help you to create regexp." : {"ru": "может помочь в создании регулярки."},
+		"Extract string part with regular expression. For example, string : abc 123 xyz 456, regexp: \\d+ extracts all numbers": {"ru": "Извлечь часть строки с помощью регулярного выражения. Например, строка: abc 123 456 xyz, регулярное выражение: \\d+ извлекает все числа."},
+		"Extract string part with regular expression. For example, string : abc 123 xyz 456, regexp: \\d+ extracts first number": {"ru": "Извлечь часть строки с помощью регулярного выражения. Например, строка: abc 123 456 xyz, регулярное выражение: \\d+ извлекает первое число."},
+		"Result variable contains entire match, all next variables contains captured groups." : {"ru": "Переменная Результат содержит совпадение целиком, все следующие переменные содержат захваченные группы."},
+		"For example, if line is" : {"ru": "Например, если строка"},
+		"and regexp is" : {"ru": "и регулярное выражение"},
+		"than variable" : {"ru": "тогда переменная"},
+		"will be equal to" : {"ru": "будет равна"},
+		"and" : {"ru": "и"},
+		"For example" : {"ru": "Например"},
+		"Each result list item will contain whole match, if you want to capture only part, put it in the group with name" : {"ru": "Каждый элемент списка, который возвращает это действие, содержит совпадение целиком, если вы хотите получить только часть, поместите его внутрь группы"},
+		"than result will contain list with 2 numbers": {"ru": "тогда результат будет содержать 2 числа"},
+		"If regexp is": {"ru": "Если регулярное выражение"},
+		"than result will contain list with 2 names": {"ru": "тогда результат будет содержать 2 имени"},
+		"Replace with": {"ru": "Заменить на"},
+		"You may use groups \\1, \\2 ... inside Replace with param.": {"ru": "Вы можете использовать номера групп \\1, \\2 ... внутри параметра Заменить на."},
+		"Entire match": {"ru": "Найденный текст целиком"},
+		"All string that matches regexp": {"ru": "Найденный текст целиком"},
+
+
+
+		"This value is a target for regular expression. Could be any string.":{"ru":"Это строка, к которой применяется регулярное выражение."},
+		"Any digit sequence":{"ru":"Любая последовательность цифр"},
+		"Any word character sequence":{"ru":"Любая последовательность букв"},
+		"Any whitespace character sequence (includes tabs and line breaks)":{"ru":"Любое количество пробелов, символов табуляции или переносов строк"},
+		"Any number of any characters except line break":{"ru":"Любое количество любых символов, кроме переноса строки"},
+		"Any number of any characters including line break":{"ru":"Любое количество любых символов, включая перенос строки"},
+		"Any lowercase character sequence":{"ru":"Любая последовательность символов в нижнем регистре"},
+		"Any non digit sequence":{"ru":"Любая последовательность любых символов исключая цифры"},
+		"'Your user name is: ' string than any number of non whitespace character":{"ru":"Строка 'Your user name is: ', за которой следует любая последовательность символов, которые не являются пробелом."},
+		"Save name into GROUP1 variable by using group":{"ru":"Сохранить имя в переменной GROUP1 используя группы"},
+		"Extract link from html a tag":{"ru":"Извлечь ссылку из html тега a"},
+		"Regular expression. Can contain groups, all captured groups will be placed into variables. Regular expressions are applied in multiline mode, if you want to match any character including line break use following expression [\\S\\s]+. Dot .+ captures any character except line break.":{"ru":"Регулярное выражение. Может содержать группы, все извлеченные группы будут помещены в переменные. Регулярные выражения применяются в многострочном режиме, если вы хотите, извлечь любой символ, включая перенос строки, используйте следующее выражение [\\S\\s]+. Точка .+ извлекает любой символ, кроме переноса строки."},
+		"Captured groups":{"ru":"Извлеченные группы"},
+		"List of variable names separated by comma. Each variable will contain one captured group. To set group in regular expression, use brackets. By default first group will be placed into GROUP1 variable, second - into GROUP2 and third into GROUP3":{"ru":"Список имен переменных, разделенных запятой. Каждая переменная будет содержать одну извлеченную группу. Чтобы задать группу в регулярном выражении, используйте скобки. По умолчанию первая группа будет помещена в переменную GROUP1, вторая - в GROUP2 и третья в GROUP3"},
+		"All text captured by regular expression.":{"ru":"Весь текст извлеченный с помощью регулярного выражения."},
+		"Execute regular expression, get first match and captured groups.":{"ru":"Применить регулярное выражение, получить первый соответствующий ему фрагмент текста, извлечь группы."},
+		"Regular expression is convenient mechanism to process strings. It helps to search for string parts, split string, etc":{"ru":"Регулярное выражение - удобный механизм для обработки строк. Он помогает искать строки, разделять строку на части и т. д."},
+		"tutorial":{"ru":"руководство"},
+		"manual":{"ru":"справка"},
+		"You could think of regexp as some kind of mask or template, which string must match. Literally regular expression could say: 'Search in a text to find a word character sequence followed by @ symbol followed by any word character or dot character.', in regular expression language it would be \\w+@[a-zA-Z\\.]+ and it is very simple regexp to search for mailbox in text.":{"ru":"Вы можете представить регулярное выражение как какую-либо маску или шаблон, которой заданная строка должна соответствовать. Пример работы регулярного выражения можно описать таким образом: 'Найти в тексте последовательность букв, за которой следует символ @, за которым следует любая последовательность букв, либо точка'. Преобразуя это описание в регулярное выражени получим \\w+@[a-zA-Z\\.]+ это простое выражение для поиска почты в заданном тексте."},
+		"Variable specified in 'Entire match' parameter will be filled with whole matching text.":{"ru":"Переменная, указанная в параметре 'Найденный текст целиком', будет заполнена текстом найденным с помощью регулярного выражения."},
+		"If you want to capture only part of entire match, then you should use groups. Groups are created by adding brackets into regular expression. For example, if you want to process following string":{"ru":"Если вы хотите извлечь только часть всего найденного текста, вам следует использовать группы. Группы создаются путем добавления скобок в регулярное выражение. Например, если вы хотите обработать следующую строку"},
+		"and capture string":{"ru":"и получить строку"},
+		"you can use following regular expression":{"ru":"вы можете использовать следующее регулярное выражение"},
+		"Several groups may be captured. If line is":{"ru":"Можно извлечь сразу несколько групп. Если строка "},
+		"Processing html is much easier and faster with 'Xpath' module.":{"ru":"Обработка html намного проще и быстрее с помощью модуля 'Xpath'."},
+		"This action searches only for the first string, that matches regexp, for example it could search for first number in text. If you want to find several strings that matches regexp, i.e. all numbers, you should use 'Exctract all data' action.":{"ru":"Это действие ищет только первую строку, которая соответствует регулярному выражению, например, оно может искать первое число в тексте. Если вы хотите найти несколько строк, которые соответствуют регулярному выражению, то есть всем числа в тексте, вам лучше использовать действие 'Извлечь все данные'."},
+		"can help you to create regexp.":{"ru":"может помочь вам создать регулярное выражение."},
+		"Regular expression. Regular expressions are applied in multiline mode, if you want to match any character including line break use following expression [\\S\\s]+. Dot .+ captures any character except line break.":{"ru":"Регулярное выражение. Регулярные выражения применяются в многострочном режиме, если вы хотите, извлечь любой символ, включая перенос строки, используйте следующее выражение [\\S\\s]+. Точка .+ извлекает любой символ, кроме переноса строки."},
+		"Match list":{"ru":"Список извлеченных строк"},
+		"This variable will contain list with all matches. If group with name 'result' is present in regular expression, then list will have content of 'result' groups instead of whole matches. See task description for examples.":{"ru":"Эта переменная будет содержать список со всеми строками подходящими под регулярное выражение. Если группа с именем 'result' присутствует в регулярном выражении, тогда список будет содержать содержимое групп 'result', а не совпадения целиком. Смотрите описание текущего действия чтобы увидеть примеры."},
+		"Execute regular expression, save all matches into variable with list type.":{"ru":"Выполнить регулярное выражение, сохранить все извлеченные строки в список."},
+		"You could think of regexp as some kind of mask or template, which string must match. Literally regular expression could say: 'Search in a text to find a word character sequence followed by @ symbol followed by any word character or dot character.', in regular expression language it would be \\w+@[a-zA-Z\\.]+ and it is very simple regexp to search for mailbox.":{"ru":"Вы можете представить регулярное выражение как какую-либо маску или шаблон, которой заданная строка должна соответствовать. Пример работы регулярного выражения можно описать таким образом: 'Найти в тексте последовательность букв, за которой следует символ @, за которым следует любая последовательность букв, либо точка'. Преобразуя это описание в регулярное выражени получим \\w+@[a-zA-Z\\.]+ это простое выражение для поиска почты в заданном тексте."},
+		"Variable specified in 'Match list' parameter will be filled with a list, which contains every found match.":{"ru":"Переменная, указанная в параметре 'Список извлеченных строк', будет заполнена списком, который содержит каждую найденную строку."},
+		"For example, if string is":{"ru":"Например, если строка"},
+		"then it will extract all numbers found in a text, and resulting list will be":{"ru":"то регулярное выражение будет извлекать все числа, найденные в тексте, и в результате список будет"},
+		"If line is":{"ru":"Если строка"},
+		"This action searches for all results, that matches regexp, for example it could search for all numbers in text. If you want to find only first string that matches regexp, i.e. first number, you should use 'First match' action.":{"ru":"Это действие выполняет поиск всех результатов, соответствующих регулярному выражению, например, поиск всех чисел в тексте. Если вы хотите найти только первое совпадение, которое соответствует регулярному выражению, например, найти первое число, вы должны использовать действие 'Первое вхождение'."},
+		"If string matches":{"ru":"Подходит ли строка по рег выражение"},
+		"This variable will have true or false value depending if string matches regular expression.":{"ru":"Эта переменная будет равна true или false в зависимости от того, соответствует ли строка регулярному выражению."},
+		"Test if string matches regular expression, return result into variable.":{"ru":"Проверить, соответствует ли строка регулярному выражению, вернуть результат в переменную."},
+		"Variable specified in 'If string matches' parameter will have true or false value depending if string matches regular expression.":{"ru":"Переменная, указанная в параметре 'Подходит ли строка по рег выражение', будет равна true или false в зависимости от того, соответствует ли строка регулярному выражению."},
+		"then this action will return true, because string contains lowercase character, but regexp ":{"ru":"то это действие вернет true, потому что строка содержит буквы в нижнем регистре, но регулярное выражение"},
+		"will return false, because string doesn't contain any uppercase character":{"ru":"вернет false, потому что строка не содержит символов в верхнем регистре"},
+
+
+
+		"String parts":{"ru":"Части строки после разделения"},
+		"This variable will contain list with all string parts. See task description for examples.":{"ru":"Эта переменная будет содержать список со всеми частями строки. Смотрите описание текущего действия чтобы увидеть примеры."},
+		"Split text with regular expression.":{"ru":"Разделить текст регулярным выражением."},
+		"This action uses regexp to split string. For example, if string is":{"ru":"Это действие использует регулярное выражение чтобы разделить строку. Например, если строка"},
+		"than result will contain all words [\"word1\", \"word2\", \"word3\", \"word4\"]":{"ru":"тогда результат будет содержать список со всеми словами [\"word1\", \"word2\", \"word3\", \"word4\"]"},
+		"Previous example splits string by one of following symbols: , or ; or |":{"ru":"Предыдущий пример разбивает строку с помощью одного из следующих символов: , или ; или |"},
+		"Regular expression for splitting may be more complex and contain more symbols. This mechanism is more powerfull than splitting with static string.":{"ru":"Регулярное выражение для разделения строки может быть более сложным и содержать больше символов. Этот механизм более мощный, чем разделение на части простой строкой."},
+		"Variable specified in 'String parts' parameter will be filled with a list, which contains every string part of splitted string.":{"ru":"Переменная, указанная в параметре 'Части строки после разделения', будет заполнена списком, который содержит все части строки после разделения."},
+
+
+		"Regular expression. Can contain groups. Regular expressions are applied in multiline mode, if you want to match any character including line break use following expression [\\S\\s]+. Dot .+ captures any character except line break.":{"ru":"Регулярное выражение. Оно может содержать группы. Регулярные выражения применяются в многострочном режиме, если вы хотите, извлечь любой символ, включая перенос строки, используйте следующее выражение [\\S\\s]+. Точка .+ извлекает любой символ, кроме переноса строки."},
+		"This parameter is a string. It works like this - regexp is applied to target string, all matches are replaced with this string. It also can contain special strings: \\1, \\2, \\3, etc. \\1 will be replaced with first group for current match, \\2 will be raplced with second group and so on. See task description for example.":{"ru":"Этот параметр является строкой. Это работает следующим образом: регулярное выражение применяется к целевой строке, все найденные вхождение заменяются этой строкой. Она также может содержать строки: \\1, \\2, \\3 и т. д. \\1 будет заменено значением первой группы, \\2 будет заменено второй группой и так далее. Смотрите описание текущего действия чтобы увидеть примеры."},
+
+
+		"This variable will hold resulting string after replacement.":{"ru":"Эта переменная будет содержать строку после замены."},
+		"Execute regular expression, replace all matches with target string.":{"ru":"Применить регулярное выражение, заменить все соответствия на целевую строку."},
+		"This action works like this - regexp is applied to target string, all matches are replaced with string from 'Replace with' parameter.":{"ru":"Это действие работает так: регулярное выражение применяется к целевой строке, все соответствия заменяются строкой из параметра 'Заменить на'."},
+		"(this will match @ with mail domain)":{"ru":"(данное регулярное выражение будет соответствовать символу @ вместе с почтовым доменом)"},
+		"and replacement string is":{"ru":", а параметр 'Заменить на' равен"},
+		"then result will be":{"ru":"то результат будет"},
+		"Variable specified in 'Result' parameter will have a string with result.":{"ru":"В переменную, указанную в параметре 'Результат', будет записана строка с результатом."},
+
+		"Replacement string may contain parts of match by using special special strings: \\1, \\2, \\3, etc. \\1 will be replaced with first group for current match, \\2 will be replaced with second group and so on.":{"ru":"Параметр 'Заменить на' также может содержать специальные строки: \\1, \\2, \\3 и т. д. \\1 будет заменено значением первой группы, \\2 будет заменено второй группой и так далее."},
+		"Another example, if line is":{"ru":"Второй пример, если строка"},
+		"(note that regular expression has one group)":{"ru":"(обратите внимание что регулярное выражение содержит одну группу)"},
+		"(\\1 is replaced with first group)":{"ru":"(\\1 будет заменено значением первой группы)"}
+	},
+	"engine": [],
+	"browser": [],
+	"depends": [],
+	"dll": [
+			{
+				"name": "regexp", 
+				"filename32": "regexp32.dll", 
+				"filename64": "regexp64.dll", 
+				"startdllfunction": "StartDll", 
+				"enddllfunction": "EndDll", 
+				"startthreadfunction": "StartThread", 
+				"endthreadfunction": "EndThread", 
+				"exportlist":[
+					{
+						"name": "first",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "RegexpFirstMatch"
+					},{
+						"name": "ismatch",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "RegexpIsMatch"
+					},{
+						"name": "split",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "RegexpSplit"
+					},{
+						"name": "scan",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "RegexpScan"
+					},{
+						"name": "replace",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "RegexpReplace"
+					}
+
+
+				]
+			}
+		]	
+}
+

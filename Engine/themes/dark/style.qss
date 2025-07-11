@@ -1,0 +1,66 @@
+
+/*QToolTip
+{ 
+    color: white; 
+    background-color: #232323; 
+    border-radius:4px;  
+    border-width: 1px; 
+    border-style: solid; 
+    border-color:gray;
+}*/
+
+QMainWindow::separator
+{
+    margin:1px;
+    background-color: #3B3B3B;
+    color: white;
+    padding-left: 4px;
+    spacing: 2px;
+    border: 1px dashed #6c6c6c;
+}
+
+QMainWindow::separator:hover
+{
+    margin:1px;
+    background-color: #4f4f4f;
+    color: white;
+    padding-left: 4px;
+    spacing: 2px;
+}
+
+
+QDockWidget::title {
+    background: #3e3e3e;
+    border-bottom: 2px solid #4c4c4c;
+    padding-top:6px;
+}
+
+
+QDockWidget {
+    background: #31363b;
+    border: 1px solid #403F3F;
+    titlebar-normal-icon: url(:/themes/dark/rc/undock.png);
+}
+
+QDockWidget::close-button, QDockWidget::float-button {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: transparent;
+}
+
+QScrollBar:vertical {
+    width: 15px;
+}
+
+QScrollBar:horizontal {
+    height: 15px;
+}
+
+QTabBar::tab{
+    height:32px
+}
+
+
+
+
+

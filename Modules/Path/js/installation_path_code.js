@@ -1,0 +1,1 @@
+<%= variable %> = installation_path();

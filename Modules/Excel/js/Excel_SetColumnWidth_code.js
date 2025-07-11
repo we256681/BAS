@@ -1,0 +1,1 @@
+_call_function(Excel_SetColumnWidth,{"FilePath":(<%= FilePath %>), "SheetIndexOrName":(<%= SheetIndexOrName %>), "ColumnIndexOrName":(<%= ColumnIndexOrName %>), "Width":(<%= Width %>), "Sync":(<%= Sync %>), "Timeout":(<%= timeout_value() || 60000 %>)})!

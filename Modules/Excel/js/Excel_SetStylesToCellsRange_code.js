@@ -1,0 +1,1 @@
+_call_function(Excel_SetStylesToCellsRange,{"FilePath":(<%= FilePath %>), "SheetIndexOrName":(<%= SheetIndexOrName %>), "FromCell":(<%= FromCell %>), "ToCell":(<%= ToCell %>), "Styles":(<%= Styles %>), "Sync":(<%= Sync %>), "Timeout":(<%= timeout_value() || 60000 %>)})!

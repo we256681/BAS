@@ -1,0 +1,1 @@
+<%= variable %> = _get_clipboard(<%= base64 %>, <%= mime %>)

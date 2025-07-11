@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Scheduler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scheduler</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="components/TaskList.js"></script>
+    <script src="components/Connecting.js"></script>
+    <script src="components/Scheduler.js"></script>
+	<script src="components/Duration.js"></script>    
+	<script src="components/Modals.js"></script>    
+	<script src="components/SelectDate.js"></script>    
+	<script src="components/SelectNumber.js"></script>
+	<script src="components/ScheduleSection.js"></script>
+	<script src="components/DateList.js"></script>
+	<script src="components/SelectTask.js"></script>
+
+    <script src="js/moment.js"></script>
+    <script src="js/vue-i18n.js"></script>
+    <script src="js/translate.js"></script>
+    <script src="js/uikit.js"></script>
+    <script src="js/uikit-icons.js"></script>
+	<script src="js/livestamp.js"></script>    
+	<script src="js/simplebar.js"></script>
+	<script src="js/filesize.js"></script>
+	<script src="js/resources.js"></script>
+	<script src="js/datepicker.js"></script>
+	<script src="js/datepicker.en.js"></script>
+	<script src="js/filesaver.js"></script>
+	<script src="js/translate.js"></script>
+	<script src="js/inputs.js"></script>
+	<script src="js/recents.js"></script>
+	
+   	<link rel="stylesheet" type="text/css" href="css/uikit.css">
+   	<link rel="stylesheet" type="text/css" href="css/main.css">
+   	<link rel="stylesheet" type="text/css" href="css/simplebar.css">
+   	<link rel="stylesheet" type="text/css" href="css/animate.css">
+   	<link rel="stylesheet" type="text/css" href="css/datepicker.css">
+
+
+  </head>
+  <body>
+    <div id="app" style="width:100vw;height:100vh">
+    	<connecting	
+    		v-show="CurrentPage == 'connecting'"
+			ref="connectingpage"
+    		>
+   		</connecting>
+
+    	<task-list 
+    		v-show="CurrentPage == 'task-list'"
+    		:tasks="Tasks" 
+    		:manual="Manual" 
+    		:scheduler_log="SchedulerLog" 
+    		:application_log="ApplicationLog" 
+    		:is_local="IsLocal" 
+    		:apiendpoint="ApiEndpoint" 
+    		:streamendpoint="StreamEndpoint" 
+    		:minbasversion="MinBasVersion" 
+    		:bablosoftendpoint="BablosoftEndpoint" 
+    		ref="tasklistpage"
+    	>
+    	</task-list>
+    	<span>
+    		<allmodals></allmodals>
+    	</span>
+
+    </div>
+
+
+
+    
+
+
+	<script type="text/javascript">
+
+		function UpdateCache()
+		{
+			var OnMessage = null
+			var UpdateTaskList = []
+			var ApplicationLog = []
+			
+			setInterval(function(){
+				UpdateTaskList.forEach(function(el){
+					OnMessage({"type": "update_task", "params": el})
+				})
+				UpdateTaskList = []
+
+			},300)
+
+			setInterval(function(){
+				if(ApplicationLog.length > 0)
+				{
+					OnMessage({"type": "add_application_log", "params": ApplicationLog})
+					ApplicationLog = []
+				}
+			},3000)
+
+			this.AddUpdateTask = function(NewItem)
+			{
+				var Id = NewItem["id"]
+				var object = UpdateTaskList.find((t) => t["id"] == Id)
+          		if(typeof(object) == "object")
+          		{
+					Object.assign(object, NewItem);
+				}else
+				{
+					UpdateTaskList.push(NewItem)
+				}
+			}
+
+			this.AddApplicationLog = function(NewItem)
+			{
+				ApplicationLog.unshift(NewItem)
+			}
+
+			this.SetOnMessage = function(NewValue)
+			{
+				OnMessage = NewValue
+			}
+
+		}
+		
+		//Set language
+		window.CurrentLang = (window.location.href.indexOf("lang=ru") >= 0) ? "ru" : "en";
+		moment.locale(CurrentLang)
+
+		//Set scheduler inputs
+		if(typeof(window.SchedulerInputs) != "object")
+			window.SchedulerInputs = {method: "Any",method: "",ini: "",script_name: "",script_login: "",script_pass: ""}
+
+		//Initialize components
+		Vue.component('connecting', window.Connecting)
+		Vue.component('task-list', window.TaskList)
+		Vue.component('scheduler', window.Scheduler)
+		Vue.component('duration', window.Duration)
+		Vue.component('allmodals', window.Modals)
+		Vue.component('selectdate', window.SelectDate)
+		Vue.component('selectnumber', window.SelectNumber)
+		Vue.component('schedulesection', window.ScheduleSection)
+		Vue.component('datelist', window.DateList)
+		Vue.component('selecttask', window.SelectTask)
+
+		//Main app
+	    window.App = new Vue({
+	    	i18n: new VueI18n({
+				locale: CurrentLang,
+				messages: window.Translate,
+				silentTranslationWarn: true
+			}),
+			el: '#app',
+			data: {
+				CurrentPage: "connecting",
+				Tasks: [],
+				SchedulerLog: [],
+				ApplicationLog: [],
+				Manual: [],
+				ApiEndpoint: "http://127.0.0.1:11293",
+				StreamEndpoint: "ws://127.0.0.1:11294",
+				BablosoftEndpoint: "https://bablosoft.com",
+				MinBasVersion: "21.8.0",
+				IsLocal: true
+			},
+			mounted: function(){
+
+				this.Connect()
+			},
+			methods: {
+				GetTaskList: function()
+				{
+					return this.$refs.tasklistpage
+				}, 
+				Connect: function()
+				{
+					var self = this;
+					self.CurrentPage = "connecting"
+					self.$refs.connectingpage.ShowError(self.$t("Starting application..."), false);
+					
+					window.Stream = new WebSocket(self.StreamEndpoint);
+	    					
+					Stream.onopen = function (event) {
+						App.CurrentPage = 'task-list'
+					};
+
+					Stream.onclose = function (event) {
+						App.CurrentPage = 'connecting'
+						//Close all modals
+						$("[uk-modal]").each((i,el) => {UIkit.modal(el).hide()});
+						self.$refs.connectingpage.ShowError(self.$t("Failed to connect to scheduler."), true);
+						setTimeout(function(){
+							self.Connect()
+						},3000)
+					};
+
+
+
+					var _UpdateCache = new UpdateCache()
+					_UpdateCache.SetOnMessage(self.$refs.tasklistpage.OnMessage)
+
+
+					Stream.onmessage = function (event) {
+						try
+						{
+							var NewItem = JSON.parse(event.data)
+							if(NewItem["type"] == "update_task")
+								_UpdateCache.AddUpdateTask(NewItem["params"])
+							else if(NewItem["type"] == "add_application_log")
+								_UpdateCache.AddApplicationLog(NewItem["params"])
+							else
+								self.$refs.tasklistpage.OnMessage(NewItem)
+						}catch(e)
+						{
+
+						}
+					}
+
+				}
+			}
+		})
+
+		function ReceiveMessage(event)
+		{
+			var Data = JSON.parse(event.data)
+			if(Data.message == "inputdatagenerated")
+			{
+				window.App.GetTaskList().AutogenerateFrameCreated();
+			}
+			if(Data.message == "inputdatagenerated-data")
+			{
+				window.App.GetTaskList().AutogenerateFrameReceived(Data.data);
+			}
+		}
+
+		window.addEventListener("message", ReceiveMessage, false);
+
+
+	</script>
+
+  </body>
+</html>

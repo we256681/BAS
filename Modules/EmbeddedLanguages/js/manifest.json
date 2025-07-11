@@ -1,0 +1,49 @@
+{
+	
+	"name":"EmbeddedLanguages",
+	"info":{"en": "Embedded languages. Allows you to execute the code in one of the languages listed below. 'Custom' action also allows you to execute a javascript code, but with limited capabilities.", "ru": "Встроенные языки. Позволяет выполнить код на одном из языков представленном ниже. Действие 'Выполнить код'' также позволяет выполнить javascript код, но с ограниченными возможностями."},
+
+	"icon":"languages.png",
+	"description":"Embedded languages",
+	"description_small":{"en": "Embedded languages", "ru": "Встроенные языки"},
+	"major_version": 1,
+	"minor_version": 0,
+	"developer_name": "bablosoft", 
+	"developer_email": "mail.to.twaego@gmail.com", 
+	"developer_site": "https://bablosoft.com",
+	"api_version": 1,
+	"actions":
+	[
+		{
+			"name":"EmbeddedLanguagesNodeJs",
+			"description":{"en": "Node.js","ru": "Node.js"},
+			"suggestion":{"en": "run javascript, execute javascript, execute code, run code, external library","ru": "выполнить javascript, вызвать javascript, вызвать джаваскрипт, выполнить яваскрипт, подключить внешнюю библиотеку"},
+			"template":"",
+			"maximize":false,
+			"is_element": false,
+			"interface": "embedded_language_nodejs_interface.js",
+			"select": "embedded_language_nodejs_select.js",
+			"code": [{"file":"embedded_language_nodejs_code.js", "name": "embedded_language_nodejs_code"}]
+		}
+		
+	],
+	"localize": 
+	{
+		"You can call any BAS action from node.js code, including working with browser. To do that, you need just copy and paste any action right into code editor.": {"ru": "Вы можете вызвать любое действие BAS из кода node.js, включая действия работающие с браузером. Для этого вам нужно просто скопировать и вставить нужное действие прямо в редактор кода."},
+		"Execute custom code using NodeJS.": {"ru": "Выполнить пользовательский код используя NodeJS."},
+		"See following": {"ru": "Смотрите данное"},
+		"for more info.": {"ru": "чтобы узнать больше"},
+		"video": {"ru": "видео"},
+		"You can also call BAS functions and obtain result.": {"ru": "Вы также можете вызывать функции BAS и получать результат."},
+		"More info": {"ru": "Больше информации"},
+		"Manual": {"ru": "Руководство"},
+		"Code": {"ru": "Код"},
+		"Variables are not allowed inside files": {"ru": "Переменные не разрешено использовать внутри файлов"}
+
+	},
+	"engine": [],
+	"browser": [],
+	"depends": [],
+	"dll": []
+}
+

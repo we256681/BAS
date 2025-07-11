@@ -1,0 +1,2 @@
+_call_function(_InMail.count, {criteria: {<%= [["from", from], ['"!from"', notFrom], ["to", to], ['"!to"', notTo], ["subject", subject], ['"!subject"', notSubject], ["text", text], ['"!text"', notText], ["flags", flags], ['"!flags"', notFlags], ["since", since], ["before", before]].filter(function(el){return el[1] !== '""'}).map(function(el){return el[0] + ':(' + el[1] + ')'}).join(', ') %>}<%if(box!=='""'){%>, box: (<%= box %>)<%}%>, timeout: (<%= timeout_value() || 60000 %>)})!
+<%= variable %> = _result_function();

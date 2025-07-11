@@ -1,0 +1,44 @@
+{
+	
+	"name":"Clipboard",
+	"info":{"en": "Clipboard access: read and write from clipboard.", "ru": "Доступ к буферу обмена: чтение, запись."},
+	"description":"Interact with clipboard",
+	"icon":"clipboard.png",
+	"description_small":{"en": "Clipboard", "ru": "Буфер обмена"},
+	"major_version": 1,
+	"minor_version": 1,
+	"developer_name": "bablosoft", 
+	"developer_email": "mail.to.twaego@gmail.com", 
+	"developer_site": "https://bablosoft.com",
+	"api_version": 1,
+	"actions":
+	[
+		{
+			"name":"clipboard_getclipboard",
+			"description":{"en": "Get Clipboard","ru": "Читать Буфер Обмена"},
+			"template": "{{Save}}",
+			"is_element": false,
+			"interface": "getclipboard_interface.js",
+			"select": "getclipboard_select.js",
+			"code": [{"file":"getclipboard_code.js", "name": "getclipboard_code"}]
+		},{
+			"name":"clipboard_setclipboard",
+			"description":{"en": "Set Clipboard","ru": "Запись В Буфер Обмена"},
+			"template": "{{Value}}",
+			"is_element": false,
+			"interface": "setclipboard_interface.js",
+			"select": "setclipboard_select.js",
+			"code": [{"file":"setclipboard_code.js", "name": "setclipboard_code"}]
+		}
+	],
+	"localize": 
+	{
+		"Clipboard is global to whole system and should be locked in multithreaded mode." : {"ru": "Буфер обмена является глобальным для всей системы и должен быть заблокирован перед использованием в многопоточном режиме."},
+		"Read data of the specified type from the clipboard.": {"ru": "Прочитать данные указанного типа из буфера обмена."},
+		"Write data of the specified type to the clipboard.": {"ru": "Записать данные указанного типа в буфер обмена."},
+		"Mime Type" : {"ru": "Mime Тип"}
+	},
+	"engine": [],
+	"browser": [],
+	"depends": []
+}

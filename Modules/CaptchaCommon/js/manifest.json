@@ -1,0 +1,128 @@
+{
+  "name": "CaptchaCommon",
+  "description": "Common code for captcha solving",
+  "description_small": {
+    "en": "Common code for captcha solving",
+    "ru": "Общий код для решения капчи"
+  },
+  "major_version": 2,
+  "minor_version": 0,
+  "developer_name": "Oyasumi Punpun",
+  "developer_email": "likangt2012@gmail.com",
+  "developer_site": "https://github.com/CheshireCaat",
+  "icon": "",
+  "api_version": 1,
+  "actions": [],
+  "embeddeddata": [],
+  "languages": [],
+  "modules": [],
+  "depends": [],
+  "localize": {
+    "Service URL": {
+      "ru": "URL сервиса"
+    },
+    "Service key": {
+      "ru": "Ключ сервиса"
+    },
+    "Service name": {
+      "ru": "Название сервиса"
+    },
+    "Wait for 5 seconds": {
+      "ru": "Ждать в течение 5 секунд"
+    },
+    "Wait for 10 seconds": {
+      "ru": "Ждать в течение 10 секунд"
+    },
+    "Wait for 600 milliseconds": {
+      "ru": "Ждать в течение 600 миллисекунд"
+    },
+    "Task solution check delay": {
+      "ru": "Задержка проверки решения задачи"
+    },
+    "Task solution check interval": {
+      "ru": "Интервал проверки решения задачи"
+    },
+    "Captcha solving service name": {
+      "ru": "Название сервиса для решения капчи"
+    },
+    "Use custom service URL with port 8080": {
+      "ru": "Использовать кастомный URL сервиса с портом 8080"
+    },
+    "Use custom service URL with port 8083": {
+      "ru": "Использовать кастомный URL сервиса с портом 8083"
+    },
+    "The \"Service key\" parameter is empty": {
+      "ru": "Параметр \"Ключ сервиса\" не указан"
+    },
+    "The \"Service name\" parameter is empty": {
+      "ru": "Параметр \"Название сервиса\" не указан"
+    },
+    "The \"Task solution check delay\" parameter is empty": {
+      "ru": "Параметр \"Задержка проверки решения задачи\" не указан"
+    },
+    "The \"Task solution check interval\" parameter is empty": {
+      "ru": "Параметр \"Интервал проверки решения задачи\" не указан"
+    },
+    "Solve captcha using https://2captcha.com/ service": {
+      "ru": "Решить капчу используя сервис https://2captcha.com/"
+    },
+    "Solve captcha using https://rucaptcha.com/ service": {
+      "ru": "Решить капчу используя сервис https://rucaptcha.com/"
+    },
+    "Solve captcha using https://anti-captcha.com/ service": {
+      "ru": "Решить капчу используя сервис https://anti-captcha.com/"
+    },
+    "Solve captcha using https://capmonster.cloud/ service": {
+      "ru": "Решить капчу используя сервис https://capmonster.cloud/"
+    },
+    "Use default service URL, http://rucaptcha.com for RuCaptcha, etc": {
+      "ru": "Использовать стандартный URL сервиса, http://rucaptcha.com для RuCaptcha и так далее"
+    },
+    "Captcha solving service key. You can get it in your personal account of selected captcha solving service": {
+      "ru": "Ключ от сервиса решения капчи. Вы можете получить его в личном кабинете выбранного сервиса решения капчи"
+    },
+    "All services requires a service key which which must be obtained on the service website and entered in the <code>Service key</code> field.": {
+      "ru": "Для всех сервисов требуется сервисный ключ, который должен быть получен на сайте сервиса и введён в поле <code>Ключ сервиса</code>."
+    },
+    "Task solution check interval in milliseconds. With this parameter you can control the length of the pause between each new check of the captcha solution.": {
+      "ru": "Интервал проверки решения задачи в миллисекундах. С помощью этого параметра вы можете контролировать длительность паузы между каждой новой проверкой решения капчи."
+    },
+    "User-Agent that will be used by the service for solving captcha. It works only if you use a proxy to solve captcha, i.e. if the `Send current proxy to solver service` option is enabled.": {
+      "ru": "User-Agent который будет использоваться сервисом для решения капчи. Это работает, только если вы используете прокси для решения капчи, то есть если опция `Отправлять текущий прокси на сервис` включена."
+    },
+    "If you use programs such as <code>CapMonster</code>, <code>XEvil</code> or similar software, you must fill in the <code>Service URL</code> field in accordance with the documentation for this software.": {
+      "ru": "Если вы используете такие программы, как <code>CapMonster</code>, <code>XEvil</code> или аналоги, вы должны заполнить поле <code>URL сервиса</code> в соответствии с документацией к данному ПО."
+    },
+    "Service URL. Can be blank. You can use this option if the service you want is not on the list of available services. In this case, specify the name of the service that works on a similar API and use the address you need.": {
+      "ru": "URL сервиса. Может быть пустым. Вы можете использовать этот параметр, если нужного вам сервиса нет в списке доступных. В таком случае укажите название сервиса, который работает по аналогичному API, и используйте нужный вам адрес."
+    },
+    "If the required service is not in the list of available ones, but it works through an API similar to the selected service, then you can specify required server URL in the <code>Service URL</code> field located in the additional settings.": {
+      "ru": "Если нужного сервиса нет в списке доступных, но он работает через API аналогичный выбранному сервису, вы можете указать необходимый URL сервера в поле <code>URL сервиса</code>, находящееся в дополнительных настройках."
+    },
+    "When using a proxy, always fill in the field <code>User-Agent</code> or use the default value, otherwise the captcha solving service can give an error. If this parameter is specified, the service worker will solve the captcha using the specified <code>User-Agent</code>.": {
+      "ru": "При использовании прокси всегда заполняйте поле <code>User-Agent</code> или используйте стандартное значение, иначе сервис решения капчи может вернуть ошибку. Если этот параметр указан, работник сервиса будет решать капчу используя указанный <code>User-Agent</code>."
+    },
+    "The <code>Task solution check interval</code> parameter is responsible for the frequency of sending requests to the service to check the captcha solution. The more you set the value, the longer BAS will wait before sending the next request. It is recommended to use a delay of at least 5 seconds.": {
+      "ru": "Параметр <code>Интервал проверки решения задачи</code> отвечает за частоту отправки запросов на сервис для проверки решения капчи. Чем больше вы выставите значение, тем дольше BAS будет ожидать перед тем, как отправить очередной запрос. Рекомендуется использовать задержку не менее 5 секунд."
+    },
+    "Task solution check delay in milliseconds. With this parameter you can control the length of the pause between sending the task to the service and the start of waiting for a solution. Most often, captcha-solving services specify the required waiting time, in other cases you can specify any value convenient for you.": {
+      "ru": "Задержка проверки решения задачи в миллисекундах. С помощью этого параметра вы можете контролировать длительность паузы между отправкой капчи на сервис и началом ожидания решения. Чаще всего, сервисы решения капчи указывают необходимое время ожидания, в остальных случаях вы можете указать любое удобное для вас значение."
+    },
+    "The <code>Task solution check delay</code> parameter is responsible for the duration of waiting before the BAS starts checking the captcha. First, the captcha sent to the service, then the BAS will wait for the specified time, after which the task status check itself will begin. Most services recommend waiting at least 5 seconds.": {
+      "ru": "Параметр <code>Задержка проверки решения задачи</code> отвечает за длительность ожидания перед тем, как BAS начнет проверку капчи. Сначала капча отправляется на сервис, после этого BAS будет ожидать указанное время, по прошествии которого начнется непосредственно проверка состояния задачи. Большинство сервисов рекомендуют подождать не менее 5 секунд."
+    }
+  },
+  "browser": [],
+  "engine": [
+    "engine/index.js",
+    "engine/utils.js",
+    "engine/api/apiService.js",
+    "engine/api/apiRuCaptcha.js",
+    "engine/api/apiAntiCaptcha.js",
+    "engine/api/services.js",
+    "engine/tasks/baseTask.js",
+    "engine/tasks/baseTaskRuCaptcha.js",
+    "engine/tasks/baseTaskAntiCaptcha.js",
+    "engine/helpers/baseHelper.js"
+  ]
+}

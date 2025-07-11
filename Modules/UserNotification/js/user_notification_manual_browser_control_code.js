@@ -1,0 +1,1 @@
+_manual_browser_control(<%= label %>)!

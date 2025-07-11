@@ -1,0 +1,63 @@
+ .form-item
+ {
+ 	margin-top:10px !important;
+ }
+
+ .checkbox
+ {
+ 	margin-left:20px !important;
+ }
+
+ label
+ {
+ 	font-weight: normal !important;
+ }
+
+
+[data-role="remove"]:after {
+    content: "x";
+    padding: 0px 2px;
+    font-weight: bold;
+}
+
+[data-role="remove"] {
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.lb-lg
+{
+	padding: 8px;
+	font-size:12px;
+	font-weight: normal !important;
+	margin-top: 3px;
+	margin-left: 3px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.no-lang
+{
+    color:gray;
+    display:none;
+    text-align:center;
+}
+
+/********************
+ * Scrollbar styles *
+ ********************/
+
+::-webkit-scrollbar-track {
+  background: #eaeaea;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b7b7b7;
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}

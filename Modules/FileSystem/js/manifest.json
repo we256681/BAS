@@ -1,0 +1,196 @@
+{
+	
+	"name":"FileSystem",
+	"info":{"en": "Filesystem access: read, write and search for files.", "ru": "Доступ к файловой системе: чтение, запись и поиск файлов."},
+	"description":"Interact with filesystem",
+	"icon":"filesystem.png",
+	"description_small":{"en": "Filesystem", "ru": "Файловая система"},
+	"major_version": 1,
+	"minor_version": 2,
+	"developer_name": "bablosoft", 
+	"developer_email": "mail.to.twaego@gmail.com", 
+	"developer_site": "https://bablosoft.com",
+	"api_version": 1,
+	"actions":
+	[
+		{
+			"name":"filesystem_readfile",
+			"description":{"en": "Read File","ru": "Читать Файл"},
+			"template": "{{Value}} -> {{Save}}",
+			"is_element": false,
+			"interface": "readfile_interface.js",
+			"select": "readfile_select.js",
+			"code": [{"file":"readfile_code.js", "name": "readfile_code"}]
+		},{
+			"name":"filesystem_writefile",
+			"description":{"en": "Write File","ru": "Запись В Файл"},
+			"template": "{{Value}} -> {{File}}",
+			"is_element": false,
+			"interface": "writefile_interface.js",
+			"select": "writefile_select.js",
+			"code": [{"file":"writefile_code.js", "name": "writefile_code"}]
+		},{
+			"name":"filesystem_fileinfo",
+			"description":{"en": "File/Folder Info","ru": "Информация О Файле/Папке"},
+			"template": "{{Value}}",
+			"is_element": false,
+			"interface": "fileinfo_interface.js",
+			"select": "fileinfo_select.js",
+			"code": [{"file":"fileinfo_code.js", "name": "fileinfo_code"}]
+		},{
+			"name":"filesystem_createdir",
+			"description":{"en": "Create Folder","ru": "Создать Папку"},
+			"template": "{{Value}}",
+			"is_element": false,
+			"interface": "createdir_interface.js",
+			"select": "createdir_select.js",
+			"code": [{"file":"createdir_code.js", "name": "createdir_code"}]
+		},{
+			"name":"filesystem_removefile",
+			"description":{"en": "Remove File/Folder","ru": "Удалить Файл/Папку"},
+			"template": "{{Value}}",
+			"is_element": false,
+			"interface": "removefile_interface.js",
+			"select": "removefile_select.js",
+			"code": [{"file":"removefile_code.js", "name": "removefile_code"}]
+		},{
+			"name":"filesystem_movefile",
+			"description":{"en": "Move File/Folder","ru": "Переместить Файл/Папку"},
+			"template": "{{Value}} -> {{ValueDest}}",
+			"is_element": false,
+			"interface": "movefile_interface.js",
+			"select": "movefile_select.js",
+			"code": [{"file":"movefile_code.js", "name": "movefile_code"}]
+		},{
+			"name":"filesystem_copyfile",
+			"description":{"en": "Copy File/Folder","ru": "Копировать Файл/Папку"},
+			"template": "{{Value}} -> {{ValueDest}}",
+			"is_element": false,
+			"interface": "copyfile_interface.js",
+			"select": "copyfile_select.js",
+			"code": [{"file":"copyfile_code.js", "name": "copyfile_code"}]
+		},{
+			"name":"filesystem_search",
+			"description":{"en": "File Search","ru": "Поиск Файлов"},
+			"template": "{{Folder}} -> {{Save}}",
+			"is_element": false,
+			"interface": "search_interface.js",
+			"select": "search_select.js",
+			"code": [{"file":"search_code.js", "name": "search_code"}]
+		},{
+			"name":"filesystem_file_to_list",
+			"description":{"en": "Read File To List","ru": "Читать Файл В Список"},
+			"template": "{{Value}} -> {{Save}}",
+			"is_element": false,
+			"interface": "file_to_list_interface.js",
+			"select": "file_to_list_select.js",
+			"code": [{"file":"file_to_list_code.js", "name": "file_to_list_code"}]
+		},{
+			"name":"filesystem_list_to_file",
+			"description":{"en": "Write List To File","ru": "Записать Список В Файл"},
+			"template": "{{Save}} -> {{File}}",
+			"is_element": false,
+			"interface": "list_to_file_interface.js",
+			"select": "list_to_file_select.js",
+			"code": [{"file":"list_to_file_code.js", "name": "list_to_file_code"}]
+		}
+	],
+	"localize": 
+	{
+		"Find all files in the specified folder that satisfy certain conditions.": {"ru": "Найти в указанной папке все файлы, удовлетворяющие определенным условиям."},
+		"Get detailed information about a file or folder: size, base folder, check existence, etc.": {"ru": "Получить подробную информацию о файле или папке: размер, базовая папка, проверить существование и т. д."},
+		"Read file content to the variable.": {"ru": "Прочитать содержимое файла в переменную."},
+		"Read the content of the specified file to list. Each element of the list will contain one line of original file.": {"ru": "Прочитать содержимое указанного файла в список. Каждый элемент списка будет содержать одну строку исходного файла."},
+		"Write the content of the specified list to file. Each element of the list will be written as a line in a file.": {"ru": "Записать содержимое указанного списка в файл. Каждый элемент списка будет записан в виде строки в файле."},
+		"Copy file or folder to a new location.": {"ru": "Скопировать файл или папку в новое место."},
+		"Move file or folder to a new location.": {"ru": "Переместить файл или папку в новое место."},
+		"Write text or binary data to file.": {"ru": "Записать текст или бинарные данные в файл."},
+		"Create a new folder at the specified path.": {"ru": "Создать новую папку по указанному пути."},
+		"Remove file or folder.": {"ru": "Удалить файл или папку."},
+		"Start position" : {"ru": "Первый байт"},
+		"End position. Leave 0 to read all file." : {"ru": "Последний байт. Используйте 0, чтобы прочитать весь файл."},
+		"File path" : {"ru": "Путь к файлу"},
+		"Save In Base64 Format" : {"ru": "Сохранить в формате base64"},
+		"Append" : {"ru": "Дописывать файл"},
+		"Data Is In Base64 Format" : {"ru": "Данные представлены в формате base64"},
+		"File Name" : {"ru": "Имя Файла"},
+		"File Exists" : {"ru": "Существование Файла"},
+		"File Size" : {"ru": "Размер Файла"},
+		"File Base Directory" : {"ru": "Папка Файла"},
+		"Is Directory" : {"ru": "Является Ли Папкой"},
+		"Last Modified" : {"ru": "Последнее Изменение"},
+		"Directory Name" : {"ru": "Имя Папки"},
+		"File/Folder Name" : {"ru": "Имя Файла Или Папки"},
+		"File/Folder New Location" : {"ru": "Новое Расположение Файла Или Папки"},
+		"File/Folder Destination" : {"ru": "Место Назначения Копирования"},
+		"Search In Folder" : {"ru": "Папка Для Поиска"},
+		"Filename Mask" : {"ru": "Маска Имени Файла"},
+		"File Data Must Contain. Can Be Blank" : {"ru": "Файл Должен Содержать"},
+		"Include Folders" : {"ru": "Искать Папки"},
+		"Include Files" : {"ru": "Искать Файлы"},
+		"Search In Subfolders" : {"ru": "Поиск В Подпапках"},
+		"Add line ending symbol" : {"ru": "Добавить символ окончания строки"},
+		"It is better to use <a href=\"#!/result\">Result</a> action to output result." : {"ru": "Лучше использовать действие <a href=\"#!/result\">Результат</a> для вывода результатов"},
+		"List To Save" : {"ru": "Список Для Сохранения Содержимого"},
+		"List To Write To File" : {"ru": "Список Для Записи В Файл"}
+		
+	},
+	"engine": [],
+	"browser": [],
+	"depends": [],
+	"dll": [
+			{
+				"name": "filesystem", 
+				"filename32": "filesystem32.dll", 
+				"filename64": "filesystem64.dll", 
+				"startdllfunction": "StartDll", 
+				"enddllfunction": "EndDll", 
+				"startthreadfunction": "StartThread", 
+				"endthreadfunction": "EndThread", 
+				"exportlist":[
+					{
+						"name": "readfile",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "FileSystemReadFile"
+					},{
+						"name": "writefile",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "FileSystemWriteFile"
+					},{
+						"name": "fileinfo",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "FileSystemFileInfo"
+					},{
+						"name": "createdir",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "FileSystemCreateDir"
+					},{
+						"name": "removefile",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "FileSystemRemoveFile"
+					},{
+						"name": "movefile",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "FileSystemMoveFile"
+					},{
+						"name": "copyfile",
+						"isasync": false,
+						"waitinfinite": false,
+						"workfunction": "FileSystemCopyFile"
+					},{
+						"name": "search",
+						"isasync": true,
+						"waitinfinite": true,
+						"workfunction": "FileSystemSearch"
+					}
+
+				]
+			}
+		  ]
+}

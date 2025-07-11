@@ -1,0 +1,1 @@
+<%= variable %> = _db_count_records(<%= filters %>, <%= table %>, <%= group_id %>)

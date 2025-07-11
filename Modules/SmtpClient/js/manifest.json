@@ -1,0 +1,72 @@
+{
+	
+	"name":"SmtpClient",
+	"info":{"en": "Send mail", "ru": "Отправить письмо"},
+	"description":"SmtpClient",
+	"icon":"SmtpClient.png",
+	"description_small":{"en": "Send mail", "ru": "Отправить письмо"},
+	"major_version": 1,
+	"minor_version": 0,
+	"developer_name": "DrPrime", 
+	"developer_email": "drprime8@gmail.com", 
+	"developer_site": "https://community.bablosoft.com",
+	"api_version": 1,
+	"actions":
+	[
+		{
+			"name":"smtp_set_settings",
+			"description":{"en": "SMTP settings","ru": "SMTP Настройки"},
+			"template": "{{Value}}",
+			"is_element": false,
+			"interface": "smtp_settings_interface.js",
+			"select": "smtp_settings_select.js",
+			"code": [{"file":"smtp_settings_code.js", "name": "smtp_settings_code"}]
+		},
+		{
+			"name":"smtp_set_proxy",
+			"description":{"en": "SMTP proxy","ru": "SMTP Прокси"},
+			"template": "{{Value}}",
+			"is_element": false,
+			"interface": "smtp_proxy_interface.js",
+			"select": "smtp_proxy_select.js",
+			"code": [{"file":"smtp_proxy_code.js", "name": "smtp_proxy_code"}]
+		},
+		{
+			"name":"smtp_send_mail",
+			"description":{"en": "Send mail","ru": "Отправить письмо"},
+			"template": "{{Value}}",
+			"is_element": false,
+			"interface": "smtp_send_mail_interface.js",
+			"select": "smtp_send_mail_select.js",
+			"code": [{"file":"smtp_send_mail_code.js", "name": "smtp_send_mail_code"}],
+			"suggestion":{"en": "send message, send email","ru": "отправить почту"}
+		},
+		{
+			"name":"smtp_enable_debug",
+			"description":{"en": "Enable debug","ru": "Включить отладку"},
+			"template": "",
+			"is_element": false,
+			"interface": "smtp_enable_debug_interface.js",
+			"select": "smtp_enable_debug_select.js",
+			"code": [{"file":"smtp_enable_debug_code.js", "name": "smtp_enable_debug_code"}]
+		}
+	],
+	"localize":
+	{
+		"By default SMTP client works without proxy, this action sets proxy for SMTP client.": {"ru": "По умолчанию SMTP клиент работает без прокси, это действие устанавливает прокси для SMTP клиента."},
+		"Configure SMTP server access required to send email.": {"ru": "Настроить доступ к SMTP серверу для отправки электронной почты."},
+		"Send an email message using the SMTP client. It must be configured with \"SMTP settings\" action preliminarily.": {"ru": "Отправить сообщение электронной почты, используя SMTP-клиент. Он должен быть предварительно настроен с помощью действия \"SMTP Настройки\"."},
+		"Enable debugging mode for sending emails.": {"ru": "Включить режим отладки для отправки электронной почты."},
+		"Attachments. Can be blank.": {"ru": "Прикрепляемые файлы. Может быть пустым."},
+		"Mail Subject. Can be blank.": {"ru": "Тема письма. Может быть пустым."},
+		"Mail Body. Can be blank.": {"ru": "Текст письма. Может быть пустым."},
+		"CC. Can be blank.": {"ru": "Копия. Может быть пустым."},
+		"SMTP Server Host": {"ru": "Адрес SMTP сервера"},
+		"Send as HTML": {"ru": "Отправить как HTML"},
+		"Mail From": {"ru": "От кого"},
+		"Mail To": {"ru": "Кому"}
+	},
+	"engine": ["engine.js"],
+	"browser": [],
+	"depends": ["FileSystem","CurlWrapper"]
+}

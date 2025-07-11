@@ -1,0 +1,1 @@
+<%= variable %> = _parse_date(<%= value %>,"auto").getTime()

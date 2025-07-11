@@ -1,0 +1,1 @@
+_InMail.setDebug(<%= enable %>);

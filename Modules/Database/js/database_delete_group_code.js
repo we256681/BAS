@@ -1,0 +1,1 @@
+_db_delete_group(<%= group_id %>, <%= delete_data %> == "true", <%= table %>)

@@ -1,0 +1,1 @@
+<%= variable %> = _db_select_groups(<%= table %>)

@@ -1,0 +1,59 @@
+{
+	
+	"name":"ScriptStats",
+	"info":{"en": "Usefull tools to get script statistic.", "ru": "Полезные инструменты для получения статистики выполнения скрипта."},
+	"icon":"scriptstats.png",
+	"description":"Get script statistic",
+	"description_small":{"en": "Script statistic", "ru": "Статистика скрипта"},
+	"major_version": 1,
+	"minor_version": 0,
+	"developer_name": "bablosoft", 
+	"developer_email": "mail.to.twaego@gmail.com", 
+	"developer_site": "https://bablosoft.com",
+	"api_version": 1,
+	"actions":
+	[
+
+		{
+			"name":"getthreadnumber",
+			"description":{"en": "Thread number","ru": "Номер потока"},
+			"template": "{{Save}}",
+			"is_element": false,
+			"interface": "script_stats_thread_number_interface.js",
+			"select": "script_stats_thread_number_select.js",
+			"code": [{"file":"script_stats_thread_number_code.js", "name": "script_stats_thread_number_code"}],
+			"suggestion":{"en": "get current thread index, get current thread number","ru": "получить текущий номер потока, получить текущий индекс потока"}
+
+		},
+		{
+			"name":"script_stats_success_number",
+			"description":{"en": "Success number","ru": "Успешных выполнений"},
+			"template": "{{Save}}",
+			"is_element": false,
+			"interface": "script_stats_success_number_interface.js",
+			"select": "script_stats_success_number_select.js",
+			"code": [{"file":"script_stats_success_number_code.js", "name": "script_stats_success_number_code"}]
+		},
+		{
+			"name":"script_stats_fail_number",
+			"description":{"en": "Fail number","ru": "Неудачных выполнений"},
+			"template": "{{Save}}",
+			"is_element": false,
+			"interface": "script_stats_fail_number_interface.js",
+			"select": "script_stats_fail_number_select.js",
+			"code": [{"file":"script_stats_fail_number_code.js", "name": "script_stats_fail_number_code"}]
+		}
+
+	],
+	"localize": 
+	{
+		"Get the number of unsuccessful executions of the current script.": {"ru": "Получить количество неудачных выполнений текущего скрипта."},
+		"Get the number of successful executions of the current script.": {"ru": "Получить количество успешных выполнений текущего скрипта."},
+		"Get the number of the current working thread.": {"ru": "Получить номер текущего работающего потока."},
+		"Variable to save thread index": {"ru": "Переменная для сохранения номера потока"}
+	},
+	"engine": [],
+	"browser": [],
+	"depends": []	
+}
+
