@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  bas:
+    build: .
+    ports:
+      - "10000-20000:10000-20000"
+      - "8080:8080"
+    volumes:
+      - ./scripts:/app/scripts
+      - ./data:/app/data
+    environment:
+      - DISPLAY=:99
+      - BAS_PATH=/app
+      - BAS_PATH_WORKER=/app/ChromeWorker
+    restart: unless-stopped
+    stdin_open: true
+    tty: true

@@ -1,0 +1,18 @@
+{
+  "name": "bas-docker",
+  "version": "1.0.0",
+  "description": "Docker setup for BAS (Browser Automation Studio)",
+  "main": "docker-web-server.js",
+  "scripts": {
+    "start": "node docker-web-server.js",
+    "docker:build": "docker build -t bas-app .",
+    "docker:run": "docker run -p 10000-20000:10000-20000 -p 8080:8080 bas-app",
+    "docker:compose": "docker-compose up --build"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "keywords": ["bas", "browser-automation", "docker", "web-interface"],
+  "author": "BAS Docker Implementation",
+  "license": "MIT"
+}

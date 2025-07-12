@@ -1,0 +1,11 @@
+.git
+.gitignore
+*.log
+.DS_Store
+node_modules
+*.tmp
+*.temp
+build/
+dist/
+.vscode/
+.idea/

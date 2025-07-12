@@ -204,7 +204,7 @@ namespace BrowserAutomationStudioFramework
 
         WebSocketServer = new QWebSocketServer("InterfaceServer", QWebSocketServer::NonSecureMode, this);
 
-        if(!WebSocketServer->listen(QHostAddress::LocalHost, WebSocketPort))
+        if(!WebSocketServer->listen(QHostAddress::Any, WebSocketPort))
         {
             Close();
             return false;
@@ -582,7 +582,7 @@ namespace BrowserAutomationStudioFramework
 
         WebSocketServer = new QWebSocketServer("InterfaceServer", QWebSocketServer::NonSecureMode, this);
 
-        if(!WebSocketServer->listen(QHostAddress::LocalHost, WebSocketPort))
+        if(!WebSocketServer->listen(QHostAddress::Any, WebSocketPort))
         {
             Close();
             emit Initialized();
