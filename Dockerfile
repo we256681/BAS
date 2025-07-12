@@ -1,7 +1,7 @@
 # Docker configuration for BAS (Browser Automation Studio)
 # Using Wine to run Windows application on Linux
 
-FROM ubuntu:22.04 as base
+FROM ubuntu:22.04 AS base
 
 # Install Wine and dependencies
 RUN apt-get update && apt-get install -y \
@@ -26,7 +26,7 @@ ENV WINEARCH=win64
 # Initialize Wine
 RUN wine64 wineboot --init
 
-FROM base as builder
+FROM base AS builder
 
 # Copy source code
 COPY . /app
@@ -39,7 +39,7 @@ ENV BAS_PATH_WORKER=/app/ChromeWorker
 # Install Node.js dependencies for web server
 RUN npm install express
 
-FROM base as runtime
+FROM base AS runtime
 
 # Copy built applications and source
 COPY --from=builder /app /app
