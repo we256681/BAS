@@ -4,125 +4,500 @@ const fs = require('fs');
 
 const app = express();
 
-class UnderscoreTemplateCleaner {
+/**
+ * Robust Template Processor for Docker BAS Implementation
+ * Handles complex template files with stub replacement capability
+ */
+class RobustTemplateProcessor {
     constructor() {
-        this.TOKEN_TYPES = {
-            EXECUTE: 'EXECUTE',     // <% code %>
-            INTERPOLATE: 'INTERPOLATE', // <%= value %>
-            ESCAPE: 'ESCAPE',       // <%- value %>
-            TEXT: 'TEXT'            // plain text
+        this.stubFiles = new Set([
+            'functionmanager.js',
+            'tooledViewPlugin.js',
+            'modal.js',
+            'documents.js'
+        ]);
+
+        this.patterns = {
+            allTags: /<%[-=]?(?:[^%]|%(?!>))*%>/g,
+            // Execution blocks
+            execution: /<%\s*(?!=)((?:[^%]|%(?!>))*)%>/g,
+            output: /<%=\s*((?:[^%]|%(?!>))*)\s*%>/g,
+            escapedOutput: /<%-\s*((?:[^%]|%(?!>))*)\s*%>/g,
+            templateDensity: /<%(?:[^%]|%(?!>))*%>/g
         };
 
-        // Regex patterns for different template tags
-        this.patterns = {
-            execute: /<% \s*([\s\S]*?)\s*%>/g,
-            interpolate: /<%=\s*([\s\S]*?)\s*%>/g,
-            escape: /<%- \s*([\s\S]*?)\s*%>/g
+        this.stubs = {
+            'functionmanager.js': this.createFunctionManagerStub(),
+            'tooledViewPlugin.js': this.createTooledViewPluginStub(),
+            'modal.js': this.createModalStub(),
+            'documents.js': this.createDocumentsStub(),
+            'default': this.createDefaultStub()
         };
     }
 
     /**
-     * Main method to clean template syntax errors
-     * @param {string} templateString - The template string to clean
-     * @returns {string} - Cleaned template string
+     * Main processing function with intelligent stub replacement
+     * @param {string} content - File content
+     * @param {string} filename - File name
+     * @returns {object} - Processing result
      */
-    cleanTemplate(templateString) {
+    processContent(content, filename = '') {
         try {
-            const tokens = this.tokenize(templateString);
+            const baseName = path.basename(filename);
+            
+            if (this.shouldStub(content, baseName)) {
+                return {
+                    success: true,
+                    content: this.getStubContent(baseName),
+                    method: 'stubbed',
+                    reason: 'High template density or known problematic file'
+                };
+            }
 
-            const processedTokens = this.processTokens(tokens);
+            const methods = [
+                () => this.aggressiveClean(content),
+                () => this.safeTemplateRemoval(content),
+                () => this.commentOutTemplates(content),
+                () => this.getStubContent(baseName) // Fallback to stub
+            ];
 
-            return this.reconstructTemplate(processedTokens);
+            for (let i = 0; i < methods.length; i++) {
+                try {
+                    const processed = methods[i]();
+                    this.validateJavaScript(processed);
+                    return {
+                        success: true,
+                        content: processed,
+                        method: ['aggressive', 'safe', 'commented', 'stubbed'][i],
+                        attempts: i + 1
+                    };
+                } catch (error) {
+                    console.log(`Method ${i + 1} failed: ${error.message}`);
+                    continue;
+                }
+            }
+
+            return {
+                success: true,
+                content: this.getStubContent(baseName),
+                method: 'stubbed',
+                reason: 'All processing methods failed'
+            };
         } catch (error) {
-            console.error('Template cleaning failed:', error);
-            return this.fallbackClean(templateString);
+            return {
+                success: false,
+                error: error.message,
+                content: this.getStubContent(filename)
+            };
         }
     }
 
     /**
-     * Tokenize the template string into manageable parts
-     * @param {string} template - Template string
-     * @returns {Array} - Array of tokens
+     * Check if file should be stubbed based on template density
+     * @param {string} content - File content
+     * @param {string} filename - File name
+     * @returns {boolean}
      */
-    tokenize(template) {
-        const tokens = [];
-        let lastIndex = 0;
+    shouldStub(content, filename) {
+        if (this.stubFiles.has(filename)) {
+            return true;
+        }
 
-        const allMatches = [];
+        const templateMatches = content.match(this.patterns.templateDensity) || [];
+        const templateChars = templateMatches.join('').length;
+        const totalChars = content.length;
+        const density = templateChars / totalChars;
 
-        ['execute', 'interpolate', 'escape'].forEach(type => {
-            const regex = new RegExp(this.patterns[type].source, 'g');
-            let match;
-            while ((match = regex.exec(template)) !== null) {
-                allMatches.push({
-                    type: type.toUpperCase(),
-                    match: match[0],
-                    content: match[1],
-                    start: match.index,
-                    end: match.index + match[0].length
-                });
+        return density > 0.3;
+    }
+
+    /**
+     * Aggressive template cleaning - removes all template syntax
+     * @param {string} content - Content to clean
+     * @returns {string} - Cleaned content
+     */
+    aggressiveClean(content) {
+        let processed = content;
+
+        // Remove all template tags completely
+        processed = processed.replace(this.patterns.allTags, '');
+
+        // Fix common syntax issues
+        processed = this.fixSyntaxIssues(processed);
+
+        // Clean up whitespace and empty lines
+        processed = processed
+            .replace(/\n\s*\n\s*\n/g, '\n\n')
+            .replace(/^\s*\n/gm, '')
+            .trim();
+
+        return processed;
+    }
+
+    /**
+     * Safe template removal - preserves structure
+     * @param {string} content - Content to clean
+     * @returns {string} - Cleaned content
+     */
+    safeTemplateRemoval(content) {
+        let processed = content;
+
+        processed = processed.replace(this.patterns.output, '"[OUTPUT]"');
+        processed = processed.replace(this.patterns.escapedOutput, '"[ESCAPED_OUTPUT]"');
+
+        processed = processed.replace(this.patterns.execution, '/* [TEMPLATE_CODE] */');
+
+        // Fix syntax issues
+        processed = this.fixSyntaxIssues(processed);
+
+        return processed;
+    }
+
+    /**
+     * Comment out all template code
+     * @param {string} content - Content to clean
+     * @returns {string} - Cleaned content
+     */
+    commentOutTemplates(content) {
+        let processed = content;
+
+        processed = processed.replace(this.patterns.allTags, '/* $& */');
+
+        // Fix syntax issues
+        processed = this.fixSyntaxIssues(processed);
+
+        return processed;
+    }
+
+    /**
+     * Fix common JavaScript syntax issues
+     * @param {string} content - Content to fix
+     * @returns {string} - Fixed content
+     */
+    fixSyntaxIssues(content) {
+        return content
+            // Fix orphaned else statements
+            .replace(/\s*else\s*\{[^}]*\}/g, '')
+            // Fix incomplete if statements
+            .replace(/if\s*\(\s*\)\s*\{[^}]*\}/g, '')
+            .replace(/\.\s*\(\s*\)/g, '.call()')
+            .replace(/\+\s*\+/g, '+')
+            .replace(/;;+/g, ';')
+            .replace(/[+\-*/]\s*;/g, ';')
+            // Remove empty statements
+            .replace(/;\s*;/g, ';');
+    }
+
+    /**
+     * Get stub content for a file
+     * @param {string} filename - File name
+     * @returns {string} - Stub content
+     */
+    getStubContent(filename) {
+        const baseName = path.basename(filename);
+        return this.stubs[baseName] || this.stubs.default;
+    }
+
+    /**
+     * Validate JavaScript syntax
+     * @param {string} code - JavaScript code
+     * @throws {Error} - If invalid
+     */
+    validateJavaScript(code) {
+        try {
+            new Function(code);
+        } catch (error) {
+            throw new Error(`Invalid JavaScript: ${error.message}`);
+        }
+    }
+
+    createFunctionManagerStub() {
+        return `
+var FunctionManager = {
+    init: function() {
+        console.log('FunctionManager initialized (stub)');
+    },
+    execute: function(funcName, params) {
+        console.log('FunctionManager.execute called:', funcName);
+        return null;
+    },
+    register: function(name, func) {
+        console.log('FunctionManager.register called:', name);
+    },
+    get: function(name) {
+        console.log('FunctionManager.get called:', name);
+        return function() { return null; };
+    }
+};
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = FunctionManager;
+}
+`.trim();
+    }
+
+    createTooledViewPluginStub() {
+        return `
+var TooledViewPlugin = {
+    init: function() {
+        console.log('TooledViewPlugin initialized (stub)');
+    },
+    render: function(container, data) {
+        console.log('TooledViewPlugin.render called');
+        if (container) {
+            container.innerHTML = '<div>TooledViewPlugin Stub</div>';
+        }
+    },
+    update: function(data) {
+        console.log('TooledViewPlugin.update called');
+    }
+};
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = TooledViewPlugin;
+}
+`.trim();
+    }
+
+    createModalStub() {
+        return `
+var Modal = {
+    show: function(options) {
+        console.log('Modal.show called (stub)');
+        return {
+            hide: function() {
+                console.log('Modal.hide called (stub)');
             }
+        };
+    },
+    hide: function() {
+        console.log('Modal.hide called (stub)');
+    },
+    confirm: function(message, callback) {
+        console.log('Modal.confirm called:', message);
+        if (callback) callback(true);
+    }
+};
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Modal;
+}
+`.trim();
+    }
+
+    createDocumentsStub() {
+        return `
+var Documents = {
+    init: function() {
+        console.log('Documents initialized (stub)');
+    },
+    load: function(id, callback) {
+        console.log('Documents.load called:', id);
+        if (callback) callback(null, { id: id, content: 'stub content' });
+    },
+    save: function(doc, callback) {
+        console.log('Documents.save called:', doc.id);
+        if (callback) callback(null, doc);
+    },
+    list: function(callback) {
+        console.log('Documents.list called');
+        if (callback) callback(null, []);
+    }
+};
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Documents;
+}
+`.trim();
+    }
+
+    createDefaultStub() {
+        return `
+(function() {
+    'use strict';
+    console.log('Template file loaded as stub');
+    
+    var stub = {
+        init: function() {
+            console.log('Stub initialized');
+        }
+    };
+    
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = stub;
+    }
+    
+    if (typeof define === 'function' && define.amd) {
+        define([], function() {
+            return stub;
         });
+    }
+    
+    if (typeof window !== 'undefined') {
+        window.TemplateStub = stub;
+    }
+})();
+`.trim();
+    }
 
-        allMatches.sort((a, b) => a.start - b.start);
-
-        allMatches.forEach(match => {
-            if (match.start > lastIndex) {
-                const textContent = template.slice(lastIndex, match.start);
+    /**
+     * Parse template into segments (text, code, output)
+     * @param {string} template - Template string
+     * @returns {Array} - Array of segment objects
+     */
+    parseTemplateSegments(template) {
+        const segments = [];
+        let lastIndex = 0;
+        let match;
+        
+        this.patterns.allTags.lastIndex = 0;
+        
+        while ((match = this.patterns.allTags.exec(template)) !== null) {
+            if (match.index > lastIndex) {
+                const textContent = template.slice(lastIndex, match.index);
                 if (textContent) {
-                    tokens.push({
-                        type: this.TOKEN_TYPES.TEXT,
+                    segments.push({
+                        type: 'text',
                         content: textContent
                     });
                 }
             }
-
-            tokens.push({
-                type: this.TOKEN_TYPES[match.type],
-                content: match.content,
-                raw: match.match
-            });
-
-            lastIndex = match.end;
-        });
-
+            
+            const fullMatch = match[0];
+            const innerContent = match[1];
+            
+            if (fullMatch.startsWith('<%=')) {
+                segments.push({
+                    type: 'output',
+                    content: innerContent.trim()
+                });
+            } else if (fullMatch.startsWith('<%-')) {
+                segments.push({
+                    type: 'escapedOutput',
+                    content: innerContent.trim()
+                });
+            } else {
+                segments.push({
+                    type: 'code',
+                    content: innerContent.trim()
+                });
+            }
+            
+            lastIndex = match.index + match[0].length;
+        }
+        
         if (lastIndex < template.length) {
             const textContent = template.slice(lastIndex);
             if (textContent) {
-                tokens.push({
-                    type: this.TOKEN_TYPES.TEXT,
+                segments.push({
+                    type: 'text',
                     content: textContent
                 });
             }
         }
-
-        return tokens;
+        
+        return segments;
     }
 
     /**
-     * Process tokens to fix syntax issues
-     * @param {Array} tokens - Array of tokens
-     * @returns {Array} - Processed tokens
+     * Convert segments to JavaScript function
+     * @param {Array} segments - Parsed segments
+     * @returns {string} - JavaScript function string
      */
-    processTokens(tokens) {
-        const processed = [];
-        const codeBlockStack = [];
-
-        for (let i = 0; i < tokens.length; i++) {
-            const token = tokens[i];
-
-            if (token.type === this.TOKEN_TYPES.EXECUTE) {
-                const processedToken = this.processExecuteToken(token, codeBlockStack);
-                processed.push(processedToken);
-            } else if (token.type === this.TOKEN_TYPES.INTERPOLATE || token.type === this.TOKEN_TYPES.ESCAPE) {
-                const processedToken = this.processInterpolateToken(token);
-                processed.push(processedToken);
-            } else {
-                processed.push(token);
+    convertToJavaScriptFunction(segments) {
+        const functionBody = [];
+        functionBody.push('function(data) {');
+        functionBody.push('  var __output = [];');
+        functionBody.push('  var __append = function(s) { __output.push(s); };');
+        functionBody.push('  var __escape = function(s) { return String(s).replace(/[&<>"\'\/]/g, function(match) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", "\\"": "&quot;", "\'": "&#39;", "/": "&#47;"}[match]; }); };');
+        functionBody.push('  with (data || {}) {');
+        
+        segments.forEach(segment => {
+            switch (segment.type) {
+                case 'text':
+                    const escapedText = segment.content
+                        .replace(/\\/g, '\\\\')
+                        .replace(/"/g, '\\"')
+                        .replace(/\n/g, '\\n')
+                        .replace(/\r/g, '\\r');
+                    functionBody.push(`    __append("${escapedText}");`);
+                    break;
+                case 'output':
+                    functionBody.push(`    __append(${segment.content});`);
+                    break;
+                case 'escapedOutput':
+                    functionBody.push(`    __append(__escape(${segment.content}));`);
+                    break;
+                case 'code':
+                    const codeLines = segment.content.split('\n');
+                    codeLines.forEach(line => {
+                        if (line.trim()) {
+                            functionBody.push(`    ${line.trim()}`);
+                        }
+                    });
+                    break;
             }
-        }
+        });
+        
+        functionBody.push('  }');
+        functionBody.push('  return __output.join("");');
+        functionBody.push('}');
+        
+        return functionBody.join('\n');
+    }
 
-        return processed;
+    /**
+     * Alternative approach: Simple template cleaning for basic cases
+     * @param {string} content - Content to clean
+     * @returns {string} - Cleaned content
+     */
+    simpleTemplateClean(content) {
+        return content
+            // Remove execution blocks
+            .replace(/<%\s*(?!=)(.*?)%>/g, '')
+            .replace(/<%=\s*(.*?)\s*%>/g, '" + ($1) + "')
+            .replace(/<%\-\s*(.*?)\s*%>/g, '" + this.escape($1) + "')
+            .replace(/"\s*\+\s*"/g, '')
+            .replace(/\+\s*""\s*\+/g, '+')
+            .replace(/^""\s*\+\s*/, '')
+            .replace(/\s*\+\s*""$/, '');
+    }
+
+    /**
+     * Validate JavaScript syntax
+     * @param {string} jsCode - JavaScript code to validate
+     * @throws {Error} - If syntax is invalid
+     */
+    validateJavaScript(jsCode) {
+        try {
+            new Function(jsCode);
+        } catch (error) {
+            throw new Error(`Invalid JavaScript syntax: ${error.message}`);
+        }
+    }
+
+    /**
+     * Process file content with error handling
+     * @param {string} filePath - File path (for error reporting)
+     * @param {string} content - File content
+     * @returns {object} - Processing result
+     */
+    processFile(filePath, content) {
+        try {
+            const processed = this.processTemplate(content);
+            return {
+                success: true,
+                content: processed,
+                filePath: filePath
+            };
+        } catch (error) {
+            return {
+                success: false,
+                error: error.message,
+                filePath: filePath,
+                content: content // Return original content on error
+            };
+        }
     }
 
     /**
@@ -332,80 +707,251 @@ class UnderscoreTemplateCleaner {
     }
 }
 
-const templateCleaner = new UnderscoreTemplateCleaner();
 
 /**
- * Robust Underscore.js template syntax cleaner using ChatGPT lexical parsing solution
- * Converts template blocks to JavaScript comments to maintain valid syntax
+ * Detect if file is mostly template content (ChatGPT recommendation)
+ * Files with >50% template tags should be handled differently
  */
+function isMostlyTemplate(content) {
+    const templateTags = content.match(/<%[-=]?[\s\S]*?%>/g) || [];
+    const ratio = templateTags.join('').length / content.length;
+    return ratio > 0.5; // >50% considered template-heavy
+}
+
 /**
- * Comprehensive Underscore.js template cleaner that handles complex control structures
- * and prevents JavaScript syntax errors by properly parsing and removing template blocks.
- * Solution provided by Claude AI for robust template processing.
+ * Comprehensive Underscore.js Template Cleaner from Claude AI
+ * Processes and cleans Underscore.js templates to eliminate JavaScript syntax errors
+ * while maintaining valid JavaScript code structure.
  */
-function cleanUnderscoreTemplates(input) {
-    const regex = /<%[-=]?([\s\S]*?)%>/g;
-    let result = '';
-    let lastIndex = 0;
-    const blockStack = [];
-    
-    const isBlockStart = (code) =>
-        /^\s*(if|for|while|switch|try)\b.*\{\s*$/.test(code);
-    const isBlockEnd = (code) =>
-        /^\s*\}/.test(code);
-    const isElse = (code) =>
-        /^\s*else(\s+if\b.*)?\s*\{?$/.test(code);
-    const isExpression = (fullMatch) =>
-        /^<%=/.test(fullMatch);
-    const isRawExpression = (fullMatch) =>
-        /^<%-/.test(fullMatch);
-    
-    let match;
-    while ((match = regex.exec(input)) !== null) {
-        const [fullMatch, innerCode] = match;
-        const index = match.index;
-        
-        result += input.slice(lastIndex, index);
-        lastIndex = regex.lastIndex;
-        
-        const code = innerCode.trim();
-        
-        if (isExpression(fullMatch) || isRawExpression(fullMatch)) {
-            result += `/* template expr: ${code} */`;
-            continue;
-        }
-        
-        if (isBlockStart(code)) {
-            result += `/* template start: ${code} */`;
-            blockStack.push('block');
-            continue;
-        }
-        
-        if (isBlockEnd(code)) {
-            if (blockStack.length > 0) {
-                result += `/* template end: ${code} */`;
-                blockStack.pop();
-            } else {
-                result += `/* orphaned end: ${code} */`;
-            }
-            continue;
-        }
-        
-        if (isElse(code)) {
-            if (blockStack.length > 0) {
-                result += `/* template else: ${code} */`;
-            } else {
-                result += `/* orphaned else: ${code} */ if (false) {}`;
-            }
-            continue;
-        }
-        
-        result += `/* template code: ${code} */`;
+class UnderscoreTemplateCleaner {
+    constructor(options = {}) {
+        this.options = {
+            preserveComments: options.preserveComments || false,
+            addDebugInfo: options.addDebugInfo || false,
+            replaceWithPlaceholders: options.replaceWithPlaceholders || true,
+            ...options
+        };
+
+        this.patterns = {
+            // Execution templates: <% code %>
+            execution: /<%\s*(?![-=])([\s\S]*?)%>/g,
+            output: /<%=\s*([\s\S]*?)%>/g,
+            escaped: /<%-\s*([\s\S]*?)%>/g,
+            // Combined pattern for all templates
+            all: /<%[-=]?\s*([\s\S]*?)%>/g
+        };
     }
-    
-    result += input.slice(lastIndex);
-    
-    return result;
+
+    /**
+     * Main cleaning function - processes Underscore.js templates
+     * @param {string} content - The template content to clean
+     * @returns {string} - Cleaned JavaScript content
+     */
+    clean(content) {
+        if (!content || typeof content !== 'string') {
+            return '';
+        }
+
+        try {
+            let cleaned = content;
+
+            cleaned = this.processExecutionTemplates(cleaned);
+
+            cleaned = this.processOutputTemplates(cleaned);
+
+            cleaned = this.processEscapedTemplates(cleaned);
+
+            // Step 4: Clean up remaining template artifacts
+            cleaned = this.cleanTemplateArtifacts(cleaned);
+
+            // Step 5: Fix JavaScript syntax issues
+            cleaned = this.fixJavaScriptSyntax(cleaned);
+
+            // Step 6: Validate and repair structure
+            cleaned = this.validateAndRepair(cleaned);
+
+            return cleaned;
+        } catch (error) {
+            console.error('Template cleaning error:', error);
+            return this.createFallbackContent(content);
+        }
+    }
+
+    /**
+     * Process execution templates like <% if (condition) { %>
+     */
+    processExecutionTemplates(content) {
+        return content.replace(this.patterns.execution, (match, code) => {
+            const cleanCode = this.cleanCodeBlock(code);
+
+            if (this.options.replaceWithPlaceholders) {
+                return `/* TEMPLATE_EXEC: ${cleanCode.replace(/\*\//g, '*_/')} */`;
+            }
+
+            return this.makeValidJavaScript(cleanCode);
+        });
+    }
+
+    /**
+     * Process output templates like <%= variable %>
+     */
+    processOutputTemplates(content) {
+        return content.replace(this.patterns.output, (match, expression) => {
+            const cleanExpr = this.cleanExpression(expression);
+
+            if (this.options.replaceWithPlaceholders) {
+                return `/* TEMPLATE_OUTPUT: ${cleanExpr.replace(/\*\//g, '*_/')} */`;
+            }
+
+            return `(${cleanExpr})`;
+        });
+    }
+
+    /**
+     * Process escaped output templates like <%- variable %>
+     */
+    processEscapedTemplates(content) {
+        return content.replace(this.patterns.escaped, (match, expression) => {
+            const cleanExpr = this.cleanExpression(expression);
+
+            if (this.options.replaceWithPlaceholders) {
+                return `/* TEMPLATE_ESCAPED: ${cleanExpr.replace(/\*\//g, '*_/')} */`;
+            }
+
+            return `(${cleanExpr} /* escaped */)`;
+        });
+    }
+
+    /**
+     * Clean individual code blocks
+     */
+    cleanCodeBlock(code) {
+        return code
+            .trim()
+            .replace(/^\s*\n|\n\s*$/g, '') // Remove leading/trailing newlines
+            .replace(/\s+/g, ' ') // Normalize whitespace
+            .replace(/['"]/g, match => match === '"' ? '\\"' : "\\'"); // Escape quotes
+    }
+
+    /**
+     * Clean individual expressions
+     */
+    cleanExpression(expression) {
+        return expression
+            .trim()
+            .replace(/^\s*\n|\n\s*$/g, '')
+            .replace(/\s+/g, ' ')
+            .replace(/['"]/g, match => match === '"' ? '\\"' : "\\'");
+    }
+
+    /**
+     * Clean remaining template artifacts
+     */
+    cleanTemplateArtifacts(content) {
+        return content
+            // Remove any remaining template tags
+            .replace(/<%[\s\S]*?%>/g, '/* TEMPLATE_REMOVED */')
+            // Clean up multiple consecutive newlines
+            .replace(/\n\s*\n\s*\n/g, '\n\n')
+            // Remove trailing whitespace
+            .replace(/[ \t]+$/gm, '');
+    }
+
+    /**
+     * Fix common JavaScript syntax issues
+     */
+    fixJavaScriptSyntax(content) {
+        return content
+            // Fix dangling else statements
+            .replace(/^\s*else\s*{/gm, '/* else */ {')
+            // Fix incomplete if statements
+            .replace(/if\s*\(\s*\)\s*{/g, 'if (true) {')
+            // Fix incomplete for loops
+            .replace(/for\s*\(\s*\)\s*{/g, 'for (;;) {')
+            // Fix incomplete while loops
+            .replace(/while\s*\(\s*\)\s*{/g, 'while (true) {')
+            .replace(/\.\s*$/gm, '/* dot */')
+            // Fix incomplete object access
+            .replace(/\.\s*\n/g, '/* dot */\n')
+            // Fix incomplete method calls
+            .replace(/\(\s*$/gm, '(/* params */')
+            .replace(/{\s*$/gm, '{ /* block */ }')
+            .replace(/,(\s*[}\]])/g, '$1');
+    }
+
+    /**
+     * Validate and repair JavaScript structure
+     */
+    validateAndRepair(content) {
+        const openBraces = (content.match(/{/g) || []).length;
+        const closeBraces = (content.match(/}/g) || []).length;
+        const openBrackets = (content.match(/\[/g) || []).length;
+        const closeBrackets = (content.match(/\]/g) || []).length;
+        const openParens = (content.match(/\(/g) || []).length;
+        const closeParens = (content.match(/\)/g) || []).length;
+
+        let repaired = content;
+
+        if (openBraces > closeBraces) {
+            repaired += '\n' + '}'.repeat(openBraces - closeBraces);
+        }
+
+        if (openBrackets > closeBrackets) {
+            repaired += ']'.repeat(openBrackets - closeBrackets);
+        }
+
+        if (openParens > closeParens) {
+            repaired += ')'.repeat(openParens - closeParens);
+        }
+
+        return repaired;
+    }
+
+    /**
+     * Convert code to valid JavaScript when possible
+     */
+    makeValidJavaScript(code) {
+        if (code.match(/^\s*if\s*\(/)) {
+            return `if (${code.replace(/^\s*if\s*\(/, '').replace(/\)\s*{\s*$/, '')}){`;
+        }
+
+        if (code.match(/^\s*else\s*{/)) {
+            return '} else {';
+        }
+
+        if (code.match(/^\s*}\s*else\s*{/)) {
+            return '} else {';
+        }
+
+        if (code.match(/^\s*}/)) {
+            return '}';
+        }
+
+        if (code.match(/^\s*for\s*\(/)) {
+            return `for(${code.replace(/^\s*for\s*\(/, '').replace(/\)\s*{\s*$/, '')}){`;
+        }
+
+        if (code.match(/^\s*while\s*\(/)) {
+            return `while(${code.replace(/^\s*while\s*\(/, '').replace(/\)\s*{\s*$/, '')}){`;
+        }
+
+        return `/* ${code} */`;
+    }
+
+    /**
+     * Create fallback content when cleaning fails
+     */
+    createFallbackContent(originalContent) {
+        return `/* TEMPLATE_CONTENT_CLEANED */\n${originalContent.replace(/<%[\s\S]*?%>/g, '/* TEMPLATE */')}\n/* END_TEMPLATE_CONTENT */`;
+    }
+}
+
+/**
+ * Quick clean function for simple use cases - Claude AI's solution
+ */
+function cleanUnderscoreTemplates(content, options = {}) {
+    const cleaner = new UnderscoreTemplateCleaner(options);
+    return cleaner.clean(content);
 }
 
 /**
@@ -877,19 +1423,36 @@ app.use((req, res, next) => {
                     return;
                 }
 
-                if (jsFilePath.includes('functionmanager.js') ||
-                    jsFilePath.includes('tooledViewPlugin.js') ||
-                    jsFilePath.includes('documents.js') ||
-                    jsFilePath.includes('modal.js')) {
+                const templateProcessor = new RobustTemplateProcessor();
+                const shouldStub = templateProcessor.shouldStub(content, path.basename(jsFilePath));
 
-                    console.log(`Creating comprehensive stub for template-heavy file: ${jsFilePath}`);
+                if (shouldStub) {
+                    console.log(`Creating comprehensive stub for template-heavy file: ${jsFilePath} (${templateProcessor.stubFiles.has(path.basename(jsFilePath)) ? 'predefined' : 'auto-detected'})`);
 
-                    if (content.includes('var Template = `') ||
-                        content.includes('let Template = `') ||
-                        content.includes('const Template = `')) {
-                        content = cleanTemplateStrings(content);
+                    if (!templateProcessor.stubFiles.has(path.basename(jsFilePath))) {
+                        console.log(`File is ${Math.round((content.match(/<%[-=]?[\s\S]*?%>/g) || []).join('').length / content.length * 100)}% template content - using complete replacement`);
+                        
+                        const fileName = path.basename(jsFilePath);
+                        content = `
+// DOCKER MODE: Template-heavy file replaced with functional stub
+// Original file: ${fileName} (${Math.round((content.match(/<%[-=]?[\s\S]*?%>/g) || []).join('').length / content.length * 100)}% template content)
+console.log('Docker stub loaded: ${fileName}');
+
+if (typeof window !== 'undefined') {
+    window.BasDialogsLib = window.BasDialogsLib || {};
+    window.BasDialogsLib.utils = window.BasDialogsLib.utils || {};
+    window.BasDialogsLib.templates = window.BasDialogsLib.templates || {};
+}
+`;
                     } else {
-                        content = cleanUnderscoreTemplates(content);
+                        const templateProcessor = new RobustTemplateProcessor();
+                        
+                        try {
+                            content = templateProcessor.processContent(content, path.basename(jsFilePath));
+                        } catch (error) {
+                            console.log(`Template processing failed, using fallback: ${error.message}`);
+                            content = templateProcessor.aggressiveClean(content);
+                        }
                     }
 
                     if (jsFilePath.includes('functionmanager.js')) {
@@ -950,24 +1513,52 @@ window.Modal = window.Modal || function() {};`;
                     return;
                 }
 
-                if (jsFilePath.includes('template/index.js') ||
-                    jsFilePath.includes('dialogs/internal/utils.js')) {
-                    console.log(`Applying comprehensive template processing to problematic file: ${jsFilePath}`);
-
-                    content = cleanUnderscoreTemplates(content);
-
-                    if (jsFilePath.includes('template/index.js')) {
+                if (jsFilePath.includes('functionmanager.js') || 
+                    jsFilePath.includes('tooledViewPlugin.js') ||
+                    jsFilePath.includes('documents.js') ||
+                    jsFilePath.includes('modal.js')) {
+                    
+                    console.log(`Creating comprehensive stub for template-heavy file: ${jsFilePath}`);
+                    
+                    if (content.includes('var Template = `') || 
+                        content.includes('let Template = `') || 
+                        content.includes('const Template = `')) {
+                        content = cleanTemplateStrings(content);
+                    } else {
+                        content = cleanUnderscoreTemplates(content);
+                    }
+                    
+                    if (jsFilePath.includes('functionmanager.js')) {
                         content += `
+function FunctionManager() {
+    this.RenderDefault = function() {};
+    this.SendCurrentFunction = function() {};
+    this.ChangeFunction = function() {};
+    this.Render = function() {};
+    this.Show = function() {};
+    this.Hide = function() {};
+    this.IsVisible = function() { return false; };
+}`;
+                    }
+                } else if (content.includes('<%') && content.includes('%>')) {
+                    console.log(`Applying template processing to file with template syntax: ${jsFilePath}`);
+                    content = cleanUnderscoreTemplates(content);
+                } else {
+                    console.log(`Serving JavaScript file as-is (no template syntax): ${jsFilePath}`);
+                }
+
+                if (jsFilePath.includes('template/index.js')) {
+                    content += `
 window.BasDialogsLib = window.BasDialogsLib || {};
 window.BasDialogsLib.templates = window.BasDialogsLib.templates || {};
 window.BasDialogsLib.templates.main = function() { return '<div>Template processed</div>'; };
 window.BasDialogsLib.templates.recent = function() { return '<div>Recent items</div>'; };
 window.BasDialogsLib.templates.visibleName = function() { return '<span>Item</span>'; };
 `;
-                    }
+                }
 
-                    if (jsFilePath.includes('dialogs/internal/utils.js')) {
-                        content += `
+                if (jsFilePath.includes('dialogs/internal/utils.js')) {
+                    content += `
 window.BasDialogsLib = window.BasDialogsLib || {};
 window.BasDialogsLib.utils = window.BasDialogsLib.utils || {
     getDefaultCollection: function() { return []; },
@@ -980,46 +1571,6 @@ window.BasDialogsLib.utils = window.BasDialogsLib.utils || {
     formatString: function(str) { return str; },
     getPossibleActionObjects: function() { return []; }
 };
-`;
-                    }
-
-                    res.send(content);
-                    return;
-                }
-
-                if (content.includes('<%') || content.includes('%>')) {
-                    console.log(`COMPLETE REPLACEMENT: Template file disabled: ${jsFilePath}`);
-                    
-                    const fileName = path.basename(jsFilePath);
-                    
-                    content = `
-// DOCKER MODE: Template file completely disabled to prevent syntax errors
-// Original file: ${fileName}
-console.log('Docker stub loaded: ${fileName}');
-
-if (typeof window !== 'undefined') {
-    window.BasDialogsLib = window.BasDialogsLib || {};
-    window.BasDialogsLib.utils = window.BasDialogsLib.utils || {};
-    window.BasDialogsLib.templates = window.BasDialogsLib.templates || {};
-    
-    Object.assign(window.BasDialogsLib.utils, {
-        getDefaultCollection: function() { return []; },
-        getRecentCollection: function() { return []; },
-        getDisplayName: function() { return 'Item'; },
-        restoreCursorPosition: function() {},
-        saveCursorPosition: function() {},
-        isClickable: function() { return true; },
-        toggleListItemHeader: function() {},
-        formatString: function(str) { return str || ''; },
-        getPossibleActionObjects: function() { return []; }
-    });
-    
-    Object.assign(window.BasDialogsLib.templates, {
-        main: function() { return '<div>Template disabled</div>'; },
-        recent: function() { return '<div>Recent disabled</div>'; },
-        visibleName: function() { return '<span>Item</span>'; }
-    });
-}
 `;
                 }
 
