@@ -1033,6 +1033,27 @@ if (typeof window !== 'undefined') {
         return;
     } else if (req.path.endsWith('.css')) {
         res.type('text/css');
+        
+        const possiblePaths = [
+            path.join('ChromeWorker/html', req.path),
+            path.join('ChromeWorker/html/toolbox', req.path),
+            path.join('ChromeWorker/html/scenario', req.path),
+            path.join('ChromeWorker/html/central', req.path),
+            path.join('ChromeWorker/html/scheduler', req.path)
+        ];
+        
+        for (const cssFilePath of possiblePaths) {
+            if (fs.existsSync(cssFilePath) && fs.statSync(cssFilePath).isFile()) {
+                console.log(`Serving CSS file: ${cssFilePath}`);
+                const content = fs.readFileSync(cssFilePath, 'utf8');
+                res.send(content);
+                return;
+            }
+        }
+        
+        console.log(`CSS file not found: ${req.path}`);
+        res.send('/* CSS file not found in Docker mode */');
+        return;
     } else if (req.path.endsWith('.json')) {
         res.type('application/json');
     }
