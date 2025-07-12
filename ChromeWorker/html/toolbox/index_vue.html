@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Toolbox - Vue.js Clean</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+      .toolbox-container { background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+      .search-panel { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+      .actions-list { max-height: 400px; overflow-y: auto; border: 1px solid #ddd; border-radius: 4px; }
+      .action-item { cursor: pointer; transition: all 0.2s; padding: 10px; border-bottom: 1px solid #eee; }
+      .action-item:hover { background: #f0f0f0; }
+      .action-item.selected { background: #e3f2fd; border-color: #2196f3; }
+      .editor-panel { background: white; border: 1px solid #ddd; border-radius: 4px; padding: 15px; min-height: 400px; }
+      .monaco-editor-container { height: 300px; border: 1px solid #ccc; margin-bottom: 15px; }
+      .editor-controls { text-align: center; padding: 10px; }
+      .btn { margin: 0 5px; }
+      .category-filters .btn { margin: 2px; }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="toolbox-container">
+        <h2>🔧 Toolbox - Script Editor</h2>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="search-panel">
+                <input 
+                  v-model="searchQuery" 
+                  type="text" 
+                  class="form-control" 
+                  placeholder="Search actions..."
+                />
+                <div class="category-filters mt-2">
+                  <button 
+                    v-for="category in ['all', 'browser', 'code', 'flow']"
+                    :key="category"
+                    @click="filterByCategory(category)"
+                    :class="['btn', 'btn-sm', selectedCategory === category ? 'btn-primary' : 'btn-outline-primary']"
+                  >
+                    {{ category }}
+                  </button>
+                </div>
+              </div>
+              <div class="actions-list">
+                <div 
+                  v-for="action in displayActions"
+                  :key="action.name"
+                  @click="selectAction(action)"
+                  :class="['action-item', currentAction?.name === action.name ? 'selected' : '']"
+                >
+                  <strong>{{ action.name }}</strong>
+                  <div class="text-muted small">{{ action.description }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="editor-panel">
+                <div class="monaco-editor-container" id="code-editor">
+                  <textarea 
+                    v-model="codeValue" 
+                    class="form-control" 
+                    style="height: 280px; font-family: monospace;"
+                    placeholder="// Write your JavaScript code here..."
+                  ></textarea>
+                </div>
+                <div class="editor-controls">
+                  <button 
+                    @click="showVariableInserter()"
+                    class="btn btn-outline-primary"
+                  >
+                    <i class="fa fa-at"></i> Insert Variable
+                  </button>
+                  <button 
+                    @click="showResourceInserter()"
+                    class="btn btn-outline-primary"
+                  >
+                    <i class="fa fa-database"></i> Load from Resource
+                  </button>
+                  <button 
+                    @click="clearCode()"
+                    class="btn btn-outline-secondary"
+                  >
+                    <i class="fa fa-trash"></i> Clear
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Variable Modal -->
+        <div v-if="showVariableModal" class="modal d-block" style="background: rgba(0,0,0,0.5);">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Insert Variable</h5>
+                <button @click="showVariableModal = false" class="btn-close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="variable-list">
+                  <div 
+                    v-for="variable in ['ELEMENT_TEXT', 'ELEMENT_HTML', 'CURRENT_URL', 'RANDOM_STRING', 'USER_AGENT', 'PROXY_IP']"
+                    :key="variable"
+                    @click="insertVariable(variable)"
+                    class="variable-item p-2 border mb-1"
+                    style="cursor: pointer;"
+                  >
+                    <strong>[[{{ variable }}]]</strong>
+                    <div class="text-muted small">{{ getVariableDescription(variable) }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Resource Modal -->
+        <div v-if="showResourceModal" class="modal d-block" style="background: rgba(0,0,0,0.5);">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Load from Resource</h5>
+                <button @click="showResourceModal = false" class="btn-close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="resource-list">
+                  <div 
+                    v-for="resource in ['PROXIES', 'ACCOUNTS', 'USER_AGENTS', 'EMAILS', 'PASSWORDS', 'URLS']"
+                    :key="resource"
+                    @click="insertResource(resource)"
+                    class="resource-item p-2 border mb-1"
+                    style="cursor: pointer;"
+                  >
+                    <strong>{{{{ resource }}}}</strong>
+                    <div class="text-muted small">{{ getResourceDescription(resource) }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="/scheduler/js/vue.min.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data() {
+          return {
+            currentAction: null,
+            codeValue: '// Write your JavaScript code here...\n',
+            searchQuery: '',
+            showVariableModal: false,
+            showResourceModal: false,
+            selectedCategory: 'all',
+            actions: [
+              { name: 'Custom Code', description: 'Execute custom JavaScript code', category: 'code' },
+              { name: 'Click Element', description: 'Click on page element', category: 'browser' },
+              { name: 'Type Text', description: 'Type text into input field', category: 'browser' },
+              { name: 'Wait', description: 'Wait for specified time', category: 'flow' },
+              { name: 'If Condition', description: 'Conditional execution', category: 'flow' },
+              { name: 'Loop', description: 'Repeat actions', category: 'flow' },
+              { name: 'Get Element', description: 'Find element on page', category: 'browser' },
+              { name: 'Navigate', description: 'Go to URL', category: 'browser' },
+              { name: 'Screenshot', description: 'Take page screenshot', category: 'browser' },
+              { name: 'Extract Data', description: 'Extract text or attributes', category: 'browser' }
+            ],
+            filteredActions: []
+          }
+        },
+        computed: {
+          displayActions() {
+            if (!this.searchQuery) return this.filteredActions;
+            return this.filteredActions.filter(action => 
+              action.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+              action.description.toLowerCase().includes(this.searchQuery.toLowerCase())
+            );
+          }
+        },
+        mounted() {
+          this.filteredActions = this.actions;
+          console.log('Vue.js Toolbox loaded successfully!');
+        },
+        methods: {
+          selectAction(action) {
+            this.currentAction = action;
+            this.codeValue += `\n// ${action.name}: ${action.description}\n`;
+          },
+          filterByCategory(category) {
+            this.selectedCategory = category;
+            if (category === 'all') {
+              this.filteredActions = this.actions;
+            } else {
+              this.filteredActions = this.actions.filter(action => action.category === category);
+            }
+          },
+          showVariableInserter() {
+            this.showVariableModal = true;
+          },
+          showResourceInserter() {
+            this.showResourceModal = true;
+          },
+          insertVariable(variable) {
+            this.codeValue += `[[${variable}]]`;
+            this.showVariableModal = false;
+          },
+          insertResource(resource) {
+            this.codeValue += `{{${resource}}}`;
+            this.showResourceModal = false;
+          },
+          clearCode() {
+            this.codeValue = '// Write your JavaScript code here...\n';
+          },
+          getVariableDescription(variable) {
+            const descriptions = {
+              'ELEMENT_TEXT': 'Text content of selected element',
+              'ELEMENT_HTML': 'HTML content of selected element',
+              'CURRENT_URL': 'Current page URL',
+              'RANDOM_STRING': 'Generate random string',
+              'USER_AGENT': 'Current browser user agent',
+              'PROXY_IP': 'Current proxy IP address'
+            };
+            return descriptions[variable] || 'Variable description';
+          },
+          getResourceDescription(resource) {
+            const descriptions = {
+              'PROXIES': 'Load proxy server list',
+              'ACCOUNTS': 'Load account credentials',
+              'USER_AGENTS': 'Load user agent strings',
+              'EMAILS': 'Load email addresses',
+              'PASSWORDS': 'Load password list',
+              'URLS': 'Load URL list'
+            };
+            return descriptions[resource] || 'Resource description';
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
