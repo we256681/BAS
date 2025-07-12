@@ -4,125 +4,234 @@ const fs = require('fs');
 
 const app = express();
 
-class UnderscoreTemplateCleaner {
+/**
+ * Comprehensive Underscore.js Template Processor
+ * Handles complex nested templates and converts them to valid JavaScript
+ */
+class UnderscoreTemplateProcessor {
     constructor() {
-        this.TOKEN_TYPES = {
-            EXECUTE: 'EXECUTE',     // <% code %>
-            INTERPOLATE: 'INTERPOLATE', // <%= value %>
-            ESCAPE: 'ESCAPE',       // <%- value %>
-            TEXT: 'TEXT'            // plain text
-        };
-
-        // Regex patterns for different template tags
         this.patterns = {
-            execute: /<% \s*([\s\S]*?)\s*%>/g,
-            interpolate: /<%=\s*([\s\S]*?)\s*%>/g,
-            escape: /<%- \s*([\s\S]*?)\s*%>/g
+            // Execution blocks: <% code %>
+            execution: /<%\s*(.*?)\s*%>/g,
+            output: /<%=\s*(.*?)\s*%>/g,
+            escapedOutput: /<%\-\s*(.*?)\s*%>/g,
+            // Combined pattern for all template tags
+            allTags: /<%[-=]?\s*(.*?)\s*%>/g
+        };
+        
+        this.htmlEntities = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;',
+            '/': '&#47;'
         };
     }
 
     /**
-     * Main method to clean template syntax errors
-     * @param {string} templateString - The template string to clean
-     * @returns {string} - Cleaned template string
+     * Main processing function - converts template to valid JavaScript
+     * @param {string} templateContent - The JavaScript file content with Underscore templates
+     * @returns {string} - Processed JavaScript content
      */
-    cleanTemplate(templateString) {
+    processTemplate(templateContent) {
         try {
-            const tokens = this.tokenize(templateString);
-
-            const processedTokens = this.processTokens(tokens);
-
-            return this.reconstructTemplate(processedTokens);
+            const processedContent = this.extractAndProcessTemplates(templateContent);
+            
+            this.validateJavaScript(processedContent);
+            
+            return processedContent;
         } catch (error) {
-            console.error('Template cleaning failed:', error);
-            return this.fallbackClean(templateString);
+            console.error('Template processing error:', error.message);
+            throw error;
         }
     }
 
     /**
-     * Tokenize the template string into manageable parts
-     * @param {string} template - Template string
-     * @returns {Array} - Array of tokens
+     * Extract template sections and process them
+     * @param {string} content - Original content
+     * @returns {string} - Processed content
      */
-    tokenize(template) {
-        const tokens = [];
-        let lastIndex = 0;
-
-        const allMatches = [];
-
-        ['execute', 'interpolate', 'escape'].forEach(type => {
-            const regex = new RegExp(this.patterns[type].source, 'g');
-            let match;
-            while ((match = regex.exec(template)) !== null) {
-                allMatches.push({
-                    type: type.toUpperCase(),
-                    match: match[0],
-                    content: match[1],
-                    start: match.index,
-                    end: match.index + match[0].length
-                });
-            }
+    extractAndProcessTemplates(content) {
+        const templateStringPattern = /(['"`])((?:\\.|(?!\1)[^\\])*?<%.*?%>.*?)\1/g;
+        
+        return content.replace(templateStringPattern, (match, quote, templateStr) => {
+            const processedTemplate = this.processTemplateString(templateStr);
+            return `${quote}${processedTemplate}${quote}`;
         });
+    }
 
-        allMatches.sort((a, b) => a.start - b.start);
+    /**
+     * Process a single template string
+     * @param {string} templateStr - Template string content
+     * @returns {string} - Processed template string
+     */
+    processTemplateString(templateStr) {
+        const segments = this.parseTemplateSegments(templateStr);
+        
+        const jsFunction = this.convertToJavaScriptFunction(segments);
+        
+        return `" + (${jsFunction})(data) + "`;
+    }
 
-        allMatches.forEach(match => {
-            if (match.start > lastIndex) {
-                const textContent = template.slice(lastIndex, match.start);
+    /**
+     * Parse template into segments (text, code, output)
+     * @param {string} template - Template string
+     * @returns {Array} - Array of segment objects
+     */
+    parseTemplateSegments(template) {
+        const segments = [];
+        let lastIndex = 0;
+        let match;
+        
+        this.patterns.allTags.lastIndex = 0;
+        
+        while ((match = this.patterns.allTags.exec(template)) !== null) {
+            if (match.index > lastIndex) {
+                const textContent = template.slice(lastIndex, match.index);
                 if (textContent) {
-                    tokens.push({
-                        type: this.TOKEN_TYPES.TEXT,
+                    segments.push({
+                        type: 'text',
                         content: textContent
                     });
                 }
             }
-
-            tokens.push({
-                type: this.TOKEN_TYPES[match.type],
-                content: match.content,
-                raw: match.match
-            });
-
-            lastIndex = match.end;
-        });
-
+            
+            const fullMatch = match[0];
+            const innerContent = match[1];
+            
+            if (fullMatch.startsWith('<%=')) {
+                segments.push({
+                    type: 'output',
+                    content: innerContent.trim()
+                });
+            } else if (fullMatch.startsWith('<%-')) {
+                segments.push({
+                    type: 'escapedOutput',
+                    content: innerContent.trim()
+                });
+            } else {
+                segments.push({
+                    type: 'code',
+                    content: innerContent.trim()
+                });
+            }
+            
+            lastIndex = match.index + match[0].length;
+        }
+        
         if (lastIndex < template.length) {
             const textContent = template.slice(lastIndex);
             if (textContent) {
-                tokens.push({
-                    type: this.TOKEN_TYPES.TEXT,
+                segments.push({
+                    type: 'text',
                     content: textContent
                 });
             }
         }
-
-        return tokens;
+        
+        return segments;
     }
 
     /**
-     * Process tokens to fix syntax issues
-     * @param {Array} tokens - Array of tokens
-     * @returns {Array} - Processed tokens
+     * Convert segments to JavaScript function
+     * @param {Array} segments - Parsed segments
+     * @returns {string} - JavaScript function string
      */
-    processTokens(tokens) {
-        const processed = [];
-        const codeBlockStack = [];
-
-        for (let i = 0; i < tokens.length; i++) {
-            const token = tokens[i];
-
-            if (token.type === this.TOKEN_TYPES.EXECUTE) {
-                const processedToken = this.processExecuteToken(token, codeBlockStack);
-                processed.push(processedToken);
-            } else if (token.type === this.TOKEN_TYPES.INTERPOLATE || token.type === this.TOKEN_TYPES.ESCAPE) {
-                const processedToken = this.processInterpolateToken(token);
-                processed.push(processedToken);
-            } else {
-                processed.push(token);
+    convertToJavaScriptFunction(segments) {
+        const functionBody = [];
+        functionBody.push('function(data) {');
+        functionBody.push('  var __output = [];');
+        functionBody.push('  var __append = function(s) { __output.push(s); };');
+        functionBody.push('  var __escape = function(s) { return String(s).replace(/[&<>"\'\/]/g, function(match) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", "\\"": "&quot;", "\'": "&#39;", "/": "&#47;"}[match]; }); };');
+        functionBody.push('  with (data || {}) {');
+        
+        segments.forEach(segment => {
+            switch (segment.type) {
+                case 'text':
+                    const escapedText = segment.content
+                        .replace(/\\/g, '\\\\')
+                        .replace(/"/g, '\\"')
+                        .replace(/\n/g, '\\n')
+                        .replace(/\r/g, '\\r');
+                    functionBody.push(`    __append("${escapedText}");`);
+                    break;
+                case 'output':
+                    functionBody.push(`    __append(${segment.content});`);
+                    break;
+                case 'escapedOutput':
+                    functionBody.push(`    __append(__escape(${segment.content}));`);
+                    break;
+                case 'code':
+                    const codeLines = segment.content.split('\n');
+                    codeLines.forEach(line => {
+                        if (line.trim()) {
+                            functionBody.push(`    ${line.trim()}`);
+                        }
+                    });
+                    break;
             }
-        }
+        });
+        
+        functionBody.push('  }');
+        functionBody.push('  return __output.join("");');
+        functionBody.push('}');
+        
+        return functionBody.join('\n');
+    }
 
-        return processed;
+    /**
+     * Alternative approach: Simple template cleaning for basic cases
+     * @param {string} content - Content to clean
+     * @returns {string} - Cleaned content
+     */
+    simpleTemplateClean(content) {
+        return content
+            // Remove execution blocks
+            .replace(/<%\s*(?!=)(.*?)%>/g, '')
+            .replace(/<%=\s*(.*?)\s*%>/g, '" + ($1) + "')
+            .replace(/<%\-\s*(.*?)\s*%>/g, '" + this.escape($1) + "')
+            .replace(/"\s*\+\s*"/g, '')
+            .replace(/\+\s*""\s*\+/g, '+')
+            .replace(/^""\s*\+\s*/, '')
+            .replace(/\s*\+\s*""$/, '');
+    }
+
+    /**
+     * Validate JavaScript syntax
+     * @param {string} jsCode - JavaScript code to validate
+     * @throws {Error} - If syntax is invalid
+     */
+    validateJavaScript(jsCode) {
+        try {
+            new Function(jsCode);
+        } catch (error) {
+            throw new Error(`Invalid JavaScript syntax: ${error.message}`);
+        }
+    }
+
+    /**
+     * Process file content with error handling
+     * @param {string} filePath - File path (for error reporting)
+     * @param {string} content - File content
+     * @returns {object} - Processing result
+     */
+    processFile(filePath, content) {
+        try {
+            const processed = this.processTemplate(content);
+            return {
+                success: true,
+                content: processed,
+                filePath: filePath
+            };
+        } catch (error) {
+            return {
+                success: false,
+                error: error.message,
+                filePath: filePath,
+                content: content // Return original content on error
+            };
+        }
     }
 
     /**
@@ -332,7 +441,6 @@ class UnderscoreTemplateCleaner {
     }
 }
 
-const templateCleaner = new UnderscoreTemplateCleaner();
 
 /**
  * Robust Underscore.js template syntax cleaner using ChatGPT lexical parsing solution
@@ -884,12 +992,19 @@ app.use((req, res, next) => {
 
                     console.log(`Creating comprehensive stub for template-heavy file: ${jsFilePath}`);
 
+                    const templateProcessor = new UnderscoreTemplateProcessor();
+                    
                     if (content.includes('var Template = `') ||
                         content.includes('let Template = `') ||
                         content.includes('const Template = `')) {
                         content = cleanTemplateStrings(content);
                     } else {
-                        content = cleanUnderscoreTemplates(content);
+                        try {
+                            content = templateProcessor.processTemplate(content);
+                        } catch (error) {
+                            console.log(`Template processing failed, using fallback: ${error.message}`);
+                            content = templateProcessor.simpleTemplateClean(content);
+                        }
                     }
 
                     if (jsFilePath.includes('functionmanager.js')) {
@@ -954,7 +1069,13 @@ window.Modal = window.Modal || function() {};`;
                     jsFilePath.includes('dialogs/internal/utils.js')) {
                     console.log(`Applying comprehensive template processing to problematic file: ${jsFilePath}`);
 
-                    content = cleanUnderscoreTemplates(content);
+                    const templateProcessor = new UnderscoreTemplateProcessor();
+                    try {
+                        content = templateProcessor.processTemplate(content);
+                    } catch (error) {
+                        console.log(`Template processing failed, using fallback: ${error.message}`);
+                        content = templateProcessor.simpleTemplateClean(content);
+                    }
 
                     if (jsFilePath.includes('template/index.js')) {
                         content += `
