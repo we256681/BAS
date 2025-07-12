@@ -443,13 +443,19 @@ class UnderscoreTemplateProcessor {
 
 
 /**
- * Robust Underscore.js template syntax cleaner using ChatGPT lexical parsing solution
- * Converts template blocks to JavaScript comments to maintain valid syntax
+ * Detect if file is mostly template content (ChatGPT recommendation)
+ * Files with >50% template tags should be handled differently
  */
+function isMostlyTemplate(content) {
+    const templateTags = content.match(/<%[-=]?[\s\S]*?%>/g) || [];
+    const ratio = templateTags.join('').length / content.length;
+    return ratio > 0.5; // >50% considered template-heavy
+}
+
 /**
- * Comprehensive Underscore.js template cleaner that handles complex control structures
- * and prevents JavaScript syntax errors by properly parsing and removing template blocks.
- * Solution provided by Claude AI for robust template processing.
+ * Comprehensive Underscore.js template cleaner using ChatGPT's robust lexical parsing solution
+ * Handles complex control structures, orphaned else statements, and maintains valid JavaScript syntax
+ * Solution provided by ChatGPT for eliminating "Unexpected token 'else'" errors
  */
 function cleanUnderscoreTemplates(input) {
     const regex = /<%[-=]?([\s\S]*?)%>/g;
@@ -512,7 +518,6 @@ function cleanUnderscoreTemplates(input) {
     }
     
     result += input.slice(lastIndex);
-    
     return result;
 }
 
@@ -988,22 +993,40 @@ app.use((req, res, next) => {
                 if (jsFilePath.includes('functionmanager.js') ||
                     jsFilePath.includes('tooledViewPlugin.js') ||
                     jsFilePath.includes('documents.js') ||
-                    jsFilePath.includes('modal.js')) {
+                    jsFilePath.includes('modal.js') ||
+                    isMostlyTemplate(content)) {
 
-                    console.log(`Creating comprehensive stub for template-heavy file: ${jsFilePath}`);
+                    console.log(`Creating comprehensive stub for template-heavy file: ${jsFilePath} (${isMostlyTemplate(content) ? 'auto-detected' : 'predefined'})`);
 
-                    const templateProcessor = new UnderscoreTemplateProcessor();
-                    
-                    if (content.includes('var Template = `') ||
-                        content.includes('let Template = `') ||
-                        content.includes('const Template = `')) {
-                        content = cleanTemplateStrings(content);
+                    if (isMostlyTemplate(content)) {
+                        console.log(`File is ${Math.round((content.match(/<%[-=]?[\s\S]*?%>/g) || []).join('').length / content.length * 100)}% template content - using complete replacement`);
+                        
+                        const fileName = path.basename(jsFilePath);
+                        content = `
+// DOCKER MODE: Template-heavy file replaced with functional stub
+// Original file: ${fileName} (${Math.round((content.match(/<%[-=]?[\s\S]*?%>/g) || []).join('').length / content.length * 100)}% template content)
+console.log('Docker stub loaded: ${fileName}');
+
+if (typeof window !== 'undefined') {
+    window.BasDialogsLib = window.BasDialogsLib || {};
+    window.BasDialogsLib.utils = window.BasDialogsLib.utils || {};
+    window.BasDialogsLib.templates = window.BasDialogsLib.templates || {};
+}
+`;
                     } else {
-                        try {
-                            content = templateProcessor.processTemplate(content);
-                        } catch (error) {
-                            console.log(`Template processing failed, using fallback: ${error.message}`);
-                            content = templateProcessor.simpleTemplateClean(content);
+                        const templateProcessor = new UnderscoreTemplateProcessor();
+                        
+                        if (content.includes('var Template = `') ||
+                            content.includes('let Template = `') ||
+                            content.includes('const Template = `')) {
+                            content = cleanTemplateStrings(content);
+                        } else {
+                            try {
+                                content = templateProcessor.processTemplate(content);
+                            } catch (error) {
+                                console.log(`Template processing failed, using fallback: ${error.message}`);
+                                content = templateProcessor.simpleTemplateClean(content);
+                            }
                         }
                     }
 
